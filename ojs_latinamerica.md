@@ -24,58 +24,36 @@ Updated: March 22, 2023 [In construction]
 ## Argentina in 2010-21
 
 ``` r
-# global df
-df_world <-
-  df %>%
-  drop_na(country) %>%
-  count(country, name = "total")
-
-labels <- function(x) {
-  if_else(x < 500, as.character(x), "500+")
-}
-
-shapefile %>% 
-  clean_names() %>%
-  rename(country = name) %>%
+read_csv(here::here("data/beacon.csv")) %>% 
+  filter(country_tld == "AR") %>%
+  filter(application == "ojs") %>%
+  select(context_name, record_count_2010:record_count_2021) %>% 
+  pivot_longer(cols = starts_with("record_count")) %>% 
   mutate(
-    country = if_else(country == "Libyan Arab Jamahiriya", "Libya", country),
-    country = if_else(country == "United Republic of Tanzania", "Tanzania", country),
-    country = if_else(country == "Cote d'Ivoire", "Côte d'Ivoire", country),
-    country = if_else(country == "Congo", "Republic of the Congo", country),
-    country = if_else(country == "Viet Nam", "Vietnam", country),
-    country = if_else(str_detect(country, "Iran"), "Iran", country),
-    country = if_else(str_detect(country, "Korea, Republic of"), "South Korea", country),
-    country = if_else(str_detect(country, "Korea, Democratic People's Republic of"), "North Korea", country),
-    country = if_else(str_detect(country, "Surinam"), "Surinam", country)
-  ) %>%
-  left_join(df_world, by = "country") %>% #arrange(area) %>% select(country, total, area)
-  filter(total > 0 | area > 1000) %>% 
-  filter(country != "Antarctica") %>% 
-  mutate(
-    total = replace_na(total, 0),
-    total = pmin(total, 500)
-  ) %>%
-  ggplot() +
-  geom_sf(aes(fill = total), size = 0.1, color = "gray", show.legend = T) +
-  scale_fill_gradientn(
-    breaks = seq(0, 500, 100),
-    labels = labels,
-    colors = RColorBrewer::brewer.pal(n = 9, name = "Blues")
+    name = parse_number(name)
+  ) %>% 
+  filter(value >= 5) %>% 
+  count(name) %>%
+  mutate(name = as.integer(name)) %>% 
+  ggplot(aes(x = name, y = n)) +
+  geom_col(fill = "#3366cc") +
+  geom_text(aes(label = n), vjust = -0.5) +
+  scale_x_continuous(breaks = seq(2010, 2021, 1)) +
+  scale_y_continuous(breaks = seq(0, 1000, 100)) +
+  labs(
+    x = "Year",
+    y = "Journals",
   ) +
-  guides(
-    fill =
-      guide_colorbar(
-        barheight = 0.5,
-        barwidth = 15,
-        title = "Journals",
-        title.vjust = 1,
-      )
-  ) +
-  theme_void() +
-  theme(legend.position = "bottom")
-```
+  expand_limits(x = c(2010, 2022)) + 
+  theme_classic() +
+  theme(
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 10),
+    axis.ticks = element_blank(),
+    plot.title = element_text(hjust = 0.5)
+  )
 
-<img src="ojs_global_paper_files/figure-gfm/unnamed-chunk-8-1.png" width="100%" />
+
 
 ------------------------------------------------------------------------
 
