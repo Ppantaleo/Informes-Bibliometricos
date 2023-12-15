@@ -32,7 +32,7 @@ plot_ly_object <- plot_ly(top_10_autores, labels = ~`Country.or.Region`, type = 
 htmlwidgets::saveWidget(plot_ly_object, file = "grafico_interactivo.html")
 ```
 
-Figura 2
+Tabla 1
 
 ``` r
 # Cargar las librerías necesarias
@@ -54,4 +54,58 @@ kable(tabla_autores, "html") %>%
     kable_styling(full_width = FALSE, position = "center", bootstrap_options = "striped", font_size = 14) %>%
     add_header_above(c(" " = 1, "Información del Autor" = 4), bold = TRUE, color = "white", background = "#7DC22B")
 
+```
+
+Figura 2
+
+``` r
+# Cargar las librerías necesarias
+library(plotly)
+
+# Crear un gráfico de barras interactivo con plotly y etiquetas al hacer hover
+plot_ly(x = instituciones_mas_citadas$Affiliation, 
+        y = instituciones_mas_citadas$TotalCitas, 
+        type = 'bar',
+        text = instituciones_mas_citadas$TotalCitas,
+        hoverinfo = "text",  # Mostrar solo el texto en hover
+        marker = list(color = colores_verdes)) %>%
+  layout(title = "Top 10 Instituciones con Más Citas",
+         xaxis = list(title = "Institución"),
+         yaxis = list(title = "Total de Citas"),
+         showlegend = FALSE)  # Ocultar la leyenda
+```
+
+Figura 3
+
+``` r
+# Crear un resumen por país y sumar las citas
+resumen_por_pais <- datos %>%
+  group_by(`Country.or.Region`) %>%
+  summarize(TotalCitas = sum(`Times.Cited`)) %>%
+  ungroup() %>%
+  arrange(desc(TotalCitas)) %>%
+  head(10)
+
+# Reordenar el dataframe por la cantidad total de citas en orden descendente
+resumen_por_pais$`Country.or.Region` <- factor(resumen_por_pais$`Country.or.Region`, levels = resumen_por_pais$`Country.or.Region`)
+
+# Crear un gráfico de barras interactivo con plotly
+plot_ly(
+  x = resumen_por_pais$`Country.or.Region`,
+  y = resumen_por_pais$TotalCitas,
+  type = 'bar',
+  text = paste(
+    "País: ", resumen_por_pais$`Country.or.Region`,
+    "<br>Total de Citas: ", resumen_por_pais$TotalCitas
+  ),
+  hoverinfo = "text",
+  marker = list(color = colores_verdes)
+) %>%
+  layout(
+    title = "Top 10 Países con Más Citas",
+    xaxis = list(title = "País"),
+    yaxis = list(title = "Total de Citas"),
+    showlegend = FALSE  # Ocultar la leyenda
+  )
 ``` 
+
