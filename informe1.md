@@ -10,14 +10,14 @@ library(plotly)
 library(htmlwidgets)
 
 # Ruta al archivo CSV
-ruta_csv <- "C:\\Users\\Patricio\\Desktop\\Incites Researchers.csv"
+ruta_csv <- "C:\\...\\Incites Researchers.csv"
 
 # Cargar el CSV en un dataframe
 datos <- read.csv(ruta_csv)
 
 # Seleccionar los 10 autores más citados
 top_10_autores <- datos %>%
-  dplyr::arrange(desc(`Times Cited`)) %>%
+  dplyr::arrange(desc(`Times.Cited`)) %>%
   head(10)
 
 # Definir colores
