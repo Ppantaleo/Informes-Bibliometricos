@@ -1,4 +1,4 @@
-## Data Processing
+## Data Processing OJS in Latinamerica
 
 ### 1. Initial Data Upload
 
@@ -34,3 +34,17 @@ tabla_ordenada <- datos_latinoamerica_OJS %>%
 ```r
 write.csv(tabla_ordenada, "ruta/del/archivo/tabla_ordenada.csv", row.names = FALSE)
 ```
+
+## Data Processing OJS in Latinamerica without ISSN
+
+```r
+# Filtrar las filas que tienen issn igual a cadena vacía o NA
+filas_sin_issn <- filter(tabla_ordenada, issn == "" | is.na(issn) | issn == "NA")
+
+# Obtener el número de filas sin ISSN
+num_filas_sin_issn <- nrow(filas_sin_issn)
+
+# Mostrar el resultado
+cat("Número de filas sin ISSN:", num_filas_sin_issn, "\n")
+```
+
