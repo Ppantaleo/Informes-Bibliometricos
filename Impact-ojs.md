@@ -26,7 +26,7 @@ datos_latinoamerica_OJS <- datos_latinoamerica %>%
 ```r
 tabla_ordenada <- datos_latinoamerica_OJS %>%
   arrange(country_consolidated) %>%
-  select(country_consolidated, oai_url, repository_name, context_name)
+  select(country_consolidated, oai_url, repository_name, context_name, issn)
 ```
 
 ### 5. Export to CSV
