@@ -9,6 +9,7 @@ datos <- read_csv("ruta/del/archivo/bacon.csv")
 ### 2. Filtered by Latin American Countries
 
 ```r
+library(dplyr)
 datos_latinoamerica <- datos %>%
   filter(country_consolidated %in% c("AR", "BO", "BR", "CL", "CO", "CR", "CU", "DO", "EC", "SV", "GT", "HN", "MX", "NI", "PA", "PY", "PE", "PR", "UY", "VE"))
 ```
