@@ -13,14 +13,15 @@
 ### 1. Instalación (solo primera vez)
 
 ```r
-install.packages(c("readxl", "tidyverse"))
+install.packages(c("readxl", "dplyr", "ggplot2"))
 ```
 
 ### 2. Lectura de datos
 
 ```r
 library(readxl)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 
 # Leer archivo
 bibliotecas <- read_excel(
@@ -40,7 +41,7 @@ head(bibliotecas)
 bibliotecas <- bibliotecas %>%
   rename(
     nombre = `Nombre biblioteca`,
-    municipio = Municipio,
+    municipio = Muncipio,
     provincia = Provincia,
     coleccion = Colección,
     visitas = Visitas,
@@ -77,7 +78,8 @@ ggplot(bibliotecas, aes(x = gastos, y = visitas)) +
   theme_minimal()
 
 # Guardar
-ggsave("grafico_bibliotecas.png", width = 12, height = 8, dpi = 300)
+ggsave("/home/patricio/github/Informes-Bibliometricos/UC3M/grafico_bibliotecas.png", 
+       width = 12, height = 8, dpi = 300)
 ```
 
 ### 5. Estadísticas clave
@@ -95,42 +97,20 @@ bibliotecas %>%
 
 ---
 
-## 📊 Variables del dataset
+## Resultados
 
-| Columna | Descripción |
-|---------|-------------|
-| Nombre biblioteca | Denominación |
-| Municipio | Localidad |
-| Provincia | Provincia CLM |
-| Colección | Total ejemplares |
-| Visitas | Visitas anuales |
-| Usuarios inscritos | Usuarios registrados |
-| Prestatarios activos | Usuarios con préstamos |
-| Personal ETC. | Personal tiempo completo |
-| Actividades culturales | Número actividades |
-| Gastos corrientes | Presupuesto anual (€) |
+### Gráfico
+
+![Eficiencia de bibliotecas en Castilla-La Mancha](grafico_bibliotecas.png)
+
+### Correlación
+
+| Biblioteca | Visitas | Gastos | Eficiencia |
+|-----------|---------|--------|------------|
+| Biblioteca del Silo del Conocimiento | 18,222 | 482 | 37,805 |
+| Biblioteca Pública Municipal de Agramón | 6,455 | 482 | 13,392 |
+| Biblioteca Pública Municipal de Cuenca 'Villa Román' | 5,955 | 482 | 12,355 |
+| Biblioteca Pública Municipal de Cuenca 'Fuente del Oro' | 4,615 | 482 | 9,575 |
+| Biblioteca Pública Municipal de Calypofado | 2,722 | 482 | 5,647 |
 
 ---
-
-## 💡 Para el informe
-
-**Por qué gráfico de dispersión:**
-- muestra correlación entre gastos y visitas
-- identifica bibliotecas eficientes/ineficientes
-- tamaño = contexto (colección)
-- color = dimensión geográfica
-
-**Por qué R:**
-- mencionado en T2
-- análisis estadístico integrado
-- alta calidad gráfica
-- reproducible
-
-**Variable derivada:**
-- `eficiencia = (visitas/gastos)*1000`
-- visitas por cada 1.000€
-
-**Manipulaciones:**
-- renombrado de columnas
-- filtrado de NA
-- creación variable eficiencia
