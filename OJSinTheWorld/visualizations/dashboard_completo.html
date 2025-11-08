@@ -1,0 +1,988 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard OJS - Análisis de Visibilidad</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        #dashboard {
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        th:hover {
+            background-color: #2980b9;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .search-box {
+            margin: 20px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Análisis de visibilidad de revistas OJS</h1>
+        <p class="subtitle">Basado en 18,157 revistas indexadas en OpenAlex</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">94</div>
+                <div class="stat-label">Países</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">18,157</div>
+                <div class="stat-label">Revistas indexadas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">9,140,811</div>
+                <div class="stat-label">Citaciones totales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2.70</div>
+                <div class="stat-label">Visibilidad promedio</div>
+            </div>
+        </div>
+        
+        <div id="dashboard"></div>
+        
+        <h2>🔍 Tabla de datos por país</h2>
+        <input type="text" id="searchInput" class="search-box" placeholder="Buscar país...">
+        
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">País ▼</th>
+                    <th onclick="sortTable(1)">Revistas ▼</th>
+                    <th onclick="sortTable(2)">Citaciones ▼</th>
+                    <th onclick="sortTable(3)">Visibilidad ▼</th>
+                    <th onclick="sortTable(4)">H-index ▼</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td><b>US</b></td>
+                    <td>698</td>
+                    <td>1,724,432</td>
+                    <td>4.43</td>
+                    <td>10.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>BR</b></td>
+                    <td>2,230</td>
+                    <td>1,152,659</td>
+                    <td>1.03</td>
+                    <td>5.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>IN</b></td>
+                    <td>906</td>
+                    <td>675,752</td>
+                    <td>3.14</td>
+                    <td>6.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>ID</b></td>
+                    <td>6,624</td>
+                    <td>599,889</td>
+                    <td>0.65</td>
+                    <td>3.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>GB</b></td>
+                    <td>234</td>
+                    <td>467,789</td>
+                    <td>79.08</td>
+                    <td>10.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>ES</b></td>
+                    <td>657</td>
+                    <td>443,794</td>
+                    <td>2.76</td>
+                    <td>7.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>CA</b></td>
+                    <td>304</td>
+                    <td>423,548</td>
+                    <td>5.61</td>
+                    <td>10.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>SE</b></td>
+                    <td>52</td>
+                    <td>388,543</td>
+                    <td>7.56</td>
+                    <td>17.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>TR</b></td>
+                    <td>200</td>
+                    <td>178,796</td>
+                    <td>3.54</td>
+                    <td>7.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>IT</b></td>
+                    <td>176</td>
+                    <td>177,463</td>
+                    <td>1.76</td>
+                    <td>8.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>AU</b></td>
+                    <td>88</td>
+                    <td>159,129</td>
+                    <td>3.77</td>
+                    <td>13.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>DE</b></td>
+                    <td>109</td>
+                    <td>155,713</td>
+                    <td>7.29</td>
+                    <td>9.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>PL</b></td>
+                    <td>257</td>
+                    <td>143,615</td>
+                    <td>2.07</td>
+                    <td>6.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>RU</b></td>
+                    <td>330</td>
+                    <td>132,877</td>
+                    <td>2.33</td>
+                    <td>6.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>FR</b></td>
+                    <td>45</td>
+                    <td>116,895</td>
+                    <td>9.74</td>
+                    <td>11.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>MX</b></td>
+                    <td>321</td>
+                    <td>112,908</td>
+                    <td>1.37</td>
+                    <td>4.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>AE</b></td>
+                    <td>65</td>
+                    <td>102,968</td>
+                    <td>4.58</td>
+                    <td>12.1</td>
+                </tr>
+
+                <tr>
+                    <td><b>DK</b></td>
+                    <td>65</td>
+                    <td>100,922</td>
+                    <td>3.60</td>
+                    <td>8.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>ZA</b></td>
+                    <td>61</td>
+                    <td>93,160</td>
+                    <td>5.89</td>
+                    <td>9.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>CN</b></td>
+                    <td>82</td>
+                    <td>91,058</td>
+                    <td>5.76</td>
+                    <td>6.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>PT</b></td>
+                    <td>115</td>
+                    <td>85,087</td>
+                    <td>1.53</td>
+                    <td>5.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>CL</b></td>
+                    <td>133</td>
+                    <td>82,237</td>
+                    <td>1.46</td>
+                    <td>6.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>NG</b></td>
+                    <td>132</td>
+                    <td>80,269</td>
+                    <td>1.54</td>
+                    <td>7.6</td>
+                </tr>
+
+                <tr>
+                    <td><b>UA</b></td>
+                    <td>382</td>
+                    <td>68,744</td>
+                    <td>0.54</td>
+                    <td>4.1</td>
+                </tr>
+
+                <tr>
+                    <td><b>CO</b></td>
+                    <td>271</td>
+                    <td>64,821</td>
+                    <td>0.67</td>
+                    <td>4.6</td>
+                </tr>
+
+                <tr>
+                    <td><b>MY</b></td>
+                    <td>229</td>
+                    <td>64,560</td>
+                    <td>1.38</td>
+                    <td>5.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>AR</b></td>
+                    <td>243</td>
+                    <td>64,348</td>
+                    <td>1.61</td>
+                    <td>5.1</td>
+                </tr>
+
+                <tr>
+                    <td><b>NL</b></td>
+                    <td>69</td>
+                    <td>48,532</td>
+                    <td>6.55</td>
+                    <td>8.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>PK</b></td>
+                    <td>90</td>
+                    <td>47,929</td>
+                    <td>1.34</td>
+                    <td>6.3</td>
+                </tr>
+
+                <tr>
+                    <td><b>RO</b></td>
+                    <td>78</td>
+                    <td>43,876</td>
+                    <td>1.31</td>
+                    <td>6.3</td>
+                </tr>
+
+                <tr>
+                    <td><b>SG</b></td>
+                    <td>143</td>
+                    <td>41,097</td>
+                    <td>1.25</td>
+                    <td>5.6</td>
+                </tr>
+
+                <tr>
+                    <td><b>NO</b></td>
+                    <td>68</td>
+                    <td>39,844</td>
+                    <td>3.43</td>
+                    <td>9.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>KE</b></td>
+                    <td>209</td>
+                    <td>38,574</td>
+                    <td>0.81</td>
+                    <td>3.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>EC</b></td>
+                    <td>195</td>
+                    <td>34,026</td>
+                    <td>0.39</td>
+                    <td>4.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>FI</b></td>
+                    <td>65</td>
+                    <td>33,728</td>
+                    <td>1.08</td>
+                    <td>6.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>CH</b></td>
+                    <td>50</td>
+                    <td>32,964</td>
+                    <td>1.60</td>
+                    <td>6.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>MK</b></td>
+                    <td>23</td>
+                    <td>32,714</td>
+                    <td>0.65</td>
+                    <td>4.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>TH</b></td>
+                    <td>66</td>
+                    <td>32,487</td>
+                    <td>0.55</td>
+                    <td>5.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>BE</b></td>
+                    <td>53</td>
+                    <td>31,344</td>
+                    <td>2.72</td>
+                    <td>8.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>NP</b></td>
+                    <td>185</td>
+                    <td>29,605</td>
+                    <td>1.42</td>
+                    <td>4.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>BD</b></td>
+                    <td>51</td>
+                    <td>29,138</td>
+                    <td>1.70</td>
+                    <td>6.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>NZ</b></td>
+                    <td>34</td>
+                    <td>28,628</td>
+                    <td>2.94</td>
+                    <td>8.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>CZ</b></td>
+                    <td>36</td>
+                    <td>27,175</td>
+                    <td>2.58</td>
+                    <td>7.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>IR</b></td>
+                    <td>56</td>
+                    <td>25,769</td>
+                    <td>2.60</td>
+                    <td>7.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>SK</b></td>
+                    <td>10</td>
+                    <td>23,182</td>
+                    <td>4.16</td>
+                    <td>11.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>PE</b></td>
+                    <td>217</td>
+                    <td>22,900</td>
+                    <td>0.52</td>
+                    <td>3.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>ET</b></td>
+                    <td>13</td>
+                    <td>21,699</td>
+                    <td>2.88</td>
+                    <td>10.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>CR</b></td>
+                    <td>39</td>
+                    <td>18,977</td>
+                    <td>0.95</td>
+                    <td>5.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>HU</b></td>
+                    <td>104</td>
+                    <td>17,539</td>
+                    <td>0.94</td>
+                    <td>4.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>AT</b></td>
+                    <td>22</td>
+                    <td>14,247</td>
+                    <td>1.98</td>
+                    <td>7.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>IE</b></td>
+                    <td>8</td>
+                    <td>14,202</td>
+                    <td>7.40</td>
+                    <td>12.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>VN</b></td>
+                    <td>117</td>
+                    <td>12,950</td>
+                    <td>0.58</td>
+                    <td>3.1</td>
+                </tr>
+
+                <tr>
+                    <td><b>OM</b></td>
+                    <td>5</td>
+                    <td>12,805</td>
+                    <td>3.80</td>
+                    <td>15.6</td>
+                </tr>
+
+                <tr>
+                    <td><b>HR</b></td>
+                    <td>17</td>
+                    <td>11,633</td>
+                    <td>2.74</td>
+                    <td>9.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>SI</b></td>
+                    <td>39</td>
+                    <td>11,544</td>
+                    <td>1.72</td>
+                    <td>4.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>IQ</b></td>
+                    <td>57</td>
+                    <td>10,806</td>
+                    <td>2.20</td>
+                    <td>4.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>GH</b></td>
+                    <td>28</td>
+                    <td>10,591</td>
+                    <td>1.51</td>
+                    <td>6.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>RS</b></td>
+                    <td>30</td>
+                    <td>10,458</td>
+                    <td>2.57</td>
+                    <td>7.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>VE</b></td>
+                    <td>43</td>
+                    <td>10,285</td>
+                    <td>0.49</td>
+                    <td>4.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>MA</b></td>
+                    <td>14</td>
+                    <td>9,623</td>
+                    <td>1.53</td>
+                    <td>8.1</td>
+                </tr>
+
+                <tr>
+                    <td><b>LT</b></td>
+                    <td>38</td>
+                    <td>7,551</td>
+                    <td>1.38</td>
+                    <td>4.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>JO</b></td>
+                    <td>29</td>
+                    <td>4,935</td>
+                    <td>0.64</td>
+                    <td>5.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>BG</b></td>
+                    <td>18</td>
+                    <td>4,752</td>
+                    <td>2.17</td>
+                    <td>4.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>UY</b></td>
+                    <td>23</td>
+                    <td>4,140</td>
+                    <td>0.48</td>
+                    <td>6.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>GE</b></td>
+                    <td>10</td>
+                    <td>4,094</td>
+                    <td>23.77</td>
+                    <td>4.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>TZ</b></td>
+                    <td>11</td>
+                    <td>3,864</td>
+                    <td>1.22</td>
+                    <td>6.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>BA</b></td>
+                    <td>13</td>
+                    <td>3,314</td>
+                    <td>1.70</td>
+                    <td>6.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>ZW</b></td>
+                    <td>5</td>
+                    <td>3,305</td>
+                    <td>2.11</td>
+                    <td>12.6</td>
+                </tr>
+
+                <tr>
+                    <td><b>GR</b></td>
+                    <td>46</td>
+                    <td>2,814</td>
+                    <td>0.46</td>
+                    <td>2.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>PY</b></td>
+                    <td>18</td>
+                    <td>2,595</td>
+                    <td>3.13</td>
+                    <td>6.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>BO</b></td>
+                    <td>35</td>
+                    <td>2,440</td>
+                    <td>0.27</td>
+                    <td>2.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>KR</b></td>
+                    <td>5</td>
+                    <td>2,418</td>
+                    <td>2.11</td>
+                    <td>9.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>CU</b></td>
+                    <td>16</td>
+                    <td>1,935</td>
+                    <td>0.25</td>
+                    <td>3.1</td>
+                </tr>
+
+                <tr>
+                    <td><b>DZ</b></td>
+                    <td>16</td>
+                    <td>1,833</td>
+                    <td>2.12</td>
+                    <td>4.6</td>
+                </tr>
+
+                <tr>
+                    <td><b>LK</b></td>
+                    <td>31</td>
+                    <td>1,793</td>
+                    <td>0.84</td>
+                    <td>3.3</td>
+                </tr>
+
+                <tr>
+                    <td><b>ZM</b></td>
+                    <td>6</td>
+                    <td>1,683</td>
+                    <td>6.39</td>
+                    <td>6.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>GT</b></td>
+                    <td>15</td>
+                    <td>1,621</td>
+                    <td>1.26</td>
+                    <td>2.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>LV</b></td>
+                    <td>9</td>
+                    <td>1,511</td>
+                    <td>0.99</td>
+                    <td>4.9</td>
+                </tr>
+
+                <tr>
+                    <td><b>EE</b></td>
+                    <td>5</td>
+                    <td>1,007</td>
+                    <td>1.96</td>
+                    <td>9.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>KW</b></td>
+                    <td>10</td>
+                    <td>998</td>
+                    <td>2.29</td>
+                    <td>6.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>UZ</b></td>
+                    <td>54</td>
+                    <td>850</td>
+                    <td>0.04</td>
+                    <td>1.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>TW</b></td>
+                    <td>6</td>
+                    <td>670</td>
+                    <td>2.16</td>
+                    <td>4.3</td>
+                </tr>
+
+                <tr>
+                    <td><b>KZ</b></td>
+                    <td>24</td>
+                    <td>557</td>
+                    <td>0.29</td>
+                    <td>2.1</td>
+                </tr>
+
+                <tr>
+                    <td><b>PH</b></td>
+                    <td>46</td>
+                    <td>474</td>
+                    <td>0.02</td>
+                    <td>3.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>NI</b></td>
+                    <td>5</td>
+                    <td>433</td>
+                    <td>0.55</td>
+                    <td>3.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>AM</b></td>
+                    <td>10</td>
+                    <td>412</td>
+                    <td>0.24</td>
+                    <td>2.5</td>
+                </tr>
+
+                <tr>
+                    <td><b>SA</b></td>
+                    <td>5</td>
+                    <td>213</td>
+                    <td>0.08</td>
+                    <td>2.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>PA</b></td>
+                    <td>25</td>
+                    <td>171</td>
+                    <td>0.05</td>
+                    <td>1.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>YE</b></td>
+                    <td>10</td>
+                    <td>108</td>
+                    <td>0.06</td>
+                    <td>3.0</td>
+                </tr>
+
+                <tr>
+                    <td><b>KG</b></td>
+                    <td>11</td>
+                    <td>47</td>
+                    <td>0.15</td>
+                    <td>2.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>LY</b></td>
+                    <td>13</td>
+                    <td>30</td>
+                    <td>0.02</td>
+                    <td>1.2</td>
+                </tr>
+
+                <tr>
+                    <td><b>AZ</b></td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>0.03</td>
+                    <td>1.4</td>
+                </tr>
+
+                <tr>
+                    <td><b>MN</b></td>
+                    <td>10</td>
+                    <td>2</td>
+                    <td>0.00</td>
+                    <td>0.7</td>
+                </tr>
+
+                <tr>
+                    <td><b>MH</b></td>
+                    <td>10</td>
+                    <td>0</td>
+                    <td>0.00</td>
+                    <td>4.8</td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            <p>Generado con Python + Plotly | Datos de OpenAlex + PKP Beacon</p>
+            <p>© 2025 - Análisis bibliométrico OJS</p>
+        </div>
+    </div>
+    
+    <script>
+        // Cargar el dashboard de Plotly
+        fetch('dashboard_interactivo.html')
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const plotlyDiv = doc.querySelector('body > div');
+                document.getElementById('dashboard').innerHTML = plotlyDiv.innerHTML;
+                
+                // Re-ejecutar scripts de Plotly
+                const scripts = doc.querySelectorAll('script');
+                scripts.forEach(script => {
+                    if (script.innerHTML) {
+                        eval(script.innerHTML);
+                    }
+                });
+            });
+        
+        // Búsqueda en tabla
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const filter = this.value.toUpperCase();
+            const table = document.getElementById('dataTable');
+            const tr = table.getElementsByTagName('tr');
+            
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td')[0];
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? '' : 'none';
+                }
+            }
+        });
+        
+        // Ordenar tabla
+        function sortTable(n) {
+            const table = document.getElementById('dataTable');
+            let switching = true;
+            let dir = 'asc';
+            let switchcount = 0;
+            
+            while (switching) {
+                switching = false;
+                const rows = table.rows;
+                
+                for (let i = 1; i < (rows.length - 1); i++) {
+                    let shouldSwitch = false;
+                    const x = rows[i].getElementsByTagName('TD')[n];
+                    const y = rows[i + 1].getElementsByTagName('TD')[n];
+                    
+                    let xValue = x.innerHTML.replace(/,/g, '').replace(/<b>|<\/b>/g, '');
+                    let yValue = y.innerHTML.replace(/,/g, '').replace(/<b>|<\/b>/g, '');
+                    
+                    if (!isNaN(xValue) && !isNaN(yValue)) {
+                        xValue = parseFloat(xValue);
+                        yValue = parseFloat(yValue);
+                    }
+                    
+                    if (dir == 'asc') {
+                        if (xValue > yValue) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == 'desc') {
+                        if (xValue < yValue) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == 'asc') {
+                        dir = 'desc';
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
