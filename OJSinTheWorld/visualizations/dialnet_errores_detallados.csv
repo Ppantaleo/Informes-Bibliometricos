@@ -1,0 +1,26 @@
+dominio,tipo_error,gravedad,ocurrencias
+academiaone.org,Artículo con referencias cuyo literal es demasiado corto (menos de 30 caracteres),media,248
+academiaone.org,Autor con apellido 1 de longitud menor de 4 caracteres,media,168
+academiaone.org,Ejemplar marcado como no paginado y contiene artículos con página final,media,147
+academiaone.org,Artículo con referencias cuyo literal no tiene entre 10 y 2000 caracteres,alta,120
+academiaone.org,"Existe otro ejemplar en la importación con la misma información en los campos: año, volumen, número, fascículo y extraordinario",alta,117
+cuadernosms.cl,Autor con apellido 2 de longitud menor de 4 caracteres,media,730
+cuadernosms.cl,Articulo con título repetido para la misma revista,media,231
+cuadernosms.cl,Ejemplar marcado como no paginado y contiene artículos con página final,media,229
+cuadernosms.cl,Artículo con un título muy genérico.,media,86
+cuadernosms.cl,"Autor con campo partícula inválido. Partículas permitidas: [e, i, y]",alta,28
+revistas.uach.cl,Autor con apellido 2 de longitud menor de 4 caracteres,media,1148
+revistas.uach.cl,Artículo con título y subtítulo en mayúsculas,alta,1140
+revistas.uach.cl,Ejemplar marcado como no paginado y contiene artículos con página final,media,591
+revistas.uach.cl,Artículo sin ejemplar identificado en la importación,alta,206
+revistas.uach.cl,Autor con apellido 1 de longitud menor de 4 caracteres,media,155
+revistas.umce.cl,Artículo con título y subtítulo en mayúsculas,alta,360
+revistas.umce.cl,Artículo sin número de página inicial,alta,301
+revistas.umce.cl,Autor con apellido 2 de longitud menor de 4 caracteres,media,220
+revistas.umce.cl,Ejemplar marcado como no paginado y contiene artículos con página final,media,186
+revistas.umce.cl,Artículo con resumen susceptible de estar en varios idiomas,alta,37
+www.estudiospublicos.cl,Artículo sin número de página inicial,alta,1904
+www.estudiospublicos.cl,Artículo con título y subtítulo en mayúsculas,alta,412
+www.estudiospublicos.cl,Autor con apellido 1 de longitud menor de 4 caracteres,media,108
+www.estudiospublicos.cl,Autor con apellido 2 de longitud menor de 4 caracteres,media,76
+www.estudiospublicos.cl,Articulo con título repetido,media,30
