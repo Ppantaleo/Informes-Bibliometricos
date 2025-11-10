@@ -1,6 +1,6 @@
-# Análisis del PKP Beacon: publicaciones académicas con software PKP
+# Análisis del PKP Beacon: Publicaciones Académicas con Software PKP
 
-## Información general del dataset
+## 1. Información General del Dataset
 
 **Fuente:** Khanna, Saurabh, Jonas Raoni, Alec Smecher, Juan Pablo Alperin, Jon Ball, and John Willinsky. 2024. "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
 
@@ -16,7 +16,7 @@
 
 ---
 
-## ¿Qué es el PKP Beacon?
+## 2. ¿Qué es el PKP Beacon?
 
 El PKP Beacon es un sistema de recopilación de datos que permite identificar, inspeccionar y catalogar instalaciones públicas del software de publicación académica desarrollado por el Public Knowledge Project (PKP). 
 
@@ -47,7 +47,7 @@ El beacon funciona mediante un intercambio de datos automático entre las instal
 
 ---
 
-## Archivo del dataset
+## 3. Archivo del Dataset
 
 **Nombre:** `beacon.tab`
 
@@ -63,7 +63,7 @@ El beacon funciona mediante un intercambio de datos automático entre las instal
 
 ---
 
-## Diccionario de datos
+## 4. Diccionario de Datos
 
 ### Campos descriptivos
 
@@ -108,33 +108,7 @@ El beacon funciona mediante un intercambio de datos automático entre las instal
 
 ---
 
-## Metodología
-
-### 1. Identificación
-
-Las instalaciones de OJS, OMP y OPS se distribuyen sin proceso de registro. La identificación se realiza mediante:
-
-- **Feature beacon:** incluido en las versiones soportadas del software
-- **Intercambio de datos:** ocurre cuando la aplicación verifica si hay nuevas versiones disponibles
-- **Datos capturados:** URL del endpoint OAI-PMH e identificador único
-
-### 2. Inspección
-
-La información descriptiva de cada instalación se obtiene mediante el protocolo OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting).
-
----
-
-## Referencias
-
-- **PKP Official Site:** https://pkp.sfu.ca/
-- **Dataset URL:** https://pkp.sfu.ca/software/ojs/usage-data/
-- **Harvard Dataverse:** https://doi.org/doi:10.7910/DVN/OCZNVY
-- **MARC Country Codes:** https://www.loc.gov/marc/countries/
-- **OAI-PMH Protocol:** https://www.openarchives.org/pmh/
-
----
-
-## Marco metodológico: definición de JUOJS y criterio de revista activa
+## 5. Marco Metodológico: Definición de JUOJS y Criterio de Revista Activa
 
 ### Concepto de JUOJS (Journals Using OJS)
 
@@ -164,19 +138,218 @@ El crecimiento en revistas que usan OJS durante la última década ha mostrado s
 
 ---
 
-## Referencias principales
+## 6. Metodología de Análisis
 
-### Estudios sobre JUOJS y PKP Beacon
+### 6.1 Identificación
+
+Las instalaciones de OJS, OMP y OPS se distribuyen sin proceso de registro. La identificación se realiza mediante:
+
+- **Feature beacon:** incluido en las versiones soportadas del software
+- **Intercambio de datos:** ocurre cuando la aplicación verifica si hay nuevas versiones disponibles
+- **Datos capturados:** URL del endpoint OAI-PMH e identificador único
+
+### 6.2 Inspección
+
+La información descriptiva de cada instalación se obtiene mediante el protocolo OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting).
+
+---
+
+## 7. Análisis Global del Dataset
+
+### 7.1 Scripts de análisis general
+
+- **`scripts/analisis_ojs_mundial.R`**: Análisis descriptivo del dataset completo
+- **`scripts/grafico_continentes.R`**: Generación de gráficos y tablas globales
+- **`scripts/visualize_network_enhanced.py`**: Análisis de redes por países y continentes
+- **`scripts/visualize_interactive.py`**: Generación de dashboards interactivos
+
+### 7.2 Resultados globales
+
+- Total de revistas analizadas: 67,138
+- Países representados: 195
+- Continentes con mayor presencia de OJS
+- Distribución por versiones de software
+
+---
+
+## 8. Enriquecimiento con Datos de OpenAlex
+
+### 8.1 Script de integración
+
+**Archivo:** `scripts/openalex.py`
+
+**Funciones principales:**
+1. **Enriquecimiento de datos**: Tomó el archivo `beacon_ojs.csv` y lo enriqueció con datos de la API de OpenAlex
+2. **Consulta a OpenAlex API**: Para cada revista con ISSN válido, consultó la base de datos OpenAlex para obtener:
+   - ID de OpenAlex
+   - Número de trabajos indexados
+   - Número de citaciones
+   - Índice H
+   - Promedio de citación a 2 años
+3. **Cálculo de índices de visibilidad**:
+   - **Índice de visibilidad**: citaciones / total de artículos publicados
+   - **Índice de visibilidad ajustado**: citaciones / artículos indexados en OpenAlex
+   - **Tasa de indexación**: artículos en OpenAlex / total de artículos
+4. **Procesamiento masivo**: 
+   - Respetó los límites de velocidad de la API (6 req/seg)
+   - Guardó progreso cada 1000 revistas
+   - Manejó errores y timeouts
+5. **Análisis estadístico**: Generó estadísticas descriptivas sobre:
+   - Porcentaje de revistas indexadas en OpenAlex
+   - Métricas promedio de visibilidad
+   - Top 10 revistas por índice de visibilidad
+
+### 8.2 Archivo resultante
+
+**`visualizations/beacon_ojs_con_visibilidad.csv`**: Dataset enriquecido que combina los datos originales del beacon OJS con métricas de impacto académico de OpenAlex, permitiendo evaluar la visibilidad e impacto de las revistas académicas que usan OJS.
+
+**Estadísticas del enriquecimiento:**
+- Total revistas procesadas: 55,643
+- Revistas indexadas en OpenAlex: 36.2% promedio
+- Índices de visibilidad calculados para análisis comparativo
+
+---
+
+## 9. Análisis Específico de Chile
+
+### 9.1 Scripts de análisis para Chile
+
+- **`scripts/analisis_chile.R`**: Análisis específico de revistas chilenas
+- **`scripts/tablas_chile_png.R`**: Generación de tablas visuales para Chile
+- **`scripts/filtrar_chile_visibilidad.py`**: Filtrado de datos de visibilidad para Chile
+- **`scripts/extraer_urls_chile.py`**: Extracción de URLs de OAI para Chile
+- **`scripts/limpiar_urls_duplicadas.py`**: Limpieza de URLs duplicadas para Dialnet
+
+### 9.2 Archivos generados para Chile
+
+1. **`visualizations/chile_instalaciones_activas.csv`**: Revistas chilenas activas con datos bibliométricos
+2. **`visualizations/chile_todas_instalaciones.csv`**: Todas las instalaciones OJS de Chile
+3. **`visualizations/chile_ojs_con_visibilidad.csv`**: Revistas chilenas con datos de OpenAlex
+4. **`visualizations/chile_oai_urls.csv`**: URLs de OAI originales (367 URLs con duplicados)
+5. **`visualizations/chile_oai_urls_limpio.csv`**: URLs de OAI únicas para Dialnet (246 URLs)
+
+### 9.3 Resultados para Chile
+
+**Revistas chilenas en el dataset:**
+- Total revistas chilenas: 367
+- Revistas indexadas en OpenAlex: 133 (36.2%)
+- Índice de visibilidad promedio: 1.463
+- Total citaciones: 82,237
+
+---
+
+## 10. Proceso de Evaluación en Dialnet
+
+### 10.1 Objetivo
+
+Solicitar informes de calidad para las revistas chilenas en Dialnet mediante sus URLs de OAI-PMH.
+
+### 10.2 Limitaciones identificadas
+
+**Análisis de la API de Dialnet:**
+- **No hay endpoint para informes de calidad**: La API está enfocada en consultas de contenido, no en evaluación
+- **Proceso manual obligatorio**: Requiere registro y envío individual de cada URL
+- **API limitada**: Solo permite consultas de documentos, autores y revistas ya indexadas
+
+### 10.3 Proceso actual
+
+**Estado:** Envío manual de URLs a través del portal web de Dialnet
+
+#### Particularidad metodológica: URLs de instalación vs. revistas individuales
+
+El PKP Beacon rastrea tanto **instalaciones OJS** como **revistas individuales** dentro de esas instalaciones:
+
+- **Campo `set_spec`**: Identifica revistas específicas dentro de una instalación multi-revista
+- **Campo `oai_url`**: Contiene solo la URL general de la instalación (`/index/oai`)
+- **URLs específicas de revista**: No están disponibles en el dataset (serían `/revista/oai`)
+
+**Implicación para Dialnet:**
+Las URLs de instalación (`/index/oai`) sirven metadatos de **todas las revistas** alojadas en esa instalación, diferenciadas por el campo `<setSpec>` en los metadatos OAI-PMH.
+
+#### Limpieza de URLs duplicadas
+
+**Problema identificado:** El dataset original contenía 367 URLs con múltiples duplicaciones debido a que varias revistas comparten la misma instalación OJS.
+
+**Solución aplicada:**
+- Script: `scripts/limpiar_urls_duplicadas.py`
+- URLs originales: 367
+- URLs únicas después de limpieza: 246
+- URLs duplicadas eliminadas: 120
+
+**URLs más duplicadas:**
+- `https://revistas.udec.cl/index.php/index/oai` (18 veces)
+- `https://revistas.uv.cl/index.php/index/oai` (13 veces)
+- `https://revistas.umce.cl/index.php/index/oai` (10 veces)
+
+**Archivo base:** `visualizations/chile_oai_urls_limpio.csv` (246 URLs únicas de instalaciones chilenas)
+
+**Proceso:**
+1. Registro en el portal de Dialnet
+2. Solicitud manual de informe de calidad por cada URL de instalación
+3. Evaluación por parte del equipo de Dialnet de todas las revistas alojadas
+4. Recepción de informes individuales por instalación
+
+**Alternativas evaluadas:**
+- Automatización del formulario web (posible violación de términos de servicio)
+- Contacto directo con Dialnet para procesamiento en lote
+- Procesamiento gradual de URLs prioritarias (mayor índice de visibilidad)
+
+---
+
+## 11. Archivos y Visualizaciones Generadas
+
+### 11.1 Visualizaciones globales
+- `visualizations/grafico_continentes_barras.png`
+- `visualizations/grafico_continentes_circular.png`
+- `visualizations/grafico_top15_paises.png`
+- `visualizations/network_countries_enhanced.png`
+- `visualizations/tabla_top20_paises.png`
+
+### 11.2 Dashboards interactivos
+- `visualizations/dashboard_completo.html`
+- `visualizations/dashboard_interactivo.html`
+
+### 11.3 Tablas de datos
+- `visualizations/tabla_continentes_ojs.csv`
+- `visualizations/tabla_paises_ojs_activos.csv`
+
+### 11.4 Archivos para análisis de redes
+- `visualizations/vosviewer_map.txt`
+- `visualizations/vosviewer_network.txt`
+
+### 11.5 Tablas específicas de Chile
+- `visualizations/tabla_chile_activas_top30.png`
+- `visualizations/tabla_chile_todas_top30.png`
+
+---
+
+## 12. Referencias
+
+### 12.1 Estudios sobre JUOJS y PKP Beacon
 
 Khanna, S., Ball, J., Alperin, J. P., & Willinsky, J. (2022). Recalibrating the scope of scholarly publishing: A modest step in a vast decolonization process. *Quantitative Science Studies, 3*(4), 912–930. https://doi.org/10.1162/qss_a_00228
 
 Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). *Details of publications using software by the Public Knowledge Project* (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY
 
-### Estudio sobre indexación en OpenAlex
+### 12.2 Estudio sobre indexación en OpenAlex
 
 Chavarro, D., Alperin, J. P., & Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. *Quantitative Science Studies, 6*, 1039–1058. https://doi.org/10.1162/QSS.a.17
 
-### Recursos y estándares
+### 12.3 Recursos técnicos
+
+- **PKP Official Site:** https://pkp.sfu.ca/
+- **Dataset URL:** https://pkp.sfu.ca/software/ojs/usage-data/
+- **Harvard Dataverse:** https://doi.org/doi:10.7910/DVN/OCZNVY
+- **MARC Country Codes:** https://www.loc.gov/marc/countries/
+- **OAI-PMH Protocol:** https://www.openarchives.org/pmh/
+- **OpenAlex API:** https://docs.openalex.org/
+- **Dialnet API:** https://dialnet.unirioja.es/ws/dialnetcris-sandbox/v2/swagger-ui/index.html
+
+### 12.4 Estándares y criterios
+
+- Directory of Open Access Journals (2020). Criterio de revista activa: 5 artículos por año
+- ISO 3166-1 alpha-2: Códigos de países
+- ISSN International Centre: Estándares de numeración de publicaciones seriadasares
 
 Directory of Open Access Journals. (2020). *Criteria for journals*. https://doaj.org/
 
@@ -279,8 +452,8 @@ Las variables se procesaron para garantizar consistencia:
 
 **Tablas generadas:**
 
-1. **Tabla completa** (`chile_todas_instalaciones.csv`): Todas las instalaciones identificadas en Chile
-2. **Tabla activas** (`chile_instalaciones_activas.csv`): Solo instalaciones con >5 publicaciones en 2023
+1. **Tabla completa** (`visualizations/chile_todas_instalaciones.csv`): Todas las instalaciones identificadas en Chile
+2. **Tabla activas** (`visualizations/chile_instalaciones_activas.csv`): Solo instalaciones con >5 publicaciones en 2023
 
 **Variables incluidas en el análisis:**
 - Nombre de revista/contexto
@@ -357,7 +530,7 @@ El análisis permitió identificar el ecosistema completo de revistas académica
 
 Para enfocar el análisis exclusivamente en Open Journal Systems (OJS), se desarrolló un script de filtrado que separa el dataset original por tipo de aplicación:
 
-**Archivo:** `split_beacon.py`
+**Archivo:** `scripts/split_beacon.py`
 
 **Funcionalidad:**
 - Carga el dataset completo (`beacon.csv`)
@@ -379,7 +552,7 @@ python3 split_beacon.py
 
 ### Script de ejecución completa
 
-**Archivo:** `ejecutar_analisis.sh`
+**Archivo:** `scripts/ejecutar_analisis.sh` (si existe) o directorio raíz
 
 Script bash que ejecuta todo el pipeline de análisis en secuencia:
 
