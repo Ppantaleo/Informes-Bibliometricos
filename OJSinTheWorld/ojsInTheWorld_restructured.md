@@ -86,13 +86,19 @@ Jerarquía de fuentes para asignación de países:
 
 #### 2.4.3 Procesamiento de Datos
 
-**Scripts desarrollados:**
-- `scripts/split_beacon.py`: Separación por tipo de aplicación
-- `scripts/analisis_ojs_mundial.R`: Análisis descriptivo global
-- `scripts/analisis_chile.R`: Análisis específico de Chile
-- `scripts/openalex.py`: Enriquecimiento con datos de OpenAlex
-- `scripts/filtrar_chile_visibilidad.py`: Filtrado de datos chilenos
-- `scripts/limpiar_urls_duplicadas.py`: Limpieza de URLs duplicadas
+**Flujo metodológico principal:**
+1. `scripts/split_beacon.py`: Separación por tipo de aplicación
+2. `scripts/analisis_ojs_mundial.R`: Análisis descriptivo global
+3. `scripts/analisis_chile.R`: Análisis completo de Chile (todos los criterios)
+4. `scripts/chile_juojs_filtrado.R`: **Filtrado JUOJS** (dataset principal)
+5. `scripts/generar_urls_dialnet.py`: Generación URLs para Dialnet
+6. `scripts/find_missing_reports.py`: Verificación de informes Dialnet
+7. `scripts/analizar_uchile_errors.py`: Análisis de errores OAI Universidad de Chile
+
+**Scripts de enriquecimiento:**
+- `scripts/openalex.py`: Enriquecimiento con datos de OpenAlex (sobre JUOJS)
+
+**Documentación:** Ver `FLUJO_METODOLOGICO.md` para orden de ejecución
 
 #### 2.4.4 Enriquecimiento con OpenAlex
 
@@ -110,22 +116,51 @@ Jerarquía de fuentes para asignación de países:
 
 **Solución:** Las URLs de instalación son válidas para evaluación ya que exponen todos los metadatos de revistas alojadas vía protocolo OAI-PMH.
 
-**Limpieza aplicada:**
-- URLs originales Chile: 367 (con duplicados)
-- URLs únicas después de limpieza: 246
-- Script: `scripts/limpiar_urls_duplicadas.py`
+**Dataset principal:**
+- Fuente: `chile_juojs_activas.csv` (generado por `chile_juojs_filtrado.R`)
+- Criterio JUOJS: Instalaciones con >5 publicaciones en 2023
+- Filtrado desde dataset completo de Chile
+
+**Generación URLs:**
+- Script: `scripts/generar_urls_dialnet.py`
+- Eliminación automática de duplicados por dominio
+- Generación de URLs OAI estándar
 
 #### 2.4.6 Proceso de Evaluación en Dialnet
 
-**Organización de informes:**
-- Descarga manual de informes desde portal Dialnet
-- Nomenclatura basada en dominio de URL OAI (manteniendo formato exacto)
-- Almacenamiento en carpeta `dialnet/` con formato `[dominio].pdf`
+**Fuente de datos:**
+- Dataset base: `chile_juojs_activas.csv` (instalaciones JUOJS filtradas)
+- Archivo procesado: `chile_oai_urls_limpio.csv` (generado por `generar_urls_dialnet.py`)
+- Cada URL representa un endpoint OAI-PMH de instalaciones JUOJS activas
 
-**Registro de errores:**
-- Errores del sistema Nexus se registran en `chile_oai_urls_limpio.csv`
-- Formato: URL seguida de coma y mensaje de error
-- Tipos: errores XML, URLs no recolectables, timeouts, configuración incorrecta
+**Metodología de evaluación:**
+1. **Acceso manual:** Ingreso individual a cada URL en el validador Nexus de Dialnet
+2. **Descarga de informes:** Obtención manual de informes HTML de calidad cuando el sistema los genera exitosamente
+3. **Registro de errores:** Documentación de mensajes de error del validador Nexus
+
+**Organización de resultados:**
+- **Informes exitosos:** Almacenados en carpeta `dialnet/` con nomenclatura basada en dominio (ej: `revistas.uchile.cl.html`)
+- **Registro de errores:** Documentados en columna `mensaje_error` del archivo `chile_oai_urls_limpio.csv`
+- **Criterio de éxito:** URLs sin mensaje de error indican generación exitosa de informe HTML
+
+**Tipos de errores identificados:**
+- "Error al consultar la configuración de la revista: Error al leer el XML"
+- "La url no corresponde a una revista recolectable por OAI"
+- "informe de calidad no disponible por error al recolectar por OAI-PMH"
+- "no carga, se queda en comprobando URL"
+
+**Sanitización de datos:**
+- Corrección de nomenclatura de archivos HTML (eliminación de errores de tipeo y concatenación)
+- Normalización de extensiones de dominio (.com → .cl)
+- Eliminación de duplicados identificados
+- Escape de comas en mensajes de error para compatibilidad CSV
+- Script de verificación: `scripts/find_missing_reports.py`
+
+**Resultados del proceso:**
+- **Dataset base JUOJS:** Instalaciones activas filtradas (>5 pub/2023)
+- **URLs generadas:** Desde dataset JUOJS con eliminación automática de duplicados
+- **Evaluación manual:** Proceso en Dialnet Nexus
+- **Cobertura completa:** 100% de URLs sin errores tienen informe HTML
 
 ---
 
@@ -146,19 +181,21 @@ Jerarquía de fuentes para asignación de países:
 ### 3.2 Análisis Específico de Chile
 
 #### 3.2.1 Estadísticas Generales
-- **Total instalaciones identificadas:** 367
-- **Instalaciones activas (>5 pub/2023):** 240 (65.4%)
-- **Total publicaciones 2023:** 15,847
-- **Promedio por instalación activa:** 66.0 artículos
-- **Total histórico acumulado:** 108,264 publicaciones
+- **Total instalaciones identificadas:** 399 (dataset completo)
+- **Instalaciones activas JUOJS (>5 pub/2023):** 312 (78.2%)
+- **Dataset principal de análisis:** 312 instalaciones activas
+- **Total publicaciones 2023:** 12,778
+- **Promedio por instalación activa:** 41.0 artículos
+- **Total histórico acumulado:** 134,204 publicaciones
 
 #### 3.2.2 Distribución Institucional
 
 **Principales instituciones:**
-- Universidad de Chile (uchile.cl): 47 instalaciones activas
-- Pontificia Universidad Católica de Chile (uc.cl): 23 instalaciones activas
-- Universidad de Concepción (udec.cl): 15 instalaciones activas
-- Universidad Austral de Chile (uach.cl): 8 instalaciones activas
+- Universidad de Chile (uchile.cl): 68 instalaciones activas
+- Pontificia Universidad Católica de Chile (uc.cl): 28 instalaciones activas
+- Universidad de Concepción (udec.cl): 14 instalaciones activas
+- Universidad de Valparaíso (uv.cl): 14 instalaciones activas
+- Universidad Austral de Chile (uach.cl): 7 instalaciones activas
 - Universidad de Santiago de Chile (usach.cl): 7 instalaciones activas
 
 #### 3.2.3 Top 10 Instalaciones Más Productivas (2023)
@@ -178,13 +215,46 @@ Jerarquía de fuentes para asignación de países:
 - **Tasa de indexación promedio:** Variable por revista
 
 #### 3.2.5 Evaluación en Dialnet
-- **URLs procesadas:** 246 instalaciones únicas
-- **Errores técnicos identificados:** Múltiples instalaciones con problemas de configuración OAI
-- **Tipos de error más frecuentes:**
-  - Error al leer XML del endpoint OAI
-  - URLs no recolectables por OAI-PMH
-  - Problemas de configuración del servidor
-- **Informes descargados:** Organizados por dominio en carpeta `dialnet/`
+- **Dataset base:** 312 instalaciones JUOJS activas
+- **URLs procesadas:** 204 instalaciones únicas (108 duplicados eliminados)
+- **Cobertura dataset JUOJS:** 65.4% (204/312)
+- **URLs generadas:** Listas para evaluación manual en Dialnet Nexus
+- **Metodología:** Proceso manual de evaluación URL por URL
+- **Archivo generado:** `chile_oai_urls_limpio.csv` con 204 URLs JUOJS
+- **URLs uchile.cl:** 57 instalaciones (todas JUOJS activas)
+
+#### 3.2.6 Análisis Específico: Configuración OAI en Universidad de Chile
+
+**Problemática identificada:**
+Las URLs de instalaciones OJS del dominio `uchile.cl` presentan un patrón sistemático de errores de configuración OAI-PMH.
+
+**Hallazgos:**
+- **Total URLs uchile.cl:** 64 instalaciones (dataset completo)
+- **Instalaciones activas (JUOJS):** 57 (criterio >5 pub/2023)
+- **URLs con errores:** 63 (98.4%)
+- **URLs funcionales:** 1 (1.6% - revistasdex.uchile.cl)
+- **Error predominante:** "La url no corresponde a una revista recolectable por OAI" (63 casos)
+
+**Nota metodológica:** Flujo metodológico limpio implementado:
+- **Dataset base:** `chile_juojs_activas.csv` (312 instalaciones JUOJS)
+- **Eliminación de duplicados:** 108 duplicados removidos automáticamente
+- **URLs únicas:** 204 instalaciones para evaluación Dialnet
+- **uchile.cl:** 57 URLs (todas JUOJS activas, sin instalaciones inactivas)
+- **Metodología consistente:** Todos los análisis posteriores usarán este dataset base
+
+**Análisis técnico:**
+- **Configuración RESTful:** Las URLs beacon (`/index.php/index/oai`) redirigen al portal principal `https://revistas.uchile.cl/`
+- **URLs OAI reales:** Requieren identificador específico de revista (ej: `/index.php/RHCUC/oai`)
+- **Error XML detectado:** Contenido malformado en metadatos OAI-PMH (línea 540, columna 278)
+- **Causa probable:** Configuración centralizada con múltiples instalaciones OJS independientes
+
+**Implicaciones:**
+- Las revistas existen y son accesibles individualmente
+- El PKP Beacon detecta correctamente múltiples instalaciones
+- La configuración OAI-PMH requiere ajustes para compatibilidad con validadores externos
+- No implica ausencia de contenido recolectable, sino problemas de configuración técnica
+
+**Script de análisis:** `scripts/analizar_uchile_errors.py`
 
 ### 3.3 Archivos Generados
 
@@ -194,10 +264,10 @@ Jerarquía de fuentes para asignación de países:
 - `visualizations/tabla_paises_ojs_activos.csv`: Países con instalaciones activas
 
 #### 3.3.2 Datos Específicos de Chile
-- `visualizations/chile_instalaciones_activas.csv`: Instalaciones activas chilenas
-- `visualizations/chile_todas_instalaciones.csv`: Todas las instalaciones chilenas
-- `visualizations/chile_ojs_con_visibilidad.csv`: Datos chilenos con métricas OpenAlex
-- `visualizations/chile_oai_urls_limpio.csv`: 246 URLs únicas para evaluación
+- `visualizations/chile_juojs_activas.csv`: **Dataset principal JUOJS** (312 instalaciones activas)
+- `visualizations/chile_todas_instalaciones.csv`: Dataset completo (399 instalaciones)
+- `visualizations/chile_ojs_con_visibilidad.csv`: Datos JUOJS con métricas OpenAlex
+- `visualizations/chile_oai_urls_limpio.csv`: 204 URLs únicas JUOJS para evaluación Dialnet
 
 #### 3.3.3 Visualizaciones
 - `visualizations/grafico_continentes_barras.png`: Distribución por continentes
