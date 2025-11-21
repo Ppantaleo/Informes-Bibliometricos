@@ -10,7 +10,7 @@ cat("=== ANÁLISIS JUOJS CHILE ===\n")
 cat("Filtrado de instalaciones activas (>5 publicaciones en 2023)\n\n")
 
 # Cargar dataset completo de Chile
-chile_completo <- read_csv("visualizations/chile_todas_instalaciones.csv")
+chile_completo <- read_csv("../visualizations/chile_todas_instalaciones.csv")
 
 cat("Dataset completo cargado:", nrow(chile_completo), "instalaciones\n")
 
@@ -62,7 +62,7 @@ print(kable(instituciones,
       format = "markdown"))
 
 # Exportar dataset JUOJS
-write.csv(chile_juojs, "visualizations/chile_juojs_activas.csv", row.names = FALSE)
+write.csv(chile_juojs, "../visualizations/chile_juojs_activas.csv", row.names = FALSE)
 
 cat("\n\nDataset JUOJS exportado: visualizations/chile_juojs_activas.csv\n")
 cat("Este es el DATASET PRINCIPAL para todos los análisis posteriores\n")

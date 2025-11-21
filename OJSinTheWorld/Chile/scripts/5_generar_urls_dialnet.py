@@ -30,7 +30,7 @@ def main():
     
     # Cargar dataset JUOJS
     try:
-        juojs = pd.read_csv('visualizations/chile_juojs_activas.csv')
+        juojs = pd.read_csv('../visualizations/chile_juojs_activas.csv')
         print(f"Dataset JUOJS cargado: {len(juojs)} instalaciones activas")
     except FileNotFoundError:
         print("ERROR: Ejecutar primero scripts/chile_juojs_filtrado.R")
@@ -62,7 +62,7 @@ def main():
     print(f"- URLs uchile.cl: {uchile_count}")
     
     # Guardar archivo
-    output_path = 'visualizations/chile_oai_urls_limpio.csv'
+    output_path = '../visualizations/chile_oai_urls_nuevo.csv'
     dialnet_df.to_csv(output_path, index=False)
     
     print(f"\nArchivo generado: {output_path}")

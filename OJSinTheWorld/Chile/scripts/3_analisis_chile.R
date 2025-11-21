@@ -5,7 +5,7 @@ library(readr)
 library(knitr)
 
 # Cargar datos
-datos <- read_csv("../beacon_ojs.csv")
+datos <- read_csv("../../beacon_ojs.csv")
 
 # Filtrar datos de Chile
 chile_todos <- datos %>%
@@ -69,7 +69,7 @@ cat("Total publicaciones 2023:", sum(chile_todos$record_count_2023, na.rm = TRUE
 cat("Total histórico acumulado:", sum(chile_todos$total_historico, na.rm = TRUE), "\n")
 
 # 4. EXPORTAR TABLA
-write.csv(tabla_completa, "visualizations/chile_todas_instalaciones.csv", row.names = FALSE)
+write.csv(tabla_completa, "../visualizations/chile_todas_instalaciones.csv", row.names = FALSE)
 
 cat("\nTabla exportada:\n")
 cat("- visualizations/chile_todas_instalaciones.csv\n")
