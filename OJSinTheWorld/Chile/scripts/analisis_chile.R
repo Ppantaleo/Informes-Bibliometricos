@@ -5,7 +5,7 @@ library(readr)
 library(knitr)
 
 # Cargar datos
-datos <- read_csv("beacon_ojs.csv")
+datos <- read_csv("../../beacon_ojs.csv")
 
 # Filtrar datos de Chile
 chile_todos <- datos %>%

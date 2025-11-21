@@ -4,7 +4,7 @@ from collections import Counter
 
 def main():
     # Leer el CSV
-    df = pd.read_csv('/home/patricio/github/Informes-Bibliometricos/OJSinTheWorld/visualizations/chile_oai_urls_limpio.csv')
+    df = pd.read_csv('/home/patricio/github/Informes-Bibliometricos/OJSinTheWorld/Chile/visualizations/chile_oai_urls_limpio.csv')
     
     # Filtrar URLs de uchile.cl
     uchile_urls = df[df['oai_url'].str.contains('uchile.cl', na=False)]

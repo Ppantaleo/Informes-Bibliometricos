@@ -5,7 +5,7 @@ library(ggplot2)
 library(readr)
 
 # Cargar datos
-datos <- read_csv("beacon_ojs.csv")
+datos <- read_csv("../../beacon_ojs.csv")
 
 # Preparar datos activos (>5 pub en 2023)
 datos_activos <- datos %>%

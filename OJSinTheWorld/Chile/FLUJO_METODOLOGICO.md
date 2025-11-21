@@ -2,10 +2,11 @@
 
 ## Orden de Ejecución
 
-### 1. Procesamiento Base
+### 1. Procesamiento Base (Nivel Superior)
 ```bash
 # Separar beacon por tipo de aplicación
-Rscript scripts/split_beacon.py
+cd Chile/
+python3 scripts/split_beacon.py
 
 # Análisis global OJS
 Rscript scripts/analisis_ojs_mundial.R
@@ -13,6 +14,7 @@ Rscript scripts/analisis_ojs_mundial.R
 
 ### 2. Análisis Chile - Completo
 ```bash
+cd Chile/
 # Generar dataset completo de Chile (todos los criterios de país)
 Rscript scripts/analisis_chile.R
 # Genera: visualizations/chile_todas_instalaciones.csv
@@ -20,6 +22,7 @@ Rscript scripts/analisis_chile.R
 
 ### 3. Análisis Chile - JUOJS (Dataset Principal)
 ```bash
+cd Chile/
 # Filtrar solo instalaciones activas (>5 pub/2023)
 Rscript scripts/chile_juojs_filtrado.R
 # Genera: visualizations/chile_juojs_activas.csv (DATASET PRINCIPAL)
@@ -27,6 +30,7 @@ Rscript scripts/chile_juojs_filtrado.R
 
 ### 4. Evaluación Dialnet
 ```bash
+cd Chile/
 # Generar URLs OAI desde dataset JUOJS
 python3 scripts/generar_urls_dialnet.py
 # Genera: visualizations/chile_oai_urls_limpio.csv
@@ -40,6 +44,7 @@ python3 scripts/find_missing_reports.py
 
 ### 5. Enriquecimiento con APIs (Futuro)
 ```bash
+cd Chile/
 # OpenAlex (sobre dataset JUOJS)
 python3 scripts/openalex_juojs.py
 
@@ -50,8 +55,8 @@ python3 scripts/openalex_juojs.py
 ## Archivos Principales
 
 ### Datasets Base
-- `beacon.tab` - Dataset original PKP Beacon
-- `beacon_ojs.csv` - Solo aplicaciones OJS
+- `../../beacon.csv` - Dataset original PKP Beacon
+- `../../beacon_ojs.csv` - Solo aplicaciones OJS
 
 ### Datasets Chile
 - `visualizations/chile_todas_instalaciones.csv` - Todas las instalaciones (399)

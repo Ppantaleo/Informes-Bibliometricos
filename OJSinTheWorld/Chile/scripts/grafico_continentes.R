@@ -5,7 +5,7 @@ library(ggplot2)
 library(readr)
 
 # Cargar datos
-datos <- read_csv("beacon_ojs.csv")
+datos <- read_csv("../../beacon_ojs.csv")
 
 # Preparar datos activos con continentes
 datos_activos <- datos %>%

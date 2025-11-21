@@ -14,7 +14,7 @@ def extract_domain_from_url(url):
 
 def main():
     # Leer el CSV
-    df = pd.read_csv('/home/patricio/github/Informes-Bibliometricos/OJSinTheWorld/visualizations/chile_oai_urls_limpio.csv')
+    df = pd.read_csv('visualizations/chile_oai_urls_limpio.csv')
     
     # Filtrar URLs sin mensaje de error (campo vacío o NaN)
     urls_sin_error = df[df['mensaje_error'].isna() | (df['mensaje_error'] == '')]['oai_url'].tolist()
@@ -22,7 +22,7 @@ def main():
     print(f"URLs sin mensaje de error: {len(urls_sin_error)}")
     
     # Obtener lista de archivos en dialnet/
-    dialnet_dir = '/home/patricio/github/Informes-Bibliometricos/OJSinTheWorld/dialnet'
+    dialnet_dir = 'dialnet'
     archivos_dialnet = []
     
     if os.path.exists(dialnet_dir):

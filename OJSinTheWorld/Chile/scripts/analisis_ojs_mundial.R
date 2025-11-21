@@ -9,7 +9,7 @@ library(knitr)
 library(kableExtra)
 
 # Cargar datos
-datos <- read_csv("beacon_ojs.csv")
+datos <- read_csv("../../beacon_ojs.csv")
 
 # 1. PREPARACIÓN DE DATOS
 # Identificar instalaciones activas (>5 publicaciones en 2023)
