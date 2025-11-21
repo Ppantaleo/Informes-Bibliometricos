@@ -175,8 +175,8 @@ python3 scripts/openalex_juojs.py
 #### 2.4.5 Archivos Principales del Flujo
 
 **Datasets Base:**
-- `../../beacon.csv` - Dataset original PKP Beacon
-- `../../beacon_ojs.csv` - Solo aplicaciones OJS
+- `../beacon.csv` - Dataset original PKP Beacon
+- `../beacon_ojs.csv` - Solo aplicaciones OJS
 
 **Datasets Chile:**
 - `visualizations/chile_todas_instalaciones.csv` - Todas las instalaciones (399)
@@ -267,30 +267,33 @@ python3 scripts/openalex_juojs.py
 
 #### 3.1.1 Distribución General
 - **Total instalaciones procesadas:** 67,138
+- **Instalaciones OJS:** 66,527 (99.1%)
+- **Instalaciones OMP:** 562 (0.8%)
+- **Instalaciones OPS:** 49 (0.1%)
 - **Países representados:** 195
-- **Aplicaciones:** OJS (mayoría), OMP, OPS
 
-#### 3.1.2 Enriquecimiento con OpenAlex
-- **Total revistas procesadas:** 55,643
-- **Revistas indexadas en OpenAlex:** 36.2% promedio
-- **Dataset resultante:** `visualizations/beacon_ojs_con_visibilidad.csv`
+#### 3.1.2 Instalaciones OJS Activas Globalmente
+- **Total instalaciones OJS activas globalmente:** 49,790 (74.8% del total)
+- **Chile posición mundial:** 25º lugar con 311 instalaciones activas
+- **Total publicaciones 2023 (global):** 2,018,793
+- **Países con instalaciones activas:** 153
 
 ### 3.2 Análisis Específico de Chile
 
 #### 3.2.1 Estadísticas Generales
-- **Total instalaciones identificadas:** 399 (dataset completo)
-- **Instalaciones activas JUOJS (>5 pub/2023):** 312 (78.2%)
-- **Dataset principal de análisis:** 312 instalaciones activas
-- **Total publicaciones 2023:** 12,778
-- **Promedio por instalación activa:** 41.0 artículos
-- **Total histórico acumulado:** 134,204 publicaciones
+- **Total instalaciones identificadas:** 396 (dataset completo)
+- **Instalaciones activas JUOJS (>5 pub/2023):** 309 (78.0%)
+- **Dataset principal de análisis:** 309 instalaciones activas
+- **Total publicaciones 2023:** 12,730 (solo JUOJS activas)
+- **Promedio por instalación activa:** 41.2 artículos
+- **Total histórico acumulado:** 133,931 publicaciones
 
 #### 3.2.2 Distribución Institucional
 
 **Principales instituciones:**
 - Universidad de Chile (uchile.cl): 68 instalaciones activas
 - Pontificia Universidad Católica de Chile (uc.cl): 28 instalaciones activas
-- Universidad de Concepción (udec.cl): 14 instalaciones activas
+- Universidad de Concepción (udec.cl): 13 instalaciones activas
 - Universidad de Valparaíso (uv.cl): 14 instalaciones activas
 - Universidad Austral de Chile (uach.cl): 7 instalaciones activas
 - Universidad de Santiago de Chile (usach.cl): 7 instalaciones activas
@@ -312,12 +315,12 @@ python3 scripts/openalex_juojs.py
 - **Tasa de indexación promedio:** Variable por revista
 
 #### 3.2.5 Evaluación en Dialnet
-- **Dataset base:** 312 instalaciones JUOJS activas
-- **URLs procesadas:** 204 instalaciones únicas (108 duplicados eliminados)
-- **Cobertura dataset JUOJS:** 65.4% (204/312)
+- **Dataset base:** 309 instalaciones JUOJS activas
+- **URLs procesadas:** 202 instalaciones únicas (107 duplicados eliminados)
+- **Cobertura dataset JUOJS:** 65.4% (202/309)
 - **URLs generadas:** Listas para evaluación manual en Dialnet Nexus
 - **Metodología:** Proceso manual de evaluación URL por URL
-- **Archivo generado:** `chile_oai_urls_limpio.csv` con 204 URLs JUOJS
+- **Archivo generado:** `chile_oai_urls_limpio.csv` con 202 URLs JUOJS
 - **URLs uchile.cl:** 57 instalaciones (todas JUOJS activas)
 
 #### 3.2.6 Análisis Específico: Configuración OAI en Universidad de Chile
@@ -333,9 +336,9 @@ Las URLs de instalaciones OJS del dominio `uchile.cl` presentan un patrón siste
 - **Error predominante:** "La url no corresponde a una revista recolectable por OAI" (63 casos)
 
 **Nota metodológica:** Flujo metodológico limpio implementado:
-- **Dataset base:** `chile_juojs_activas.csv` (312 instalaciones JUOJS)
-- **Eliminación de duplicados:** 108 duplicados removidos automáticamente
-- **URLs únicas:** 204 instalaciones para evaluación Dialnet
+- **Dataset base:** `chile_juojs_activas.csv` (309 instalaciones JUOJS)
+- **Eliminación de duplicados:** 107 duplicados removidos automáticamente
+- **URLs únicas:** 202 instalaciones para evaluación Dialnet
 - **uchile.cl:** 57 URLs (todas JUOJS activas, sin instalaciones inactivas)
 - **Metodología consistente:** Todos los análisis posteriores usarán este dataset base
 
