@@ -41,7 +41,9 @@ El Public Knowledge Project (PKP) desarrolla software de código abierto para la
 Las JUOJS emplean un PKP Beacon opcional que permite a PKP notificar sobre actualizaciones y transmite información de indexación incluyendo título, ISSN, número de artículos, títulos y resúmenes.
 
 #### Criterio de revista activa
-Se emplea el estándar del Directory of Open Access Journals (DOAJ) de **cinco artículos al año** para distinguir revistas con actividad editorial sostenida de instalaciones inactivas o en prueba.
+Se emplea el estándar del Directory of Open Access Journals (DOAJ) de **cinco artículos al año** para distinguir revistas con actividad editorial sostenida de instalaciones inactivas o en prueba. Este criterio, está establecido en Chavarro, D., Alperin, J. P., & Willinsky, J. (2025) donde se dice:
+
+> "This study relies on data gathered from the PKP Beacon, a feature introduced into OJS in 2015 that allows PKP to notify OJS users about security updates and software upgrades. The beacon also notifies PKP of the web location of each journal’s metadata harvesting API, which we subsequently used to collect journal metadata, such as the journal name and ISSN, and article metadata, such as titles, abstracts, publication dates, and DOIs. As in our previous study, we considered a journal to be “active” in a given year if it published at least five documents that year, a threshold established by the Directory of Open Access Journal (DOAJ) in 2020. We began with the OJS journal list updated in 2024 (Khanna et al., 2024). This updated list included 50,920 journals with an ISSN, and that were deemed to be active in 2023 (a 98% increase in the number reported for 2020; Khanna et al., 2022)."
 
 ---
 
@@ -353,9 +355,33 @@ Khanna, S., Ball, J., Alperin, J. P., & Willinsky, J. (2022). Recalibrating the 
 
 Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). *Details of publications using software by the Public Knowledge Project* (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY
 
-### Estudio sobre indexación en OpenAlex
+### Estudios sobre indexación y acceso abierto
+
+Beigel, F. (2025). The transformative relation between publishers and editors: Research quality and academic autonomy at stake. *Quantitative Science Studies, 6*, 154–170. https://doi.org/10.1162/qss_a_00343
 
 Chavarro, D., Alperin, J. P., & Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. *Quantitative Science Studies, 6*, 1039–1058. https://doi.org/10.1162/QSS.a.17
+
+Simard, M.-A., Basson, I., Hare, M., Larivière, V., & Mongeon, P. (2025). Examining the geographic and linguistic coverage of gold and diamond open access journals in OpenAlex, Scopus, and Web of Science. *Quantitative Science Studies, 6*, 732–752. https://doi.org/10.1162/qss.a.1
+
+### Estudios sobre publicación científica chilena y latinoamericana
+
+Collazo-Reyes, F. (2014). Growth of the number of indexed journals of Latin America and the Caribbean: the effect on the impact of each country. *Scientometrics, 98*, 197–209. https://doi.org/10.1007/s11192-013-1036-2
+
+Koch, T., & Vanderstraeten, R. (2018). Internationalizing a national scientific community? Changes in publication and citation practices in Chile, 1976–2015. *Current Sociology, 67*(5), 723-741. https://doi.org/10.1177/0011392118807514
+
+Koch, T., Vanderstraeten, R. y Ayala, R. (2021). La internacionalización de la ciencia: revistas y comunidades chilenas en el mundo científico. *Estudios Sociales de la Ciencia, 51*(1), 121-138. https://doi.org/10.1177/0306312720949709
+
+Krauskopf, M. y Pessot, R. (1980). Estudio preliminar sobre publicaciones y productividad científica en Chile. *Archivos de Biología y Medicina Experimentales, 73*, 195-208.
+
+Sabaj, O., Valderrama, J. O., González-Vergara, C., & Pina-Stranger, A. (2015). Relationship between the duration of peer-review, publication decision, and agreement among reviewers in three Chilean journals. *HAL Archives Ouvertes*, halshs-01242627.
+
+### Marco teórico y metodológico
+
+Leydesdorff, L., & Persson, O. (2010). Mapping the geography of science: Distribution patterns and networks of relations among cities and institutes. *Journal of the American Society for Information Science and Technology, 61*(8), 1622-1634. https://doi.org/10.1002/asi.21347
+
+Merton, R. K. (1973). *The sociology of science: Theoretical and empirical investigations*. University of Chicago Press.
+
+Paasi, A. (2015). Academic Capitalism and the Geopolitics of Knowledge. In J. Agnew, V. Mamadouh, A. J. Secor, & J. Sharp (Eds.), *The Wiley Blackwell Companion to Political Geography* (pp. 507-523). Wiley Blackwell. https://doi.org/10.1002/9781118725771.ch37
 
 ### Recursos técnicos
 
