@@ -7,7 +7,7 @@ import json
 # ==========================================
 # CONFIGURACIÓN
 # ==========================================
-BEACON_FILE = 'beacon_ojs.csv'
+BEACON_FILE = '../../beacon_ojs.csv'
 OUTPUT_FILE = 'visualizations/beacon_ojs_con_visibilidad.csv'
 EMAIL = 'tu_email@ejemplo.com'  # OpenAlex recomienda incluir email
 RATE_LIMIT_DELAY = 0.15  # segundos entre requests (max ~6 req/seg)
