@@ -51,6 +51,7 @@ Se emplea el estándar del Directory of Open Access Journals (DOAJ) de **cinco a
 
 ### 2.1 Fuente de Datos
 
+#### 2.1.1 Dataset Principal PKP Beacon
 **Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
 
 **Características:**
@@ -58,6 +59,26 @@ Se emplea el estándar del Directory of Open Access Journals (DOAJ) de **cinco a
 - **Última actualización:** 2 de diciembre de 2024
 - **Archivo:** `beacon.tab` (22.2 MB, 67,138 observaciones, 25 campos)
 - **Licencia:** CC0 1.0 (dominio público)
+
+#### 2.1.2 Informes de Calidad Dialnet
+**Fuente:** Informes HTML descargados manualmente del validador Nexus de Dialnet
+- **Ubicación:** Carpeta `dialnet/`
+- **Metodología:** Evaluación manual URL por URL
+- **Cobertura:** URLs de instalaciones JUOJS chilenas activas
+- **Formato:** Archivos HTML con análisis de calidad editorial
+
+#### 2.1.3 APIs de Enriquecimiento
+**OpenAlex API:**
+- **Propósito:** Métricas de visibilidad e impacto académico
+- **Endpoint:** https://api.openalex.org/
+- **Datos obtenidos:** works_count, cited_by_count, h_index, 2yr_mean_citedness
+- **Límites:** 6 requests/segundo
+
+**Sherpa API:**
+- **Propósito:** Políticas de acceso abierto y derechos de autor
+- **Endpoint:** https://v2.sherpa.ac.uk/
+- **Datos obtenidos:** Políticas editoriales, permisos de archivo
+- **Estado:** Planificado para implementación futura
 
 ### 2.2 Funcionamiento del PKP Beacon
 
@@ -89,20 +110,94 @@ Jerarquía de fuentes para asignación de países:
 #### 2.4.3 Procesamiento de Datos
 
 **Flujo metodológico principal:**
-1. `scripts/split_beacon.py`: Separación por tipo de aplicación
-2. `scripts/analisis_ojs_mundial.R`: Análisis descriptivo global
-3. `scripts/analisis_chile.R`: Análisis completo de Chile (todos los criterios)
-4. `scripts/chile_juojs_filtrado.R`: **Filtrado JUOJS** (dataset principal)
-5. `scripts/generar_urls_dialnet.py`: Generación URLs para Dialnet
-6. `scripts/find_missing_reports.py`: Verificación de informes Dialnet
-7. `scripts/analizar_uchile_errors.py`: Análisis de errores OAI Universidad de Chile
+1. `scripts/1_split_beacon.py`: Separación por tipo de aplicación
+2. `scripts/2_analisis_ojs_mundial.R`: Análisis descriptivo global
+3. `scripts/3_analisis_chile.R`: Análisis completo de Chile (todos los criterios)
+4. `scripts/4_chile_juojs_filtrado.R`: **Filtrado JUOJS** (dataset principal)
+5. `scripts/5_generar_urls_dialnet.py`: Generación URLs para Dialnet
+6. `scripts/6_find_missing_reports.py`: Verificación de completitud de informes Dialnet
 
 **Scripts de enriquecimiento:**
 - `scripts/openalex.py`: Enriquecimiento con datos de OpenAlex (sobre JUOJS)
 
-**Documentación:** Ver `FLUJO_METODOLOGICO.md` para orden de ejecución
+#### 2.4.4 Orden de Ejecución del Flujo Metodológico
 
-#### 2.4.4 Enriquecimiento con OpenAlex
+**1. Procesamiento Base (Nivel Superior)**
+```bash
+# Separar beacon por tipo de aplicación
+cd Chile/
+python3 scripts/1_split_beacon.py
+
+# Análisis global OJS
+Rscript scripts/2_analisis_ojs_mundial.R
+```
+
+**2. Análisis Chile - Completo**
+```bash
+cd Chile/
+# Generar dataset completo de Chile (todos los criterios de país)
+Rscript scripts/3_analisis_chile.R
+# Genera: visualizations/chile_todas_instalaciones.csv
+```
+
+**3. Análisis Chile - JUOJS (Dataset Principal)**
+```bash
+cd Chile/
+# Filtrar solo instalaciones activas (>5 pub/2023)
+Rscript scripts/4_chile_juojs_filtrado.R
+# Genera: visualizations/chile_juojs_activas.csv (DATASET PRINCIPAL)
+```
+
+**4. Evaluación Dialnet**
+```bash
+cd Chile/
+# Generar URLs OAI desde dataset JUOJS
+python3 scripts/5_generar_urls_dialnet.py
+# Genera: visualizations/chile_oai_urls_limpio.csv
+
+# Evaluación manual en Dialnet Nexus (proceso externo)
+# Descarga de informes HTML en carpeta dialnet/
+
+# Verificar completitud de informes descargados
+python3 scripts/6_find_missing_reports.py
+```
+
+**5. Enriquecimiento con APIs (Futuro)**
+```bash
+cd Chile/
+# OpenAlex (sobre dataset JUOJS)
+python3 scripts/openalex_juojs.py
+
+# Otras APIs (sobre dataset JUOJS)
+# ...
+```
+
+#### 2.4.5 Archivos Principales del Flujo
+
+**Datasets Base:**
+- `../../beacon.csv` - Dataset original PKP Beacon
+- `../../beacon_ojs.csv` - Solo aplicaciones OJS
+
+**Datasets Chile:**
+- `visualizations/chile_todas_instalaciones.csv` - Todas las instalaciones (399)
+- **`visualizations/chile_juojs_activas.csv`** - **DATASET PRINCIPAL** (JUOJS activas)
+
+**Evaluación Dialnet:**
+- `visualizations/chile_oai_urls_limpio.csv` - URLs para evaluación
+- `dialnet/*.html` - Informes de calidad descargados
+
+**Archivos Deprecated:**
+- `deprecated/scripts/` - Scripts experimentales
+- `deprecated/visualizations/` - Archivos de prueba
+
+#### 2.4.6 Principios Metodológicos
+
+1. **Dataset Principal**: `chile_juojs_activas.csv` (instalaciones con >5 pub/2023)
+2. **Consistencia**: Todos los análisis parten del mismo dataset JUOJS
+3. **Trazabilidad**: Cada paso genera archivos intermedios verificables
+4. **Reproducibilidad**: Scripts documentados y ordenados secuencialmente
+
+#### 2.4.7 Enriquecimiento con OpenAlex
 
 **Proceso:**
 1. Consulta API de OpenAlex por ISSN (respetando límites: 6 req/seg)
@@ -112,7 +207,7 @@ Jerarquía de fuentes para asignación de países:
    - **Índice de visibilidad ajustado:** citaciones / artículos indexados en OpenAlex
    - **Tasa de indexación:** artículos en OpenAlex / total artículos
 
-#### 2.4.5 Particularidad Metodológica: URLs de Instalación vs. Revistas
+#### 2.4.8 Particularidad Metodológica: URLs de Instalación vs. Revistas
 
 **Problema identificado:** El dataset contiene URLs generales de instalación (`/index/oai`) que sirven metadatos de múltiples revistas, diferenciadas por `set_spec`.
 
@@ -128,7 +223,7 @@ Jerarquía de fuentes para asignación de países:
 - Eliminación automática de duplicados por dominio
 - Generación de URLs OAI estándar
 
-#### 2.4.6 Proceso de Evaluación en Dialnet
+#### 2.4.9 Proceso de Evaluación en Dialnet
 
 **Fuente de datos:**
 - Dataset base: `chile_juojs_activas.csv` (instalaciones JUOJS filtradas)
@@ -156,7 +251,7 @@ Jerarquía de fuentes para asignación de países:
 - Normalización de extensiones de dominio (.com → .cl)
 - Eliminación de duplicados identificados
 - Escape de comas en mensajes de error para compatibilidad CSV
-- Script de verificación: `scripts/find_missing_reports.py`
+- Script de verificación: `scripts/6_find_missing_reports.py`
 
 **Resultados del proceso:**
 - **Dataset base JUOJS:** Instalaciones activas filtradas (>5 pub/2023)
@@ -401,6 +496,20 @@ Paasi, A. (2015). Academic Capitalism and the Geopolitics of Knowledge. In J. Ag
 
 ---
 
+## Colaboraciones
+
+**Geraldine Trujillo**
+- Procesamiento y descarga manual de informes Dialnet
+- Evaluación sistemática de URLs en validador Nexus
+- Organización y carga de archivos HTML
+
+**Claude (Anthropic)**
+- Procesamiento y optimización de scripts de análisis
+- Apoyo en redacción y estructuración del informe
+- Asistencia técnica vía Claude Web y Amazon Q Developer
+
+---
+
 ## Anexos
 
 ### Anexo A: Diccionario de Datos del PKP Beacon
@@ -428,13 +537,16 @@ Paasi, A. (2015). Academic Capitalism and the Geopolitics of Knowledge. In J. Ag
 ### Anexo B: Scripts Desarrollados
 
 #### Scripts de análisis general
-- `scripts/split_beacon.py`: Separación por aplicación
-- `scripts/analisis_ojs_mundial.R`: Análisis global
+- `scripts/1_split_beacon.py`: Separación por aplicación
+- `scripts/2_analisis_ojs_mundial.R`: Análisis global
 - `scripts/visualize_network_enhanced.py`: Análisis de redes
 - `scripts/visualize_interactive.py`: Dashboards interactivos
 
 #### Scripts específicos de Chile
-- `scripts/analisis_chile.R`: Análisis chileno
+- `scripts/3_analisis_chile.R`: Análisis chileno completo
+- `scripts/4_chile_juojs_filtrado.R`: Filtrado JUOJS (dataset principal)
+- `scripts/5_generar_urls_dialnet.py`: Generación URLs Dialnet
+- `scripts/6_find_missing_reports.py`: Verificación completitud informes Dialnet
 - `scripts/filtrar_chile_visibilidad.py`: Filtrado con OpenAlex
 - `scripts/extraer_urls_chile.py`: Extracción URLs
 - `scripts/limpiar_urls_duplicadas.py`: Limpieza duplicados
