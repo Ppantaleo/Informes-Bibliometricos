@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="procesamiento-de-datos" class="level4">
 <h4 class="anchored" data-anchor-id="procesamiento-de-datos">2.4.3 Procesamiento de Datos</h4>
-<p><strong>Flujo metodológico principal:</strong> 1. <code>scripts/split_beacon.py</code>: Separación por tipo de aplicación 2. <code>scripts/analisis_ojs_mundial.R</code>: Análisis descriptivo global 3. <code>scripts/analisis_chile.R</code>: Análisis completo de Chile (todos los criterios) 4. <code>scripts/chile_juojs_filtrado.R</code>: <strong>Filtrado JUOJS</strong> (dataset principal) 5. <code>scripts/generar_urls_dialnet.py</code>: Generación URLs para Dialnet 6. <code>scripts/find_missing_reports.py</code>: Verificación de informes Dialnet 7. <code>scripts/analizar_uchile_errors.py</code>: Análisis de errores OAI Universidad de Chile</p>
+<p><strong>Flujo metodológico principal:</strong> 1. <code>scripts/1_split_beacon.py</code>: Separación por tipo de aplicación 2. <code>scripts/2_analisis_ojs_mundial.R</code>: Análisis descriptivo global 3. <code>scripts/3_analisis_chile.R</code>: Análisis completo de Chile (todos los criterios) 4. <code>scripts/4_chile_juojs_filtrado.R</code>: <strong>Filtrado JUOJS</strong> (dataset principal) 5. <code>scripts/5_generar_urls_dialnet.py</code>: Generación URLs para Dialnet 6. <code>scripts/6_find_missing_reports.py</code>: Verificación de completitud de informes Dialnet</p>
 <p><strong>Scripts de enriquecimiento:</strong> - <code>scripts/openalex.py</code>: Enriquecimiento con datos de OpenAlex (sobre JUOJS)</p>
 </section>
 <section id="orden-de-ejecución-del-flujo-metodológico" class="level4">
@@ -176,31 +176,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>1. Procesamiento Base (Nivel Superior)</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar beacon por tipo de aplicación</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Chile/</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/split_beacon.py</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/1_split_beacon.py</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis global OJS</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/analisis_ojs_mundial.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/2_analisis_ojs_mundial.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Análisis Chile - Completo</strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Chile/</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar dataset completo de Chile (todos los criterios de país)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/analisis_chile.R</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/3_analisis_chile.R</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_todas_instalaciones.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>3. Análisis Chile - JUOJS (Dataset Principal)</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Chile/</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar solo instalaciones activas (&gt;5 pub/2023)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/chile_juojs_filtrado.R</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/4_chile_juojs_filtrado.R</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_juojs_activas.csv (DATASET PRINCIPAL)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>4. Evaluación Dialnet</strong></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Chile/</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar URLs OAI desde dataset JUOJS</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/generar_urls_dialnet.py</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/5_generar_urls_dialnet.py</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_oai_urls_limpio.csv</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluación manual en Dialnet Nexus (proceso externo)</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Descarga de informes HTML en carpeta dialnet/</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar completitud</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/find_missing_reports.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar completitud de informes descargados</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/6_find_missing_reports.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>5. Enriquecimiento con APIs (Futuro)</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Chile/</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># OpenAlex (sobre dataset JUOJS)</span></span>
@@ -211,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="archivos-principales-del-flujo" class="level4">
 <h4 class="anchored" data-anchor-id="archivos-principales-del-flujo">2.4.5 Archivos Principales del Flujo</h4>
-<p><strong>Datasets Base:</strong> - <code>../../beacon.csv</code> - Dataset original PKP Beacon - <code>../../beacon_ojs.csv</code> - Solo aplicaciones OJS</p>
+<p><strong>Datasets Base:</strong> - <code>../beacon.csv</code> - Dataset original PKP Beacon - <code>../beacon_ojs.csv</code> - Solo aplicaciones OJS</p>
 <p><strong>Datasets Chile:</strong> - <code>visualizations/chile_todas_instalaciones.csv</code> - Todas las instalaciones (399) - <strong><code>visualizations/chile_juojs_activas.csv</code></strong> - <strong>DATASET PRINCIPAL</strong> (JUOJS activas)</p>
 <p><strong>Evaluación Dialnet:</strong> - <code>visualizations/chile_oai_urls_limpio.csv</code> - URLs para evaluación - <code>dialnet/*.html</code> - Informes de calidad descargados</p>
 <p><strong>Archivos Deprecated:</strong> - <code>deprecated/scripts/</code> - Scripts experimentales - <code>deprecated/visualizations/</code> - Archivos de prueba</p>
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Metodología de evaluación:</strong> 1. <strong>Acceso manual:</strong> Ingreso individual a cada URL en el validador Nexus de Dialnet 2. <strong>Descarga de informes:</strong> Obtención manual de informes HTML de calidad cuando el sistema los genera exitosamente 3. <strong>Registro de errores:</strong> Documentación de mensajes de error del validador Nexus</p>
 <p><strong>Organización de resultados:</strong> - <strong>Informes exitosos:</strong> Almacenados en carpeta <code>dialnet/</code> con nomenclatura basada en dominio (ej: <code>revistas.uchile.cl.html</code>) - <strong>Registro de errores:</strong> Documentados en columna <code>mensaje_error</code> del archivo <code>chile_oai_urls_limpio.csv</code> - <strong>Criterio de éxito:</strong> URLs sin mensaje de error indican generación exitosa de informe HTML</p>
 <p><strong>Tipos de errores identificados:</strong> - “Error al consultar la configuración de la revista: Error al leer el XML” - “La url no corresponde a una revista recolectable por OAI” - “informe de calidad no disponible por error al recolectar por OAI-PMH” - “no carga, se queda en comprobando URL”</p>
-<p><strong>Sanitización de datos:</strong> - Corrección de nomenclatura de archivos HTML (eliminación de errores de tipeo y concatenación) - Normalización de extensiones de dominio (.com → .cl) - Eliminación de duplicados identificados - Escape de comas en mensajes de error para compatibilidad CSV - Script de verificación: <code>scripts/find_missing_reports.py</code></p>
+<p><strong>Sanitización de datos:</strong> - Corrección de nomenclatura de archivos HTML (eliminación de errores de tipeo y concatenación) - Normalización de extensiones de dominio (.com → .cl) - Eliminación de duplicados identificados - Escape de comas en mensajes de error para compatibilidad CSV - Script de verificación: <code>scripts/6_find_missing_reports.py</code></p>
 <p><strong>Resultados del proceso:</strong> - <strong>Dataset base JUOJS:</strong> Instalaciones activas filtradas (&gt;5 pub/2023) - <strong>URLs generadas:</strong> Desde dataset JUOJS con eliminación automática de duplicados - <strong>Evaluación manual:</strong> Proceso en Dialnet Nexus - <strong>Cobertura completa:</strong> 100% de URLs sin errores tienen informe HTML</p>
 <hr>
 </section>
@@ -256,16 +256,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="distribución-general">3.1.1 Distribución General</h4>
 <ul>
 <li><strong>Total instalaciones procesadas:</strong> 67,138</li>
+<li><strong>Instalaciones OJS:</strong> 66,527 (99.1%)</li>
+<li><strong>Instalaciones OMP:</strong> 562 (0.8%)</li>
+<li><strong>Instalaciones OPS:</strong> 49 (0.1%)</li>
 <li><strong>Países representados:</strong> 195</li>
-<li><strong>Aplicaciones:</strong> OJS (mayoría), OMP, OPS</li>
 </ul>
 </section>
-<section id="enriquecimiento-con-openalex-1" class="level4">
-<h4 class="anchored" data-anchor-id="enriquecimiento-con-openalex-1">3.1.2 Enriquecimiento con OpenAlex</h4>
+<section id="instalaciones-ojs-activas-globalmente" class="level4">
+<h4 class="anchored" data-anchor-id="instalaciones-ojs-activas-globalmente">3.1.2 Instalaciones OJS Activas Globalmente</h4>
 <ul>
-<li><strong>Total revistas procesadas:</strong> 55,643</li>
-<li><strong>Revistas indexadas en OpenAlex:</strong> 36.2% promedio</li>
-<li><strong>Dataset resultante:</strong> <code>visualizations/beacon_ojs_con_visibilidad.csv</code></li>
+<li><strong>Total instalaciones OJS activas globalmente:</strong> 49,790 (74.8% del total)</li>
+<li><strong>Chile posición mundial:</strong> 25º lugar con 311 instalaciones activas</li>
+<li><strong>Total publicaciones 2023 (global):</strong> 2,018,793</li>
+<li><strong>Países con instalaciones activas:</strong> 153</li>
 </ul>
 </section>
 </section>
@@ -274,17 +277,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="estadísticas-generales" class="level4">
 <h4 class="anchored" data-anchor-id="estadísticas-generales">3.2.1 Estadísticas Generales</h4>
 <ul>
-<li><strong>Total instalaciones identificadas:</strong> 399 (dataset completo)</li>
-<li><strong>Instalaciones activas JUOJS (&gt;5 pub/2023):</strong> 312 (78.2%)</li>
-<li><strong>Dataset principal de análisis:</strong> 312 instalaciones activas</li>
-<li><strong>Total publicaciones 2023:</strong> 12,778</li>
-<li><strong>Promedio por instalación activa:</strong> 41.0 artículos</li>
-<li><strong>Total histórico acumulado:</strong> 134,204 publicaciones</li>
+<li><strong>Total instalaciones identificadas:</strong> 396 (dataset completo)</li>
+<li><strong>Instalaciones activas JUOJS (&gt;5 pub/2023):</strong> 309 (78.0%)</li>
+<li><strong>Dataset principal de análisis:</strong> 309 instalaciones activas</li>
+<li><strong>Total publicaciones 2023:</strong> 12,730 (solo JUOJS activas)</li>
+<li><strong>Promedio por instalación activa:</strong> 41.2 artículos</li>
+<li><strong>Total histórico acumulado:</strong> 133,931 publicaciones</li>
 </ul>
 </section>
 <section id="distribución-institucional" class="level4">
 <h4 class="anchored" data-anchor-id="distribución-institucional">3.2.2 Distribución Institucional</h4>
-<p><strong>Principales instituciones:</strong> - Universidad de Chile (uchile.cl): 68 instalaciones activas - Pontificia Universidad Católica de Chile (uc.cl): 28 instalaciones activas - Universidad de Concepción (udec.cl): 14 instalaciones activas - Universidad de Valparaíso (uv.cl): 14 instalaciones activas - Universidad Austral de Chile (uach.cl): 7 instalaciones activas - Universidad de Santiago de Chile (usach.cl): 7 instalaciones activas</p>
+<p><strong>Principales instituciones:</strong> - Universidad de Chile (uchile.cl): 68 instalaciones activas - Pontificia Universidad Católica de Chile (uc.cl): 28 instalaciones activas - Universidad de Concepción (udec.cl): 13 instalaciones activas - Universidad de Valparaíso (uv.cl): 14 instalaciones activas - Universidad Austral de Chile (uach.cl): 7 instalaciones activas - Universidad de Santiago de Chile (usach.cl): 7 instalaciones activas</p>
 </section>
 <section id="top-10-instalaciones-más-productivas-2023" class="level4">
 <h4 class="anchored" data-anchor-id="top-10-instalaciones-más-productivas-2023">3.2.3 Top 10 Instalaciones Más Productivas (2023)</h4>
@@ -349,12 +352,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="evaluación-en-dialnet" class="level4">
 <h4 class="anchored" data-anchor-id="evaluación-en-dialnet">3.2.5 Evaluación en Dialnet</h4>
 <ul>
-<li><strong>Dataset base:</strong> 312 instalaciones JUOJS activas</li>
-<li><strong>URLs procesadas:</strong> 204 instalaciones únicas (108 duplicados eliminados)</li>
-<li><strong>Cobertura dataset JUOJS:</strong> 65.4% (204/312)</li>
+<li><strong>Dataset base:</strong> 309 instalaciones JUOJS activas</li>
+<li><strong>URLs procesadas:</strong> 202 instalaciones únicas (107 duplicados eliminados)</li>
+<li><strong>Cobertura dataset JUOJS:</strong> 65.4% (202/309)</li>
 <li><strong>URLs generadas:</strong> Listas para evaluación manual en Dialnet Nexus</li>
 <li><strong>Metodología:</strong> Proceso manual de evaluación URL por URL</li>
-<li><strong>Archivo generado:</strong> <code>chile_oai_urls_limpio.csv</code> con 204 URLs JUOJS</li>
+<li><strong>Archivo generado:</strong> <code>chile_oai_urls_limpio.csv</code> con 202 URLs JUOJS</li>
 <li><strong>URLs uchile.cl:</strong> 57 instalaciones (todas JUOJS activas)</li>
 </ul>
 </section>
@@ -362,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="análisis-específico-configuración-oai-en-universidad-de-chile">3.2.6 Análisis Específico: Configuración OAI en Universidad de Chile</h4>
 <p><strong>Problemática identificada:</strong> Las URLs de instalaciones OJS del dominio <code>uchile.cl</code> presentan un patrón sistemático de errores de configuración OAI-PMH.</p>
 <p><strong>Hallazgos:</strong> - <strong>Total URLs uchile.cl:</strong> 64 instalaciones (dataset completo) - <strong>Instalaciones activas (JUOJS):</strong> 57 (criterio &gt;5 pub/2023) - <strong>URLs con errores:</strong> 63 (98.4%) - <strong>URLs funcionales:</strong> 1 (1.6% - revistasdex.uchile.cl) - <strong>Error predominante:</strong> “La url no corresponde a una revista recolectable por OAI” (63 casos)</p>
-<p><strong>Nota metodológica:</strong> Flujo metodológico limpio implementado: - <strong>Dataset base:</strong> <code>chile_juojs_activas.csv</code> (312 instalaciones JUOJS) - <strong>Eliminación de duplicados:</strong> 108 duplicados removidos automáticamente - <strong>URLs únicas:</strong> 204 instalaciones para evaluación Dialnet - <strong>uchile.cl:</strong> 57 URLs (todas JUOJS activas, sin instalaciones inactivas) - <strong>Metodología consistente:</strong> Todos los análisis posteriores usarán este dataset base</p>
+<p><strong>Nota metodológica:</strong> Flujo metodológico limpio implementado: - <strong>Dataset base:</strong> <code>chile_juojs_activas.csv</code> (309 instalaciones JUOJS) - <strong>Eliminación de duplicados:</strong> 107 duplicados removidos automáticamente - <strong>URLs únicas:</strong> 202 instalaciones para evaluación Dialnet - <strong>uchile.cl:</strong> 57 URLs (todas JUOJS activas, sin instalaciones inactivas) - <strong>Metodología consistente:</strong> Todos los análisis posteriores usarán este dataset base</p>
 <p><strong>Análisis técnico:</strong> - <strong>Configuración RESTful:</strong> Las URLs beacon (<code>/index.php/index/oai</code>) redirigen al portal principal <code>https://revistas.uchile.cl/</code> - <strong>URLs OAI reales:</strong> Requieren identificador específico de revista (ej: <code>/index.php/RHCUC/oai</code>) - <strong>Error XML detectado:</strong> Contenido malformado en metadatos OAI-PMH (línea 540, columna 278) - <strong>Causa probable:</strong> Configuración centralizada con múltiples instalaciones OJS independientes</p>
 <p><strong>Implicaciones:</strong> - Las revistas existen y son accesibles individualmente - El PKP Beacon detecta correctamente múltiples instalaciones - La configuración OAI-PMH requiere ajustes para compatibilidad con validadores externos - No implica ausencia de contenido recolectable, sino problemas de configuración técnica</p>
 <p><strong>Script de análisis:</strong> <code>scripts/analizar_uchile_errors.py</code></p>
@@ -626,8 +629,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="scripts-de-análisis-general" class="level4">
 <h4 class="anchored" data-anchor-id="scripts-de-análisis-general">Scripts de análisis general</h4>
 <ul>
-<li><code>scripts/split_beacon.py</code>: Separación por aplicación</li>
-<li><code>scripts/analisis_ojs_mundial.R</code>: Análisis global</li>
+<li><code>scripts/1_split_beacon.py</code>: Separación por aplicación</li>
+<li><code>scripts/2_analisis_ojs_mundial.R</code>: Análisis global</li>
 <li><code>scripts/visualize_network_enhanced.py</code>: Análisis de redes</li>
 <li><code>scripts/visualize_interactive.py</code>: Dashboards interactivos</li>
 </ul>
@@ -635,7 +638,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="scripts-específicos-de-chile" class="level4">
 <h4 class="anchored" data-anchor-id="scripts-específicos-de-chile">Scripts específicos de Chile</h4>
 <ul>
-<li><code>scripts/analisis_chile.R</code>: Análisis chileno</li>
+<li><code>scripts/3_analisis_chile.R</code>: Análisis chileno completo</li>
+<li><code>scripts/4_chile_juojs_filtrado.R</code>: Filtrado JUOJS (dataset principal)</li>
+<li><code>scripts/5_generar_urls_dialnet.py</code>: Generación URLs Dialnet</li>
+<li><code>scripts/6_find_missing_reports.py</code>: Verificación completitud informes Dialnet</li>
 <li><code>scripts/filtrar_chile_visibilidad.py</code>: Filtrado con OpenAlex</li>
 <li><code>scripts/extraer_urls_chile.py</code>: Extracción URLs</li>
 <li><code>scripts/limpiar_urls_duplicadas.py</code>: Limpieza duplicados</li>

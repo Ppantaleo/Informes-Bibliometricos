@@ -3,9 +3,9 @@ import pandas as pd
 # ==========================================
 # CONFIGURACIÓN
 # ==========================================
-INPUT_FILE = '../../beacon.csv'
-OUTPUT_OJS = '../../beacon_ojs.csv'
-OUTPUT_OMP = '../../beacon_omp.csv'
+INPUT_FILE = '../beacon.csv'
+OUTPUT_OJS = '../beacon_ojs.csv'
+OUTPUT_OMP = '../beacon_omp.csv'
 
 print("="*60)
 print("SEPARANDO BEACON POR TIPO DE APLICACIÓN")
