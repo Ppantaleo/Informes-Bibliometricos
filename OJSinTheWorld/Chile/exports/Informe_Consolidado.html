@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Patricio Pantaleo">
+<meta name="dcterms.date" content="2025-11-22">
+
+<title>Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Informe_Consolidado_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Informe_Consolidado_files/libs/quarto-html/quarto.js"></script>
+<script src="Informe_Consolidado_files/libs/quarto-html/popper.min.js"></script>
+<script src="Informe_Consolidado_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Informe_Consolidado_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Informe_Consolidado_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Informe_Consolidado_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Informe_Consolidado_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Informe_Consolidado_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Informe_Consolidado_files/libs/bootstrap/bootstrap-e2cc47cda7359ceb420df2d6c9550356.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp" id="toc-análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp" class="nav-link active" data-scroll-target="#análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp">Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</a>
+  <ul class="collapse">
+  <li><a href="#informe-consolidado-con-validación-beacon-v6-2024-2025" id="toc-informe-consolidado-con-validación-beacon-v6-2024-2025" class="nav-link" data-scroll-target="#informe-consolidado-con-validación-beacon-v6-2024-2025">Informe Consolidado con Validación Beacon v6 (2024-2025)</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">1. Introducción</a>
+  <ul class="collapse">
+  <li><a href="#contexto" id="toc-contexto" class="nav-link" data-scroll-target="#contexto">1.1 Contexto</a></li>
+  <li><a href="#antecedentes" id="toc-antecedentes" class="nav-link" data-scroll-target="#antecedentes">1.2 Antecedentes</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">1.3 Objetivos</a></li>
+  <li><a href="#marco-conceptual" id="toc-marco-conceptual" class="nav-link" data-scroll-target="#marco-conceptual">1.4 Marco Conceptual</a></li>
+  </ul></li>
+  <li><a href="#materiales-y-métodos" id="toc-materiales-y-métodos" class="nav-link" data-scroll-target="#materiales-y-métodos">2. Materiales y Métodos</a>
+  <ul class="collapse">
+  <li><a href="#fuente-de-datos" id="toc-fuente-de-datos" class="nav-link" data-scroll-target="#fuente-de-datos">2.1 Fuente de Datos</a></li>
+  <li><a href="#metodología-de-análisis-actualizada" id="toc-metodología-de-análisis-actualizada" class="nav-link" data-scroll-target="#metodología-de-análisis-actualizada">2.2 Metodología de Análisis Actualizada</a></li>
+  </ul></li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">3. Resultados</a>
+  <ul class="collapse">
+  <li><a href="#análisis-global-v6" id="toc-análisis-global-v6" class="nav-link" data-scroll-target="#análisis-global-v6">3.1 Análisis Global v6</a></li>
+  <li><a href="#análisis-específico-de-chile---validación-v6" id="toc-análisis-específico-de-chile---validación-v6" class="nav-link" data-scroll-target="#análisis-específico-de-chile---validación-v6">3.2 Análisis Específico de Chile - Validación v6</a></li>
+  <li><a href="#validación-cruzada-comparación-v5-vs-v6" id="toc-validación-cruzada-comparación-v5-vs-v6" class="nav-link" data-scroll-target="#validación-cruzada-comparación-v5-vs-v6">3.3 Validación Cruzada: Comparación v5 vs v6</a></li>
+  <li><a href="#archivos-generados-v6" id="toc-archivos-generados-v6" class="nav-link" data-scroll-target="#archivos-generados-v6">3.4 Archivos Generados v6</a></li>
+  <li><a href="#análisis-de-calidad-editorial-informes-dialnet" id="toc-análisis-de-calidad-editorial-informes-dialnet" class="nav-link" data-scroll-target="#análisis-de-calidad-editorial-informes-dialnet">3.5 Análisis de Calidad Editorial: Informes Dialnet</a></li>
+  </ul></li>
+  <li><a href="#discusión" id="toc-discusión" class="nav-link" data-scroll-target="#discusión">4. Discusión</a>
+  <ul class="collapse">
+  <li><a href="#validación-del-ecosistema-global" id="toc-validación-del-ecosistema-global" class="nav-link" data-scroll-target="#validación-del-ecosistema-global">4.1 Validación del Ecosistema Global</a></li>
+  <li><a href="#caracterización-del-ecosistema-chileno-actualizada" id="toc-caracterización-del-ecosistema-chileno-actualizada" class="nav-link" data-scroll-target="#caracterización-del-ecosistema-chileno-actualizada">4.2 Caracterización del Ecosistema Chileno Actualizada</a></li>
+  <li><a href="#implicaciones-para-indexación-en-dialnet" id="toc-implicaciones-para-indexación-en-dialnet" class="nav-link" data-scroll-target="#implicaciones-para-indexación-en-dialnet">4.3 Implicaciones para Indexación en Dialnet</a></li>
+  <li><a href="#contribución-al-acceso-abierto-regional" id="toc-contribución-al-acceso-abierto-regional" class="nav-link" data-scroll-target="#contribución-al-acceso-abierto-regional">4.4 Contribución al Acceso Abierto Regional</a></li>
+  <li><a href="#limitaciones-y-consideraciones" id="toc-limitaciones-y-consideraciones" class="nav-link" data-scroll-target="#limitaciones-y-consideraciones">4.5 Limitaciones y Consideraciones</a></li>
+  </ul></li>
+  <li><a href="#limitaciones-del-estudio" id="toc-limitaciones-del-estudio" class="nav-link" data-scroll-target="#limitaciones-del-estudio">5. Limitaciones del Estudio</a>
+  <ul class="collapse">
+  <li><a href="#limitaciones-metodológicas" id="toc-limitaciones-metodológicas" class="nav-link" data-scroll-target="#limitaciones-metodológicas">5.1 Limitaciones Metodológicas</a></li>
+  <li><a href="#limitaciones-técnicas" id="toc-limitaciones-técnicas" class="nav-link" data-scroll-target="#limitaciones-técnicas">5.2 Limitaciones Técnicas</a></li>
+  <li><a href="#limitaciones-de-alcance" id="toc-limitaciones-de-alcance" class="nav-link" data-scroll-target="#limitaciones-de-alcance">5.3 Limitaciones de Alcance</a></li>
+  </ul></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">6. Conclusiones</a>
+  <ul class="collapse">
+  <li><a href="#validación-del-ecosistema-robusto" id="toc-validación-del-ecosistema-robusto" class="nav-link" data-scroll-target="#validación-del-ecosistema-robusto">5.1 Validación del Ecosistema Robusto</a></li>
+  <li><a href="#liderazgo-institucional-confirmado" id="toc-liderazgo-institucional-confirmado" class="nav-link" data-scroll-target="#liderazgo-institucional-confirmado">5.2 Liderazgo Institucional Confirmado</a></li>
+  <li><a href="#crecimiento-sostenido-validado" id="toc-crecimiento-sostenido-validado" class="nav-link" data-scroll-target="#crecimiento-sostenido-validado">5.3 Crecimiento Sostenido Validado</a></li>
+  <li><a href="#metodología-consolidada" id="toc-metodología-consolidada" class="nav-link" data-scroll-target="#metodología-consolidada">5.4 Metodología Consolidada</a></li>
+  <li><a href="#posicionamiento-global" id="toc-posicionamiento-global" class="nav-link" data-scroll-target="#posicionamiento-global">5.5 Posicionamiento Global</a></li>
+  </ul></li>
+  <li><a href="#próximos-pasos" id="toc-próximos-pasos" class="nav-link" data-scroll-target="#próximos-pasos">7. Próximos Pasos</a>
+  <ul class="collapse">
+  <li><a href="#evaluación-dialnet" id="toc-evaluación-dialnet" class="nav-link" data-scroll-target="#evaluación-dialnet">7.1 Evaluación Dialnet</a></li>
+  <li><a href="#enriquecimiento-continuo" id="toc-enriquecimiento-continuo" class="nav-link" data-scroll-target="#enriquecimiento-continuo">6.2 Enriquecimiento Continuo</a></li>
+  <li><a href="#análisis-comparativo-regional" id="toc-análisis-comparativo-regional" class="nav-link" data-scroll-target="#análisis-comparativo-regional">6.3 Análisis Comparativo Regional</a></li>
+  </ul></li>
+  <li><a href="#agradecimientos" id="toc-agradecimientos" class="nav-link" data-scroll-target="#agradecimientos">Agradecimientos</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a>
+  <ul class="collapse">
+  <li><a href="#estudios-sobre-juojs-y-pkp-beacon" id="toc-estudios-sobre-juojs-y-pkp-beacon" class="nav-link" data-scroll-target="#estudios-sobre-juojs-y-pkp-beacon">Estudios sobre JUOJS y PKP Beacon</a></li>
+  <li><a href="#estudios-sobre-indexación-y-acceso-abierto" id="toc-estudios-sobre-indexación-y-acceso-abierto" class="nav-link" data-scroll-target="#estudios-sobre-indexación-y-acceso-abierto">Estudios sobre indexación y acceso abierto</a></li>
+  <li><a href="#estudios-sobre-publicación-científica-chilena-y-latinoamericana" id="toc-estudios-sobre-publicación-científica-chilena-y-latinoamericana" class="nav-link" data-scroll-target="#estudios-sobre-publicación-científica-chilena-y-latinoamericana">Estudios sobre publicación científica chilena y latinoamericana</a></li>
+  <li><a href="#marco-teórico-y-metodológico" id="toc-marco-teórico-y-metodológico" class="nav-link" data-scroll-target="#marco-teórico-y-metodológico">Marco teórico y metodológico</a></li>
+  <li><a href="#recursos-técnicos" id="toc-recursos-técnicos" class="nav-link" data-scroll-target="#recursos-técnicos">Recursos técnicos</a></li>
+  <li><a href="#estándares-y-criterios" id="toc-estándares-y-criterios" class="nav-link" data-scroll-target="#estándares-y-criterios">Estándares y criterios</a></li>
+  <li><a href="#datasets-utilizados" id="toc-datasets-utilizados" class="nav-link" data-scroll-target="#datasets-utilizados">Datasets utilizados</a></li>
+  </ul></li>
+  <li><a href="#colaboraciones" id="toc-colaboraciones" class="nav-link" data-scroll-target="#colaboraciones">Colaboraciones</a></li>
+  <li><a href="#anexos" id="toc-anexos" class="nav-link" data-scroll-target="#anexos">Anexos</a>
+  <ul class="collapse">
+  <li><a href="#anexo-a-diccionario-de-datos-del-pkp-beacon" id="toc-anexo-a-diccionario-de-datos-del-pkp-beacon" class="nav-link" data-scroll-target="#anexo-a-diccionario-de-datos-del-pkp-beacon">Anexo A: Diccionario de Datos del PKP Beacon</a></li>
+  <li><a href="#anexo-b-scripts-desarrollados" id="toc-anexo-b-scripts-desarrollados" class="nav-link" data-scroll-target="#anexo-b-scripts-desarrollados">Anexo B: Scripts Desarrollados</a></li>
+  <li><a href="#anexo-c-proceso-de-evaluación-en-dialnet" id="toc-anexo-c-proceso-de-evaluación-en-dialnet" class="nav-link" data-scroll-target="#anexo-c-proceso-de-evaluación-en-dialnet">Anexo C: Proceso de Evaluación en Dialnet</a></li>
+  <li><a href="#anexo-d-reproducibilidad" id="toc-anexo-d-reproducibilidad" class="nav-link" data-scroll-target="#anexo-d-reproducibilidad">Anexo D: Reproducibilidad</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Informe_Consolidado.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="Informe_Consolidado.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</h1>
+<p class="subtitle lead">Informe Consolidado con Validación Beacon v6 (2024-2025)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Patricio Pantaleo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp" class="level1">
+<h1>Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</h1>
+<section id="informe-consolidado-con-validación-beacon-v6-2024-2025" class="level2">
+<h2 class="anchored" data-anchor-id="informe-consolidado-con-validación-beacon-v6-2024-2025">Informe Consolidado con Validación Beacon v6 (2024-2025)</h2>
+</section>
+<section id="resumen" class="level2">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+<p>Este estudio analiza el ecosistema global de revistas académicas que utilizan Open Journal Systems (OJS) mediante el dataset del PKP Beacon, con un enfoque específico en Chile. Se procesaron <strong>86,282 instalaciones OJS globales</strong> (Beacon v6), de las cuales <strong>432 corresponden a Chile</strong>. El análisis incluye validación cruzada entre versiones del beacon y enriquecimiento con datos de OpenAlex para evaluar visibilidad e impacto académico. La <strong>validación v6</strong> confirma <strong>319 instalaciones chilenas activas</strong> con criterio actualizado (&gt;5 pub/2024), representando <strong>14,162 publicaciones en 2024</strong> con un <strong>crecimiento del 16.5%</strong> respecto a 2023.</p>
+<hr>
+</section>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<section id="contexto" class="level3">
+<h3 class="anchored" data-anchor-id="contexto">1.1 Contexto</h3>
+<p>El Public Knowledge Project (PKP) desarrolla software de código abierto para la publicación académica, siendo Open Journal Systems (OJS) su aplicación más utilizada globalmente. El PKP Beacon es un sistema de recopilación de datos que permite identificar, inspeccionar y catalogar instalaciones públicas de este software.</p>
+</section>
+<section id="antecedentes" class="level3">
+<h3 class="anchored" data-anchor-id="antecedentes">1.2 Antecedentes</h3>
+<p><strong>Estudios previos:</strong></p>
+<p><strong>Khanna et al.&nbsp;(2022):</strong> - Dataset 2020: 25,671 revistas - 36.5% de 70,214 beacons OJS operativos - 996,000 artículos publicados en 2020 - 5.4 millones de artículos históricos acumulados</p>
+<p><strong>Khanna et al.&nbsp;(2024):</strong> - Dataset actualizado: 47,625 revistas con ISSN validados - Aumento del 98% respecto a 2020 - 2,962,418 artículos publicados entre 2020-2023 - 10.6 millones de artículos históricos totales</p>
+<p><strong>Beacon v6 (2024-2025):</strong> - <strong>86,282 instalaciones OJS globales</strong> (nuevo récord) - <strong>54,453 instalaciones activas</strong> en 2024 (63.1%) - <strong>2.36 millones de publicaciones</strong> en 2024 - <strong>Crecimiento global:</strong> +516,768 publicaciones vs 2023</p>
+</section>
+<section id="objetivos" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos">1.3 Objetivos</h3>
+<ol type="1">
+<li><strong>Analizar el ecosistema global</strong> de revistas que utilizan OJS con datos actualizados v6</li>
+<li><strong>Caracterizar las instalaciones chilenas</strong> y validar con criterios 2024</li>
+<li><strong>Evaluar la visibilidad académica</strong> mediante integración con OpenAlex</li>
+<li><strong>Preparar datos para evaluación</strong> en sistemas de indexación como Dialnet</li>
+</ol>
+</section>
+<section id="marco-conceptual" class="level3">
+<h3 class="anchored" data-anchor-id="marco-conceptual">1.4 Marco Conceptual</h3>
+<section id="juojs-journals-using-ojs" class="level4">
+<h4 class="anchored" data-anchor-id="juojs-journals-using-ojs">JUOJS (Journals Using OJS)</h4>
+<p>Las JUOJS emplean un PKP Beacon opcional que permite a PKP notificar sobre actualizaciones y transmite información de indexación incluyendo título, ISSN, número de artículos, títulos y resúmenes.</p>
+</section>
+<section id="criterio-de-revista-activa" class="level4">
+<h4 class="anchored" data-anchor-id="criterio-de-revista-activa">Criterio de revista activa</h4>
+<p>Se emplea el estándar del Directory of Open Access Journals (DOAJ) de <strong>cinco artículos al año</strong> para distinguir revistas con actividad editorial sostenida de instalaciones inactivas o en prueba. Este criterio, está establecido en Chavarro, D., Alperin, J. P., &amp; Willinsky, J. (2025) donde se dice:</p>
+<blockquote class="blockquote">
+<p>“This study relies on data gathered from the PKP Beacon, a feature introduced into OJS in 2015 that allows PKP to notify OJS users about security updates and software upgrades. The beacon also notifies PKP of the web location of each journal’s metadata harvesting API, which we subsequently used to collect journal metadata, such as the journal name and ISSN, and article metadata, such as titles, abstracts, publication dates, and DOIs. As in our previous study, we considered a journal to be “active” in a given year if it published at least five documents that year, a threshold established by the Directory of Open Access Journal (DOAJ) in 2020. We began with the OJS journal list updated in 2024 (Khanna et al., 2024). This updated list included 50,920 journals with an ISSN, and that were deemed to be active in 2023 (a 98% increase in the number reported for 2020; Khanna et al., 2022).”</p>
+</blockquote>
+<hr>
+</section>
+</section>
+</section>
+<section id="materiales-y-métodos" class="level2">
+<h2 class="anchored" data-anchor-id="materiales-y-métodos">2. Materiales y Métodos</h2>
+<section id="fuente-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="fuente-de-datos">2.1 Fuente de Datos</h3>
+<section id="dataset-principal-pkp-beacon-v6" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-principal-pkp-beacon-v6">2.1.1 Dataset Principal PKP Beacon v6</h4>
+<p><strong>Dataset:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). “Details of Publications Using Software by the Public Knowledge Project.” Harvard Dataverse.</p>
+<p><strong>Características v6:</strong> - <strong>Archivo:</strong> <code>beacon_v6.csv</code> (87,170 observaciones, 31 campos) - <strong>Instalaciones OJS:</strong> 86,282 (99.0%) - <strong>Instalaciones OMP:</strong> 810 (0.9%) - <strong>Instalaciones OPS:</strong> 78 (0.1%) - <strong>Nuevas columnas:</strong> - <code>record_count_2024</code> - Publicaciones 2024 - <code>record_count_2025</code> - Publicaciones 2025 - <code>region</code> - Región geográfica PKP - <code>admin_email</code> - Email de administrador - <code>country_doaj</code> - País según DOAJ</p>
+</section>
+<section id="dataset-pkp-beacon-v5-versión-inicial" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-pkp-beacon-v5-versión-inicial">2.1.2 Dataset PKP Beacon v5 (Versión Inicial)</h4>
+<p><strong>Dataset:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). “Details of Publications Using Software by the Public Knowledge Project.” Harvard Dataverse.</p>
+<p><strong>Características v5:</strong> - <strong>DOI:</strong> https://doi.org/10.7910/DVN/OCZNVY - <strong>Archivo:</strong> <code>beacon.csv</code> (67,138 observaciones, 25 campos) - <strong>Instalaciones OJS:</strong> 66,527 (99.1%) - <strong>Instalaciones OMP:</strong> 562 (0.8%) - <strong>Instalaciones OPS:</strong> 49 (0.1%) - <strong>Datos hasta:</strong> 2023 (último año completo) - <strong>Criterio actividad:</strong> &gt;5 publicaciones en 2023 - <strong>Chile identificado:</strong> 396 instalaciones totales - <strong>Chile activas v5:</strong> 309 instalaciones (78.0%)</p>
+</section>
+<section id="validación-cruzada-v5-v6" class="level4">
+<h4 class="anchored" data-anchor-id="validación-cruzada-v5-v6">2.1.3 Validación Cruzada v5-v6</h4>
+<ul>
+<li><strong>Crecimiento total:</strong> 67,138 → 87,170 (+29.8%)</li>
+<li><strong>Crecimiento OJS:</strong> 66,527 → 86,282 (+29.7%)</li>
+<li><strong>Chile:</strong> 396 → 432 instalaciones (+9.1%)</li>
+<li><strong>Metodología:</strong> Análisis comparativo para validación de tendencias</li>
+</ul>
+</section>
+</section>
+<section id="metodología-de-análisis-actualizada" class="level3">
+<h3 class="anchored" data-anchor-id="metodología-de-análisis-actualizada">2.2 Metodología de Análisis Actualizada</h3>
+<section id="flujo-metodológico-v5-versión-inicial" class="level4">
+<h4 class="anchored" data-anchor-id="flujo-metodológico-v5-versión-inicial">2.2.1 Flujo Metodológico v5 (Versión Inicial)</h4>
+<p><strong>1. Procesamiento Base v5</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar beacon por tipo de aplicación</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/1_split_beacon.py</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: beacon_ojs.csv (66,527 instalaciones)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis global OJS</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/2_analisis_ojs_mundial.R</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/top15_paises_barras.png</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. Análisis Chile v5</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar dataset completo de Chile (todos los criterios de país)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/3_analisis_chile.R</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_todas_instalaciones.csv (396)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar solo instalaciones activas (&gt;5 pub/2023)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/4_chile_juojs_filtrado.R</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_juojs_activas.csv (309 - DATASET PRINCIPAL v5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Evaluación Dialnet v5</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar URLs OAI desde dataset JUOJS v5</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/5_generar_urls_dialnet.py</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_oai_urls_limpio.csv (202 URLs únicas)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar completitud de informes descargados</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/6_find_missing_reports.py</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Procesar informes HTML de Dialnet descargados</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/8_procesar_informes_dialnet.py</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/dialnet_informes_procesados.csv</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Analizar tipos de errores por gravedad</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/9_analizar_tipos_errores.py</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: análisis de 40 tipos de errores en 95 informes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="flujo-metodológico-v6-validación-actualizada" class="level4">
+<h4 class="anchored" data-anchor-id="flujo-metodológico-v6-validación-actualizada">2.2.2 Flujo Metodológico v6 (Validación Actualizada)</h4>
+<p><strong>0. Limpieza de Datos v6 (Preprocesamiento con Comandos)</strong></p>
+<p><strong>Problemática identificada:</strong> El archivo <code>beacon_v6.tab</code> original presentaba saltos de línea incrustados dentro de campos de texto que rompian la estructura del archivo.</p>
+<p><strong>Proceso de limpieza realizado:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comandos utilizados para limpieza:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Remover saltos de línea problemáticos</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">':a;N;$!ba;s/\n\([^0-9]\)/\1/g'</span> beacon_v6.tab <span class="op">&gt;</span> beacon_v6_temp.tab</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Conversión de TAB a CSV</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">'s/\t/,/g'</span> beacon_v6_temp.tab <span class="op">&gt;</span> beacon_v6_clean.csv</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Limpieza de archivos temporales</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> beacon_v6_temp.tab</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado: beacon_v6_clean.csv (87,170 registros limpios)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Validación post-limpieza:</strong> - <strong>Registros preservados:</strong> 100% (87,170/87,170) - <strong>Estructura validada:</strong> 31 columnas consistentes - <strong>Formato:</strong> CSV estándar con separadores de coma - <strong>Problema resuelto:</strong> Saltos de línea incrustados eliminados</p>
+<p><strong>1. Procesamiento Base</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar beacon v6 por tipo de aplicación</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts_v6/1_split_beacon_v6.py</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: beacon_v6_clean.csv (datos limpiados manualmente)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: beacon_v6_ojs.csv (86,282 instalaciones)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis global v6</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/2_analisis_mundial_v6.R</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/top15_paises_barras_v6.png</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. Análisis Chile v6</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar instalaciones chilenas con criterios v6</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/3_analisis_chile_v6.R</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_todas_instalaciones_v6.csv (432)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar criterio JUOJS actualizado (&gt;5 pub/2024)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/4_chile_juojs_filtrado_v6.R</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_juojs_activas_v6.csv (319 - DATASET PRINCIPAL)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Evaluación Dialnet v6</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar URLs OAI desde dataset JUOJS v6</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts_v6/5_generar_urls_dialnet_v6.py</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_oai_urls_v6.csv (225 URLs únicas)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Análisis y Visualizaciones</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar tablas y análisis institucional</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/6_tablas_chile_v6.R</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: tablas CSV y análisis institucional</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>5. Validación Cruzada v5-v6</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación precisa entre versiones por dominio</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/7_comparar_urls_v5_v6.py</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compara: chile_oai_urls_limpio.csv vs chile_oai_urls_limpio_v6.csv</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Clasifica: cambios sustanciales vs menores (www, paths)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="criterio-juojs-evolución-v5v6" class="level4">
+<h4 class="anchored" data-anchor-id="criterio-juojs-evolución-v5v6">2.2.3 Criterio JUOJS: Evolución v5→v6</h4>
+<p><strong>Versión v5:</strong> - <strong>Criterio temporal:</strong> &gt;5 publicaciones en <strong>2023</strong> - <strong>Filtrado geográfico:</strong> <code>country_consolidated</code>, <code>country_issn</code>, <code>country_tld</code>, <code>country_ip</code> - <strong>Chile resultante:</strong> 309 instalaciones activas (78.0%) - <strong>URLs generadas:</strong> 202 únicas (107 duplicados eliminados)</p>
+<p><strong>Versión v6 (Actualizada):</strong> - <strong>Criterio temporal:</strong> &gt;5 publicaciones en <strong>2024</strong> (vs 2023 en versión anterior) - <strong>Filtrado mejorado:</strong> Incluye <code>country_doaj</code> para mayor precisión geográfica - <strong>Eliminación de duplicados:</strong> Automática por dominio (94 duplicados eliminados)</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="resultados" class="level2">
+<h2 class="anchored" data-anchor-id="resultados">3. Resultados</h2>
+<section id="análisis-global-v6" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-global-v6">3.1 Análisis Global v6</h3>
+<section id="distribución-general" class="level4">
+<h4 class="anchored" data-anchor-id="distribución-general">3.1.1 Distribución General</h4>
+<ul>
+<li><strong>Total instalaciones procesadas:</strong> 87,170</li>
+<li><strong>Instalaciones OJS:</strong> 86,282 (99.0%)</li>
+<li><strong>Instalaciones OMP:</strong> 810 (0.9%)</li>
+<li><strong>Instalaciones OPS:</strong> 78 (0.1%)</li>
+<li><strong>Países representados:</strong> 154 países activos</li>
+</ul>
+</section>
+<section id="instalaciones-ojs-activas-globalmente-v6" class="level4">
+<h4 class="anchored" data-anchor-id="instalaciones-ojs-activas-globalmente-v6">3.1.2 Instalaciones OJS Activas Globalmente v6</h4>
+<ul>
+<li><strong>Total instalaciones OJS activas globalmente:</strong> 54,453 (63.1% del total)</li>
+<li><strong>Publicaciones 2024:</strong> 2,365,938 (+28.4% vs beacon anterior)</li>
+<li><strong>Crecimiento 2023→2024:</strong> +516,768 publicaciones (+28.4%)</li>
+<li><strong>Cambio en actividad:</strong> +3,074 instalaciones activas vs 2023</li>
+</ul>
+</section>
+<section id="top-10-países-por-instalaciones-activas-2024" class="level4">
+<h4 class="anchored" data-anchor-id="top-10-países-por-instalaciones-activas-2024">3.1.3 Top 10 Países por Instalaciones Activas 2024</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>País</th>
+<th>Instalaciones Activas</th>
+<th>Pub. 2024</th>
+<th>Crecimiento 2023→2024</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Indonesia (ID)</td>
+<td>23,045</td>
+<td>713,408</td>
+<td>+122,211</td>
+</tr>
+<tr class="even">
+<td>Brasil (BR)</td>
+<td>4,050</td>
+<td>228,789</td>
+<td>+48,856</td>
+</tr>
+<tr class="odd">
+<td>Desconocido</td>
+<td>3,260</td>
+<td>161,446</td>
+<td>+87,204</td>
+</tr>
+<tr class="even">
+<td>Estados Unidos (US)</td>
+<td>1,714</td>
+<td>87,977</td>
+<td>+26,968</td>
+</tr>
+<tr class="odd">
+<td>India (IN)</td>
+<td>1,630</td>
+<td>95,726</td>
+<td>+22,334</td>
+</tr>
+<tr class="even">
+<td>España (ES)</td>
+<td>1,295</td>
+<td>57,190</td>
+<td>+13,336</td>
+</tr>
+<tr class="odd">
+<td>Tailandia (TH)</td>
+<td>1,172</td>
+<td>43,923</td>
+<td>+5,298</td>
+</tr>
+<tr class="even">
+<td>Ucrania (UA)</td>
+<td>1,052</td>
+<td>73,371</td>
+<td>+13,299</td>
+</tr>
+<tr class="odd">
+<td>Rusia (RU)</td>
+<td>954</td>
+<td>74,346</td>
+<td>+6,280</td>
+</tr>
+<tr class="even">
+<td>Pakistán (PK)</td>
+<td>893</td>
+<td>43,070</td>
+<td>+11,921</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="distribución-por-regiones-pkp-v6" class="level4">
+<h4 class="anchored" data-anchor-id="distribución-por-regiones-pkp-v6">3.1.4 Distribución por Regiones PKP v6</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Región PKP</th>
+<th>Instalaciones</th>
+<th>Pub. 2024</th>
+<th>Países</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>East Asia &amp; Pacific</td>
+<td>25,767</td>
+<td>873,834</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>Europe &amp; Central Asia</td>
+<td>9,112</td>
+<td>543,986</td>
+<td>47</td>
+</tr>
+<tr class="odd">
+<td>Latin America &amp; Caribbean</td>
+<td>8,485</td>
+<td>377,023</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>Other</td>
+<td>3,325</td>
+<td>164,692</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td>South Asia</td>
+<td>3,099</td>
+<td>151,324</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>North America</td>
+<td>2,110</td>
+<td>103,790</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Sub-Saharan Africa</td>
+<td>1,525</td>
+<td>57,713</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td>Middle East &amp; North Africa</td>
+<td>1,030</td>
+<td>64,297</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="análisis-específico-de-chile---validación-v6" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-específico-de-chile---validación-v6">3.2 Análisis Específico de Chile - Validación v6</h3>
+<section id="estadísticas-generales-actualizadas" class="level4">
+<h4 class="anchored" data-anchor-id="estadísticas-generales-actualizadas">3.2.1 Estadísticas Generales Actualizadas</h4>
+<ul>
+<li><strong>Total instalaciones identificadas:</strong> 432 (vs 396 en versión anterior)</li>
+<li><strong>Instalaciones JUOJS activas (&gt;5 pub/2024):</strong> 319 (73.8%)</li>
+<li><strong>Instalaciones filtradas:</strong> 113 (≤5 pub/2024)</li>
+<li><strong>URLs únicas generadas:</strong> 225 (eliminados 94 duplicados)</li>
+</ul>
+</section>
+<section id="productividad-2024-validación-v6" class="level4">
+<h4 class="anchored" data-anchor-id="productividad-2024-validación-v6">3.2.2 Productividad 2024 (Validación v6)</h4>
+<ul>
+<li><strong>Total publicaciones 2024:</strong> 14,162</li>
+<li><strong>Total publicaciones 2023:</strong> 12,156</li>
+<li><strong>Crecimiento neto:</strong> +2,006 publicaciones (+16.5%)</li>
+<li><strong>Promedio por instalación activa:</strong> 44.4 pub/instalación</li>
+<li><strong>Total histórico acumulado:</strong> 144,529 publicaciones</li>
+</ul>
+</section>
+<section id="top-10-instalaciones-más-productivas-2024-v6" class="level4">
+<h4 class="anchored" data-anchor-id="top-10-instalaciones-más-productivas-2024-v6">3.2.3 Top 10 Instalaciones Más Productivas 2024 (v6)</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 17%">
+<col style="width: 21%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Revista/Contexto</th>
+<th>Dominio</th>
+<th>Pub. 2024</th>
+<th>Crecimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Revista Chilena de Derecho</td>
+<td>revistachilenadederecho.uc.cl</td>
+<td>1,708</td>
+<td>+1,671</td>
+</tr>
+<tr class="even">
+<td>Boletín de la Universidad de Chile</td>
+<td>revistasdex.uchile.cl</td>
+<td>1,689</td>
+<td>+1,529</td>
+</tr>
+<tr class="odd">
+<td>Boletín Jurídico del Observatorio</td>
+<td>revistadelaconstruccion.uc.cl</td>
+<td>958</td>
+<td>-1,723</td>
+</tr>
+<tr class="even">
+<td>REVISTA CUHSO</td>
+<td>cuhso.uct.cl</td>
+<td>510</td>
+<td>+470</td>
+</tr>
+<tr class="odd">
+<td>MGC / Revista de Gestión Cultural</td>
+<td>revistasdex.uchile.cl</td>
+<td>330</td>
+<td>+218</td>
+</tr>
+<tr class="even">
+<td>Ingeniare. Revista Chilena de Ingeniería</td>
+<td>revistalimite.uta.cl</td>
+<td>321</td>
+<td>+321</td>
+</tr>
+<tr class="odd">
+<td>Revista de Trabajo Social</td>
+<td>revistadelaconstruccion.uc.cl</td>
+<td>293</td>
+<td>+277</td>
+</tr>
+<tr class="even">
+<td>Revista de Historia Social y de las Mentalidades</td>
+<td>www.revistas.usach.cl</td>
+<td>221</td>
+<td>+190</td>
+</tr>
+<tr class="odd">
+<td>Apuntes de Teatro</td>
+<td>revistaapuntes.uc.cl</td>
+<td>214</td>
+<td>-804</td>
+</tr>
+<tr class="even">
+<td>Progress Annals: Journal of Progressive Research</td>
+<td>academiaone.org</td>
+<td>136</td>
+<td>+83</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="análisis-de-crecimiento-2023-2024-v6" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-de-crecimiento-2023-2024-v6">3.2.4 Análisis de Crecimiento 2023-2024 (v6)</h4>
+<ul>
+<li><strong>Instalaciones que crecieron:</strong> 163 (51.1%)</li>
+<li><strong>Instalaciones que decrecieron:</strong> 135 (42.3%)</li>
+<li><strong>Instalaciones estables:</strong> 21 (6.6%)</li>
+<li><strong>Crecimiento promedio:</strong> +6.3 pub/instalación</li>
+</ul>
+</section>
+<section id="distribución-institucional-actualizada-v6" class="level4">
+<h4 class="anchored" data-anchor-id="distribución-institucional-actualizada-v6">3.2.5 Distribución Institucional Actualizada (v6)</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Institución</th>
+<th>Instalaciones</th>
+<th>%</th>
+<th>Pub. 2024</th>
+<th>Crecimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Universidad de Chile</td>
+<td>67</td>
+<td>21.0%</td>
+<td>3,338</td>
+<td>+1,646</td>
+</tr>
+<tr class="even">
+<td>Pontificia Universidad Católica</td>
+<td>27</td>
+<td>8.5%</td>
+<td>4,129</td>
+<td>-438</td>
+</tr>
+<tr class="odd">
+<td>Universidad de Valparaíso</td>
+<td>15</td>
+<td>4.7%</td>
+<td>227</td>
+<td>-23</td>
+</tr>
+<tr class="even">
+<td>Universidad de Concepción</td>
+<td>12</td>
+<td>3.8%</td>
+<td>353</td>
+<td>-36</td>
+</tr>
+<tr class="odd">
+<td>Universidad Austral de Chile</td>
+<td>7</td>
+<td>2.2%</td>
+<td>213</td>
+<td>-59</td>
+</tr>
+<tr class="even">
+<td>Universidad de Santiago</td>
+<td>6</td>
+<td>1.9%</td>
+<td>299</td>
+<td>+177</td>
+</tr>
+<tr class="odd">
+<td>Universidad de La Frontera</td>
+<td>4</td>
+<td>1.3%</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Otras instituciones</td>
+<td>181</td>
+<td>56.7%</td>
+<td>5,603</td>
+<td>+739</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="distribución-geográfica-pkp-v6" class="level4">
+<h4 class="anchored" data-anchor-id="distribución-geográfica-pkp-v6">3.2.6 Distribución Geográfica PKP (v6)</h4>
+<ul>
+<li><strong>Latin America &amp; Caribbean:</strong> 317 instalaciones (99.4%)</li>
+<li><strong>Europe &amp; Central Asia:</strong> 1 instalación (0.3%)</li>
+<li><strong>North America:</strong> 1 instalación (0.3%)</li>
+</ul>
+</section>
+<section id="urls-oai-generadas-para-dialnet-v6" class="level4">
+<h4 class="anchored" data-anchor-id="urls-oai-generadas-para-dialnet-v6">3.2.7 URLs OAI Generadas para Dialnet (v6)</h4>
+<ul>
+<li><strong>Total URLs únicas:</strong> 225 (vs 202 en versión anterior)</li>
+<li><strong>URLs Universidad de Chile:</strong> 58 (25.8%)</li>
+<li><strong>Publicaciones 2024 representadas:</strong> 11,540 (81.5% del total)</li>
+<li><strong>Crecimiento neto representado:</strong> +1,843 publicaciones</li>
+</ul>
+</section>
+</section>
+<section id="validación-cruzada-comparación-v5-vs-v6" class="level3">
+<h3 class="anchored" data-anchor-id="validación-cruzada-comparación-v5-vs-v6">3.3 Validación Cruzada: Comparación v5 vs v6</h3>
+<section id="análisis-comparativo-por-dominios-script-7" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-comparativo-por-dominios-script-7">3.3.1 Análisis Comparativo por Dominios (Script 7)</h4>
+<p><strong>Metodología de comparación:</strong> Se ejecutó análisis preciso mediante <code>scripts/7_comparar_urls_v5_v6.py</code> que compara URLs por dominio normalizado, clasificando cambios como sustanciales o menores (www, paths, protocolos).</p>
+<p><strong>Resultados de estabilidad:</strong> - <strong>URLs v5:</strong> 208 → <strong>URLs v6:</strong> 225 (+17 URLs netas) - <strong>Dominios efectivamente iguales:</strong> 185/208 (88.9% estabilidad) - <strong>Dominios con cambios menores:</strong> 7 (variaciones www, paths) - <strong>Dominios con cambios sustanciales:</strong> 0 - <strong>Crecimiento neto real:</strong> +17 dominios (40 nuevos - 23 removidos)</p>
+<p><strong>Clasificación de cambios menores (7 dominios):</strong> - <code>ajvs.cl</code>: www.ajvs.cl → ajvs.cl - <code>biotaxa.org</code>: /rce/oai → /index.php/index/oai - <code>joralres.com</code>: www.joralres.com → joralres.com - <code>reidu.cl</code>: reidu.cl → www.reidu.cl - <code>revistapleyade.cl</code>: revistapleyade.cl → www.revistapleyade.cl - <code>sisomosamericanos.cl</code>: sisomosamericanos.cl → www.sisomosamericanos.cl - <code>teps.cl</code>: teps.cl → www.teps.cl</p>
+</section>
+<section id="decisión-metodológica-continuidad-operativa-v5" class="level4">
+<h4 class="anchored" data-anchor-id="decisión-metodológica-continuidad-operativa-v5">3.3.2 Decisión Metodológica: Continuidad Operativa v5</h4>
+<p><strong>Justificación:</strong> Dada la alta estabilidad (88.9%) entre versiones y que los datos v5 ya están procesados con informes Dialnet descargados, <strong>se continúa el procesamiento sobre resultados v5</strong> para análisis de calidad y evaluación. Paralelamente, se descargan informes Dialnet para URLs v6 nuevas.</p>
+<p><strong>Implicaciones operativas:</strong> - <strong>Dataset principal:</strong> chile_oai_urls_limpio.csv (v5) - 208 URLs - <strong>Procesamiento paralelo:</strong> chile_oai_urls_limpio_v6.csv - 225 URLs - <strong>Validación cruzada:</strong> Confirmada estabilidad metodológica</p>
+</section>
+<section id="cambios-en-el-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="cambios-en-el-dataset">3.3.3 Cambios en el Dataset</h4>
+<ul>
+<li><strong>Instalaciones totales Chile:</strong> 396 → 432 (+9.1%)</li>
+<li><strong>Instalaciones activas:</strong> 309 → 319 (+3.2%)</li>
+<li><strong>Criterio temporal:</strong> 2023 → 2024 (actualización metodológica)</li>
+<li><strong>URLs únicas:</strong> 202 → 225 (+11.4%)</li>
+</ul>
+</section>
+<section id="consistencia-de-resultados" class="level4">
+<h4 class="anchored" data-anchor-id="consistencia-de-resultados">3.3.4 Consistencia de Resultados</h4>
+<ul>
+<li><strong>Universidad de Chile mantiene liderazgo:</strong> 68 → 67 instalaciones</li>
+<li><strong>Distribución institucional estable:</strong> Mismas instituciones líderes</li>
+<li><strong>Crecimiento sostenido:</strong> Confirmado en ambas versiones</li>
+</ul>
+</section>
+</section>
+<section id="archivos-generados-v6" class="level3">
+<h3 class="anchored" data-anchor-id="archivos-generados-v6">3.4 Archivos Generados v6</h3>
+<section id="datasets-principales" class="level4">
+<h4 class="anchored" data-anchor-id="datasets-principales">3.4.1 Datasets Principales</h4>
+<ul>
+<li><strong><code>visualizations_v6/chile_todas_instalaciones_v6.csv</code></strong> - 432 instalaciones completas</li>
+<li><strong><code>visualizations_v6/chile_juojs_activas_v6.csv</code></strong> - 319 instalaciones activas (DATASET PRINCIPAL v6)</li>
+<li><strong><code>visualizations_v6/chile_oai_urls_v6.csv</code></strong> - 225 URLs para evaluación Dialnet</li>
+</ul>
+</section>
+<section id="análisis-mundial-v6" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-mundial-v6">3.4.2 Análisis Mundial v6</h4>
+<ul>
+<li><code>visualizations_v6/tabla_paises_mundial_v6.csv</code> - 154 países activos</li>
+<li><code>visualizations_v6/regiones_mundial_v6.csv</code> - 8 regiones PKP</li>
+<li><code>visualizations_v6/top15_paises_barras_v6.png</code> - Visualización países</li>
+<li><code>visualizations_v6/regiones_circular_v6.png</code> - Visualización regiones</li>
+</ul>
+</section>
+<section id="tablas-chile-v6" class="level4">
+<h4 class="anchored" data-anchor-id="tablas-chile-v6">3.4.3 Tablas Chile v6</h4>
+<ul>
+<li><code>visualizations_v6/tabla_chile_todas_top30_v6.csv</code></li>
+<li><code>visualizations_v6/tabla_chile_juojs_top30_v6.csv</code></li>
+<li><code>visualizations_v6/tabla_chile_crecimiento_top15_v6.csv</code></li>
+<li><code>visualizations_v6/tabla_instituciones_v6.csv</code></li>
+</ul>
+</section>
+</section>
+<section id="análisis-de-calidad-editorial-informes-dialnet" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-calidad-editorial-informes-dialnet">3.5 Análisis de Calidad Editorial: Informes Dialnet</h3>
+<section id="procesamiento-de-informes-script-8" class="level4">
+<h4 class="anchored" data-anchor-id="procesamiento-de-informes-script-8">3.5.1 Procesamiento de Informes (Script 8)</h4>
+<p><strong>Metodología:</strong> Se procesaron <strong>95 informes HTML</strong> de Dialnet descargados manualmente, extrayendo información estructurada sobre errores de calidad y completitud de metadatos mediante <code>scripts/8_procesar_informes_dialnet.py</code>.</p>
+<p><strong>Cobertura del análisis:</strong> - <strong>Total informes procesados:</strong> 95 revistas chilenas - <strong>Archivo generado:</strong> <code>visualizations/dialnet_informes_procesados.csv</code> - <strong>Datos extraídos:</strong> Errores por gravedad, tipos de errores, porcentajes de metadatos</p>
+</section>
+<section id="resultados-de-calidad-editorial" class="level4">
+<h4 class="anchored" data-anchor-id="resultados-de-calidad-editorial">3.5.2 Resultados de Calidad Editorial</h4>
+<p><strong>Estado general de errores:</strong> - <strong>Revistas sin errores:</strong> 0 (0.0%) - <strong>Revistas con errores:</strong> 95 (100.0%) - <strong>Total errores detectados:</strong> 59,602 - <strong>Alta gravedad:</strong> 35,811 (60.1%) - <strong>Media gravedad:</strong> 23,791 (39.9%) - <strong>Promedio errores por revista:</strong> 627.4</p>
+</section>
+<section id="revistas-con-mayor-número-de-errores" class="level4">
+<h4 class="anchored" data-anchor-id="revistas-con-mayor-número-de-errores">3.5.3 Revistas con Mayor Número de Errores</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ranking</th>
+<th>Dominio</th>
+<th>Total Errores</th>
+<th>Alta Gravedad</th>
+<th>Media Gravedad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>www.revistasdex.uchile.cl</td>
+<td>5,583</td>
+<td>2,626</td>
+<td>2,957</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>revistas.uach.cl</td>
+<td>3,881</td>
+<td>1,607</td>
+<td>2,274</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>revistas.uv.cl</td>
+<td>2,865</td>
+<td>1,988</td>
+<td>877</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>rhv.uv.cl</td>
+<td>2,865</td>
+<td>1,988</td>
+<td>877</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>www.iace.uv.cl</td>
+<td>2,865</td>
+<td>1,988</td>
+<td>877</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="completitud-de-metadatos" class="level4">
+<h4 class="anchored" data-anchor-id="completitud-de-metadatos">3.5.4 Completitud de Metadatos</h4>
+<p><strong>Promedios de completitud por tipo de metadato:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tipo de Metadato</th>
+<th>Completitud Promedio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Títulos</td>
+<td>100.0%</td>
+</tr>
+<tr class="even">
+<td>Enlaces</td>
+<td>100.0%</td>
+</tr>
+<tr class="odd">
+<td>Autores</td>
+<td>99.3%</td>
+</tr>
+<tr class="even">
+<td>Resúmenes</td>
+<td>87.0%</td>
+</tr>
+<tr class="odd">
+<td>Afiliaciones</td>
+<td>75.6%</td>
+</tr>
+<tr class="even">
+<td>Palabras clave</td>
+<td>65.6%</td>
+</tr>
+<tr class="odd">
+<td>Referencias</td>
+<td>33.7%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="análisis-de-tipos-de-errores-por-gravedad-script-9" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-de-tipos-de-errores-por-gravedad-script-9">3.5.5 Análisis de Tipos de Errores por Gravedad (Script 9)</h4>
+<p><strong>Top 5 errores de alta gravedad más frecuentes:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ranking</th>
+<th>Tipo de Error</th>
+<th>Ocurrencias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Artículo sin número de página inicial</td>
+<td>12,201</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Artículo sin ejemplar identificado en la importación</td>
+<td>6,964</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Artículo con título y subtítulo en mayúsculas</td>
+<td>6,810</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Artículo con resumen repetido para la misma revista</td>
+<td>2,056</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Artículo con autorías duplicadas</td>
+<td>1,968</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Top 5 errores de media gravedad más frecuentes:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 40%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ranking</th>
+<th>Tipo de Error</th>
+<th>Ocurrencias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Autor con apellido 2 de longitud menor de 4 caracteres</td>
+<td>6,468</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Ejemplar marcado como no paginado y contiene artículos con página final</td>
+<td>5,257</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Artículo con título repetido para la misma revista</td>
+<td>2,721</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Artículo con referencias cuyo literal es demasiado corto</td>
+<td>2,080</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Artículo con título repetido</td>
+<td>1,843</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Distribución de revistas por rangos de errores:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Rango de Errores</th>
+<th>Nº Revistas</th>
+<th>Porcentaje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Muy Alto (&gt;2000)</td>
+<td>9</td>
+<td>9.5%</td>
+</tr>
+<tr class="even">
+<td>Alto (1000-2000)</td>
+<td>10</td>
+<td>10.5%</td>
+</tr>
+<tr class="odd">
+<td>Medio (500-999)</td>
+<td>8</td>
+<td>8.4%</td>
+</tr>
+<tr class="even">
+<td>Bajo (100-499)</td>
+<td>43</td>
+<td>45.3%</td>
+</tr>
+<tr class="odd">
+<td>Muy Bajo (&lt;100)</td>
+<td>25</td>
+<td>26.3%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Revistas con mayor proporción de errores graves:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ranking</th>
+<th>Dominio</th>
+<th>% Alta Gravedad</th>
+<th>Errores Alta/Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>revistaderechovaldivia.cl</td>
+<td>97.6%</td>
+<td>1,160/1,188</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>intushistoria.uai.cl</td>
+<td>97.6%</td>
+<td>775/794</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>boletin.scha.cl</td>
+<td>94.6%</td>
+<td>2,390/2,526</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>nuestramerica.cl</td>
+<td>92.9%</td>
+<td>351/378</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>revistalimite.uta.cl</td>
+<td>91.9%</td>
+<td>846/921</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diversidad de tipos de errores:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Categoría</th>
+<th>Tipos Únicos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alta gravedad</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>Media gravedad</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>40</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="implicaciones-para-indexación" class="level4">
+<h4 class="anchored" data-anchor-id="implicaciones-para-indexación">3.5.6 Implicaciones para Indexación</h4>
+<p><strong>Fortalezas identificadas:</strong> - <strong>Metadatos básicos completos:</strong> Títulos y enlaces al 100% - <strong>Información de autoría:</strong> 99.3% de completitud - <strong>Contenido académico:</strong> 87% de resúmenes disponibles</p>
+<p><strong>Áreas de mejora críticas:</strong> - <strong>Referencias bibliográficas:</strong> Solo 33.7% de completitud - <strong>Palabras clave:</strong> 65.6% requiere mejora para indexación - <strong>Errores de alta gravedad:</strong> 35,811 errores requieren atención prioritaria - <strong>Problemas de paginación:</strong> 12,201 artículos sin página inicial - <strong>Estandarización de títulos:</strong> 6,810 casos con mayúsculas incorrectas</p>
+<p><strong>Recomendaciones operativas:</strong> 1. <strong>Priorización por calidad:</strong> Enfocar esfuerzos en 25 revistas con &lt;100 errores 2. <strong>Mejora de metadatos:</strong> Implementar estándares para referencias y palabras clave 3. <strong>Capacitación editorial:</strong> Programas de mejora de calidad para editores 4. <strong>Corrección de paginación:</strong> Atender 12,201 artículos sin numeración 5. <strong>Estandarización de formato:</strong> Corregir mayúsculas en títulos y subtítulos</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="discusión" class="level2">
+<h2 class="anchored" data-anchor-id="discusión">4. Discusión</h2>
+<section id="validación-del-ecosistema-global" class="level3">
+<h3 class="anchored" data-anchor-id="validación-del-ecosistema-global">4.1 Validación del Ecosistema Global</h3>
+<p>La <strong>validación v6</strong> confirma el crecimiento acelerado del ecosistema OJS global, con <strong>86,282 instalaciones</strong> representando un aumento del <strong>28.4%</strong> respecto al beacon anterior. Este crecimiento es particularmente notable en:</p>
+<ul>
+<li><strong>Asia-Pacífico:</strong> Indonesia lidera con 23,045 instalaciones activas</li>
+<li><strong>América Latina:</strong> 8,485 instalaciones confirman la región como hub de acceso abierto</li>
+<li><strong>Diversificación geográfica:</strong> 154 países con instalaciones activas</li>
+</ul>
+</section>
+<section id="caracterización-del-ecosistema-chileno-actualizada" class="level3">
+<h3 class="anchored" data-anchor-id="caracterización-del-ecosistema-chileno-actualizada">4.2 Caracterización del Ecosistema Chileno Actualizada</h3>
+<section id="fortalezas-confirmadas-v6" class="level4">
+<h4 class="anchored" data-anchor-id="fortalezas-confirmadas-v6">4.2.1 Fortalezas Confirmadas v6</h4>
+<ul>
+<li><strong>Alta actividad editorial:</strong> 73.8% de instalaciones activas (vs 78.0% anterior)</li>
+<li><strong>Crecimiento sostenido:</strong> +16.5% en publicaciones 2024</li>
+<li><strong>Diversidad institucional:</strong> 181 instalaciones en “otras instituciones” (56.7%)</li>
+<li><strong>Productividad destacada:</strong> Promedio 44.4 artículos por instalación</li>
+</ul>
+</section>
+<section id="tendencias-identificadas" class="level4">
+<h4 class="anchored" data-anchor-id="tendencias-identificadas">4.2.2 Tendencias Identificadas</h4>
+<ul>
+<li><strong>Concentración en líderes:</strong> Universidad de Chile mantiene 21% del ecosistema</li>
+<li><strong>Crecimiento diferenciado:</strong> Algunas instituciones decrecen mientras otras crecen</li>
+<li><strong>Nuevas instalaciones:</strong> +36 instalaciones identificadas en v6</li>
+</ul>
+</section>
+</section>
+<section id="implicaciones-para-indexación-en-dialnet" class="level3">
+<h3 class="anchored" data-anchor-id="implicaciones-para-indexación-en-dialnet">4.3 Implicaciones para Indexación en Dialnet</h3>
+<section id="optimización-del-proceso" class="level4">
+<h4 class="anchored" data-anchor-id="optimización-del-proceso">4.3.1 Optimización del Proceso</h4>
+<ul>
+<li><strong>225 URLs únicas</strong> (vs 202 anteriores) para evaluación</li>
+<li><strong>Eliminación automática</strong> de 94 duplicados</li>
+<li><strong>Cobertura mejorada:</strong> 81.5% de publicaciones 2024 representadas</li>
+</ul>
+</section>
+<section id="estrategia-de-priorización" class="level4">
+<h4 class="anchored" data-anchor-id="estrategia-de-priorización">4.3.2 Estrategia de Priorización</h4>
+<p>El análisis v6 permite priorizar instalaciones por: 1. <strong>Productividad 2024:</strong> Revista Chilena de Derecho (1,708 pub) 2. <strong>Crecimiento:</strong> Instalaciones con tendencia positiva 3. <strong>Estabilidad institucional:</strong> Universidad de Chile (58 URLs)</p>
+</section>
+</section>
+<section id="contribución-al-acceso-abierto-regional" class="level3">
+<h3 class="anchored" data-anchor-id="contribución-al-acceso-abierto-regional">4.4 Contribución al Acceso Abierto Regional</h3>
+<p>Los <strong>144,529 artículos históricos</strong> acumulados (vs 133,931 anteriores) posicionan a Chile como contribuyente significativo al ecosistema latinoamericano, con un <strong>crecimiento del 7.9%</strong> en el acervo histórico.</p>
+</section>
+<section id="limitaciones-y-consideraciones" class="level3">
+<h3 class="anchored" data-anchor-id="limitaciones-y-consideraciones">4.5 Limitaciones y Consideraciones</h3>
+<ol type="1">
+<li><strong>Criterio temporal:</strong> Cambio de 2023 a 2024 puede afectar comparabilidad directa</li>
+<li><strong>Cobertura beacon:</strong> Dependencia de instalaciones que mantienen beacon activo</li>
+<li><strong>Variabilidad institucional:</strong> Algunas instituciones muestran decrecimiento</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="limitaciones-del-estudio" class="level2">
+<h2 class="anchored" data-anchor-id="limitaciones-del-estudio">5. Limitaciones del Estudio</h2>
+<section id="limitaciones-metodológicas" class="level3">
+<h3 class="anchored" data-anchor-id="limitaciones-metodológicas">5.1 Limitaciones Metodológicas</h3>
+<ul>
+<li><strong>Dependencia del PKP Beacon:</strong> Solo incluye instalaciones con beacon activo</li>
+<li><strong>Criterio temporal:</strong> Cambio de 2023 a 2024 afecta comparabilidad histórica</li>
+<li><strong>Cobertura geográfica:</strong> Posible subrepresentación de instalaciones sin identificación clara de país</li>
+</ul>
+</section>
+<section id="limitaciones-técnicas" class="level3">
+<h3 class="anchored" data-anchor-id="limitaciones-técnicas">5.2 Limitaciones Técnicas</h3>
+<ul>
+<li><strong>Endpoints OAI:</strong> Variabilidad en configuración y disponibilidad</li>
+<li><strong>Duplicados:</strong> Posibles instalaciones múltiples de la misma revista</li>
+<li><strong>Datos faltantes:</strong> Instalaciones sin ISSN o metadatos incompletos</li>
+</ul>
+</section>
+<section id="limitaciones-de-alcance" class="level3">
+<h3 class="anchored" data-anchor-id="limitaciones-de-alcance">5.3 Limitaciones de Alcance</h3>
+<ul>
+<li><strong>Evaluación Dialnet:</strong> Proceso manual limita escalabilidad</li>
+<li><strong>Visibilidad académica:</strong> Análisis OpenAlex pendiente de integración completa</li>
+<li><strong>Impacto editorial:</strong> No incluye métricas de citación o factor de impacto</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">6. Conclusiones</h2>
+<section id="validación-del-ecosistema-robusto" class="level3">
+<h3 class="anchored" data-anchor-id="validación-del-ecosistema-robusto">5.1 Validación del Ecosistema Robusto</h3>
+<p>La <strong>validación v6</strong> confirma que Chile mantiene un ecosistema editorial académico <strong>robusto y en crecimiento</strong> con: - <strong>432 instalaciones OJS</strong> identificadas (+9.1% vs versión anterior) - <strong>319 instalaciones activas</strong> con criterio 2024 (73.8%) - <strong>14,162 publicaciones en 2024</strong> (+16.5% vs 2023)</p>
+</section>
+<section id="liderazgo-institucional-confirmado" class="level3">
+<h3 class="anchored" data-anchor-id="liderazgo-institucional-confirmado">5.2 Liderazgo Institucional Confirmado</h3>
+<p>La <strong>Universidad de Chile</strong> mantiene su posición dominante con: - <strong>67 instalaciones</strong> (21% del ecosistema) - <strong>3,338 publicaciones en 2024</strong> - <strong>Crecimiento de +1,646 publicaciones</strong></p>
+</section>
+<section id="crecimiento-sostenido-validado" class="level3">
+<h3 class="anchored" data-anchor-id="crecimiento-sostenido-validado">5.3 Crecimiento Sostenido Validado</h3>
+<p>El <strong>51.1% de instalaciones</strong> muestra crecimiento positivo, confirmando la vitalidad del sistema editorial chileno en el contexto global de acceso abierto.</p>
+</section>
+<section id="metodología-consolidada" class="level3">
+<h3 class="anchored" data-anchor-id="metodología-consolidada">5.4 Metodología Consolidada</h3>
+<p>La <strong>validación cruzada v5-v6</strong> demuestra: - <strong>Consistencia metodológica:</strong> Resultados coherentes entre versiones - <strong>Actualización exitosa:</strong> Criterios 2024 reflejan estado actual - <strong>Escalabilidad:</strong> Procedimientos replicables para análisis futuros</p>
+</section>
+<section id="posicionamiento-global" class="level3">
+<h3 class="anchored" data-anchor-id="posicionamiento-global">5.5 Posicionamiento Global</h3>
+<p>Chile se posiciona como <strong>actor relevante</strong> en el ecosistema latinoamericano de acceso abierto, contribuyendo significativamente a la democratización del conocimiento científico regional.</p>
+<hr>
+</section>
+</section>
+<section id="próximos-pasos" class="level2">
+<h2 class="anchored" data-anchor-id="próximos-pasos">7. Próximos Pasos</h2>
+<section id="evaluación-dialnet" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-dialnet">7.1 Evaluación Dialnet</h3>
+<ul>
+<li><strong>Procesamiento completado:</strong> 95 informes HTML analizados (Scripts 8 y 9)</li>
+<li><strong>Resultados disponibles:</strong>
+<ul>
+<li><code>dialnet_informes_procesados.csv</code> con métricas de calidad</li>
+<li>Análisis de tipos de errores por gravedad completado</li>
+</ul></li>
+<li><strong>Próximos pasos:</strong> Implementación de recomendaciones de mejora editorial</li>
+<li><strong>Expansión:</strong> Procesamiento de URLs v6 nuevas (40 URLs adicionales)</li>
+<li><strong>Priorización:</strong> Enfocar en 25 revistas con &lt;100 errores para indexación rápida</li>
+</ul>
+</section>
+<section id="enriquecimiento-continuo" class="level3">
+<h3 class="anchored" data-anchor-id="enriquecimiento-continuo">6.2 Enriquecimiento Continuo</h3>
+<ul>
+<li><strong>Integración OpenAlex</strong> con datos 2024</li>
+<li><strong>Análisis longitudinal</strong> de tendencias</li>
+<li><strong>Monitoreo</strong> de nuevas instalaciones</li>
+</ul>
+</section>
+<section id="análisis-comparativo-regional" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-comparativo-regional">6.3 Análisis Comparativo Regional</h3>
+<ul>
+<li><strong>Benchmarking</strong> con otros países latinoamericanos</li>
+<li><strong>Identificación</strong> de mejores prácticas</li>
+<li><strong>Colaboración</strong> regional en acceso abierto</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="agradecimientos" class="level2">
+<h2 class="anchored" data-anchor-id="agradecimientos">Agradecimientos</h2>
+<p>Al Public Knowledge Project (PKP) por mantener el sistema de beacon que hace posible este análisis. A la Universidad de La Rioja y el equipo de Dialnet por facilitar el acceso a su sistema de evaluación de revistas. A las instituciones chilenas que mantienen instalaciones OJS activas, contribuyendo al ecosistema de acceso abierto regional.</p>
+<hr>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<section id="estudios-sobre-juojs-y-pkp-beacon" class="level3">
+<h3 class="anchored" data-anchor-id="estudios-sobre-juojs-y-pkp-beacon">Estudios sobre JUOJS y PKP Beacon</h3>
+<p>Khanna, S., Ball, J., Alperin, J. P., &amp; Willinsky, J. (2022). Recalibrating the scope of scholarly publishing: A modest step in a vast decolonization process. <em>Quantitative Science Studies, 3</em>(4), 912–930. https://doi.org/10.1162/qss_a_00228</p>
+<p>Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em> (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY</p>
+</section>
+<section id="estudios-sobre-indexación-y-acceso-abierto" class="level3">
+<h3 class="anchored" data-anchor-id="estudios-sobre-indexación-y-acceso-abierto">Estudios sobre indexación y acceso abierto</h3>
+<p>Beigel, F. (2025). The transformative relation between publishers and editors: Research quality and academic autonomy at stake. <em>Quantitative Science Studies, 6</em>, 154–170. https://doi.org/10.1162/qss_a_00343</p>
+<p>Chavarro, D., Alperin, J. P., &amp; Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. <em>Quantitative Science Studies, 6</em>, 1039–1058. https://doi.org/10.1162/QSS.a.17</p>
+<p>Simard, M.-A., Basson, I., Hare, M., Larivière, V., &amp; Mongeon, P. (2025). Examining the geographic and linguistic coverage of gold and diamond open access journals in OpenAlex, Scopus, and Web of Science. <em>Quantitative Science Studies, 6</em>, 732–752. https://doi.org/10.1162/qss.a.1</p>
+</section>
+<section id="estudios-sobre-publicación-científica-chilena-y-latinoamericana" class="level3">
+<h3 class="anchored" data-anchor-id="estudios-sobre-publicación-científica-chilena-y-latinoamericana">Estudios sobre publicación científica chilena y latinoamericana</h3>
+<p>Collazo-Reyes, F. (2014). Growth of the number of indexed journals of Latin America and the Caribbean: the effect on the impact of each country. <em>Scientometrics, 98</em>, 197–209. https://doi.org/10.1007/s11192-013-1036-2</p>
+<p>Koch, T., &amp; Vanderstraeten, R. (2018). Internationalizing a national scientific community? Changes in publication and citation practices in Chile, 1976–2015. <em>Current Sociology, 67</em>(5), 723-741. https://doi.org/10.1177/0011392118807514</p>
+<p>Koch, T., Vanderstraeten, R. y Ayala, R. (2021). La internacionalización de la ciencia: revistas y comunidades chilenas en el mundo científico. <em>Estudios Sociales de la Ciencia, 51</em>(1), 121-138. https://doi.org/10.1177/0306312720949709</p>
+<p>Krauskopf, M. y Pessot, R. (1980). Estudio preliminar sobre publicaciones y productividad científica en Chile. <em>Archivos de Biología y Medicina Experimentales, 73</em>, 195-208.</p>
+<p>Sabaj, O., Valderrama, J. O., González-Vergara, C., &amp; Pina-Stranger, A. (2015). Relationship between the duration of peer-review, publication decision, and agreement among reviewers in three Chilean journals. <em>HAL Archives Ouvertes</em>, halshs-01242627.</p>
+</section>
+<section id="marco-teórico-y-metodológico" class="level3">
+<h3 class="anchored" data-anchor-id="marco-teórico-y-metodológico">Marco teórico y metodológico</h3>
+<p>Leydesdorff, L., &amp; Persson, O. (2010). Mapping the geography of science: Distribution patterns and networks of relations among cities and institutes. <em>Journal of the American Society for Information Science and Technology, 61</em>(8), 1622-1634. https://doi.org/10.1002/asi.21347</p>
+<p>Merton, R. K. (1973). <em>The sociology of science: Theoretical and empirical investigations</em>. University of Chicago Press.</p>
+<p>Paasi, A. (2015). Academic Capitalism and the Geopolitics of Knowledge. In J. Agnew, V. Mamadouh, A. J. Secor, &amp; J. Sharp (Eds.), <em>The Wiley Blackwell Companion to Political Geography</em> (pp.&nbsp;507-523). Wiley Blackwell. https://doi.org/10.1002/9781118725771.ch37</p>
+</section>
+<section id="recursos-técnicos" class="level3">
+<h3 class="anchored" data-anchor-id="recursos-técnicos">Recursos técnicos</h3>
+<ul>
+<li><strong>PKP Official Site:</strong> https://pkp.sfu.ca/</li>
+<li><strong>Dataset URL:</strong> https://pkp.sfu.ca/software/ojs/usage-data/</li>
+<li><strong>Harvard Dataverse:</strong> https://doi.org/doi:10.7910/DVN/OCZNVY</li>
+<li><strong>MARC Country Codes:</strong> https://www.loc.gov/marc/countries/</li>
+<li><strong>OAI-PMH Protocol:</strong> https://www.openarchives.org/pmh/</li>
+<li><strong>OpenAlex API:</strong> https://docs.openalex.org/</li>
+<li><strong>Dialnet API:</strong> https://dialnet.unirioja.es/ws/dialnetcris-sandbox/v2/swagger-ui/index.html</li>
+</ul>
+</section>
+<section id="estándares-y-criterios" class="level3">
+<h3 class="anchored" data-anchor-id="estándares-y-criterios">Estándares y criterios</h3>
+<ul>
+<li>Directory of Open Access Journals (2020). Criterio de revista activa: 5 artículos por año</li>
+<li>ISO 3166-1 alpha-2: Códigos de países</li>
+<li>ISSN International Centre: Estándares de numeración de publicaciones seriadas</li>
+</ul>
+</section>
+<section id="datasets-utilizados" class="level3">
+<h3 class="anchored" data-anchor-id="datasets-utilizados">Datasets utilizados</h3>
+<p><strong>Beacon v6:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em> (V6) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY</p>
+<p><strong>Beacon anterior:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em> (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY</p>
+<hr>
+</section>
+</section>
+<section id="colaboraciones" class="level2">
+<h2 class="anchored" data-anchor-id="colaboraciones">Colaboraciones</h2>
+<p><strong>Geraldine Trujillo</strong> - Procesamiento y descarga manual de informes Dialnet - Evaluación sistemática de URLs en validador Nexus - Organización y carga de archivos HTML</p>
+<p><strong>Claude (Anthropic)</strong> - Procesamiento y optimización de scripts de análisis - Apoyo en redacción y estructuración del informe - Asistencia técnica vía Claude Web y Amazon Q Developer</p>
+<hr>
+</section>
+<section id="anexos" class="level2">
+<h2 class="anchored" data-anchor-id="anexos">Anexos</h2>
+<section id="anexo-a-diccionario-de-datos-del-pkp-beacon" class="level3">
+<h3 class="anchored" data-anchor-id="anexo-a-diccionario-de-datos-del-pkp-beacon">Anexo A: Diccionario de Datos del PKP Beacon</h3>
+<section id="campos-descriptivos" class="level4">
+<h4 class="anchored" data-anchor-id="campos-descriptivos">Campos descriptivos</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Ejemplo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>application</code></td>
+<td>OJS</td>
+<td>Tipo de aplicación (OJS, OMP o OPS)</td>
+</tr>
+<tr class="even">
+<td><code>version</code></td>
+<td>3.2.1.4</td>
+<td>Versión del software</td>
+</tr>
+<tr class="odd">
+<td><code>country_consolidated</code></td>
+<td>CL</td>
+<td>País resuelto/final asignado</td>
+</tr>
+<tr class="even">
+<td><code>set_spec</code></td>
+<td>psykhe</td>
+<td>Identificador de revista específica</td>
+</tr>
+<tr class="odd">
+<td><code>context_name</code></td>
+<td>Psykhe</td>
+<td>Nombre completo de la revista</td>
+</tr>
+<tr class="even">
+<td><code>issn</code></td>
+<td>0718-2228</td>
+<td>ISSN de la revista</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="campos-de-conteo-y-actividad" class="level4">
+<h4 class="anchored" data-anchor-id="campos-de-conteo-y-actividad">Campos de conteo y actividad</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 31%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Ejemplo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>total_record_count</code></td>
+<td>872</td>
+<td>Total artículos publicados históricos</td>
+</tr>
+<tr class="even">
+<td><code>record_count_2023</code></td>
+<td>41</td>
+<td>Artículos publicados en 2023</td>
+</tr>
+<tr class="odd">
+<td><code>last_completed_update</code></td>
+<td>2024-10-11</td>
+<td>Última sincronización</td>
+</tr>
+<tr class="even">
+<td><code>unresponsive_endpoint</code></td>
+<td>0</td>
+<td>Estado de respuesta (0=activo, 1=inactivo)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="anexo-b-scripts-desarrollados" class="level3">
+<h3 class="anchored" data-anchor-id="anexo-b-scripts-desarrollados">Anexo B: Scripts Desarrollados</h3>
+<section id="scripts-de-análisis-general" class="level4">
+<h4 class="anchored" data-anchor-id="scripts-de-análisis-general">Scripts de análisis general</h4>
+<ul>
+<li><code>scripts/1_split_beacon.py</code>: Separación por aplicación</li>
+<li><code>scripts/2_analisis_ojs_mundial.R</code>: Análisis global</li>
+<li><code>scripts/visualize_network_enhanced.py</code>: Análisis de redes</li>
+<li><code>scripts/visualize_interactive.py</code>: Dashboards interactivos</li>
+</ul>
+</section>
+<section id="scripts-específicos-de-chile" class="level4">
+<h4 class="anchored" data-anchor-id="scripts-específicos-de-chile">Scripts específicos de Chile</h4>
+<ul>
+<li><code>scripts/3_analisis_chile.R</code>: Análisis chileno completo</li>
+<li><code>scripts/4_chile_juojs_filtrado.R</code>: Filtrado JUOJS (dataset principal)</li>
+<li><code>scripts/5_generar_urls_dialnet.py</code>: Generación URLs Dialnet</li>
+<li><code>scripts/6_find_missing_reports.py</code>: Verificación completitud informes Dialnet</li>
+<li><code>scripts/7_comparar_urls_v5_v6.py</code>: Comparación cruzada v5-v6</li>
+<li><code>scripts/8_procesar_informes_dialnet.py</code>: Procesamiento informes HTML Dialnet</li>
+<li><code>scripts/9_analizar_tipos_errores.py</code>: Análisis de tipos de errores por gravedad</li>
+</ul>
+</section>
+<section id="script-de-enriquecimiento" class="level4">
+<h4 class="anchored" data-anchor-id="script-de-enriquecimiento">Script de enriquecimiento</h4>
+<ul>
+<li><code>scripts/openalex.py</code>: Integración con OpenAlex API</li>
+</ul>
+</section>
+</section>
+<section id="anexo-c-proceso-de-evaluación-en-dialnet" class="level3">
+<h3 class="anchored" data-anchor-id="anexo-c-proceso-de-evaluación-en-dialnet">Anexo C: Proceso de Evaluación en Dialnet</h3>
+<section id="estado-actual" class="level4">
+<h4 class="anchored" data-anchor-id="estado-actual">Estado actual</h4>
+<p><strong>Proceso manual</strong> de envío de 246 URLs únicas de instalaciones chilenas a través del portal web de Dialnet para solicitud de informes de calidad.</p>
+</section>
+<section id="organización-de-informes-descargados" class="level4">
+<h4 class="anchored" data-anchor-id="organización-de-informes-descargados">Organización de informes descargados</h4>
+<p><strong>Nomenclatura de archivos:</strong> Los informes de Dialnet se descargan y renombran siguiendo el patrón del dominio extraído de la URL OAI: - Se mantiene el formato exacto del dominio (incluyendo <code>www</code> si está presente) - Se omite <code>www</code> si no aparece en la URL original - Formato: <code>[dominio].pdf</code> o <code>[dominio].html</code></p>
+<p><strong>Ejemplos de nomenclatura:</strong> - <code>https://revistas.udec.cl/index.php/index/oai</code> → <code>revistas.udec.cl.pdf</code> - <code>https://www.estudiospublicos.cl/index.php/index/oai</code> → <code>www.estudiospublicos.cl.pdf</code> - <code>http://revistas.uach.cl/index.php/index/oai</code> → <code>revistas.uach.cl.pdf</code></p>
+<p><strong>Estructura de carpetas:</strong></p>
+<pre><code>dialnet/
+├── revistas.udec.cl.pdf
+├── www.estudiospublicos.cl.pdf
+├── revistas.uach.cl.pdf
+└── ...</code></pre>
+</section>
+<section id="registro-de-errores-del-sistema-nexus" class="level4">
+<h4 class="anchored" data-anchor-id="registro-de-errores-del-sistema-nexus">Registro de errores del sistema Nexus</h4>
+<p><strong>Metodología de registro:</strong> Cuando el sistema Nexus de Dialnet arroja errores durante la consulta, estos se registran en el archivo <code>visualizations/chile_oai_urls_limpio.csv</code> agregando una coma seguida del mensaje de error.</p>
+<p><strong>Formato de registro:</strong></p>
+<pre class="csv"><code>oai_url,error_message
+https://revistas.udec.cl/index.php/index/oai,Error al consultar la configuración de la revista: Error al leer el XML
+https://www.biotaxa.org/index.php/index/oai,La url no corresponde a una revista recolectable por OAI.</code></pre>
+<p><strong>Tipos de errores identificados:</strong> 1. <strong>Error al leer el XML</strong>: Problemas de formato o accesibilidad del endpoint OAI 2. <strong>URL no recolectable</strong>: Instalaciones que no cumplen estándares OAI-PMH 3. <strong>Timeout de conexión</strong>: Instalaciones temporalmente inaccesibles 4. <strong>Configuración incorrecta</strong>: Problemas en la configuración del servidor OJS</p>
+</section>
+<section id="limitaciones-identificadas" class="level4">
+<h4 class="anchored" data-anchor-id="limitaciones-identificadas">Limitaciones identificadas</h4>
+<ul>
+<li>No existe API para automatizar solicitudes de informes</li>
+<li>Requiere evaluación manual por parte del equipo de Dialnet</li>
+<li>Proceso individual por cada URL de instalación</li>
+<li>Algunos endpoints OAI presentan problemas técnicos</li>
+</ul>
+</section>
+<section id="alternativas-evaluadas" class="level4">
+<h4 class="anchored" data-anchor-id="alternativas-evaluadas">Alternativas evaluadas</h4>
+<ul>
+<li>Contacto directo para procesamiento en lote</li>
+<li>Priorización por índice de visibilidad</li>
+<li>Automatización de formularios (descartada por términos de servicio)</li>
+<li>Pre-validación técnica de endpoints OAI antes del envío</li>
+</ul>
+</section>
+</section>
+<section id="anexo-d-reproducibilidad" class="level3">
+<h3 class="anchored" data-anchor-id="anexo-d-reproducibilidad">Anexo D: Reproducibilidad</h3>
+<section id="requisitos-del-sistema" class="level4">
+<h4 class="anchored" data-anchor-id="requisitos-del-sistema">Requisitos del sistema</h4>
+<ul>
+<li>R 4.0+ con librerías: dplyr, ggplot2, readr, stringr</li>
+<li>Python 3.8+ con librerías: pandas, requests, urllib</li>
+<li>Sistema operativo: Linux/macOS (scripts optimizados para bash)</li>
+</ul>
+</section>
+<section id="repositorio-de-código" class="level4">
+<h4 class="anchored" data-anchor-id="repositorio-de-código">Repositorio de código</h4>
+<ul>
+<li><strong>Ubicación:</strong> <code>/scripts/</code> y <code>/scripts_v6/</code></li>
+<li><strong>Orden de ejecución:</strong> Numeración secuencial (1-7)</li>
+<li><strong>Datos de entrada:</strong> <code>beacon.csv</code> (v5) y <code>beacon_v6_clean.csv</code> (v6)</li>
+<li><strong>Datos de salida:</strong> <code>/visualizations/</code> y <code>/visualizations_v6/</code></li>
+</ul>
+</section>
+<section id="estructura-de-archivos-generados" class="level4">
+<h4 class="anchored" data-anchor-id="estructura-de-archivos-generados">Estructura de archivos generados</h4>
+<pre><code>OJSinTheWorld/Chile/
+├── beacon.csv                    # Dataset v5 original
+├── beacon_v6_clean.csv          # Dataset v6 limpiado
+├── beacon_ojs.csv               # OJS filtrado v5
+├── beacon_v6_ojs.csv           # OJS filtrado v6
+├── scripts/
+│   ├── 1_split_beacon.py
+│   ├── 2_analisis_ojs_mundial.R
+│   ├── 3_analisis_chile.R
+│   ├── 4_chile_juojs_filtrado.R
+│   ├── 5_generar_urls_dialnet.py
+│   ├── 6_find_missing_reports.py
+│   ├── 7_comparar_urls_v5_v6.py
+│   ├── 8_procesar_informes_dialnet.py
+│   └── 9_analizar_tipos_errores.py
+├── scripts_v6/
+│   ├── 1_split_beacon_v6.py
+│   ├── 2_analisis_mundial_v6.R
+│   ├── 3_analisis_chile_v6.R
+│   ├── 4_chile_juojs_filtrado_v6.R
+│   ├── 5_generar_urls_dialnet_v6.py
+│   └── 6_tablas_chile_v6.R
+├── visualizations/              # Resultados v5
+│   ├── chile_todas_instalaciones.csv
+│   ├── chile_juojs_activas.csv
+│   ├── chile_oai_urls_limpio.csv
+│   └── dialnet_informes_procesados.csv
+├── visualizations_v6/           # Resultados v6
+│   ├── chile_todas_instalaciones_v6.csv
+│   ├── chile_juojs_activas_v6.csv
+│   └── chile_oai_urls_limpio_v6.csv
+└── dialnet/                     # Informes descargados
+    ├── revistas.udec.cl.pdf
+    ├── www.estudiospublicos.cl.pdf
+    └── ...</code></pre>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
