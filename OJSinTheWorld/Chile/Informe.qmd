@@ -24,7 +24,7 @@ format:
 
 ## Resumen
 
-Este estudio analiza el ecosistema global de revistas académicas que utilizan Open Journal Systems (OJS) mediante el dataset del PKP Beacon, con un enfoque específico en Chile. Se procesaron **86,282 instalaciones OJS globales** (Beacon v6), de las cuales **432 corresponden a Chile**. El análisis incluye validación cruzada entre versiones del beacon y enriquecimiento con datos de OpenAlex para evaluar visibilidad e impacto académico. La **validación v6** confirma **319 instalaciones chilenas activas** con criterio actualizado (>5 pub/2024), representando **14,162 publicaciones en 2024** con un **crecimiento del 16.5%** respecto a 2023.
+Este estudio analiza el ecosistema global de revistas académicas que utilizan Open Journal Systems (OJS) mediante el dataset del PKP Beacon, con un enfoque específico en Chile. Se procesaron **86,282 instalaciones OJS globales** (Beacon v6), de las cuales **432 corresponden a Chile**. El análisis incluye validación cruzada entre versiones del beacon y enriquecimiento con datos de OpenAlex para evaluar visibilidad e impacto académico. La **validación v6** confirma **319 instalaciones chilenas activas** con criterio actualizado (>5 pub/2024), representando un **crecimiento de +3 instalaciones activas** (+0.9%) respecto a v5.
 
 ---
 
@@ -105,13 +105,14 @@ Se emplea el estándar del Directory of Open Access Journals (DOAJ) de **cinco a
 - **Instalaciones OPS:** 49 (0.1%)
 - **Datos hasta:** 2023 (último año completo)
 - **Criterio actividad:** >5 publicaciones en 2023
-- **Chile identificado:** 396 instalaciones totales
-- **Chile activas v5:** 309 instalaciones (78.0%)
+- **Chile identificado:** 403 instalaciones totales
+- **Chile activas v5:** 316 instalaciones (78.4%)
 
 #### 2.1.3 Validación Cruzada v5-v6
 - **Crecimiento total:** 67,138 → 87,170 (+29.8%)
 - **Crecimiento OJS:** 66,527 → 86,282 (+29.7%)
-- **Chile:** 396 → 432 instalaciones (+9.1%)
+- **Chile total:** 403 → 432 instalaciones (+29, +7.2%)
+- **Chile activas:** 316 → 319 instalaciones (+3, +0.9%)
 - **Metodología:** Análisis comparativo para validación de tendencias
 
 ### 2.2 Metodología de Análisis Actualizada
@@ -133,11 +134,11 @@ Rscript scripts/2_analisis_ojs_mundial.R
 ```bash
 # Generar dataset completo de Chile (todos los criterios de país)
 Rscript scripts/3_analisis_chile.R
-# Genera: visualizations/chile_todas_instalaciones.csv (396)
+# Genera: visualizations/chile_todas_instalaciones.csv (403)
 
 # Filtrar solo instalaciones activas (>5 pub/2023)
 Rscript scripts/4_chile_juojs_filtrado.R
-# Genera: visualizations/chile_juojs_activas.csv (309 - DATASET PRINCIPAL v5)
+# Genera: visualizations/chile_juojs_activas.csv (316 - DATASET PRINCIPAL v5)
 ```
 
 **3. Evaluación Dialnet v5**
@@ -168,6 +169,39 @@ python3 scripts/11_filtrar_chile_visibilidad.py
 # Análisis estratégico de visibilidad académica
 python3 scripts/12_analisis_estrategico_visibilidad.py
 # Genera: 7 archivos CSV con análisis detallados
+
+# Enriquecimiento OpenAlex ampliado para revistas chilenas activas
+python3 scripts/13_openalex_chile_ampliado.py
+# Input: chile_juojs_activas.csv (316 revistas)
+# Genera: chile_openalex_ampliado.csv + 3 gráficos PNG
+# Campos ampliados: is_oa, is_in_doaj, apc_usd, host_organization, i10_index, etc.
+# Justificación: Consulta específica sobre dataset reducido por eficiencia
+# (vs script 10 que procesa beacon completo con mayor carga temporal)
+
+# Análisis ampliado de Crossref para revistas chilenas activas
+python3 scripts/14_crossref_chile_ampliado.py
+# Input: chile_juojs_activas.csv (316 revistas)
+# Genera: 14_chile_crossref_ampliado.csv + 3 gráficos PNG + tabla MD
+# Métricas Crossref: DOIs (actuales/históricos), cobertura metadatos, relaciones versiones
+# Campos: current_dois, backfile_dois, abstracts_current/backfile, licenses_current/backfile,
+#         orcids_current/backfile, affiliations_current/backfile, references_current/backfile,
+#         has_preprints, is_preprint_count, has_versions, replacement_relations
+# Rate limiting: 0.2s entre requests, timeout 15s, muestra 50 artículos para relaciones
+
+# Análisis comparativo cruzado entre las tres fuentes de datos
+python3 scripts/15_analisis_comparativo_cruzado.py
+# Input: dialnet_informes_procesados.csv, 13_chile_openalex_ampliado.csv, 14_chile_crossref_ampliado.csv
+# Genera: 15_analisis_comparativo_cruzado.csv + visualizaciones PNG
+# Variables novedosas: madurez_editorial, brecha_visibilidad, coherencia_metadatos, potencial_indexacion
+# Segmentación estratégica: Estrella, Oportunidad, Problema, Veterana, Básico
+# Análisis de correlaciones entre calidad editorial, visibilidad académica y infraestructura DOI
+
+# Comparación revistas con APC vs gratuitas
+python3 scripts/16_comparacion_apc_vs_gratuitas.py
+# Input: 15_analisis_comparativo_cruzado.csv
+# Genera: 16_comparacion_apc_vs_gratuitas.png + análisis estadístico
+# Comparación: completitud metadatos, visibilidad académica, H-index, distribución por segmentos
+# Identificación: solo 3 revistas chilenas cobran APC (0.9% del total)
 ```
 
 #### 2.2.2 Flujo Metodológico v6 (Validación Actualizada)
@@ -209,6 +243,16 @@ python3 scripts_v6/1_split_beacon_v6.py
 Rscript scripts_v6/2_analisis_mundial_v6.R
 # Genera: visualizations_v6/top15_paises_barras_v6.png
 ```
+
+**2. Análisis Chile v6**
+```bash
+# Filtrar instalaciones chilenas con criterios v6
+Rscript scripts_v6/3_analisis_chile_v6.R
+```
+
+---
+
+## 3. Resultados
 
 **2. Análisis Chile v6**
 ```bash
@@ -532,9 +576,111 @@ Se implementó `scripts/10_openalex.py` para consultar la API de OpenAlex y enri
 3. **Revistas emergentes** (14): Crecimiento sostenido, H-index en desarrollo
 4. **Priorización institucional**: UC y UChile como líderes en volumen
 
-### 3.6 Análisis de Calidad Editorial: Informes Dialnet
+### 3.6 Análisis Comparativo Cruzado: Integración de Tres Fuentes
 
-#### 3.6.1 Procesamiento de Informes (Script 8)
+#### 3.6.1 Metodología de Integración (Script 15)
+
+Se desarrolló un análisis comparativo cruzado que integra datos de **tres fuentes principales**:
+- **Dialnet**: Calidad editorial y errores de metadatos (95 revistas)
+- **OpenAlex**: Visibilidad académica e impacto (304 revistas)
+- **Crossref**: Infraestructura DOI y metadatos (316 revistas)
+
+**Variables novedosas calculadas:**
+- **Madurez editorial**: Combina DOIs históricos + calidad Dialnet
+- **Brecha de visibilidad**: Diferencia entre potencial (DOIs) y realidad (indexación)
+- **Coherencia de metadatos**: Consistencia entre fuentes Dialnet-Crossref
+- **Potencial de indexación**: Índice combinado de calidad + visibilidad + infraestructura
+
+#### 3.6.2 Segmentación Estratégica
+
+Se clasificaron las **316 revistas** en 5 segmentos estratégicos:
+
+| Segmento | Cantidad | % | Características |
+|----------|----------|---|----------------|
+| **Básico** | 139 | 44.0% | Desarrollo integral necesario |
+| **Problema** | 60 | 19.0% | Alta visibilidad, baja calidad editorial |
+| **Oportunidad** | 60 | 19.0% | Alta calidad, baja visibilidad |
+| **Veterana** | 51 | 16.1% | Infraestructura madura, modernización necesaria |
+| **Estrella** | 6 | 1.9% | Liderazgo en los tres niveles |
+
+#### 3.6.3 Top 10 Revistas por Potencial Combinado
+
+| Ranking | Revista | Potencial | Segmento |
+|---------|---------|-----------|----------|
+| 1 | Journal of technology management & innovation | 13.59 | Problema |
+| 2 | Terapia psicológica | 13.42 | Problema |
+| 3 | European Journal of Education and Psychology | 13.13 | Básico |
+| 4 | Maderas Ciencia y tecnología | 13.00 | Problema |
+| 5 | Estudios pedagógicos (Valdivia) | 12.71 | Problema |
+| 6 | Revista de biología marina y oceanografía | 12.61 | Básico |
+| 7 | Journal of the Chilean Chemical Society | 12.57 | Problema |
+| 8 | Revista latinoamericana de educación inclusiva | 12.55 | Problema |
+| 9 | Psykhe (Santiago) | 12.48 | Básico |
+| 10 | Estudios de economía | 12.42 | Problema |
+
+#### 3.6.4 Correlaciones Clave Identificadas
+
+| Variables | Correlación | Interpretación |
+|-----------|-------------|----------------|
+| **APC vs Completitud metadatos** | -1.000 | Perfecta correlación negativa |
+| **APC vs Madurez editorial** | -0.998 | Revistas con APC menos maduras |
+| **APC vs Visibilidad** | +0.996 | Revistas con APC más visibles |
+| **APC vs Total DOIs** | +0.984 | Revistas con APC más DOIs |
+| **H-index vs APC** | +0.965 | Mayor impacto en revistas con APC |
+
+#### 3.6.5 Recomendaciones por Segmento
+
+| Segmento | Recomendación Estratégica | Cantidad |
+|----------|---------------------------|----------|
+| **Estrella** | Mantener liderazgo, explorar indexación premium | 6 |
+| **Oportunidad** | Aumentar visibilidad, marketing académico | 60 |
+| **Problema** | Mejorar calidad editorial, revisar procesos | 60 |
+| **Veterana** | Modernizar infraestructura, nuevos estándares | 51 |
+| **Básico** | Desarrollo integral en los tres niveles | 139 |
+
+### 3.7 Análisis APC vs Revistas Gratuitas (Script 16)
+
+#### 3.7.1 Hallazgos Principales
+
+El análisis revela que **solo 3 revistas chilenas (0.9%)** cobran Article Processing Charges (APC):
+
+| Revista | APC (USD) | H-index | Segmento |
+|---------|-----------|---------|----------|
+| **Revista Inclusiones** | $80 | 16 | Veterana |
+| **Gayana (Concepción)** | $1,000 | 27 | Problema |
+| **Gayana Botánica** | $1,000 | 24 | Problema |
+
+#### 3.7.2 Comparación de Métricas Clave
+
+| Métrica | Con APC | Gratuitas | Diferencia |
+|---------|---------|-----------|------------|
+| **Completitud Metadatos** | 32.81 | 32.97 | -0.5% |
+| **Visibilidad Académica** | 2.72 | 0.97 | **+181%** |
+| **H-Index** | 22.33 | 7.61 | **+193%** |
+| **Total DOIs** | 511.33 | 303.19 | **+69%** |
+
+#### 3.7.3 Distribución por Segmentos
+
+- **Ninguna revista "Estrella"** cobra APC
+- **Segmento "Problema"**: 3.3% cobra APC (2/60)
+- **Segmento "Veterana"**: 2.0% cobra APC (1/51)
+- **Segmentos "Básico" y "Oportunidad"**: 0% cobra APC
+
+#### 3.7.4 Implicaciones Estratégicas
+
+**Fortalezas del modelo chileno:**
+- **99.1% de revistas gratuitas** promueve acceso abierto
+- **Calidad editorial similar** independiente del modelo de financiamiento
+- **Diversidad de financiamiento** (institucional, gubernamental)
+
+**Oportunidades identificadas:**
+- Las pocas revistas con APC muestran **mayor impacto académico**
+- Modelo híbrido podría beneficiar revistas de alto impacto
+- **Financiamiento institucional** mantiene acceso abierto
+
+### 3.8 Análisis de Calidad Editorial: Informes Dialnet
+
+#### 3.8.1 Procesamiento de Informes (Script 8)
 
 **Metodología:**
 Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayendo información estructurada sobre errores de calidad y completitud de metadatos mediante `scripts/8_procesar_informes_dialnet.py`.
@@ -544,7 +690,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 - **Archivo generado:** `visualizations/dialnet_informes_procesados.csv`
 - **Datos extraídos:** Errores por gravedad, tipos de errores, porcentajes de metadatos
 
-#### 3.6.2 Resultados de Calidad Editorial
+#### 3.8.2 Resultados de Calidad Editorial
 
 **Estado general de errores:**
 - **Revistas sin errores:** 0 (0.0%)
@@ -554,7 +700,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
   - **Media gravedad:** 23,791 (39.9%)
 - **Promedio errores por revista:** 627.4
 
-#### 3.6.3 Revistas con Mayor Número de Errores
+#### 3.8.3 Revistas con Mayor Número de Errores
 
 | Ranking | Dominio | Total Errores | Alta Gravedad | Media Gravedad |
 |---------|---------|---------------|---------------|----------------|
@@ -564,7 +710,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 | 4 | rhv.uv.cl | 2,865 | 1,988 | 877 |
 | 5 | www.iace.uv.cl | 2,865 | 1,988 | 877 |
 
-#### 3.6.4 Completitud de Metadatos
+#### 3.8.4 Completitud de Metadatos
 
 **Promedios de completitud por tipo de metadato:**
 
@@ -578,7 +724,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 | Palabras clave | 65.6% |
 | Referencias | 33.7% |
 
-#### 3.6.5 Análisis de Tipos de Errores por Gravedad (Script 9)
+#### 3.8.5 Análisis de Tipos de Errores por Gravedad (Script 9)
 
 **Top 5 errores de alta gravedad más frecuentes:**
 
@@ -628,7 +774,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 | Media gravedad | 17 |
 | **Total** | **40** |
 
-#### 3.6.6 Implicaciones para Indexación
+#### 3.8.6 Implicaciones para Indexación
 
 **Fortalezas identificadas:**
 - **Metadatos básicos completos:** Títulos y enlaces al 100%
@@ -648,6 +794,165 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 3. **Capacitación editorial:** Programas de mejora de calidad para editores
 4. **Corrección de paginación:** Atender 12,201 artículos sin numeración
 5. **Estandarización de formato:** Corregir mayúsculas en títulos y subtítulos
+
+### 3.3 Análisis de Crossref - Revistas Chilenas Activas
+
+#### 3.3.1 Cobertura en Crossref
+El análisis de la presencia de revistas chilenas activas en Crossref revela una cobertura significativa:
+
+- **Total revistas analizadas:** 316
+- **Revistas encontradas en Crossref:** 256 (81.0%)
+- **Revistas no registradas:** 60 (19.0%)
+
+#### 3.3.2 Distribución de DOIs Registrados
+
+| Tipo de DOI | Cantidad Total | Promedio por Revista |
+|-------------|----------------|---------------------|
+| DOIs Actuales | 15,910 | 62.1 |
+| DOIs Históricos | 80,844 | 315.8 |
+| **Total DOIs** | **96,754** | **377.9** |
+
+#### 3.3.3 Cobertura de Metadatos
+
+**Metadatos Actuales (Current):**
+- Resúmenes: 76.3% ✅ Muy buena cobertura
+- Verificación de similitud: 73.8% ✅ Buena cobertura
+- Licencias: 51.5% ⚠️ Mejorable
+- ORCIDs: 44.9% ⚠️ Mejorable
+- ROR IDs: 18.2% ❌ Baja cobertura
+- Afiliaciones: 8.6% ❌ Muy baja cobertura
+- Referencias: 7.9% ❌ Muy baja cobertura
+- Políticas de actualización: 0.0% ❌ Sin implementar
+
+**Metadatos Históricos (Backfile):**
+- Resúmenes: 42.8%
+- Licencias: 28.5%
+- ORCIDs: 15.8%
+- Referencias: 8.1%
+- Afiliaciones: 3.2%
+
+#### 3.3.4 Top 10 Revistas por DOIs en Crossref
+
+| Posición | Revista | DOIs Totales | DOIs Actuales | DOIs Históricos |
+|----------|---------|--------------|---------------|-----------------|
+| 1 | Atenea (Concepción) | 10,350 | 90 | 10,260 |
+| 2 | Anales de la Universidad de Chile | 2,724 | 90 | 2,634 |
+| 3 | Journal of the Chilean Chemical Society | 1,806 | 73 | 1,733 |
+| 4 | ARS MEDICA Revista de Ciencias Médicas | 1,559 | 103 | 1,456 |
+| 5 | Estudios Internacionales | 1,548 | 42 | 1,506 |
+| 6 | Proyecciones (Antofagasta) | 1,519 | 302 | 1,217 |
+| 7 | Revista de Derecho Público | 1,334 | 23 | 1,311 |
+| 8 | Bosque (Valdivia) | 1,325 | 108 | 1,217 |
+| 9 | Revista de derecho (Coquimbo) | 1,252 | 166 | 1,086 |
+| 10 | Estudios pedagógicos (Valdivia) | 1,242 | 189 | 1,053 |
+
+#### 3.3.5 Relaciones de Versiones y Preprints
+El análisis de relaciones de versiones reveló que las revistas chilenas **no utilizan funcionalidades avanzadas** de Crossref:
+- Artículos con preprints: 0
+- Artículos que son preprints: 0
+- Artículos con versiones: 0
+- Relaciones de reemplazo: 0
+- Total relaciones de versión: 0
+
+#### 3.3.6 Observaciones Clave Crossref
+
+**Fortalezas:**
+- Alta cobertura en Crossref (81.0%)
+- Buena cobertura de resúmenes y verificación de similitud
+- Volumen significativo de DOIs registrados (96,754 totales)
+
+**Áreas de mejora:**
+- Baja cobertura de afiliaciones y referencias
+- Ausencia de políticas de actualización
+- No aprovechamiento de relaciones de versiones/preprints
+- Cobertura mejorable de ORCIDs y licencias
+
+### 3.7 Análisis OpenAlex Ampliado para Revistas Chilenas Activas
+
+Se realizó un enriquecimiento específico de datos OpenAlex para las **316 revistas chilenas activas**, obteniendo información detallada sobre políticas de acceso abierto, métricas de impacto y características editoriales.
+
+#### 3.7.1 Consideraciones Técnicas
+
+**Limitación metodológica:** De las 316 revistas activas, **12 revistas (3.8%) fueron excluidas** del análisis OpenAlex por carecer de ISSN válido, requisito indispensable para consultas en la API de OpenAlex.
+
+**Revistas excluidas (sin ISSN):**
+- Comunicaciones: una revista de geología andina
+- Boletín de la Universidad de Chile  
+- MGC / Revista de Gestión Cultural
+- Historia 396
+- Revista Bits de Ciencia
+- Revista de Estudios Históricos
+- Filosofía Juridica
+- Inferencias: Boletín de Bioestadística
+- Nutrición y Vida
+- Revista Estudiantil de Ensayos Monográficos
+- EMERGENCIAS: Cuaderno del Magíster en Comunicación Política
+- Mirada Hemisférica
+
+**Dataset final:** 304 revistas procesadas (96.2% de cobertura)
+
+#### 3.7.2 Resultados de Indexación y Visibilidad
+
+| Métrica | Valor | Porcentaje |
+|---------|-------|------------|
+| **Revistas procesadas** | 304 | 100% |
+| **Indexadas en OpenAlex** | 259 | **85.2%** |
+| **No indexadas** | 45 | 14.8% |
+| **Total artículos indexados** | 120,646 | - |
+| **Total citaciones** | 267,428 | - |
+
+#### 3.7.3 Políticas de Acceso Abierto
+
+| Categoría | Revistas | Porcentaje |
+|-----------|----------|------------|
+| **Completamente Open Access** | 245 | **94.6%** |
+| **Indexadas en DOAJ** | 132 | **51.0%** |
+| **Con APC informado** | 3 | 1.2% |
+| **Fuentes "Core" (CWTS)** | 8 | **3.1%** |
+
+**Hallazgo destacado:** El **94.6%** de las revistas chilenas indexadas en OpenAlex son completamente de acceso abierto, superando significativamente el promedio global.
+
+#### 3.7.4 Métricas de Impacto
+
+| Indicador | Promedio | Mediana |
+|-----------|----------|----------|
+| **H-index** | 9.1 | 6.0 |
+| **i10-index** | 26.3 | 12.0 |
+| **Índice de visibilidad** | 2.8 | 1.2 |
+| **APC promedio (USD)** | $693 | - |
+
+#### 3.7.5 Revistas de Mayor Impacto
+
+| Ranking | Revista | Visibilidad | H-index | Estado OA |
+|---------|---------|-------------|---------|----------|
+| 1 | Chungara Revista de Antropología Chilena | 51.56 | 35 | OA |
+| 2 | Gayana | 37.42 | 27 | OA + DOAJ |
+| 3 | Revista de Biología Marina y Oceanografía | 33.26 | 34 | OA |
+| 4 | Journal of the Chilean Chemical Society | 31.18 | 44 | OA |
+| 5 | Gayana Botanica | 27.40 | 24 | OA + DOAJ |
+
+#### 3.7.6 Visualizaciones
+
+![Distribución OpenAlex](visualizations/13_chile_openalex_distribucion.png)
+*Figura 1: Distribución de indexación en OpenAlex, políticas de acceso abierto, presencia en DOAJ y fuentes Core*
+
+![Métricas de Impacto](visualizations/13_chile_openalex_metricas.png)
+*Figura 2: Distribución de métricas de impacto (H-index, i10-index, índice de visibilidad) y correlaciones*
+
+![Rankings por Visibilidad](visualizations/13_chile_openalex_acceso_abierto.png)
+*Figura 3: Top 10 revistas por H-index e índice de visibilidad*
+
+#### 3.7.7 Implicaciones Estratégicas
+
+1. **Alta adopción de acceso abierto:** El 94.6% de revistas indexadas son completamente OA, posicionando a Chile como líder regional.
+
+2. **Oportunidad DOAJ:** Solo el 51% está en DOAJ, representando potencial de mejora para 127 revistas.
+
+3. **Concentración de impacto:** Las top 5 revistas concentran el mayor impacto en ciencias naturales y químicas.
+
+4. **Limitación técnica:** 12 revistas requieren asignación de ISSN para mejorar su visibilidad internacional.
+
+**Dataset generado:** `13_chile_openalex_ampliado.csv` (32 campos, 304 registros)
 
 ---
 
@@ -674,24 +979,65 @@ La **validación v6** confirma el crecimiento acelerado del ecosistema OJS globa
 - **Crecimiento diferenciado:** Algunas instituciones decrecen mientras otras crecen
 - **Nuevas instalaciones:** +36 instalaciones identificadas en v6
 
-### 4.3 Implicaciones para Indexación en Dialnet
+### 4.3 Análisis Comparativo Cruzado: Nuevas Perspectivas
 
-#### 4.3.1 Optimización del Proceso
+#### 4.3.1 Integración Exitosa de Tres Fuentes
+La **metodología de análisis cruzado** (Script 15) permite por primera vez una visión **integral** del ecosistema editorial chileno, combinando:
+- **Calidad editorial** (Dialnet): Errores y completitud de metadatos
+- **Visibilidad académica** (OpenAlex): Impacto y citaciones
+- **Infraestructura técnica** (Crossref): DOIs y metadatos estructurados
+
+#### 4.3.2 Segmentación Estratégica Validada
+La clasificación en **5 segmentos** proporciona una **hoja de ruta clara**:
+- **1.9% Estrellas**: Liderazgo confirmado, indexación prioritaria
+- **19% Oportunidades**: Alto potencial, estrategias de visibilidad
+- **19% Problemas**: Revisión de procesos editoriales
+- **44% Básicas**: Desarrollo integral necesario
+
+#### 4.3.3 Modelo de Financiamiento Sostenible
+El **análisis APC** (Script 16) confirma que Chile mantiene un **modelo de acceso abierto robusto**:
+- **99.1% revistas gratuitas** sin comprometer calidad
+- **Financiamiento institucional** como pilar del sistema
+- **Impacto diferenciado**: Las pocas revistas con APC muestran mayor visibilidad
+
+### 4.4 Implicaciones para Indexación en Dialnet
+
+#### 4.4.1 Optimización del Proceso
 - **225 URLs únicas** (vs 202 anteriores) para evaluación
 - **Eliminación automática** de 94 duplicados
 - **Cobertura mejorada:** 81.5% de publicaciones 2024 representadas
 
-#### 4.3.2 Estrategia de Priorización
+#### 4.4.2 Estrategia de Priorización Actualizada
+
+El **análisis comparativo cruzado** permite priorizar por **múltiples criterios**:
+
+**Prioridad 1 - Revistas Estrella (6):**
+- Liderazgo en calidad + visibilidad + infraestructura
+- Indexación inmediata recomendada
+
+**Prioridad 2 - Oportunidades de Alto Impacto (60):**
+- Alta calidad editorial, potencial de visibilidad
+- Estrategias de marketing académico
+
+**Prioridad 3 - Revistas con APC (3):**
+- Mayor impacto académico demostrado
+- Modelo de financiamiento sostenible
+
+**Criterios de evaluación integrados:**
+1. **Potencial combinado** (Script 15)
+2. **Productividad 2024** (Script 4)
+3. **Calidad editorial** (Scripts 8-9)
+4. **Visibilidad académica** (Scripts 10-12)
 El análisis v6 permite priorizar instalaciones por:
 1. **Productividad 2024:** Revista Chilena de Derecho (1,708 pub)
 2. **Crecimiento:** Instalaciones con tendencia positiva
 3. **Estabilidad institucional:** Universidad de Chile (58 URLs)
 
-### 4.4 Contribución al Acceso Abierto Regional
+### 4.5 Contribución al Acceso Abierto Regional
 
 Los **144,529 artículos históricos** acumulados (vs 133,931 anteriores) posicionan a Chile como contribuyente significativo al ecosistema latinoamericano, con un **crecimiento del 7.9%** en el acervo histórico.
 
-### 4.5 Limitaciones y Consideraciones
+### 4.6 Limitaciones y Consideraciones
 
 1. **Criterio temporal:** Cambio de 2023 a 2024 puede afectar comparabilidad directa
 2. **Cobertura beacon:** Dependencia de instalaciones que mantienen beacon activo
@@ -713,7 +1059,8 @@ Los **144,529 artículos históricos** acumulados (vs 133,931 anteriores) posici
 
 ### 5.3 Limitaciones de Alcance
 - **Evaluación Dialnet:** Proceso manual limita escalabilidad
-- **Visibilidad académica:** Análisis OpenAlex pendiente de integración completa
+- **Visibilidad académica:** Análisis OpenAlex completado exitosamente
+- **Políticas de acceso abierto:** Sherpa Romeo en transición (API restringida)
 - **Impacto editorial:** No incluye métricas de citación o factor de impacto
 
 ---
@@ -748,7 +1095,21 @@ Chile se posiciona como **actor relevante** en el ecosistema latinoamericano de 
 
 ## 7. Próximos Pasos
 
-### 7.1 Evaluación Dialnet
+### 7.1 Implementación de Estrategia Integrada
+
+**Análisis completado:**
+- ✅ **Script 15**: Análisis comparativo cruzado (3 fuentes integradas)
+- ✅ **Script 16**: Comparación APC vs gratuitas
+- ✅ **Segmentación estratégica**: 5 categorías con recomendaciones específicas
+- ✅ **Variables novedosas**: Madurez editorial, brecha de visibilidad, potencial de indexación
+
+**Estrategia de indexación basada en evidencia:**
+1. **6 revistas Estrella**: Indexación prioritaria inmediata
+2. **60 revistas Oportunidad**: Programas de mejora de visibilidad
+3. **3 revistas con APC**: Seguimiento especial por alto impacto
+4. **Criterios integrados**: Calidad + visibilidad + infraestructura
+
+### 7.2 Evaluación Dialnet
 - **Procesamiento completado:** 95 informes HTML analizados (Scripts 8 y 9)
 - **Análisis de visibilidad completado:** Scripts 10, 11 y 12 ejecutados
 - **Resultados disponibles:** 
@@ -761,12 +1122,13 @@ Chile se posiciona como **actor relevante** en el ecosistema latinoamericano de 
   - **Priorización institucional** basada en datos
 - **Próximos pasos:** Implementación de estrategia combinada (calidad + visibilidad)
 
-### 6.2 Enriquecimiento Continuo
-- **Integración OpenAlex** con datos 2024
+### 7.3 Enriquecimiento Continuo
+- **Integración OpenAlex** completada con datos 2024
 - **Análisis longitudinal** de tendencias
 - **Monitoreo** de nuevas instalaciones
+- **Políticas de acceso abierto:** Sherpa Romeo en transición a Jisc Open Policy Finder (API bajo consulta)
 
-### 6.3 Análisis Comparativo Regional
+### 7.4 Análisis Comparativo Regional
 - **Benchmarking** con otros países latinoamericanos
 - **Identificación** de mejores prácticas
 - **Colaboración** regional en acceso abierto

@@ -22,10 +22,19 @@ INPUT_FILE = 'visualizations/chile_juojs_activas.csv'
 OUTPUT_FILE = 'visualizations/chile_sherpa_policies.csv'
 RATE_LIMIT_DELAY = 1.0  # 1 segundo entre requests para ser respetuosos
 BASE_URL = "https://v2.sherpa.ac.uk/cgi/retrieve"
-API_KEY = "TU_API_KEY_AQUI"  # Reemplazar con tu API key real
-USERNAME = "ppantaleo"  # Tu username de Sherpa
-
+# Solicitar API key al usuario
 print("=== CONSULTA DE POLÍTICAS SHERPA ROMEO ===")
+print("\nPara usar este script necesitas:")
+print("1. Activar tu contraseña en Sherpa Romeo")
+print("2. Iniciar sesión en https://v2.sherpa.ac.uk")
+print("3. Obtener tu API key desde tu panel de usuario")
+
+API_KEY = input("\nIngresa tu API key de Sherpa Romeo: ").strip()
+if not API_KEY or API_KEY == "TU_API_KEY_AQUI":
+    print("❌ Error: Necesitas proporcionar una API key válida")
+    exit(1)
+
+USERNAME = "ppantaleo"  # Tu username de Sherpa
 
 def consultar_sherpa_romeo(issn):
     """
