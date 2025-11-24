@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Patricio Pantaleo">
-<meta name="dcterms.date" content="2025-11-23">
+<meta name="description" content="Este estudio analiza el ecosistema de revistas académicas chilenas que utilizan Open Journal Systems (OJS) basándose en el dataset PKP Beacon v5 como fuente principal. Se procesaron 316 instalaciones chilenas activas (criterio >5 publicaciones/2023) de un total de 403 instalaciones identificadas en Chile. El análisis incluye referencias contextuales al Beacon v6 (noviembre 2024) que reporta 86,282 instalaciones OJS globales y 432 instalaciones chilenas.La metodología integra cuatro fuentes de datos aplicadas al dataset depurado v5: PKP Beacon para caracterización editorial base, Dialnet para evaluación de calidad editorial mediante 95 informes procesados, OpenAlex para métricas de visibilidad académica, y Crossref para análisis de cobertura de metadatos. Se generaron 208 URLs OAI únicas evaluables e identificaron 40 tipos de errores en prácticas editoriales.Los hallazgos revelan: (1) heterogeneidad significativa en estándares de metadatos y prácticas editoriales, (2) oportunidades de mejora en indexación internacional y preservación digital, y (3) necesidad de fortalecimiento en interoperabilidad y visibilidad académica. El estudio establece una línea base metodológica replicable para evaluación de ecosistemas editoriales regionales y proporciona datos cuantitativos para políticas de fortalecimiento del sector académico chileno.">
 
-<title>Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</title>
+<title>Calidad editorial y prácticas de metadatos en revistas académicas chilenas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="Informe_files/libs/clipboard/clipboard.min.js"></script>
@@ -75,59 +95,187 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Calidad editorial y prácticas de metadatos en revistas académicas chilenas</h1>
+            <p class="subtitle lead">Un análisis de instalaciones OJS mediante informes de calidad Dialnet, Open Alex y Crossref</p>
+                  <div>
+        <div class="description">
+          <p>Este estudio analiza el ecosistema de revistas académicas chilenas que utilizan Open Journal Systems (OJS) basándose en el dataset PKP Beacon v5 como fuente principal. Se procesaron <strong>316 instalaciones chilenas activas</strong> (criterio &gt;5 publicaciones/2023) de un total de <strong>403 instalaciones identificadas</strong> en Chile. El análisis incluye referencias contextuales al Beacon v6 (noviembre 2024) que reporta <strong>86,282 instalaciones OJS globales</strong> y <strong>432 instalaciones chilenas</strong>.</p>
+          <p>La metodología integra cuatro fuentes de datos aplicadas al dataset depurado v5: <strong>PKP Beacon</strong> para caracterización editorial base, <strong>Dialnet</strong> para evaluación de calidad editorial mediante <strong>95 informes procesados</strong>, <strong>OpenAlex</strong> para métricas de visibilidad académica, y <strong>Crossref</strong> para análisis de cobertura de metadatos. Se generaron <strong>208 URLs OAI únicas</strong> evaluables e identificaron <strong>40 tipos de errores</strong> en prácticas editoriales.</p>
+          <p>Los hallazgos revelan: (1) <strong>heterogeneidad significativa</strong> en estándares de metadatos y prácticas editoriales, (2) <strong>oportunidades de mejora</strong> en indexación internacional y preservación digital, y (3) <strong>necesidad de fortalecimiento</strong> en interoperabilidad y visibilidad académica. El estudio establece una <strong>línea base metodológica</strong> replicable para evaluación de ecosistemas editoriales regionales y proporciona datos cuantitativos para políticas de fortalecimiento del sector académico chileno.</p>
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p>Patricio Pantaleo </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">24 de noviembre de 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp" id="toc-análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp" class="nav-link active" data-scroll-target="#análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp">Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</a>
-  <ul class="collapse">
-  <li><a href="#informe-consolidado-con-validación-beacon-v6-2024-2025" id="toc-informe-consolidado-con-validación-beacon-v6-2024-2025" class="nav-link" data-scroll-target="#informe-consolidado-con-validación-beacon-v6-2024-2025">Informe Consolidado con Validación Beacon v6 (2024-2025)</a></li>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">1. Introducción</a>
-  <ul class="collapse">
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">1. Introducción</a>
+  <ul>
   <li><a href="#contexto" id="toc-contexto" class="nav-link" data-scroll-target="#contexto">1.1 Contexto</a></li>
-  <li><a href="#antecedentes" id="toc-antecedentes" class="nav-link" data-scroll-target="#antecedentes">1.2 Antecedentes</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">1.3 Objetivos</a></li>
-  <li><a href="#marco-conceptual" id="toc-marco-conceptual" class="nav-link" data-scroll-target="#marco-conceptual">1.4 Marco Conceptual</a></li>
+  <li><a href="#problemática" id="toc-problemática" class="nav-link" data-scroll-target="#problemática">1.2 Problemática</a></li>
+  <li><a href="#antecedentes-y-marco-conceptual" id="toc-antecedentes-y-marco-conceptual" class="nav-link" data-scroll-target="#antecedentes-y-marco-conceptual">1.3 Antecedentes y marco conceptual</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">1.4 Objetivos</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-general" id="toc-objetivo-general" class="nav-link" data-scroll-target="#objetivo-general">1.4.1 Objetivo General</a></li>
+  <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos">1.4.2 Objetivos Específicos</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#materiales-y-métodos" id="toc-materiales-y-métodos" class="nav-link" data-scroll-target="#materiales-y-métodos">2. Materiales y Métodos</a>
+  <ul>
+  <li><a href="#fuente-de-datos" id="toc-fuente-de-datos" class="nav-link" data-scroll-target="#fuente-de-datos">2.1 Fuente de Datos</a>
   <ul class="collapse">
-  <li><a href="#fuente-de-datos" id="toc-fuente-de-datos" class="nav-link" data-scroll-target="#fuente-de-datos">2.1 Fuente de Datos</a></li>
-  <li><a href="#metodología-de-análisis-actualizada" id="toc-metodología-de-análisis-actualizada" class="nav-link" data-scroll-target="#metodología-de-análisis-actualizada">2.2 Metodología de Análisis Actualizada</a></li>
+  <li><a href="#dataset-pkp-beacon-v5-versión-inicial" id="toc-dataset-pkp-beacon-v5-versión-inicial" class="nav-link" data-scroll-target="#dataset-pkp-beacon-v5-versión-inicial">2.1.1 Dataset PKP Beacon v5 (Versión Inicial)</a></li>
+  <li><a href="#dataset-principal-pkp-beacon-v6" id="toc-dataset-principal-pkp-beacon-v6" class="nav-link" data-scroll-target="#dataset-principal-pkp-beacon-v6">2.1.2 Dataset Principal PKP Beacon v6</a></li>
+  <li><a href="#dialnet---sistema-de-evaluación-de-calidad-editorial" id="toc-dialnet---sistema-de-evaluación-de-calidad-editorial" class="nav-link" data-scroll-target="#dialnet---sistema-de-evaluación-de-calidad-editorial">2.1.3 Dialnet - Sistema de Evaluación de Calidad Editorial</a></li>
+  <li><a href="#openalex---base-de-datos-de-visibilidad-académica" id="toc-openalex---base-de-datos-de-visibilidad-académica" class="nav-link" data-scroll-target="#openalex---base-de-datos-de-visibilidad-académica">2.1.4 OpenAlex - Base de Datos de Visibilidad Académica</a></li>
+  <li><a href="#crossref---infraestructura-de-metadatos-y-dois" id="toc-crossref---infraestructura-de-metadatos-y-dois" class="nav-link" data-scroll-target="#crossref---infraestructura-de-metadatos-y-dois">2.1.5 Crossref - Infraestructura de Metadatos y DOIs</a></li>
   </ul></li>
-  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">3. Resultados</a></li>
-  <li><a href="#resultados-1" id="toc-resultados-1" class="nav-link" data-scroll-target="#resultados-1">3. Resultados</a>
+  <li><a href="#metodología-de-análisis" id="toc-metodología-de-análisis" class="nav-link" data-scroll-target="#metodología-de-análisis">2.2 Metodología de Análisis</a>
   <ul class="collapse">
-  <li><a href="#análisis-global-v6" id="toc-análisis-global-v6" class="nav-link" data-scroll-target="#análisis-global-v6">3.1 Análisis Global v6</a></li>
-  <li><a href="#análisis-específico-de-chile---validación-v6" id="toc-análisis-específico-de-chile---validación-v6" class="nav-link" data-scroll-target="#análisis-específico-de-chile---validación-v6">3.2 Análisis Específico de Chile - Validación v6</a></li>
-  <li><a href="#validación-cruzada-comparación-v5-vs-v6" id="toc-validación-cruzada-comparación-v5-vs-v6" class="nav-link" data-scroll-target="#validación-cruzada-comparación-v5-vs-v6">3.3 Validación Cruzada: Comparación v5 vs v6</a></li>
-  <li><a href="#archivos-generados-v6" id="toc-archivos-generados-v6" class="nav-link" data-scroll-target="#archivos-generados-v6">3.4 Archivos Generados v6</a></li>
-  <li><a href="#análisis-de-visibilidad-académica-integración-openalex" id="toc-análisis-de-visibilidad-académica-integración-openalex" class="nav-link" data-scroll-target="#análisis-de-visibilidad-académica-integración-openalex">3.5 Análisis de Visibilidad Académica: Integración OpenAlex</a></li>
-  <li><a href="#análisis-comparativo-cruzado-integración-de-tres-fuentes" id="toc-análisis-comparativo-cruzado-integración-de-tres-fuentes" class="nav-link" data-scroll-target="#análisis-comparativo-cruzado-integración-de-tres-fuentes">3.6 Análisis Comparativo Cruzado: Integración de Tres Fuentes</a></li>
-  <li><a href="#análisis-apc-vs-revistas-gratuitas-script-16" id="toc-análisis-apc-vs-revistas-gratuitas-script-16" class="nav-link" data-scroll-target="#análisis-apc-vs-revistas-gratuitas-script-16">3.7 Análisis APC vs Revistas Gratuitas (Script 16)</a></li>
-  <li><a href="#análisis-de-calidad-editorial-informes-dialnet" id="toc-análisis-de-calidad-editorial-informes-dialnet" class="nav-link" data-scroll-target="#análisis-de-calidad-editorial-informes-dialnet">3.8 Análisis de Calidad Editorial: Informes Dialnet</a></li>
-  <li><a href="#análisis-de-crossref---revistas-chilenas-activas" id="toc-análisis-de-crossref---revistas-chilenas-activas" class="nav-link" data-scroll-target="#análisis-de-crossref---revistas-chilenas-activas">3.3 Análisis de Crossref - Revistas Chilenas Activas</a></li>
-  <li><a href="#análisis-openalex-ampliado-para-revistas-chilenas-activas" id="toc-análisis-openalex-ampliado-para-revistas-chilenas-activas" class="nav-link" data-scroll-target="#análisis-openalex-ampliado-para-revistas-chilenas-activas">3.7 Análisis OpenAlex Ampliado para Revistas Chilenas Activas</a></li>
+  <li><a href="#flujo-metodológico-v5-versión-inicial" id="toc-flujo-metodológico-v5-versión-inicial" class="nav-link" data-scroll-target="#flujo-metodológico-v5-versión-inicial">2.2.1 Flujo Metodológico v5 (Versión Inicial)</a></li>
+  <li><a href="#flujo-metodológico-v6-validación-actualizada" id="toc-flujo-metodológico-v6-validación-actualizada" class="nav-link" data-scroll-target="#flujo-metodológico-v6-validación-actualizada">2.2.2 Flujo Metodológico v6 (Validación Actualizada)</a></li>
+  <li><a href="#decisión-metodológica-continuidad-operativa-v5" id="toc-decisión-metodológica-continuidad-operativa-v5" class="nav-link" data-scroll-target="#decisión-metodológica-continuidad-operativa-v5">2.2.3 Decisión Metodológica: Continuidad Operativa v5</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">3. Resultados</a>
+  <ul>
+  <li><a href="#análisis-global-v6" id="toc-análisis-global-v6" class="nav-link" data-scroll-target="#análisis-global-v6">3.1 Análisis Global v6</a>
+  <ul class="collapse">
+  <li><a href="#distribución-general" id="toc-distribución-general" class="nav-link" data-scroll-target="#distribución-general">3.1.1 Distribución General</a></li>
+  <li><a href="#instalaciones-ojs-activas-globalmente-v6" id="toc-instalaciones-ojs-activas-globalmente-v6" class="nav-link" data-scroll-target="#instalaciones-ojs-activas-globalmente-v6">3.1.2 Instalaciones OJS Activas Globalmente v6</a></li>
+  <li><a href="#top-10-países-por-instalaciones-activas-2024" id="toc-top-10-países-por-instalaciones-activas-2024" class="nav-link" data-scroll-target="#top-10-países-por-instalaciones-activas-2024">3.1.3 Top 10 Países por Instalaciones Activas 2024</a></li>
+  <li><a href="#distribución-por-regiones-pkp-v6" id="toc-distribución-por-regiones-pkp-v6" class="nav-link" data-scroll-target="#distribución-por-regiones-pkp-v6">3.1.4 Distribución por Regiones PKP v6</a></li>
+  </ul></li>
+  <li><a href="#análisis-específico-de-chile---validación-v6" id="toc-análisis-específico-de-chile---validación-v6" class="nav-link" data-scroll-target="#análisis-específico-de-chile---validación-v6">3.2 Análisis Específico de Chile - Validación v6</a>
+  <ul class="collapse">
+  <li><a href="#estadísticas-generales-actualizadas" id="toc-estadísticas-generales-actualizadas" class="nav-link" data-scroll-target="#estadísticas-generales-actualizadas">3.2.1 Estadísticas Generales Actualizadas</a></li>
+  <li><a href="#productividad-2024-validación-v6" id="toc-productividad-2024-validación-v6" class="nav-link" data-scroll-target="#productividad-2024-validación-v6">3.2.2 Productividad 2024 (Validación v6)</a></li>
+  <li><a href="#top-10-instalaciones-más-productivas-2024-v6" id="toc-top-10-instalaciones-más-productivas-2024-v6" class="nav-link" data-scroll-target="#top-10-instalaciones-más-productivas-2024-v6">3.2.3 Top 10 Instalaciones Más Productivas 2024 (v6)</a></li>
+  <li><a href="#análisis-de-crecimiento-2023-2024-v6" id="toc-análisis-de-crecimiento-2023-2024-v6" class="nav-link" data-scroll-target="#análisis-de-crecimiento-2023-2024-v6">3.2.4 Análisis de Crecimiento 2023-2024 (v6)</a></li>
+  <li><a href="#distribución-institucional-actualizada-v6" id="toc-distribución-institucional-actualizada-v6" class="nav-link" data-scroll-target="#distribución-institucional-actualizada-v6">3.2.5 Distribución Institucional Actualizada (v6)</a></li>
+  <li><a href="#distribución-geográfica-pkp-v6" id="toc-distribución-geográfica-pkp-v6" class="nav-link" data-scroll-target="#distribución-geográfica-pkp-v6">3.2.6 Distribución Geográfica PKP (v6)</a></li>
+  <li><a href="#urls-oai-generadas-para-dialnet-v6" id="toc-urls-oai-generadas-para-dialnet-v6" class="nav-link" data-scroll-target="#urls-oai-generadas-para-dialnet-v6">3.2.7 URLs OAI Generadas para Dialnet (v6)</a></li>
+  </ul></li>
+  <li><a href="#validación-cruzada-comparación-v5-vs-v6" id="toc-validación-cruzada-comparación-v5-vs-v6" class="nav-link" data-scroll-target="#validación-cruzada-comparación-v5-vs-v6">3.3 Validación Cruzada: Comparación v5 vs v6</a>
+  <ul class="collapse">
+  <li><a href="#análisis-comparativo-por-dominios-script-7" id="toc-análisis-comparativo-por-dominios-script-7" class="nav-link" data-scroll-target="#análisis-comparativo-por-dominios-script-7">3.3.1 Análisis Comparativo por Dominios (Script 7)</a></li>
+  </ul></li>
+  <li><a href="#archivos-generados-v6" id="toc-archivos-generados-v6" class="nav-link" data-scroll-target="#archivos-generados-v6">3.4 Archivos Generados v6</a>
+  <ul class="collapse">
+  <li><a href="#datasets-principales" id="toc-datasets-principales" class="nav-link" data-scroll-target="#datasets-principales">3.4.1 Datasets Principales</a></li>
+  <li><a href="#análisis-mundial-v6" id="toc-análisis-mundial-v6" class="nav-link" data-scroll-target="#análisis-mundial-v6">3.4.2 Análisis Mundial v6</a></li>
+  <li><a href="#tablas-chile-v6" id="toc-tablas-chile-v6" class="nav-link" data-scroll-target="#tablas-chile-v6">3.4.3 Tablas Chile v6</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-visibilidad-académica-integración-openalex" id="toc-análisis-de-visibilidad-académica-integración-openalex" class="nav-link" data-scroll-target="#análisis-de-visibilidad-académica-integración-openalex">3.5 Análisis de Visibilidad Académica: Integración OpenAlex</a>
+  <ul class="collapse">
+  <li><a href="#metodología-de-enriquecimiento-script-10" id="toc-metodología-de-enriquecimiento-script-10" class="nav-link" data-scroll-target="#metodología-de-enriquecimiento-script-10">3.5.1 Metodología de Enriquecimiento (Script 10)</a></li>
+  <li><a href="#resultados-de-visibilidad-global" id="toc-resultados-de-visibilidad-global" class="nav-link" data-scroll-target="#resultados-de-visibilidad-global">3.5.2 Resultados de Visibilidad Global</a></li>
+  <li><a href="#análisis-específico-chile-script-11" id="toc-análisis-específico-chile-script-11" class="nav-link" data-scroll-target="#análisis-específico-chile-script-11">3.5.3 Análisis Específico Chile (Script 11)</a></li>
+  <li><a href="#análisis-estratégico-de-visibilidad-script-12" id="toc-análisis-estratégico-de-visibilidad-script-12" class="nav-link" data-scroll-target="#análisis-estratégico-de-visibilidad-script-12">3.5.4 Análisis Estratégico de Visibilidad (Script 12)</a></li>
+  <li><a href="#implicaciones-para-estrategia-de-indexación" id="toc-implicaciones-para-estrategia-de-indexación" class="nav-link" data-scroll-target="#implicaciones-para-estrategia-de-indexación">3.5.5 Implicaciones para Estrategia de Indexación</a></li>
+  </ul></li>
+  <li><a href="#análisis-comparativo-cruzado-integración-de-tres-fuentes" id="toc-análisis-comparativo-cruzado-integración-de-tres-fuentes" class="nav-link" data-scroll-target="#análisis-comparativo-cruzado-integración-de-tres-fuentes">3.6 Análisis Comparativo Cruzado: Integración de Tres Fuentes</a>
+  <ul class="collapse">
+  <li><a href="#metodología-de-integración-script-15" id="toc-metodología-de-integración-script-15" class="nav-link" data-scroll-target="#metodología-de-integración-script-15">3.6.1 Metodología de Integración (Script 15)</a></li>
+  <li><a href="#segmentación-estratégica" id="toc-segmentación-estratégica" class="nav-link" data-scroll-target="#segmentación-estratégica">3.6.2 Segmentación Estratégica</a></li>
+  <li><a href="#top-10-revistas-por-potencial-combinado" id="toc-top-10-revistas-por-potencial-combinado" class="nav-link" data-scroll-target="#top-10-revistas-por-potencial-combinado">3.6.3 Top 10 Revistas por Potencial Combinado</a></li>
+  <li><a href="#correlaciones-clave-identificadas" id="toc-correlaciones-clave-identificadas" class="nav-link" data-scroll-target="#correlaciones-clave-identificadas">3.6.4 Correlaciones Clave Identificadas</a></li>
+  <li><a href="#recomendaciones-por-segmento" id="toc-recomendaciones-por-segmento" class="nav-link" data-scroll-target="#recomendaciones-por-segmento">3.6.5 Recomendaciones por Segmento</a></li>
+  </ul></li>
+  <li><a href="#análisis-apc-vs-revistas-gratuitas-script-16" id="toc-análisis-apc-vs-revistas-gratuitas-script-16" class="nav-link" data-scroll-target="#análisis-apc-vs-revistas-gratuitas-script-16">3.7 Análisis APC vs Revistas Gratuitas (Script 16)</a>
+  <ul class="collapse">
+  <li><a href="#hallazgos-principales" id="toc-hallazgos-principales" class="nav-link" data-scroll-target="#hallazgos-principales">3.7.1 Hallazgos Principales</a></li>
+  <li><a href="#comparación-de-métricas-clave" id="toc-comparación-de-métricas-clave" class="nav-link" data-scroll-target="#comparación-de-métricas-clave">3.7.2 Comparación de Métricas Clave</a></li>
+  <li><a href="#distribución-por-segmentos" id="toc-distribución-por-segmentos" class="nav-link" data-scroll-target="#distribución-por-segmentos">3.7.3 Distribución por Segmentos</a></li>
+  <li><a href="#implicaciones-estratégicas" id="toc-implicaciones-estratégicas" class="nav-link" data-scroll-target="#implicaciones-estratégicas">3.7.4 Implicaciones Estratégicas</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-calidad-editorial-informes-dialnet" id="toc-análisis-de-calidad-editorial-informes-dialnet" class="nav-link" data-scroll-target="#análisis-de-calidad-editorial-informes-dialnet">3.8 Análisis de Calidad Editorial: Informes Dialnet</a>
+  <ul class="collapse">
+  <li><a href="#procesamiento-de-informes-script-8" id="toc-procesamiento-de-informes-script-8" class="nav-link" data-scroll-target="#procesamiento-de-informes-script-8">3.8.1 Procesamiento de Informes (Script 8)</a></li>
+  <li><a href="#resultados-de-calidad-editorial" id="toc-resultados-de-calidad-editorial" class="nav-link" data-scroll-target="#resultados-de-calidad-editorial">3.8.2 Resultados de Calidad Editorial</a></li>
+  <li><a href="#revistas-con-mayor-número-de-errores" id="toc-revistas-con-mayor-número-de-errores" class="nav-link" data-scroll-target="#revistas-con-mayor-número-de-errores">3.8.3 Revistas con Mayor Número de Errores</a></li>
+  <li><a href="#completitud-de-metadatos" id="toc-completitud-de-metadatos" class="nav-link" data-scroll-target="#completitud-de-metadatos">3.8.4 Completitud de Metadatos</a></li>
+  <li><a href="#análisis-de-tipos-de-errores-por-gravedad-script-9" id="toc-análisis-de-tipos-de-errores-por-gravedad-script-9" class="nav-link" data-scroll-target="#análisis-de-tipos-de-errores-por-gravedad-script-9">3.8.5 Análisis de Tipos de Errores por Gravedad (Script 9)</a></li>
+  <li><a href="#implicaciones-para-indexación" id="toc-implicaciones-para-indexación" class="nav-link" data-scroll-target="#implicaciones-para-indexación">3.8.6 Implicaciones para Indexación</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-crossref---revistas-chilenas-activas" id="toc-análisis-de-crossref---revistas-chilenas-activas" class="nav-link" data-scroll-target="#análisis-de-crossref---revistas-chilenas-activas">3.3 Análisis de Crossref - Revistas Chilenas Activas</a>
+  <ul class="collapse">
+  <li><a href="#cobertura-en-crossref" id="toc-cobertura-en-crossref" class="nav-link" data-scroll-target="#cobertura-en-crossref">3.3.1 Cobertura en Crossref</a></li>
+  <li><a href="#distribución-de-dois-registrados" id="toc-distribución-de-dois-registrados" class="nav-link" data-scroll-target="#distribución-de-dois-registrados">3.3.2 Distribución de DOIs Registrados</a></li>
+  <li><a href="#cobertura-de-metadatos" id="toc-cobertura-de-metadatos" class="nav-link" data-scroll-target="#cobertura-de-metadatos">3.3.3 Cobertura de Metadatos</a></li>
+  <li><a href="#top-10-revistas-por-dois-en-crossref" id="toc-top-10-revistas-por-dois-en-crossref" class="nav-link" data-scroll-target="#top-10-revistas-por-dois-en-crossref">3.3.4 Top 10 Revistas por DOIs en Crossref</a></li>
+  <li><a href="#relaciones-de-versiones-y-preprints" id="toc-relaciones-de-versiones-y-preprints" class="nav-link" data-scroll-target="#relaciones-de-versiones-y-preprints">3.3.5 Relaciones de Versiones y Preprints</a></li>
+  <li><a href="#observaciones-clave-crossref" id="toc-observaciones-clave-crossref" class="nav-link" data-scroll-target="#observaciones-clave-crossref">3.3.6 Observaciones Clave Crossref</a></li>
+  </ul></li>
+  <li><a href="#análisis-openalex-ampliado-para-revistas-chilenas-activas" id="toc-análisis-openalex-ampliado-para-revistas-chilenas-activas" class="nav-link" data-scroll-target="#análisis-openalex-ampliado-para-revistas-chilenas-activas">3.7 Análisis OpenAlex Ampliado para Revistas Chilenas Activas</a>
+  <ul class="collapse">
+  <li><a href="#consideraciones-técnicas" id="toc-consideraciones-técnicas" class="nav-link" data-scroll-target="#consideraciones-técnicas">3.7.1 Consideraciones Técnicas</a></li>
+  <li><a href="#resultados-de-indexación-y-visibilidad" id="toc-resultados-de-indexación-y-visibilidad" class="nav-link" data-scroll-target="#resultados-de-indexación-y-visibilidad">3.7.2 Resultados de Indexación y Visibilidad</a></li>
+  <li><a href="#políticas-de-acceso-abierto" id="toc-políticas-de-acceso-abierto" class="nav-link" data-scroll-target="#políticas-de-acceso-abierto">3.7.3 Políticas de Acceso Abierto</a></li>
+  <li><a href="#métricas-de-impacto" id="toc-métricas-de-impacto" class="nav-link" data-scroll-target="#métricas-de-impacto">3.7.4 Métricas de Impacto</a></li>
+  <li><a href="#revistas-de-mayor-impacto" id="toc-revistas-de-mayor-impacto" class="nav-link" data-scroll-target="#revistas-de-mayor-impacto">3.7.5 Revistas de Mayor Impacto</a></li>
+  <li><a href="#visualizaciones" id="toc-visualizaciones" class="nav-link" data-scroll-target="#visualizaciones">3.7.6 Visualizaciones</a></li>
+  <li><a href="#implicaciones-estratégicas-1" id="toc-implicaciones-estratégicas-1" class="nav-link" data-scroll-target="#implicaciones-estratégicas-1">3.7.7 Implicaciones Estratégicas</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#discusión" id="toc-discusión" class="nav-link" data-scroll-target="#discusión">4. Discusión</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#validación-del-ecosistema-global" id="toc-validación-del-ecosistema-global" class="nav-link" data-scroll-target="#validación-del-ecosistema-global">4.1 Validación del Ecosistema Global</a></li>
-  <li><a href="#caracterización-del-ecosistema-chileno-actualizada" id="toc-caracterización-del-ecosistema-chileno-actualizada" class="nav-link" data-scroll-target="#caracterización-del-ecosistema-chileno-actualizada">4.2 Caracterización del Ecosistema Chileno Actualizada</a></li>
-  <li><a href="#análisis-comparativo-cruzado-nuevas-perspectivas" id="toc-análisis-comparativo-cruzado-nuevas-perspectivas" class="nav-link" data-scroll-target="#análisis-comparativo-cruzado-nuevas-perspectivas">4.3 Análisis Comparativo Cruzado: Nuevas Perspectivas</a></li>
-  <li><a href="#implicaciones-para-indexación-en-dialnet" id="toc-implicaciones-para-indexación-en-dialnet" class="nav-link" data-scroll-target="#implicaciones-para-indexación-en-dialnet">4.4 Implicaciones para Indexación en Dialnet</a></li>
+  <li><a href="#caracterización-del-ecosistema-chileno-actualizada" id="toc-caracterización-del-ecosistema-chileno-actualizada" class="nav-link" data-scroll-target="#caracterización-del-ecosistema-chileno-actualizada">4.2 Caracterización del Ecosistema Chileno Actualizada</a>
+  <ul class="collapse">
+  <li><a href="#fortalezas-confirmadas-v6" id="toc-fortalezas-confirmadas-v6" class="nav-link" data-scroll-target="#fortalezas-confirmadas-v6">4.2.1 Fortalezas Confirmadas v6</a></li>
+  <li><a href="#tendencias-identificadas" id="toc-tendencias-identificadas" class="nav-link" data-scroll-target="#tendencias-identificadas">4.2.2 Tendencias Identificadas</a></li>
+  </ul></li>
+  <li><a href="#análisis-comparativo-cruzado-nuevas-perspectivas" id="toc-análisis-comparativo-cruzado-nuevas-perspectivas" class="nav-link" data-scroll-target="#análisis-comparativo-cruzado-nuevas-perspectivas">4.3 Análisis Comparativo Cruzado: Nuevas Perspectivas</a>
+  <ul class="collapse">
+  <li><a href="#integración-exitosa-de-tres-fuentes" id="toc-integración-exitosa-de-tres-fuentes" class="nav-link" data-scroll-target="#integración-exitosa-de-tres-fuentes">4.3.1 Integración Exitosa de Tres Fuentes</a></li>
+  <li><a href="#segmentación-estratégica-validada" id="toc-segmentación-estratégica-validada" class="nav-link" data-scroll-target="#segmentación-estratégica-validada">4.3.2 Segmentación Estratégica Validada</a></li>
+  <li><a href="#modelo-de-financiamiento-sostenible" id="toc-modelo-de-financiamiento-sostenible" class="nav-link" data-scroll-target="#modelo-de-financiamiento-sostenible">4.3.3 Modelo de Financiamiento Sostenible</a></li>
+  </ul></li>
+  <li><a href="#implicaciones-para-indexación-en-dialnet" id="toc-implicaciones-para-indexación-en-dialnet" class="nav-link" data-scroll-target="#implicaciones-para-indexación-en-dialnet">4.4 Implicaciones para Indexación en Dialnet</a>
+  <ul class="collapse">
+  <li><a href="#optimización-del-proceso" id="toc-optimización-del-proceso" class="nav-link" data-scroll-target="#optimización-del-proceso">4.4.1 Optimización del Proceso</a></li>
+  <li><a href="#estrategia-de-priorización-actualizada" id="toc-estrategia-de-priorización-actualizada" class="nav-link" data-scroll-target="#estrategia-de-priorización-actualizada">4.4.2 Estrategia de Priorización Actualizada</a></li>
+  </ul></li>
   <li><a href="#contribución-al-acceso-abierto-regional" id="toc-contribución-al-acceso-abierto-regional" class="nav-link" data-scroll-target="#contribución-al-acceso-abierto-regional">4.5 Contribución al Acceso Abierto Regional</a></li>
   <li><a href="#limitaciones-y-consideraciones" id="toc-limitaciones-y-consideraciones" class="nav-link" data-scroll-target="#limitaciones-y-consideraciones">4.6 Limitaciones y Consideraciones</a></li>
   </ul></li>
   <li><a href="#limitaciones-del-estudio" id="toc-limitaciones-del-estudio" class="nav-link" data-scroll-target="#limitaciones-del-estudio">5. Limitaciones del Estudio</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#limitaciones-metodológicas" id="toc-limitaciones-metodológicas" class="nav-link" data-scroll-target="#limitaciones-metodológicas">5.1 Limitaciones Metodológicas</a></li>
   <li><a href="#limitaciones-técnicas" id="toc-limitaciones-técnicas" class="nav-link" data-scroll-target="#limitaciones-técnicas">5.2 Limitaciones Técnicas</a></li>
   <li><a href="#limitaciones-de-alcance" id="toc-limitaciones-de-alcance" class="nav-link" data-scroll-target="#limitaciones-de-alcance">5.3 Limitaciones de Alcance</a></li>
   </ul></li>
   <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">6. Conclusiones</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#validación-del-ecosistema-robusto" id="toc-validación-del-ecosistema-robusto" class="nav-link" data-scroll-target="#validación-del-ecosistema-robusto">5.1 Validación del Ecosistema Robusto</a></li>
   <li><a href="#liderazgo-institucional-confirmado" id="toc-liderazgo-institucional-confirmado" class="nav-link" data-scroll-target="#liderazgo-institucional-confirmado">5.2 Liderazgo Institucional Confirmado</a></li>
   <li><a href="#crecimiento-sostenido-validado" id="toc-crecimiento-sostenido-validado" class="nav-link" data-scroll-target="#crecimiento-sostenido-validado">5.3 Crecimiento Sostenido Validado</a></li>
@@ -135,144 +283,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#posicionamiento-global" id="toc-posicionamiento-global" class="nav-link" data-scroll-target="#posicionamiento-global">5.5 Posicionamiento Global</a></li>
   </ul></li>
   <li><a href="#próximos-pasos" id="toc-próximos-pasos" class="nav-link" data-scroll-target="#próximos-pasos">7. Próximos Pasos</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#implementación-de-estrategia-integrada" id="toc-implementación-de-estrategia-integrada" class="nav-link" data-scroll-target="#implementación-de-estrategia-integrada">7.1 Implementación de Estrategia Integrada</a></li>
   <li><a href="#evaluación-dialnet" id="toc-evaluación-dialnet" class="nav-link" data-scroll-target="#evaluación-dialnet">7.2 Evaluación Dialnet</a></li>
   <li><a href="#enriquecimiento-continuo" id="toc-enriquecimiento-continuo" class="nav-link" data-scroll-target="#enriquecimiento-continuo">7.3 Enriquecimiento Continuo</a></li>
   <li><a href="#análisis-comparativo-regional" id="toc-análisis-comparativo-regional" class="nav-link" data-scroll-target="#análisis-comparativo-regional">7.4 Análisis Comparativo Regional</a></li>
   </ul></li>
   <li><a href="#agradecimientos" id="toc-agradecimientos" class="nav-link" data-scroll-target="#agradecimientos">Agradecimientos</a></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a>
-  <ul class="collapse">
-  <li><a href="#estudios-sobre-juojs-y-pkp-beacon" id="toc-estudios-sobre-juojs-y-pkp-beacon" class="nav-link" data-scroll-target="#estudios-sobre-juojs-y-pkp-beacon">Estudios sobre JUOJS y PKP Beacon</a></li>
-  <li><a href="#estudios-sobre-indexación-y-acceso-abierto" id="toc-estudios-sobre-indexación-y-acceso-abierto" class="nav-link" data-scroll-target="#estudios-sobre-indexación-y-acceso-abierto">Estudios sobre indexación y acceso abierto</a></li>
-  <li><a href="#estudios-sobre-publicación-científica-chilena-y-latinoamericana" id="toc-estudios-sobre-publicación-científica-chilena-y-latinoamericana" class="nav-link" data-scroll-target="#estudios-sobre-publicación-científica-chilena-y-latinoamericana">Estudios sobre publicación científica chilena y latinoamericana</a></li>
-  <li><a href="#marco-teórico-y-metodológico" id="toc-marco-teórico-y-metodológico" class="nav-link" data-scroll-target="#marco-teórico-y-metodológico">Marco teórico y metodológico</a></li>
-  <li><a href="#recursos-técnicos" id="toc-recursos-técnicos" class="nav-link" data-scroll-target="#recursos-técnicos">Recursos técnicos</a></li>
-  <li><a href="#estándares-y-criterios" id="toc-estándares-y-criterios" class="nav-link" data-scroll-target="#estándares-y-criterios">Estándares y criterios</a></li>
-  <li><a href="#datasets-utilizados" id="toc-datasets-utilizados" class="nav-link" data-scroll-target="#datasets-utilizados">Datasets utilizados</a></li>
-  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   <li><a href="#colaboraciones" id="toc-colaboraciones" class="nav-link" data-scroll-target="#colaboraciones">Colaboraciones</a></li>
   <li><a href="#anexos" id="toc-anexos" class="nav-link" data-scroll-target="#anexos">Anexos</a>
+  <ul>
+  <li><a href="#anexo-a-diccionario-de-datos-del-pkp-beacon" id="toc-anexo-a-diccionario-de-datos-del-pkp-beacon" class="nav-link" data-scroll-target="#anexo-a-diccionario-de-datos-del-pkp-beacon">Anexo A: Diccionario de Datos del PKP Beacon</a>
   <ul class="collapse">
-  <li><a href="#anexo-a-diccionario-de-datos-del-pkp-beacon" id="toc-anexo-a-diccionario-de-datos-del-pkp-beacon" class="nav-link" data-scroll-target="#anexo-a-diccionario-de-datos-del-pkp-beacon">Anexo A: Diccionario de Datos del PKP Beacon</a></li>
-  <li><a href="#anexo-b-scripts-desarrollados" id="toc-anexo-b-scripts-desarrollados" class="nav-link" data-scroll-target="#anexo-b-scripts-desarrollados">Anexo B: Scripts Desarrollados</a></li>
-  <li><a href="#anexo-c-proceso-de-evaluación-en-dialnet" id="toc-anexo-c-proceso-de-evaluación-en-dialnet" class="nav-link" data-scroll-target="#anexo-c-proceso-de-evaluación-en-dialnet">Anexo C: Proceso de Evaluación en Dialnet</a></li>
-  <li><a href="#anexo-d-reproducibilidad" id="toc-anexo-d-reproducibilidad" class="nav-link" data-scroll-target="#anexo-d-reproducibilidad">Anexo D: Reproducibilidad</a></li>
+  <li><a href="#campos-descriptivos" id="toc-campos-descriptivos" class="nav-link" data-scroll-target="#campos-descriptivos">Campos descriptivos</a></li>
+  <li><a href="#campos-de-conteo-y-actividad" id="toc-campos-de-conteo-y-actividad" class="nav-link" data-scroll-target="#campos-de-conteo-y-actividad">Campos de conteo y actividad</a></li>
+  </ul></li>
+  <li><a href="#anexo-b-scripts-desarrollados" id="toc-anexo-b-scripts-desarrollados" class="nav-link" data-scroll-target="#anexo-b-scripts-desarrollados">Anexo B: Scripts Desarrollados</a>
+  <ul class="collapse">
+  <li><a href="#scripts-de-análisis-general" id="toc-scripts-de-análisis-general" class="nav-link" data-scroll-target="#scripts-de-análisis-general">Scripts de análisis general</a></li>
+  <li><a href="#scripts-específicos-de-chile" id="toc-scripts-específicos-de-chile" class="nav-link" data-scroll-target="#scripts-específicos-de-chile">Scripts específicos de Chile</a></li>
+  </ul></li>
+  <li><a href="#anexo-c-proceso-de-evaluación-en-dialnet" id="toc-anexo-c-proceso-de-evaluación-en-dialnet" class="nav-link" data-scroll-target="#anexo-c-proceso-de-evaluación-en-dialnet">Anexo C: Proceso de Evaluación en Dialnet</a>
+  <ul class="collapse">
+  <li><a href="#estado-actual" id="toc-estado-actual" class="nav-link" data-scroll-target="#estado-actual">Estado actual</a></li>
+  <li><a href="#organización-de-informes-descargados" id="toc-organización-de-informes-descargados" class="nav-link" data-scroll-target="#organización-de-informes-descargados">Organización de informes descargados</a></li>
+  <li><a href="#registro-de-errores-del-sistema-nexus" id="toc-registro-de-errores-del-sistema-nexus" class="nav-link" data-scroll-target="#registro-de-errores-del-sistema-nexus">Registro de errores del sistema Nexus</a></li>
+  <li><a href="#limitaciones-identificadas" id="toc-limitaciones-identificadas" class="nav-link" data-scroll-target="#limitaciones-identificadas">Limitaciones identificadas</a></li>
+  <li><a href="#alternativas-evaluadas" id="toc-alternativas-evaluadas" class="nav-link" data-scroll-target="#alternativas-evaluadas">Alternativas evaluadas</a></li>
+  </ul></li>
+  <li><a href="#anexo-d-reproducibilidad" id="toc-anexo-d-reproducibilidad" class="nav-link" data-scroll-target="#anexo-d-reproducibilidad">Anexo D: Reproducibilidad</a>
+  <ul class="collapse">
+  <li><a href="#requisitos-del-sistema" id="toc-requisitos-del-sistema" class="nav-link" data-scroll-target="#requisitos-del-sistema">Requisitos del sistema</a></li>
+  <li><a href="#repositorio-de-código" id="toc-repositorio-de-código" class="nav-link" data-scroll-target="#repositorio-de-código">Repositorio de código</a></li>
+  <li><a href="#estructura-de-archivos-generados" id="toc-estructura-de-archivos-generados" class="nav-link" data-scroll-target="#estructura-de-archivos-generados">Estructura de archivos generados</a></li>
   </ul></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Informe.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="Informe.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="Informe.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="Informe.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
 </div>
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</h1>
-<p class="subtitle lead">Informe Consolidado con Validación Beacon v6 (2024-2025)</p>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Patricio Pantaleo </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 23, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<section id="análisis-del-pkp-beacon-publicaciones-académicas-con-software-pkp" class="level1">
-<h1>Análisis del PKP Beacon: Publicaciones Académicas con Software PKP</h1>
-<section id="informe-consolidado-con-validación-beacon-v6-2024-2025" class="level2">
-<h2 class="anchored" data-anchor-id="informe-consolidado-con-validación-beacon-v6-2024-2025">Informe Consolidado con Validación Beacon v6 (2024-2025)</h2>
-</section>
-<section id="resumen" class="level2">
-<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
-<p>Este estudio analiza el ecosistema global de revistas académicas que utilizan Open Journal Systems (OJS) mediante el dataset del PKP Beacon, con un enfoque específico en Chile. Se procesaron <strong>86,282 instalaciones OJS globales</strong> (Beacon v6), de las cuales <strong>432 corresponden a Chile</strong>. El análisis incluye validación cruzada entre versiones del beacon y enriquecimiento con datos de OpenAlex para evaluar visibilidad e impacto académico. La <strong>validación v6</strong> confirma <strong>319 instalaciones chilenas activas</strong> con criterio actualizado (&gt;5 pub/2024), representando un <strong>crecimiento de +3 instalaciones activas</strong> (+0.9%) respecto a v5.</p>
-<hr>
-</section>
 <section id="introducción" class="level2">
 <h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
 <section id="contexto" class="level3">
 <h3 class="anchored" data-anchor-id="contexto">1.1 Contexto</h3>
-<p>El Public Knowledge Project (PKP) desarrolla software de código abierto para la publicación académica, siendo Open Journal Systems (OJS) su aplicación más utilizada globalmente. El PKP Beacon es un sistema de recopilación de datos que permite identificar, inspeccionar y catalogar instalaciones públicas de este software.</p>
+<p>El Public Knowledge Project (PKP) desarrolla software de código abierto para la publicación académica, siendo Open Journal Systems (OJS) su aplicación más utilizada globalmente con más de 86,000 instalaciones activas. El PKP Beacon es un sistema de recopilación de datos que permite identificar, inspeccionar y catalogar instalaciones públicas de este software, proporcionando una ventana única para analizar el ecosistema editorial académico mundial.</p>
+<p>En el contexto latinoamericano, Chile representa un caso de estudio relevante por su ecosistema editorial diverso y su posición estratégica en la región. Con 432 instalaciones OJS identificadas y 316 activas según criterios DOAJ, Chile concentra aproximadamente el 0.5% del universo global OJS, pero su análisis detallado permite extraer patrones aplicables a otros contextos regionales.</p>
 </section>
-<section id="antecedentes" class="level3">
-<h3 class="anchored" data-anchor-id="antecedentes">1.2 Antecedentes</h3>
-<p><strong>Estudios previos:</strong></p>
-<p><strong>Khanna et al.&nbsp;(2022):</strong> - Dataset 2020: 25,671 revistas - 36.5% de 70,214 beacons OJS operativos - 996,000 artículos publicados en 2020 - 5.4 millones de artículos históricos acumulados</p>
-<p><strong>Khanna et al.&nbsp;(2024):</strong> - Dataset actualizado: 47,625 revistas con ISSN validados - Aumento del 98% respecto a 2020 - 2,962,418 artículos publicados entre 2020-2023 - 10.6 millones de artículos históricos totales</p>
-<p><strong>Beacon v6 (2024-2025):</strong> - <strong>86,282 instalaciones OJS globales</strong> (nuevo récord) - <strong>54,453 instalaciones activas</strong> en 2024 (63.1%) - <strong>2.36 millones de publicaciones</strong> en 2024 - <strong>Crecimiento global:</strong> +516,768 publicaciones vs 2023</p>
+<section id="problemática" class="level3">
+<h3 class="anchored" data-anchor-id="problemática">1.2 Problemática</h3>
+<p>La evaluación de calidad editorial en revistas académicas enfrenta desafíos metodológicos significativos, especialmente en ecosistemas como OJS. La heterogeneidad en prácticas de metadatos, estándares de indexación y visibilidad académica genera brechas de información que dificultan la toma de decisiones informadas por parte de editores, investigadores y formuladores de políticas.</p>
+<p>Este estudio aborda tres problemáticas centrales: (1) la <strong>falta de caracterización integral</strong> del ecosistema OJS chileno, (2) la <strong>ausencia de metodologías estandarizadas</strong> para evaluación de calidad editorial a escala, y (3) la <strong>limitada integración</strong> entre sistemas de evaluación (Dialnet, OpenAlex, Crossref) que permita análisis comparativos robustos.</p>
 </section>
-<section id="objetivos" class="level3">
-<h3 class="anchored" data-anchor-id="objetivos">1.3 Objetivos</h3>
-<ol type="1">
-<li><strong>Analizar el ecosistema global</strong> de revistas que utilizan OJS con datos actualizados v6</li>
-<li><strong>Caracterizar las instalaciones chilenas</strong> y validar con criterios 2024</li>
-<li><strong>Evaluar la visibilidad académica</strong> mediante integración con OpenAlex</li>
-<li><strong>Preparar datos para evaluación</strong> en sistemas de indexación como Dialnet</li>
-</ol>
-</section>
-<section id="marco-conceptual" class="level3">
-<h3 class="anchored" data-anchor-id="marco-conceptual">1.4 Marco Conceptual</h3>
-<section id="juojs-journals-using-ojs" class="level4">
-<h4 class="anchored" data-anchor-id="juojs-journals-using-ojs">JUOJS (Journals Using OJS)</h4>
-<p>Las JUOJS emplean un PKP Beacon opcional que permite a PKP notificar sobre actualizaciones y transmite información de indexación incluyendo título, ISSN, número de artículos, títulos y resúmenes.</p>
-</section>
-<section id="criterio-de-revista-activa" class="level4">
-<h4 class="anchored" data-anchor-id="criterio-de-revista-activa">Criterio de revista activa</h4>
-<p>Se emplea el estándar del Directory of Open Access Journals (DOAJ) de <strong>cinco artículos al año</strong> para distinguir revistas con actividad editorial sostenida de instalaciones inactivas o en prueba. Este criterio, está establecido en Chavarro, D., Alperin, J. P., &amp; Willinsky, J. (2025) donde se dice:</p>
+<section id="antecedentes-y-marco-conceptual" class="level3">
+<h3 class="anchored" data-anchor-id="antecedentes-y-marco-conceptual">1.3 Antecedentes y marco conceptual</h3>
+<p>La investigación sobre el ecosistema editorial basado en Open Journal Systems ha experimentado un desarrollo significativo en los últimos años, consolidando metodologías para el análisis sistemático de instalaciones OJS a escala global. En consonancia con estudios anteriores, se denomina aquí <strong>JUOJS</strong> a las revistas que utilizan OJS <span class="citation" data-cites="alperin2016peripheries khanna2022recalibrating">(<a href="#ref-alperin2016peripheries" role="doc-biblioref">Alperin et&nbsp;al., 2016</a>; <a href="#ref-khanna2022recalibrating" role="doc-biblioref">Khanna et&nbsp;al., 2022</a>)</span>.Las JUOJS emplean un PKP Beacon opcional que permite a PKP notificar sobre actualizaciones y transmite información de indexación incluyendo título, ISSN, número de artículos, entre otros <span class="citation" data-cites="khanna2024details">(<a href="#ref-khanna2024details" role="doc-biblioref">Khanna et&nbsp;al., 2024</a>)</span>.</p>
+<p>A partir de dicha caracterización, se emplea el estándar establecido en 2020 por Directory of Open Access Journals (DOAJ) de <strong>cinco artículos al año</strong> para distinguir revistas con actividad editorial sostenida de instalaciones inactivas o en prueba. Este criterio, está establecido en <span class="citation" data-cites="chavarro2025open">Chavarro et&nbsp;al. (<a href="#ref-chavarro2025open" role="doc-biblioref">2025</a>)</span> donde se dice:</p>
 <blockquote class="blockquote">
 <p>“This study relies on data gathered from the PKP Beacon, a feature introduced into OJS in 2015 that allows PKP to notify OJS users about security updates and software upgrades. The beacon also notifies PKP of the web location of each journal’s metadata harvesting API, which we subsequently used to collect journal metadata, such as the journal name and ISSN, and article metadata, such as titles, abstracts, publication dates, and DOIs. As in our previous study, we considered a journal to be “active” in a given year if it published at least five documents that year, a threshold established by the Directory of Open Access Journal (DOAJ) in 2020. We began with the OJS journal list updated in 2024 (Khanna et al., 2024). This updated list included 50,920 journals with an ISSN, and that were deemed to be active in 2023 (a 98% increase in the number reported for 2020; Khanna et al., 2022).”</p>
 </blockquote>
-<hr>
+<p>Los estudios sobre JUOJS tienen antecedentes que se remontan a <span class="citation" data-cites="alperin2016peripheries">Alperin et&nbsp;al. (<a href="#ref-alperin2016peripheries" role="doc-biblioref">2016</a>)</span>, quienes localizaron <strong>9,828 revistas</strong> en 2015, estableciendo las primeras estimaciones del ecosistema global. La línea de investigación consolidada por <span class="citation" data-cites="khanna2022recalibrating">Khanna et&nbsp;al. (<a href="#ref-khanna2022recalibrating" role="doc-biblioref">2022</a>)</span> estableció las bases metodológicas para el análisis cuantitativo sistemático, identificando <strong>25,671 revistas activas</strong> de un universo de 70,214 beacons OJS operativos en 2020, representando el 36.5% del total. Este trabajo reveló la magnitud del ecosistema con <strong>996,000 artículos publicados en 2020</strong> y un acervo histórico de <strong>5.4 millones de artículos</strong>, demostrando un crecimiento de <strong>161%</strong> respecto a las estimaciones de 2015 y estableciendo una línea base cuantitativa robusta para estudios comparativos.</p>
+<p>La actualización metodológica de <span class="citation" data-cites="chavarro2025open">Chavarro et&nbsp;al. (<a href="#ref-chavarro2025open" role="doc-biblioref">2025</a>)</span> demostró el crecimiento acelerado del ecosistema para el año 2024, identificando <strong>50.920 revistas JUOJS activas</strong>, lo que representó un <strong>aumento del 98% respecto a 2020</strong>. El trabajo de <span class="citation" data-cites="chavarro2025open">Chavarro et&nbsp;al. (<a href="#ref-chavarro2025open" role="doc-biblioref">2025</a>)</span> marca un antecedentes metodológico al integrar datos del PKP Beacon con OpenAlex para evaluar visibilidad e impacto académico. La metodología de <span class="citation" data-cites="chavarro2025open">Chavarro et&nbsp;al. (<a href="#ref-chavarro2025open" role="doc-biblioref">2025</a>)</span> es particularmente relevante para este estudio, ya que establece el marco conceptual para la integración de múltiples fuentes de datos y la evaluación de visibilidad académica en ecosistemas OJS.</p>
+<p>La versión más reciente del dataset PKP Beacon (noviembre 2025) proporciona el contexto global actualizado con <strong>86,282 instalaciones OJS globales</strong>, confirmando el crecimiento sostenido del ecosistema, de las cuales <strong>54,453</strong> son revistas JUOJS consideradas activas. Para Chile específicamente, el Beacon v6 identifica <strong>432 instalaciones totales</strong> y <strong>319 instalaciones activas</strong>, validando metodológicamente las tendencias identificadas en versiones anteriores.</p>
+</section>
+<section id="objetivos" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos">1.4 Objetivos</h3>
+<p>A pesar de los avances significativos en la caracterización cuantitativa del ecosistema OJS global, persisten brechas importantes en:</p>
+<ol type="1">
+<li><p><strong>Análisis integrado de calidad editorial</strong>: Los estudios previos se enfocan en métricas de productividad y visibilidad, pero carecen de evaluación sistemática de calidad editorial y prácticas de metadatos.</p></li>
+<li><p><strong>Caracterización regional detallada</strong>: Aunque existen datos globales, faltan análisis profundos de ecosistemas nacionales que permitan identificar patrones regionales y oportunidades de mejora.</p></li>
+</ol>
+<p>Este estudio aborda estas brechas mediante un enfoque metodológico integrado aplicado al caso chileno, estableciendo un modelo replicable para análisis comparativos regionales.</p>
+<section id="objetivo-general" class="level4">
+<h4 class="anchored" data-anchor-id="objetivo-general">1.4.1 Objetivo General</h4>
+<p>Caracterizar el ecosistema editorial académico chileno basado en OJS mediante análisis multifuente que combine evaluación de calidad editorial, visibilidad académica y cobertura de metadatos.</p>
+</section>
+<section id="objetivos-específicos" class="level4">
+<h4 class="anchored" data-anchor-id="objetivos-específicos">1.4.2 Objetivos Específicos</h4>
+<ol type="1">
+<li><strong>Caracterizar cuantitativamente</strong> las 316 instalaciones OJS chilenas activas identificadas en el dataset PKP Beacon v5</li>
+<li><strong>Evaluar la calidad editorial</strong> mediante procesamiento sistemático de 95 informes Dialnet, identificando patrones de errores y buenas prácticas</li>
+<li><strong>Analizar la visibilidad académica</strong> integrando métricas OpenAlex para evaluar impacto, indexación y acceso abierto</li>
+<li><strong>Examinar la cobertura de metadatos</strong> utilizando APIs Crossref para evaluar completitud de DOIs, referencias y afiliaciones</li>
+<li><strong>Proponer metodologías replicables</strong> para análisis comparativos de ecosistemas editoriales regionales</li>
+<li><strong>Generar recomendaciones</strong> basadas en evidencia para fortalecimiento del sector editorial académico chileno</li>
+</ol>
 </section>
 </section>
 </section>
 <section id="materiales-y-métodos" class="level2">
 <h2 class="anchored" data-anchor-id="materiales-y-métodos">2. Materiales y Métodos</h2>
+<p>Este estudio implementa una metodología de análisis integrado que combina cuatro fuentes de datos complementarias para caracterizar integralmente el ecosistema editorial académico chileno basado en OJS. La aproximación metodológica se fundamenta en el dataset PKP Beacon v5 como fuente principal, enriquecido con evaluaciones de calidad editorial (Dialnet), métricas de visibilidad académica (OpenAlex) e infraestructura de metadatos (Crossref). Esta integración multifuente permite superar las limitaciones de análisis unidimensionales, proporcionando una visión holística que abarca desde la productividad editorial hasta el impacto académico y la calidad de los estándares editoriales.</p>
+<p>La metodología se estructura en dos fases principales: (1) <strong>caracterización cuantitativa</strong> del ecosistema chileno mediante procesamiento sistemático de los datasets PKP Beacon v5 y v6, estableciendo líneas base de productividad y crecimiento; y (2) <strong>enriquecimiento cualitativo</strong> a través de la integración con sistemas especializados de evaluación, permitiendo análisis comparativos y segmentación estratégica de las 316 instalaciones chilenas activas identificadas. El enfoque garantiza reproducibilidad mediante scripts automatizados y establece estándares metodológicos replicables para estudios comparativos regionales.</p>
 <section id="fuente-de-datos" class="level3">
 <h3 class="anchored" data-anchor-id="fuente-de-datos">2.1 Fuente de Datos</h3>
-<section id="dataset-principal-pkp-beacon-v6" class="level4">
-<h4 class="anchored" data-anchor-id="dataset-principal-pkp-beacon-v6">2.1.1 Dataset Principal PKP Beacon v6</h4>
-<p><strong>Dataset:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). “Details of Publications Using Software by the Public Knowledge Project.” Harvard Dataverse.</p>
-<p><strong>Características v6:</strong> - <strong>Archivo:</strong> <code>beacon_v6.csv</code> (87,170 observaciones, 31 campos) - <strong>Instalaciones OJS:</strong> 86,282 (99.0%) - <strong>Instalaciones OMP:</strong> 810 (0.9%) - <strong>Instalaciones OPS:</strong> 78 (0.1%) - <strong>Nuevas columnas:</strong> - <code>record_count_2024</code> - Publicaciones 2024 - <code>record_count_2025</code> - Publicaciones 2025 - <code>region</code> - Región geográfica PKP - <code>admin_email</code> - Email de administrador - <code>country_doaj</code> - País según DOAJ</p>
-</section>
 <section id="dataset-pkp-beacon-v5-versión-inicial" class="level4">
-<h4 class="anchored" data-anchor-id="dataset-pkp-beacon-v5-versión-inicial">2.1.2 Dataset PKP Beacon v5 (Versión Inicial)</h4>
+<h4 class="anchored" data-anchor-id="dataset-pkp-beacon-v5-versión-inicial">2.1.1 Dataset PKP Beacon v5 (Versión Inicial)</h4>
 <p><strong>Dataset:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). “Details of Publications Using Software by the Public Knowledge Project.” Harvard Dataverse.</p>
 <p><strong>Características v5:</strong> - <strong>DOI:</strong> https://doi.org/10.7910/DVN/OCZNVY - <strong>Archivo:</strong> <code>beacon.csv</code> (67,138 observaciones, 25 campos) - <strong>Instalaciones OJS:</strong> 66,527 (99.1%) - <strong>Instalaciones OMP:</strong> 562 (0.8%) - <strong>Instalaciones OPS:</strong> 49 (0.1%) - <strong>Datos hasta:</strong> 2023 (último año completo) - <strong>Criterio actividad:</strong> &gt;5 publicaciones en 2023 - <strong>Chile identificado:</strong> 403 instalaciones totales - <strong>Chile activas v5:</strong> 316 instalaciones (78.4%)</p>
 </section>
-<section id="validación-cruzada-v5-v6" class="level4">
-<h4 class="anchored" data-anchor-id="validación-cruzada-v5-v6">2.1.3 Validación Cruzada v5-v6</h4>
-<ul>
-<li><strong>Crecimiento total:</strong> 67,138 → 87,170 (+29.8%)</li>
-<li><strong>Crecimiento OJS:</strong> 66,527 → 86,282 (+29.7%)</li>
-<li><strong>Chile total:</strong> 403 → 432 instalaciones (+29, +7.2%)</li>
-<li><strong>Chile activas:</strong> 316 → 319 instalaciones (+3, +0.9%)</li>
-<li><strong>Metodología:</strong> Análisis comparativo para validación de tendencias</li>
-</ul>
+<section id="dataset-principal-pkp-beacon-v6" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-principal-pkp-beacon-v6">2.1.2 Dataset Principal PKP Beacon v6</h4>
+<p><strong>Dataset:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). “Details of Publications Using Software by the Public Knowledge Project.” Harvard Dataverse.</p>
+<p><strong>Características v6:</strong> - <strong>Archivo:</strong> <code>beacon_v6.csv</code> (87,170 observaciones, 31 campos) - <strong>Instalaciones OJS:</strong> 86,282 (99.0%) - <strong>Instalaciones OMP:</strong> 810 (0.9%) - <strong>Instalaciones OPS:</strong> 78 (0.1%) - <strong>Nuevas columnas:</strong> - <code>record_count_2024</code> - Publicaciones 2024 - <code>record_count_2025</code> - Publicaciones 2025 - <code>region</code> - Región geográfica PKP - <code>admin_email</code> - Email de administrador - <code>country_doaj</code> - País según DOAJ</p>
+</section>
+<section id="dialnet---sistema-de-evaluación-de-calidad-editorial" class="level4">
+<h4 class="anchored" data-anchor-id="dialnet---sistema-de-evaluación-de-calidad-editorial">2.1.3 Dialnet - Sistema de Evaluación de Calidad Editorial</h4>
+<p><strong>Plataforma:</strong> Universidad de La Rioja - Dialnet Nexus <strong>URL:</strong> https://dialnet.unirioja.es/</p>
+<p><strong>Características:</strong> - <strong>Sistema de evaluación:</strong> Nexus - Validador automático de calidad editorial - <strong>Protocolo:</strong> OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting) - <strong>Métricas evaluadas:</strong> Completitud de metadatos, errores de formato, estándares editoriales - <strong>Tipos de errores:</strong> 40 categorías clasificadas por gravedad (alta/media) - <strong>Cobertura Chile:</strong> 95 informes procesados de 208 URLs únicas - <strong>Formato de salida:</strong> Informes HTML con análisis detallado por revista</p>
+<p><strong>Limitaciones:</strong> - Proceso manual de solicitud de informes - No disponible API para automatización - Dependiente de configuración correcta de endpoints OAI</p>
+</section>
+<section id="openalex---base-de-datos-de-visibilidad-académica" class="level4">
+<h4 class="anchored" data-anchor-id="openalex---base-de-datos-de-visibilidad-académica">2.1.4 OpenAlex - Base de Datos de Visibilidad Académica</h4>
+<p><strong>Plataforma:</strong> OpenAlex (OurResearch) <strong>URL:</strong> https://openalex.org/ <strong>API:</strong> https://docs.openalex.org/</p>
+<p><strong>Características:</strong> - <strong>Cobertura:</strong> &gt;200 millones de trabajos académicos - <strong>Actualización:</strong> Continua, datos hasta 2024 - <strong>Identificadores:</strong> ISSN, DOI, ORCID, ROR - <strong>Métricas disponibles:</strong> - <code>works_count</code> - Artículos indexados - <code>cited_by_count</code> - Total citaciones - <code>h_index</code> - Índice H de la revista - <code>2yr_mean_citedness</code> - Promedio citaciones 2 años - <code>is_oa</code> - Estado acceso abierto - <code>is_in_doaj</code> - Indexación en DOAJ - <code>apc_usd</code> - Costos de procesamiento (APC)</p>
+<p><strong>Cobertura Chile:</strong> - <strong>Revistas procesadas:</strong> 304 de 316 (96.2%) - <strong>Revistas indexadas:</strong> 259 de 304 (85.2%) - <strong>Limitación:</strong> 12 revistas excluidas por falta de ISSN</p>
+</section>
+<section id="crossref---infraestructura-de-metadatos-y-dois" class="level4">
+<h4 class="anchored" data-anchor-id="crossref---infraestructura-de-metadatos-y-dois">2.1.5 Crossref - Infraestructura de Metadatos y DOIs</h4>
+<p><strong>Plataforma:</strong> Crossref <strong>URL:</strong> https://www.crossref.org/ <strong>API:</strong> https://api.crossref.org/</p>
+<p><strong>Características:</strong> - <strong>Función:</strong> Registro y gestión de DOIs académicos - <strong>Cobertura global:</strong> &gt;130 millones de registros - <strong>Métricas de metadatos:</strong> - DOIs actuales e históricos - Cobertura de resúmenes, licencias, ORCIDs - Referencias bibliográficas y afiliaciones - Relaciones de versiones y preprints - <strong>Rate limiting:</strong> 0.2s entre requests, timeout 15s</p>
+<p><strong>Cobertura Chile:</strong> - <strong>Revistas analizadas:</strong> 316 - <strong>Revistas encontradas:</strong> 256 (81.0%) - <strong>Total DOIs registrados:</strong> 96,754 - DOIs actuales: 15,910 - DOIs históricos: 80,844</p>
+<p><strong>Limitaciones identificadas:</strong> - Baja cobertura de referencias (7.9%) - Ausencia de políticas de actualización (0.0%) - No utilización de relaciones de versiones/preprints</p>
 </section>
 </section>
-<section id="metodología-de-análisis-actualizada" class="level3">
-<h3 class="anchored" data-anchor-id="metodología-de-análisis-actualizada">2.2 Metodología de Análisis Actualizada</h3>
+<section id="metodología-de-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="metodología-de-análisis">2.2 Metodología de Análisis</h3>
+<p>La metodología de análisis se estructura en un flujo secuencial de procesamiento que integra las cuatro fuentes de datos mediante scripts automatizados, garantizando reproducibilidad y trazabilidad de resultados. El enfoque metodológico se fundamenta en dos líneas paralelas: (1) <strong>procesamiento principal</strong> basado en PKP Beacon v5 para análisis detallado y enriquecimiento multifuente, y (2) <strong>validación contextual</strong> mediante PKP Beacon v6 para confirmar tendencias y actualizar estimaciones globales.</p>
+<p>El flujo metodológico v5 constituye el <strong>eje central del análisis</strong>, procesando sistemáticamente las 316 instalaciones chilenas activas a través de seis etapas secuenciales: caracterización base, evaluación de calidad editorial (Dialnet), análisis de visibilidad académica (OpenAlex), evaluación de infraestructura de metadatos (Crossref), integración comparativa y segmentación estratégica. Cada etapa genera datasets intermedios que alimentan análisis posteriores, culminando en variables novedosas como <strong>madurez editorial</strong>, <strong>brecha de visibilidad</strong> y <strong>potencial de indexación</strong> que permiten clasificación estratégica de las revistas en cinco segmentos operativos.</p>
 <section id="flujo-metodológico-v5-versión-inicial" class="level4">
 <h4 class="anchored" data-anchor-id="flujo-metodológico-v5-versión-inicial">2.2.1 Flujo Metodológico v5 (Versión Inicial)</h4>
 <p><strong>1. Procesamiento Base v5</strong></p>
@@ -282,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis global OJS</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/2_analisis_ojs_mundial.R</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/top15_paises_barras.png</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/top15_paises_barras.png</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Análisis Chile v5</strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar dataset completo de Chile (todos los criterios de país)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/3_analisis_chile.R</span>
@@ -290,133 +433,132 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar solo instalaciones activas (&gt;5 pub/2023)</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/4_chile_juojs_filtrado.R</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_juojs_activas.csv (316 - DATASET PRINCIPAL v5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_juojs_activas.csv (316 - DATASET PRINCIPAL v5)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>3. Evaluación Dialnet v5</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar URLs OAI desde dataset JUOJS v5</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/5_generar_urls_dialnet.py</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_oai_urls_limpio.csv (202 URLs únicas)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar completitud de informes descargados</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/6_find_missing_reports.py</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_oai_urls_limpio.csv (209 URLs únicas)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Se elimina https://journals.publicknowledgeproject.org/index.php/index/oai por ser una reconocida URL test de PKP, quedando 208 URLs únicas.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sobre este csv se procede a descargar los informes desde https://dialnet.unirioja.es/nexo/o/calidad/solicitar-informe dejando los mensajes de errores cuando los hubo.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Se modifica output_path = '../visualizations/chile_oai_urls_nuevo.csv' para evitar sobreescrituras en el archivo original en futuras validaciones, ya que el origina fue actualizado manualmente con mensajes de error de Dialnet. </span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Procesar informes HTML de Dialnet descargados</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/8_procesar_informes_dialnet.py</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/dialnet_informes_procesados.csv</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Analizar tipos de errores por gravedad</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/9_analizar_tipos_errores.py</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: análisis de 40 tipos de errores en 95 informes</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Enriquecer con datos de visibilidad académica OpenAlex</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/10_openalex.py</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/beacon_ojs_con_visibilidad.csv</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar datos de visibilidad para revistas chilenas activas</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/11_filtrar_chile_visibilidad.py</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_ojs_con_visibilidad.csv</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis estratégico de visibilidad académica</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/12_analisis_estrategico_visibilidad.py</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 7 archivos CSV con análisis detallados</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Enriquecimiento OpenAlex ampliado para revistas chilenas activas</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/13_openalex_chile_ampliado.py</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: chile_juojs_activas.csv (316 revistas)</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: chile_openalex_ampliado.csv + 3 gráficos PNG</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Campos ampliados: is_oa, is_in_doaj, apc_usd, host_organization, i10_index, etc.</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Justificación: Consulta específica sobre dataset reducido por eficiencia</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># (vs script 10 que procesa beacon completo con mayor carga temporal)</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis ampliado de Crossref para revistas chilenas activas</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/14_crossref_chile_ampliado.py</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: chile_juojs_activas.csv (316 revistas)</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 14_chile_crossref_ampliado.csv + 3 gráficos PNG + tabla MD</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Métricas Crossref: DOIs (actuales/históricos), cobertura metadatos, relaciones versiones</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Campos: current_dois, backfile_dois, abstracts_current/backfile, licenses_current/backfile,</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co">#         orcids_current/backfile, affiliations_current/backfile, references_current/backfile,</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co">#         has_preprints, is_preprint_count, has_versions, replacement_relations</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate limiting: 0.2s entre requests, timeout 15s, muestra 50 artículos para relaciones</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis comparativo cruzado entre las tres fuentes de datos</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/15_analisis_comparativo_cruzado.py</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: dialnet_informes_procesados.csv, 13_chile_openalex_ampliado.csv, 14_chile_crossref_ampliado.csv</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 15_analisis_comparativo_cruzado.csv + visualizaciones PNG</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables novedosas: madurez_editorial, brecha_visibilidad, coherencia_metadatos, potencial_indexacion</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Segmentación estratégica: Estrella, Oportunidad, Problema, Veterana, Básico</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de correlaciones entre calidad editorial, visibilidad académica y infraestructura DOI</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación revistas con APC vs gratuitas</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/16_comparacion_apc_vs_gratuitas.py</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: 15_analisis_comparativo_cruzado.csv</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 16_comparacion_apc_vs_gratuitas.png + análisis estadístico</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación: completitud metadatos, visibilidad académica, H-index, distribución por segmentos</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificación: solo 3 revistas chilenas cobran APC (0.9% del total)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar completitud de informes descargados</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/6_find_missing_reports.py</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Procesar informes HTML de Dialnet descargados</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/8_procesar_informes_dialnet.py</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/dialnet_informes_procesados.csv</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Analizar tipos de errores por gravedad</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/9_analizar_tipos_errores.py</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: análisis de 40 tipos de errores en 95 informes</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Consulta y Análisis OpenAlex v5</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enriquecer con datos de visibilidad académica OpenAlex</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/10_openalex.py</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/beacon_ojs_con_visibilidad.csv</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar datos de visibilidad para revistas chilenas activas</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/11_filtrar_chile_visibilidad.py</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations/chile_ojs_con_visibilidad.csv</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis estratégico de visibilidad académica</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/12_analisis_estrategico_visibilidad.py</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 7 archivos CSV con análisis detallados</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Enriquecimiento OpenAlex ampliado para revistas chilenas activas</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/13_openalex_chile_ampliado.py</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: chile_juojs_activas.csv (316 revistas)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: chile_openalex_ampliado.csv + 3 gráficos PNG</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Campos ampliados: is_oa, is_in_doaj, apc_usd, host_organization, i10_index, etc.</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Justificación: Consulta específica sobre dataset reducido por eficiencia</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># (vs script 10 que procesa beacon completo con mayor carga temporal)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>5. Consulta y Análisis Crossref v5</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis ampliado de Crossref para revistas chilenas activas</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/14_crossref_chile_ampliado.py</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: chile_juojs_activas.csv (316 revistas)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 14_chile_crossref_ampliado.csv + 3 gráficos PNG + tabla MD</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Métricas Crossref: DOIs (actuales/históricos), cobertura metadatos, relaciones versiones</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Campos: current_dois, backfile_dois, abstracts_current/backfile, licenses_current/backfile,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#         orcids_current/backfile, affiliations_current/backfile, references_current/backfile,</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#         has_preprints, is_preprint_count, has_versions, replacement_relations</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate limiting: 0.2s entre requests, timeout 15s, muestra 50 artículos para relaciones</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis comparativo cruzado entre las tres fuentes de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>6. Análisis Comparativo</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/15_analisis_comparativo_cruzado.py</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: dialnet_informes_procesados.csv, 13_chile_openalex_ampliado.csv, 14_chile_crossref_ampliado.csv</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 15_analisis_comparativo_cruzado.csv + visualizaciones PNG</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables novedosas: madurez_editorial, brecha_visibilidad, coherencia_metadatos, potencial_indexacion</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Segmentación estratégica: Estrella, Oportunidad, Problema, Veterana, Básico</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de correlaciones entre calidad editorial, visibilidad académica y infraestructura DOI</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación revistas con APC vs gratuitas</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/16_comparacion_apc_vs_gratuitas.py</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: 15_analisis_comparativo_cruzado.csv</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 16_comparacion_apc_vs_gratuitas.png + análisis estadístico</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación: completitud metadatos, visibilidad académica, H-index, distribución por segmentos</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificación: solo 3 revistas chilenas cobran APC (0.9% del total)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="flujo-metodológico-v6-validación-actualizada" class="level4">
 <h4 class="anchored" data-anchor-id="flujo-metodológico-v6-validación-actualizada">2.2.2 Flujo Metodológico v6 (Validación Actualizada)</h4>
 <p><strong>0. Limpieza de Datos v6 (Preprocesamiento con Comandos)</strong></p>
 <p><strong>Problemática identificada:</strong> El archivo <code>beacon_v6.tab</code> original presentaba saltos de línea incrustados dentro de campos de texto que rompian la estructura del archivo.</p>
 <p><strong>Proceso de limpieza realizado:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comandos utilizados para limpieza:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Remover saltos de línea problemáticos</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">':a;N;$!ba;s/\n\([^0-9]\)/\1/g'</span> beacon_v6.tab <span class="op">&gt;</span> beacon_v6_temp.tab</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Conversión de TAB a CSV</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">'s/\t/,/g'</span> beacon_v6_temp.tab <span class="op">&gt;</span> beacon_v6_clean.csv</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Limpieza de archivos temporales</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> beacon_v6_temp.tab</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado: beacon_v6_clean.csv (87,170 registros limpios)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comandos utilizados para limpieza:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Remover saltos de línea problemáticos</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">':a;N;$!ba;s/\n\([^0-9]\)/\1/g'</span> beacon_v6.tab <span class="op">&gt;</span> beacon_v6_temp.tab</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Conversión de TAB a CSV</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">'s/\t/,/g'</span> beacon_v6_temp.tab <span class="op">&gt;</span> beacon_v6_clean.csv</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Limpieza de archivos temporales</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> beacon_v6_temp.tab</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado: beacon_v6_clean.csv (87,170 registros limpios)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Validación post-limpieza:</strong> - <strong>Registros preservados:</strong> 100% (87,170/87,170) - <strong>Estructura validada:</strong> 31 columnas consistentes - <strong>Formato:</strong> CSV estándar con separadores de coma - <strong>Problema resuelto:</strong> Saltos de línea incrustados eliminados</p>
 <p><strong>1. Procesamiento Base</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar beacon v6 por tipo de aplicación</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts_v6/1_split_beacon_v6.py</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: beacon_v6_clean.csv (datos limpiados manualmente)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: beacon_v6_ojs.csv (86,282 instalaciones)</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis global v6</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/2_analisis_mundial_v6.R</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/top15_paises_barras_v6.png</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separar beacon v6 por tipo de aplicación</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts_v6/1_split_beacon_v6.py</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: beacon_v6_clean.csv (datos limpiados manualmente)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: beacon_v6_ojs.csv (86,282 instalaciones)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis global v6</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/2_analisis_mundial_v6.R</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/top15_paises_barras_v6.png</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Análisis Chile v6</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar instalaciones chilenas con criterios v6</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/3_analisis_chile_v6.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar instalaciones chilenas con criterios v6</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/3_analisis_chile_v6.R</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_todas_instalaciones_v6.csv (432)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar criterio JUOJS actualizado (&gt;5 pub/2024)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/4_chile_juojs_filtrado_v6.R</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_juojs_activas_v6.csv (319 - DATASET PRINCIPAL)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Evaluación Dialnet v6</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar URLs OAI desde dataset JUOJS v6</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts_v6/5_generar_urls_dialnet_v6.py</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_oai_urls_v6.csv (225 URLs únicas)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Análisis y Visualizaciones</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar tablas y análisis institucional</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/6_tablas_chile_v6.R</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: tablas CSV y análisis institucional</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="decisión-metodológica-continuidad-operativa-v5" class="level4">
+<h4 class="anchored" data-anchor-id="decisión-metodológica-continuidad-operativa-v5">2.2.3 Decisión Metodológica: Continuidad Operativa v5</h4>
+<p>Luego de una validación cruzada entre ambas versiones mediante el script <code>7_comparar_urls_v5_v6.py</code>, se decide continuar operativamente con las fuentes producto de la v5:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación precisa entre versiones por dominio</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/7_comparar_urls_v5_v6.py</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compara: chile_oai_urls_limpio.csv (208 URLs) vs chile_oai_urls_limpio_v6.csv (225 URLs)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados: 88.9% estabilidad, +17 URLs netas, 0 cambios sustanciales</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Resultados de la validación cruzada:</strong> - <strong>Estabilidad confirmada:</strong> 88.9% de dominios efectivamente iguales - <strong>Dominios nuevos en v6:</strong> 40 (principalmente nuevas revistas) - <strong>Dominios removidos:</strong> 23 (revistas inactivas o filtradas) - <strong>Cambios menores:</strong> 7 (solo variaciones de www, protocolo o path) - <strong>Cambios sustanciales:</strong> 0 (sin modificaciones de dominio) - <strong>Crecimiento neto real:</strong> +17 dominios</p>
+<p>Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados con <strong>95 informes Dialnet descargados</strong>, se continúa el procesamiento sobre resultados v5 para análisis de calidad y evaluación. Paralelamente, se avanza con la descarga de informes Dialnet para las 40 URLs nuevas de v6.</p>
+<p><strong>Implicaciones operativas:</strong> - <strong>Dataset principal:</strong> chile_juojs_activas.csv (v5) - 316 instalaciones - <strong>URLs evaluables v5:</strong> 208 URLs únicas (95 informes Dialnet procesados) - <strong>Dataset validación:</strong> chile_juojs_activas_v6.csv - 319 instalaciones<br>
+- <strong>URLs evaluables v6:</strong> 225 URLs únicas (40 nuevas para procesamiento)</p>
+<p><strong>Cambios confirmados en el dataset:</strong> - <strong>Instalaciones totales Chile:</strong> 403 → 432 (+29, +7.2%) - <strong>Instalaciones activas:</strong> 316 → 319 (+3, +0.9%) - <strong>Criterio temporal:</strong> 2023 → 2024 (actualización metodológica) - <strong>URLs únicas:</strong> 208 → 225 (+17, +8.2%)</p>
 </section>
 </section>
 </section>
 <section id="resultados" class="level2">
 <h2 class="anchored" data-anchor-id="resultados">3. Resultados</h2>
-<p><strong>2. Análisis Chile v6</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar instalaciones chilenas con criterios v6</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/3_analisis_chile_v6.R</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_todas_instalaciones_v6.csv (432)</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar criterio JUOJS actualizado (&gt;5 pub/2024)</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/4_chile_juojs_filtrado_v6.R</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_juojs_activas_v6.csv (319 - DATASET PRINCIPAL)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>3. Evaluación Dialnet v6</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar URLs OAI desde dataset JUOJS v6</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts_v6/5_generar_urls_dialnet_v6.py</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: visualizations_v6/chile_oai_urls_v6.csv (225 URLs únicas)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>4. Análisis y Visualizaciones</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar tablas y análisis institucional</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts_v6/6_tablas_chile_v6.R</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: tablas CSV y análisis institucional</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>5. Validación Cruzada v5-v6</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación precisa entre versiones por dominio</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/7_comparar_urls_v5_v6.py</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compara: chile_oai_urls_limpio.csv vs chile_oai_urls_limpio_v6.csv</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Clasifica: cambios sustanciales vs menores (www, paths)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="criterio-juojs-evolución-v5v6" class="level4">
-<h4 class="anchored" data-anchor-id="criterio-juojs-evolución-v5v6">2.2.3 Criterio JUOJS: Evolución v5→v6</h4>
-<p><strong>Versión v5:</strong> - <strong>Criterio temporal:</strong> &gt;5 publicaciones en <strong>2023</strong> - <strong>Filtrado geográfico:</strong> <code>country_consolidated</code>, <code>country_issn</code>, <code>country_tld</code>, <code>country_ip</code> - <strong>Chile resultante:</strong> 309 instalaciones activas (78.0%) - <strong>URLs generadas:</strong> 202 únicas (107 duplicados eliminados)</p>
-<p><strong>Versión v6 (Actualizada):</strong> - <strong>Criterio temporal:</strong> &gt;5 publicaciones en <strong>2024</strong> (vs 2023 en versión anterior) - <strong>Filtrado mejorado:</strong> Incluye <code>country_doaj</code> para mayor precisión geográfica - <strong>Eliminación de duplicados:</strong> Automática por dominio (94 duplicados eliminados)</p>
-<hr>
-</section>
-</section>
-<section id="resultados-1" class="level2">
-<h2 class="anchored" data-anchor-id="resultados-1">3. Resultados</h2>
 <section id="análisis-global-v6" class="level3">
 <h3 class="anchored" data-anchor-id="análisis-global-v6">3.1 Análisis Global v6</h3>
 <section id="distribución-general" class="level4">
@@ -771,7 +913,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="urls-oai-generadas-para-dialnet-v6" class="level4">
 <h4 class="anchored" data-anchor-id="urls-oai-generadas-para-dialnet-v6">3.2.7 URLs OAI Generadas para Dialnet (v6)</h4>
 <ul>
-<li><strong>Total URLs únicas:</strong> 225 (vs 202 en versión anterior)</li>
+<li><strong>Total URLs únicas:</strong> 225 (vs 208 en versión anterior)</li>
 <li><strong>URLs Universidad de Chile:</strong> 58 (25.8%)</li>
 <li><strong>Publicaciones 2024 representadas:</strong> 11,540 (81.5% del total)</li>
 <li><strong>Crecimiento neto representado:</strong> +1,843 publicaciones</li>
@@ -782,31 +924,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="validación-cruzada-comparación-v5-vs-v6">3.3 Validación Cruzada: Comparación v5 vs v6</h3>
 <section id="análisis-comparativo-por-dominios-script-7" class="level4">
 <h4 class="anchored" data-anchor-id="análisis-comparativo-por-dominios-script-7">3.3.1 Análisis Comparativo por Dominios (Script 7)</h4>
+<ul>
+<li><strong>Crecimiento total:</strong> 67,138 → 87,170 (+29.8%)</li>
+<li><strong>Crecimiento OJS:</strong> 66,527 → 86,282 (+29.7%)</li>
+<li><strong>Chile total:</strong> 403 → 432 instalaciones (+29, +7.2%)</li>
+<li><strong>Chile activas:</strong> 316 → 319 instalaciones (+3, +0.9%)</li>
+<li><strong>Metodología:</strong> Análisis comparativo para validación de tendencias</li>
+</ul>
 <p><strong>Metodología de comparación:</strong> Se ejecutó análisis preciso mediante <code>scripts/7_comparar_urls_v5_v6.py</code> que compara URLs por dominio normalizado, clasificando cambios como sustanciales o menores (www, paths, protocolos).</p>
 <p><strong>Resultados de estabilidad:</strong> - <strong>URLs v5:</strong> 208 → <strong>URLs v6:</strong> 225 (+17 URLs netas) - <strong>Dominios efectivamente iguales:</strong> 185/208 (88.9% estabilidad) - <strong>Dominios con cambios menores:</strong> 7 (variaciones www, paths) - <strong>Dominios con cambios sustanciales:</strong> 0 - <strong>Crecimiento neto real:</strong> +17 dominios (40 nuevos - 23 removidos)</p>
 <p><strong>Clasificación de cambios menores (7 dominios):</strong> - <code>ajvs.cl</code>: www.ajvs.cl → ajvs.cl - <code>biotaxa.org</code>: /rce/oai → /index.php/index/oai - <code>joralres.com</code>: www.joralres.com → joralres.com - <code>reidu.cl</code>: reidu.cl → www.reidu.cl - <code>revistapleyade.cl</code>: revistapleyade.cl → www.revistapleyade.cl - <code>sisomosamericanos.cl</code>: sisomosamericanos.cl → www.sisomosamericanos.cl - <code>teps.cl</code>: teps.cl → www.teps.cl</p>
-</section>
-<section id="decisión-metodológica-continuidad-operativa-v5" class="level4">
-<h4 class="anchored" data-anchor-id="decisión-metodológica-continuidad-operativa-v5">3.3.2 Decisión Metodológica: Continuidad Operativa v5</h4>
-<p><strong>Justificación:</strong> Dada la alta estabilidad (88.9%) entre versiones y que los datos v5 ya están procesados con informes Dialnet descargados, <strong>se continúa el procesamiento sobre resultados v5</strong> para análisis de calidad y evaluación. Paralelamente, se descargan informes Dialnet para URLs v6 nuevas.</p>
-<p><strong>Implicaciones operativas:</strong> - <strong>Dataset principal:</strong> chile_oai_urls_limpio.csv (v5) - 208 URLs - <strong>Procesamiento paralelo:</strong> chile_oai_urls_limpio_v6.csv - 225 URLs - <strong>Validación cruzada:</strong> Confirmada estabilidad metodológica</p>
-</section>
-<section id="cambios-en-el-dataset" class="level4">
-<h4 class="anchored" data-anchor-id="cambios-en-el-dataset">3.3.3 Cambios en el Dataset</h4>
-<ul>
-<li><strong>Instalaciones totales Chile:</strong> 396 → 432 (+9.1%)</li>
-<li><strong>Instalaciones activas:</strong> 309 → 319 (+3.2%)</li>
-<li><strong>Criterio temporal:</strong> 2023 → 2024 (actualización metodológica)</li>
-<li><strong>URLs únicas:</strong> 202 → 225 (+11.4%)</li>
-</ul>
-</section>
-<section id="consistencia-de-resultados" class="level4">
-<h4 class="anchored" data-anchor-id="consistencia-de-resultados">3.3.4 Consistencia de Resultados</h4>
-<ul>
-<li><strong>Universidad de Chile mantiene liderazgo:</strong> 68 → 67 instalaciones</li>
-<li><strong>Distribución institucional estable:</strong> Mismas instituciones líderes</li>
-<li><strong>Crecimiento sostenido:</strong> Confirmado en ambas versiones</li>
-</ul>
 </section>
 </section>
 <section id="archivos-generados-v6" class="level3">
@@ -2122,7 +2249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="optimización-del-proceso" class="level4">
 <h4 class="anchored" data-anchor-id="optimización-del-proceso">4.4.1 Optimización del Proceso</h4>
 <ul>
-<li><strong>225 URLs únicas</strong> (vs 202 anteriores) para evaluación</li>
+<li><strong>225 URLs únicas</strong> (vs 208 anteriores) para evaluación</li>
 <li><strong>Eliminación automática</strong> de 94 duplicados</li>
 <li><strong>Cobertura mejorada:</strong> 81.5% de publicaciones 2024 representadas</li>
 </ul>
@@ -2133,7 +2260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Prioridad 1 - Revistas Estrella (6):</strong> - Liderazgo en calidad + visibilidad + infraestructura - Indexación inmediata recomendada</p>
 <p><strong>Prioridad 2 - Oportunidades de Alto Impacto (60):</strong> - Alta calidad editorial, potencial de visibilidad - Estrategias de marketing académico</p>
 <p><strong>Prioridad 3 - Revistas con APC (3):</strong> - Mayor impacto académico demostrado - Modelo de financiamiento sostenible</p>
-<p><strong>Criterios de evaluación integrados:</strong> 1. <strong>Potencial combinado</strong> (Script 15) 2. <strong>Productividad 2024</strong> (Script 4) 3. <strong>Calidad editorial</strong> (Scripts 8-9) 4. <strong>Visibilidad académica</strong> (Scripts 10-12) El análisis v6 permite priorizar instalaciones por: 1. <strong>Productividad 2024:</strong> Revista Chilena de Derecho (1,708 pub) 2. <strong>Crecimiento:</strong> Instalaciones con tendencia positiva 3. <strong>Estabilidad institucional:</strong> Universidad de Chile (58 URLs)</p>
+<p><strong>Criterios de evaluación integrados:</strong> 1. <strong>Potencial combinado</strong> (Script 15) 2. <strong>Productividad 2024</strong> (Script 4) 3. <strong>Calidad editorial</strong> (Scripts 8-9) 4. <strong>Visibilidad académica</strong> (Scripts 10-12)</p>
 </section>
 </section>
 <section id="contribución-al-acceso-abierto-regional" class="level3">
@@ -2256,57 +2383,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
-<section id="estudios-sobre-juojs-y-pkp-beacon" class="level3">
-<h3 class="anchored" data-anchor-id="estudios-sobre-juojs-y-pkp-beacon">Estudios sobre JUOJS y PKP Beacon</h3>
-<p>Khanna, S., Ball, J., Alperin, J. P., &amp; Willinsky, J. (2022). Recalibrating the scope of scholarly publishing: A modest step in a vast decolonization process. <em>Quantitative Science Studies, 3</em>(4), 912–930. https://doi.org/10.1162/qss_a_00228</p>
-<p>Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em> (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY</p>
-</section>
-<section id="estudios-sobre-indexación-y-acceso-abierto" class="level3">
-<h3 class="anchored" data-anchor-id="estudios-sobre-indexación-y-acceso-abierto">Estudios sobre indexación y acceso abierto</h3>
-<p>Beigel, F. (2025). The transformative relation between publishers and editors: Research quality and academic autonomy at stake. <em>Quantitative Science Studies, 6</em>, 154–170. https://doi.org/10.1162/qss_a_00343</p>
-<p>Chavarro, D., Alperin, J. P., &amp; Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. <em>Quantitative Science Studies, 6</em>, 1039–1058. https://doi.org/10.1162/QSS.a.17</p>
-<p>Simard, M.-A., Basson, I., Hare, M., Larivière, V., &amp; Mongeon, P. (2025). Examining the geographic and linguistic coverage of gold and diamond open access journals in OpenAlex, Scopus, and Web of Science. <em>Quantitative Science Studies, 6</em>, 732–752. https://doi.org/10.1162/qss.a.1</p>
-</section>
-<section id="estudios-sobre-publicación-científica-chilena-y-latinoamericana" class="level3">
-<h3 class="anchored" data-anchor-id="estudios-sobre-publicación-científica-chilena-y-latinoamericana">Estudios sobre publicación científica chilena y latinoamericana</h3>
-<p>Collazo-Reyes, F. (2014). Growth of the number of indexed journals of Latin America and the Caribbean: the effect on the impact of each country. <em>Scientometrics, 98</em>, 197–209. https://doi.org/10.1007/s11192-013-1036-2</p>
-<p>Koch, T., &amp; Vanderstraeten, R. (2018). Internationalizing a national scientific community? Changes in publication and citation practices in Chile, 1976–2015. <em>Current Sociology, 67</em>(5), 723-741. https://doi.org/10.1177/0011392118807514</p>
-<p>Koch, T., Vanderstraeten, R. y Ayala, R. (2021). La internacionalización de la ciencia: revistas y comunidades chilenas en el mundo científico. <em>Estudios Sociales de la Ciencia, 51</em>(1), 121-138. https://doi.org/10.1177/0306312720949709</p>
-<p>Krauskopf, M. y Pessot, R. (1980). Estudio preliminar sobre publicaciones y productividad científica en Chile. <em>Archivos de Biología y Medicina Experimentales, 73</em>, 195-208.</p>
-<p>Sabaj, O., Valderrama, J. O., González-Vergara, C., &amp; Pina-Stranger, A. (2015). Relationship between the duration of peer-review, publication decision, and agreement among reviewers in three Chilean journals. <em>HAL Archives Ouvertes</em>, halshs-01242627.</p>
-</section>
-<section id="marco-teórico-y-metodológico" class="level3">
-<h3 class="anchored" data-anchor-id="marco-teórico-y-metodológico">Marco teórico y metodológico</h3>
-<p>Leydesdorff, L., &amp; Persson, O. (2010). Mapping the geography of science: Distribution patterns and networks of relations among cities and institutes. <em>Journal of the American Society for Information Science and Technology, 61</em>(8), 1622-1634. https://doi.org/10.1002/asi.21347</p>
-<p>Merton, R. K. (1973). <em>The sociology of science: Theoretical and empirical investigations</em>. University of Chicago Press.</p>
-<p>Paasi, A. (2015). Academic Capitalism and the Geopolitics of Knowledge. In J. Agnew, V. Mamadouh, A. J. Secor, &amp; J. Sharp (Eds.), <em>The Wiley Blackwell Companion to Political Geography</em> (pp.&nbsp;507-523). Wiley Blackwell. https://doi.org/10.1002/9781118725771.ch37</p>
-</section>
-<section id="recursos-técnicos" class="level3">
-<h3 class="anchored" data-anchor-id="recursos-técnicos">Recursos técnicos</h3>
-<ul>
-<li><strong>PKP Official Site:</strong> https://pkp.sfu.ca/</li>
-<li><strong>Dataset URL:</strong> https://pkp.sfu.ca/software/ojs/usage-data/</li>
-<li><strong>Harvard Dataverse:</strong> https://doi.org/doi:10.7910/DVN/OCZNVY</li>
-<li><strong>MARC Country Codes:</strong> https://www.loc.gov/marc/countries/</li>
-<li><strong>OAI-PMH Protocol:</strong> https://www.openarchives.org/pmh/</li>
-<li><strong>OpenAlex API:</strong> https://docs.openalex.org/</li>
-<li><strong>Dialnet API:</strong> https://dialnet.unirioja.es/ws/dialnetcris-sandbox/v2/swagger-ui/index.html</li>
-</ul>
-</section>
-<section id="estándares-y-criterios" class="level3">
-<h3 class="anchored" data-anchor-id="estándares-y-criterios">Estándares y criterios</h3>
-<ul>
-<li>Directory of Open Access Journals (2020). Criterio de revista activa: 5 artículos por año</li>
-<li>ISO 3166-1 alpha-2: Códigos de países</li>
-<li>ISSN International Centre: Estándares de numeración de publicaciones seriadas</li>
-</ul>
-</section>
-<section id="datasets-utilizados" class="level3">
-<h3 class="anchored" data-anchor-id="datasets-utilizados">Datasets utilizados</h3>
-<p><strong>Beacon v6:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em> (V6) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY</p>
-<p><strong>Beacon anterior:</strong> Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em> (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY</p>
-<hr>
-</section>
 </section>
 <section id="colaboraciones" class="level2">
 <h2 class="anchored" data-anchor-id="colaboraciones">Colaboraciones</h2>
@@ -2530,12 +2606,25 @@ https://www.biotaxa.org/index.php/index/oai,La url no corresponde a una revista 
     ├── revistas.udec.cl.pdf
     ├── www.estudiospublicos.cl.pdf
     └── ...</code></pre>
-</section>
+
 </section>
 </section>
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-alperin2016peripheries" class="csl-entry" role="listitem">
+Alperin, J. P., Stranack, K., &amp; Garnett, A. (2016). On the Peripheries of Scholarly Infrastructure: A Look at the Journals Using Open Journal Systems. <em>Proceedings of the 21st International Conference on Science and Technology Indicators</em>. <a href="http://ocs.editorial.upv.es/index.php/STI2016/STI2016/paper/viewFile/4543/2327">http://ocs.editorial.upv.es/index.php/STI2016/STI2016/paper/viewFile/4543/2327</a>
+</div>
+<div id="ref-chavarro2025open" class="csl-entry" role="listitem">
+Chavarro, D., Alperin, J. P., &amp; Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. <em>Quantitative Science Studies</em>, <em>6</em>, 1039-1058. <a href="https://doi.org/10.1162/QSS.a.17">https://doi.org/10.1162/QSS.a.17</a>
+</div>
+<div id="ref-khanna2022recalibrating" class="csl-entry" role="listitem">
+Khanna, S., Ball, J., Alperin, J. P., &amp; Willinsky, J. (2022). Recalibrating the scope of scholarly publishing: A modest step in a vast decolonization process. <em>Quantitative Science Studies</em>, <em>3</em>(4), 912-930. <a href="https://doi.org/10.1162/qss_a_00228">https://doi.org/10.1162/qss_a_00228</a>
+</div>
+<div id="ref-khanna2024details" class="csl-entry" role="listitem">
+Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em>. Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/OCZNVY">https://doi.org/10.7910/DVN/OCZNVY</a>
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilización</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Derechos de autor</h2><div class="quarto-appendix-contents"><div>Patricio Iván Pantaleo</div></div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2580,12 +2669,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

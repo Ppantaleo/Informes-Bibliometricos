@@ -1,15 +1,34 @@
 ---
-title: "Análisis del PKP Beacon: Publicaciones Académicas con Software PKP"
-subtitle: "Informe Consolidado con Validación Beacon v6 (2024-2025)"
+title: "Calidad editorial y prácticas de metadatos en revistas académicas chilenas"
+subtitle: "Un análisis de instalaciones OJS mediante informes de calidad Dialnet, Open Alex y Crossref"
 author: "Patricio Pantaleo"
-orcid: 
-date: today
+orcid: 0000-0002-8104-8975
+role: Coordinator
+roles:
+  - conceptualization: lead
+  - writing: supporting
+  - project-administration: lead
+description: |
+  Este estudio analiza el ecosistema de revistas académicas chilenas que utilizan Open Journal Systems (OJS) basándose en el dataset PKP Beacon v5 como fuente principal. Se procesaron **316 instalaciones chilenas activas** (criterio >5 publicaciones/2023) de un total de **403 instalaciones identificadas** en Chile. El análisis incluye referencias contextuales al Beacon v6 (noviembre 2024) que reporta **86,282 instalaciones OJS globales** y **432 instalaciones chilenas**.
+
+  La metodología integra cuatro fuentes de datos aplicadas al dataset depurado v5: **PKP Beacon** para caracterización editorial base, **Dialnet** para evaluación de calidad editorial mediante **95 informes procesados**, **OpenAlex** para métricas de visibilidad académica, y **Crossref** para análisis de cobertura de metadatos. Se generaron **208 URLs OAI únicas** evaluables e identificaron **40 tipos de errores** en prácticas editoriales.
+
+  Los hallazgos revelan: (1) **heterogeneidad significativa** en estándares de metadatos y prácticas editoriales, (2) **oportunidades de mejora** en indexación internacional y preservación digital, y (3) **necesidad de fortalecimiento** en interoperabilidad y visibilidad académica. El estudio establece una **línea base metodológica** replicable para evaluación de ecosistemas editoriales regionales y proporciona datos cuantitativos para políticas de fortalecimiento del sector académico chileno.
+date: 11/24/2025
+license: "CC BY"
+copyright: "Patricio Iván Pantaleo"
+citeproc: true
+lang: es
+bibliography: referencias.bib
+csl: https://www.zotero.org/styles/apa?source=1
 format:
   html:
     toc: true
-    toc-depth: 3
+    toc-depth: 4
     number-sections: false
     theme: cosmo
+    page-layout: article
+    title-block-banner: true
   pdf:
     toc: true
     number-sections: false
@@ -17,69 +36,88 @@ format:
   docx:
     toc: true
     number-sections: false
----
 
-# Análisis del PKP Beacon: Publicaciones Académicas con Software PKP
-## Informe Consolidado con Validación Beacon v6 (2024-2025)
-
-## Resumen
-
-Este estudio analiza el ecosistema global de revistas académicas que utilizan Open Journal Systems (OJS) mediante el dataset del PKP Beacon, con un enfoque específico en Chile. Se procesaron **86,282 instalaciones OJS globales** (Beacon v6), de las cuales **432 corresponden a Chile**. El análisis incluye validación cruzada entre versiones del beacon y enriquecimiento con datos de OpenAlex para evaluar visibilidad e impacto académico. La **validación v6** confirma **319 instalaciones chilenas activas** con criterio actualizado (>5 pub/2024), representando un **crecimiento de +3 instalaciones activas** (+0.9%) respecto a v5.
-
+repo-url: https://github.com/Ppantaleo/Informes-Bibliometricos/tree/main/OJSinTheWorld/Chile
+repo-branch: main
+repo-actions:
+- edit
+- issue
+- source
 ---
 
 ## 1. Introducción
 
 ### 1.1 Contexto
 
-El Public Knowledge Project (PKP) desarrolla software de código abierto para la publicación académica, siendo Open Journal Systems (OJS) su aplicación más utilizada globalmente. El PKP Beacon es un sistema de recopilación de datos que permite identificar, inspeccionar y catalogar instalaciones públicas de este software.
+El Public Knowledge Project (PKP) desarrolla software de código abierto para la publicación académica, siendo Open Journal Systems (OJS) su aplicación más utilizada globalmente con más de 86,000 instalaciones activas. El PKP Beacon es un sistema de recopilación de datos que permite identificar, inspeccionar y catalogar instalaciones públicas de este software, proporcionando una ventana única para analizar el ecosistema editorial académico mundial.
 
-### 1.2 Antecedentes
+En el contexto latinoamericano, Chile representa un caso de estudio relevante por su ecosistema editorial diverso y su posición estratégica en la región. Con 432 instalaciones OJS identificadas y 316 activas según criterios DOAJ, Chile concentra aproximadamente el 0.5% del universo global OJS, pero su análisis detallado permite extraer patrones aplicables a otros contextos regionales.
 
-**Estudios previos:**
+### 1.2 Problemática
 
-**Khanna et al. (2022):**
-- Dataset 2020: 25,671 revistas
-- 36.5% de 70,214 beacons OJS operativos
-- 996,000 artículos publicados en 2020
-- 5.4 millones de artículos históricos acumulados
+La evaluación de calidad editorial en revistas académicas enfrenta desafíos metodológicos significativos, especialmente en ecosistemas como OJS. La heterogeneidad en prácticas de metadatos, estándares de indexación y visibilidad académica genera brechas de información que dificultan la toma de decisiones informadas por parte de editores, investigadores y formuladores de políticas.
 
-**Khanna et al. (2024):**
-- Dataset actualizado: 47,625 revistas con ISSN validados
-- Aumento del 98% respecto a 2020
-- 2,962,418 artículos publicados entre 2020-2023
-- 10.6 millones de artículos históricos totales
+Este estudio aborda tres problemáticas centrales: (1) la **falta de caracterización integral** del ecosistema OJS chileno, (2) la **ausencia de metodologías estandarizadas** para evaluación de calidad editorial a escala, y (3) la **limitada integración** entre sistemas de evaluación (Dialnet, OpenAlex, Crossref) que permita análisis comparativos robustos.
 
-**Beacon v6 (2024-2025):**
-- **86,282 instalaciones OJS globales** (nuevo récord)
-- **54,453 instalaciones activas** en 2024 (63.1%)
-- **2.36 millones de publicaciones** en 2024
-- **Crecimiento global:** +516,768 publicaciones vs 2023
+### 1.3 Antecedentes y marco conceptual
 
-### 1.3 Objetivos
+La investigación sobre el ecosistema editorial basado en Open Journal Systems ha experimentado un desarrollo significativo en los últimos años, consolidando metodologías para el análisis sistemático de instalaciones OJS a escala global. En consonancia con estudios anteriores, se denomina aquí **JUOJS** a las revistas que utilizan OJS [@alperin2016peripheries; @khanna2022recalibrating].Las JUOJS emplean un PKP Beacon opcional que permite a PKP notificar sobre actualizaciones y transmite información de indexación incluyendo título, ISSN, número de artículos, entre otros [@khanna2024details].
 
-1. **Analizar el ecosistema global** de revistas que utilizan OJS con datos actualizados v6
-2. **Caracterizar las instalaciones chilenas** y validar con criterios 2024
-3. **Evaluar la visibilidad académica** mediante integración con OpenAlex
-4. **Preparar datos para evaluación** en sistemas de indexación como Dialnet
-
-### 1.4 Marco Conceptual
-
-#### JUOJS (Journals Using OJS)
-Las JUOJS emplean un PKP Beacon opcional que permite a PKP notificar sobre actualizaciones y transmite información de indexación incluyendo título, ISSN, número de artículos, títulos y resúmenes.
-
-#### Criterio de revista activa
-Se emplea el estándar del Directory of Open Access Journals (DOAJ) de **cinco artículos al año** para distinguir revistas con actividad editorial sostenida de instalaciones inactivas o en prueba.  Este criterio, está establecido en Chavarro, D., Alperin, J. P., & Willinsky, J. (2025) donde se dice:
+A partir de dicha caracterización, se emplea el estándar establecido en 2020 por Directory of Open Access Journals (DOAJ) de **cinco artículos al año** para distinguir revistas con actividad editorial sostenida de instalaciones inactivas o en prueba. Este criterio, está establecido en @chavarro2025open donde se dice:
 
 > "This study relies on data gathered from the PKP Beacon, a feature introduced into OJS in 2015 that allows PKP to notify OJS users about security updates and software upgrades. The beacon also notifies PKP of the web location of each journal’s metadata harvesting API, which we subsequently used to collect journal metadata, such as the journal name and ISSN, and article metadata, such as titles, abstracts, publication dates, and DOIs. As in our previous study, we considered a journal to be “active” in a given year if it published at least five documents that year, a threshold established by the Directory of Open Access Journal (DOAJ) in 2020. We began with the OJS journal list updated in 2024 (Khanna et al., 2024). This updated list included 50,920 journals with an ISSN, and that were deemed to be active in 2023 (a 98% increase in the number reported for 2020; Khanna et al., 2022)."
 
----
+Los estudios sobre JUOJS tienen antecedentes que se remontan a @alperin2016peripheries, quienes localizaron **9,828 revistas** en 2015, estableciendo las primeras estimaciones del ecosistema global. La línea de investigación consolidada por @khanna2022recalibrating estableció las bases metodológicas para el análisis cuantitativo sistemático, identificando **25,671 revistas activas** de un universo de 70,214 beacons OJS operativos en 2020, representando el 36.5% del total. Este trabajo reveló la magnitud del ecosistema con **996,000 artículos publicados en 2020** y un acervo histórico de **5.4 millones de artículos**, demostrando un crecimiento de **161%** respecto a las estimaciones de 2015 y estableciendo una línea base cuantitativa robusta para estudios comparativos.
+
+La actualización metodológica de @chavarro2025open demostró el crecimiento acelerado del ecosistema para el año 2024, identificando **50.920 revistas JUOJS activas**, lo que representó un **aumento del 98% respecto a 2020**. El trabajo de @chavarro2025open marca un antecedentes metodológico al integrar datos del PKP Beacon con OpenAlex para evaluar visibilidad e impacto académico. La metodología de @chavarro2025open es particularmente relevante para este estudio, ya que establece el marco conceptual para la integración de múltiples fuentes de datos y la evaluación de visibilidad académica en ecosistemas OJS.
+
+La versión más reciente del dataset PKP Beacon (noviembre 2025) proporciona el contexto global actualizado con **86,282 instalaciones OJS globales**, confirmando el crecimiento sostenido del ecosistema, de las cuales **54,453** son revistas JUOJS consideradas activas. Para Chile específicamente, el Beacon v6 identifica **432 instalaciones totales** y **319 instalaciones activas**, validando metodológicamente las tendencias identificadas en versiones anteriores.
+
+### 1.4 Objetivos
+
+A pesar de los avances significativos en la caracterización cuantitativa del ecosistema OJS global, persisten brechas importantes en:
+
+1. **Análisis integrado de calidad editorial**: Los estudios previos se enfocan en métricas de productividad y visibilidad, pero carecen de evaluación sistemática de calidad editorial y prácticas de metadatos.
+
+2. **Caracterización regional detallada**: Aunque existen datos globales, faltan análisis profundos de ecosistemas nacionales que permitan identificar patrones regionales y oportunidades de mejora.
+
+Este estudio aborda estas brechas mediante un enfoque metodológico integrado aplicado al caso chileno, estableciendo un modelo replicable para análisis comparativos regionales.
+
+#### 1.4.1 Objetivo General
+Caracterizar el ecosistema editorial académico chileno basado en OJS mediante análisis multifuente que combine evaluación de calidad editorial, visibilidad académica y cobertura de metadatos.
+
+#### 1.4.2 Objetivos Específicos
+1. **Caracterizar cuantitativamente** las 316 instalaciones OJS chilenas activas identificadas en el dataset PKP Beacon v5
+2. **Evaluar la calidad editorial** mediante procesamiento sistemático de 95 informes Dialnet, identificando patrones de errores y buenas prácticas
+3. **Analizar la visibilidad académica** integrando métricas OpenAlex para evaluar impacto, indexación y acceso abierto
+4. **Examinar la cobertura de metadatos** utilizando APIs Crossref para evaluar completitud de DOIs, referencias y afiliaciones
+5. **Proponer metodologías replicables** para análisis comparativos de ecosistemas editoriales regionales
+6. **Generar recomendaciones** basadas en evidencia para fortalecimiento del sector editorial académico chileno
+
 
 ## 2. Materiales y Métodos
 
+Este estudio implementa una metodología de análisis integrado que combina cuatro fuentes de datos complementarias para caracterizar integralmente el ecosistema editorial académico chileno basado en OJS. La aproximación metodológica se fundamenta en el dataset PKP Beacon v5 como fuente principal, enriquecido con evaluaciones de calidad editorial (Dialnet), métricas de visibilidad académica (OpenAlex) e infraestructura de metadatos (Crossref). Esta integración multifuente permite superar las limitaciones de análisis unidimensionales, proporcionando una visión holística que abarca desde la productividad editorial hasta el impacto académico y la calidad de los estándares editoriales.
+
+La metodología se estructura en dos fases principales: (1) **caracterización cuantitativa** del ecosistema chileno mediante procesamiento sistemático de los datasets PKP Beacon v5 y v6, estableciendo líneas base de productividad y crecimiento; y (2) **enriquecimiento cualitativo** a través de la integración con sistemas especializados de evaluación, permitiendo análisis comparativos y segmentación estratégica de las 316 instalaciones chilenas activas identificadas. El enfoque garantiza reproducibilidad mediante scripts automatizados y establece estándares metodológicos replicables para estudios comparativos regionales.
+
 ### 2.1 Fuente de Datos
 
-#### 2.1.1 Dataset Principal PKP Beacon v6
+#### 2.1.1 Dataset PKP Beacon v5 (Versión Inicial)
+**Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
+
+**Características v5:**
+- **DOI:** https://doi.org/10.7910/DVN/OCZNVY
+- **Archivo:** `beacon.csv` (67,138 observaciones, 25 campos)
+- **Instalaciones OJS:** 66,527 (99.1%)
+- **Instalaciones OMP:** 562 (0.8%)
+- **Instalaciones OPS:** 49 (0.1%)
+- **Datos hasta:** 2023 (último año completo)
+- **Criterio actividad:** >5 publicaciones en 2023
+- **Chile identificado:** 403 instalaciones totales
+- **Chile activas v5:** 316 instalaciones (78.4%)
+
+#### 2.1.2 Dataset Principal PKP Beacon v6
 **Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
 
 **Características v6:**
@@ -94,28 +132,81 @@ Se emplea el estándar del Directory of Open Access Journals (DOAJ) de **cinco a
   - `admin_email` - Email de administrador
   - `country_doaj` - País según DOAJ
 
-#### 2.1.2 Dataset PKP Beacon v5 (Versión Inicial)
-**Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
+#### 2.1.3 Dialnet - Sistema de Evaluación de Calidad Editorial
 
-**Características v5:**
-- **DOI:** https://doi.org/10.7910/DVN/OCZNVY
-- **Archivo:** `beacon.csv` (67,138 observaciones, 25 campos)
-- **Instalaciones OJS:** 66,527 (99.1%)
-- **Instalaciones OMP:** 562 (0.8%)
-- **Instalaciones OPS:** 49 (0.1%)
-- **Datos hasta:** 2023 (último año completo)
-- **Criterio actividad:** >5 publicaciones en 2023
-- **Chile identificado:** 403 instalaciones totales
-- **Chile activas v5:** 316 instalaciones (78.4%)
+**Plataforma:** Universidad de La Rioja - Dialnet Nexus
+**URL:** https://dialnet.unirioja.es/
 
-#### 2.1.3 Validación Cruzada v5-v6
-- **Crecimiento total:** 67,138 → 87,170 (+29.8%)
-- **Crecimiento OJS:** 66,527 → 86,282 (+29.7%)
-- **Chile total:** 403 → 432 instalaciones (+29, +7.2%)
-- **Chile activas:** 316 → 319 instalaciones (+3, +0.9%)
-- **Metodología:** Análisis comparativo para validación de tendencias
+**Características:**
+- **Sistema de evaluación:** Nexus - Validador automático de calidad editorial
+- **Protocolo:** OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting)
+- **Métricas evaluadas:** Completitud de metadatos, errores de formato, estándares editoriales
+- **Tipos de errores:** 40 categorías clasificadas por gravedad (alta/media)
+- **Cobertura Chile:** 95 informes procesados de 208 URLs únicas
+- **Formato de salida:** Informes HTML con análisis detallado por revista
 
-### 2.2 Metodología de Análisis Actualizada
+**Limitaciones:**
+- Proceso manual de solicitud de informes
+- No disponible API para automatización
+- Dependiente de configuración correcta de endpoints OAI
+
+#### 2.1.4 OpenAlex - Base de Datos de Visibilidad Académica
+
+**Plataforma:** OpenAlex (OurResearch)
+**URL:** https://openalex.org/
+**API:** https://docs.openalex.org/
+
+**Características:**
+- **Cobertura:** >200 millones de trabajos académicos
+- **Actualización:** Continua, datos hasta 2024
+- **Identificadores:** ISSN, DOI, ORCID, ROR
+- **Métricas disponibles:**
+  - `works_count` - Artículos indexados
+  - `cited_by_count` - Total citaciones
+  - `h_index` - Índice H de la revista
+  - `2yr_mean_citedness` - Promedio citaciones 2 años
+  - `is_oa` - Estado acceso abierto
+  - `is_in_doaj` - Indexación en DOAJ
+  - `apc_usd` - Costos de procesamiento (APC)
+
+**Cobertura Chile:**
+- **Revistas procesadas:** 304 de 316 (96.2%)
+- **Revistas indexadas:** 259 de 304 (85.2%)
+- **Limitación:** 12 revistas excluidas por falta de ISSN
+
+#### 2.1.5 Crossref - Infraestructura de Metadatos y DOIs
+
+**Plataforma:** Crossref
+**URL:** https://www.crossref.org/
+**API:** https://api.crossref.org/
+
+**Características:**
+- **Función:** Registro y gestión de DOIs académicos
+- **Cobertura global:** >130 millones de registros
+- **Métricas de metadatos:**
+  - DOIs actuales e históricos
+  - Cobertura de resúmenes, licencias, ORCIDs
+  - Referencias bibliográficas y afiliaciones
+  - Relaciones de versiones y preprints
+- **Rate limiting:** 0.2s entre requests, timeout 15s
+
+**Cobertura Chile:**
+- **Revistas analizadas:** 316
+- **Revistas encontradas:** 256 (81.0%)
+- **Total DOIs registrados:** 96,754
+  - DOIs actuales: 15,910
+  - DOIs históricos: 80,844
+
+**Limitaciones identificadas:**
+- Baja cobertura de referencias (7.9%)
+- Ausencia de políticas de actualización (0.0%)
+- No utilización de relaciones de versiones/preprints
+
+### 2.2 Metodología de Análisis
+
+La metodología de análisis se estructura en un flujo secuencial de procesamiento que integra las cuatro fuentes de datos mediante scripts automatizados, garantizando reproducibilidad y trazabilidad de resultados. El enfoque metodológico se fundamenta en dos líneas paralelas: (1) **procesamiento principal** basado en PKP Beacon v5 para análisis detallado y enriquecimiento multifuente, y (2) **validación contextual** mediante PKP Beacon v6 para confirmar tendencias y actualizar estimaciones globales.
+
+El flujo metodológico v5 constituye el **eje central del análisis**, procesando sistemáticamente las 316 instalaciones chilenas activas a través de seis etapas secuenciales: caracterización base, evaluación de calidad editorial (Dialnet), análisis de visibilidad académica (OpenAlex), evaluación de infraestructura de metadatos (Crossref), integración comparativa y segmentación estratégica. Cada etapa genera datasets intermedios que alimentan análisis posteriores, culminando en variables novedosas como **madurez editorial**, **brecha de visibilidad** y **potencial de indexación** que permiten clasificación estratégica de las revistas en cinco segmentos operativos.
 
 #### 2.2.1 Flujo Metodológico v5 (Versión Inicial)
 
@@ -145,7 +236,10 @@ Rscript scripts/4_chile_juojs_filtrado.R
 ```bash
 # Generar URLs OAI desde dataset JUOJS v5
 python3 scripts/5_generar_urls_dialnet.py
-# Genera: visualizations/chile_oai_urls_limpio.csv (202 URLs únicas)
+# Genera: visualizations/chile_oai_urls_limpio.csv (209 URLs únicas)
+# Se elimina https://journals.publicknowledgeproject.org/index.php/index/oai por ser una reconocida URL test de PKP, quedando 208 URLs únicas.
+# Sobre este csv se procede a descargar los informes desde https://dialnet.unirioja.es/nexo/o/calidad/solicitar-informe dejando los mensajes de errores cuando los hubo.
+# Se modifica output_path = '../visualizations/chile_oai_urls_nuevo.csv' para evitar sobreescrituras en el archivo original en futuras validaciones, ya que el origina fue actualizado manualmente con mensajes de error de Dialnet. 
 
 # Verificar completitud de informes descargados
 python3 scripts/6_find_missing_reports.py
@@ -157,7 +251,10 @@ python3 scripts/8_procesar_informes_dialnet.py
 # Analizar tipos de errores por gravedad
 python3 scripts/9_analizar_tipos_errores.py
 # Genera: análisis de 40 tipos de errores en 95 informes
+```
 
+**4. Consulta y Análisis OpenAlex v5**
+```bash
 # Enriquecer con datos de visibilidad académica OpenAlex
 python3 scripts/10_openalex.py
 # Genera: visualizations/beacon_ojs_con_visibilidad.csv
@@ -177,7 +274,10 @@ python3 scripts/13_openalex_chile_ampliado.py
 # Campos ampliados: is_oa, is_in_doaj, apc_usd, host_organization, i10_index, etc.
 # Justificación: Consulta específica sobre dataset reducido por eficiencia
 # (vs script 10 que procesa beacon completo con mayor carga temporal)
+```
 
+**5. Consulta y Análisis Crossref v5**
+```bash
 # Análisis ampliado de Crossref para revistas chilenas activas
 python3 scripts/14_crossref_chile_ampliado.py
 # Input: chile_juojs_activas.csv (316 revistas)
@@ -189,6 +289,10 @@ python3 scripts/14_crossref_chile_ampliado.py
 # Rate limiting: 0.2s entre requests, timeout 15s, muestra 50 artículos para relaciones
 
 # Análisis comparativo cruzado entre las tres fuentes de datos
+```
+
+**6. Análisis Comparativo**
+```bash
 python3 scripts/15_analisis_comparativo_cruzado.py
 # Input: dialnet_informes_procesados.csv, 13_chile_openalex_ampliado.csv, 14_chile_crossref_ampliado.csv
 # Genera: 15_analisis_comparativo_cruzado.csv + visualizaciones PNG
@@ -248,16 +352,6 @@ Rscript scripts_v6/2_analisis_mundial_v6.R
 ```bash
 # Filtrar instalaciones chilenas con criterios v6
 Rscript scripts_v6/3_analisis_chile_v6.R
-```
-
----
-
-## 3. Resultados
-
-**2. Análisis Chile v6**
-```bash
-# Filtrar instalaciones chilenas con criterios v6
-Rscript scripts_v6/3_analisis_chile_v6.R
 # Genera: visualizations_v6/chile_todas_instalaciones_v6.csv (432)
 
 # Aplicar criterio JUOJS actualizado (>5 pub/2024)
@@ -279,28 +373,38 @@ Rscript scripts_v6/6_tablas_chile_v6.R
 # Genera: tablas CSV y análisis institucional
 ```
 
-**5. Validación Cruzada v5-v6**
+#### 2.2.3 Decisión Metodológica: Continuidad Operativa v5
+
+Luego de una validación cruzada entre ambas versiones mediante el script `7_comparar_urls_v5_v6.py`, se decide continuar operativamente con las fuentes producto de la v5:
+
 ```bash
 # Comparación precisa entre versiones por dominio
 python3 scripts/7_comparar_urls_v5_v6.py
-# Compara: chile_oai_urls_limpio.csv vs chile_oai_urls_limpio_v6.csv
-# Clasifica: cambios sustanciales vs menores (www, paths)
+# Compara: chile_oai_urls_limpio.csv (208 URLs) vs chile_oai_urls_limpio_v6.csv (225 URLs)
+# Resultados: 88.9% estabilidad, +17 URLs netas, 0 cambios sustanciales
 ```
 
-#### 2.2.3 Criterio JUOJS: Evolución v5→v6
+**Resultados de la validación cruzada:**
+- **Estabilidad confirmada:** 88.9% de dominios efectivamente iguales
+- **Dominios nuevos en v6:** 40 (principalmente nuevas revistas)
+- **Dominios removidos:** 23 (revistas inactivas o filtradas)
+- **Cambios menores:** 7 (solo variaciones de www, protocolo o path)
+- **Cambios sustanciales:** 0 (sin modificaciones de dominio)
+- **Crecimiento neto real:** +17 dominios
 
-**Versión v5:**
-- **Criterio temporal:** >5 publicaciones en **2023**
-- **Filtrado geográfico:** `country_consolidated`, `country_issn`, `country_tld`, `country_ip`
-- **Chile resultante:** 309 instalaciones activas (78.0%)
-- **URLs generadas:** 202 únicas (107 duplicados eliminados)
+Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados con **95 informes Dialnet descargados**, se continúa el procesamiento sobre resultados v5 para análisis de calidad y evaluación. Paralelamente, se avanza con la descarga de informes Dialnet para las 40 URLs nuevas de v6.
 
-**Versión v6 (Actualizada):**
-- **Criterio temporal:** >5 publicaciones en **2024** (vs 2023 en versión anterior)
-- **Filtrado mejorado:** Incluye `country_doaj` para mayor precisión geográfica
-- **Eliminación de duplicados:** Automática por dominio (94 duplicados eliminados)
+**Implicaciones operativas:**
+- **Dataset principal:** chile_juojs_activas.csv (v5) - 316 instalaciones
+- **URLs evaluables v5:** 208 URLs únicas (95 informes Dialnet procesados)
+- **Dataset validación:** chile_juojs_activas_v6.csv - 319 instalaciones  
+- **URLs evaluables v6:** 225 URLs únicas (40 nuevas para procesamiento)
 
----
+**Cambios confirmados en el dataset:**
+- **Instalaciones totales Chile:** 403 → 432 (+29, +7.2%)
+- **Instalaciones activas:** 316 → 319 (+3, +0.9%)
+- **Criterio temporal:** 2023 → 2024 (actualización metodológica)
+- **URLs únicas:** 208 → 225 (+17, +8.2%)
 
 ## 3. Resultados
 
@@ -314,6 +418,7 @@ python3 scripts/7_comparar_urls_v5_v6.py
 - **Países representados:** 154 países activos
 
 #### 3.1.2 Instalaciones OJS Activas Globalmente v6
+
 - **Total instalaciones OJS activas globalmente:** 54,453 (63.1% del total)
 - **Publicaciones 2024:** 2,365,938 (+28.4% vs beacon anterior)
 - **Crecimiento 2023→2024:** +516,768 publicaciones (+28.4%)
@@ -350,12 +455,14 @@ python3 scripts/7_comparar_urls_v5_v6.py
 ### 3.2 Análisis Específico de Chile - Validación v6
 
 #### 3.2.1 Estadísticas Generales Actualizadas
+
 - **Total instalaciones identificadas:** 432 (vs 396 en versión anterior)
 - **Instalaciones JUOJS activas (>5 pub/2024):** 319 (73.8%)
 - **Instalaciones filtradas:** 113 (≤5 pub/2024)
 - **URLs únicas generadas:** 225 (eliminados 94 duplicados)
 
 #### 3.2.2 Productividad 2024 (Validación v6)
+
 - **Total publicaciones 2024:** 14,162
 - **Total publicaciones 2023:** 12,156
 - **Crecimiento neto:** +2,006 publicaciones (+16.5%)
@@ -378,6 +485,7 @@ python3 scripts/7_comparar_urls_v5_v6.py
 | Progress Annals: Journal of Progressive Research | academiaone.org | 136 | +83 |
 
 #### 3.2.4 Análisis de Crecimiento 2023-2024 (v6)
+
 - **Instalaciones que crecieron:** 163 (51.1%)
 - **Instalaciones que decrecieron:** 135 (42.3%)
 - **Instalaciones estables:** 21 (6.6%)
@@ -397,12 +505,14 @@ python3 scripts/7_comparar_urls_v5_v6.py
 | Otras instituciones | 181 | 56.7% | 5,603 | +739 |
 
 #### 3.2.6 Distribución Geográfica PKP (v6)
+
 - **Latin America & Caribbean:** 317 instalaciones (99.4%)
 - **Europe & Central Asia:** 1 instalación (0.3%)
 - **North America:** 1 instalación (0.3%)
 
 #### 3.2.7 URLs OAI Generadas para Dialnet (v6)
-- **Total URLs únicas:** 225 (vs 202 en versión anterior)
+
+- **Total URLs únicas:** 225 (vs 208 en versión anterior)
 - **URLs Universidad de Chile:** 58 (25.8%)
 - **Publicaciones 2024 representadas:** 11,540 (81.5% del total)
 - **Crecimiento neto representado:** +1,843 publicaciones
@@ -410,6 +520,12 @@ python3 scripts/7_comparar_urls_v5_v6.py
 ### 3.3 Validación Cruzada: Comparación v5 vs v6
 
 #### 3.3.1 Análisis Comparativo por Dominios (Script 7)
+
+- **Crecimiento total:** 67,138 → 87,170 (+29.8%)
+- **Crecimiento OJS:** 66,527 → 86,282 (+29.7%)
+- **Chile total:** 403 → 432 instalaciones (+29, +7.2%)
+- **Chile activas:** 316 → 319 instalaciones (+3, +0.9%)
+- **Metodología:** Análisis comparativo para validación de tendencias
 
 **Metodología de comparación:**
 Se ejecutó análisis preciso mediante `scripts/7_comparar_urls_v5_v6.py` que compara URLs por dominio normalizado, clasificando cambios como sustanciales o menores (www, paths, protocolos).
@@ -429,27 +545,6 @@ Se ejecutó análisis preciso mediante `scripts/7_comparar_urls_v5_v6.py` que co
 - `revistapleyade.cl`: revistapleyade.cl → www.revistapleyade.cl
 - `sisomosamericanos.cl`: sisomosamericanos.cl → www.sisomosamericanos.cl
 - `teps.cl`: teps.cl → www.teps.cl
-
-#### 3.3.2 Decisión Metodológica: Continuidad Operativa v5
-
-**Justificación:**
-Dada la alta estabilidad (88.9%) entre versiones y que los datos v5 ya están procesados con informes Dialnet descargados, **se continúa el procesamiento sobre resultados v5** para análisis de calidad y evaluación. Paralelamente, se descargan informes Dialnet para URLs v6 nuevas.
-
-**Implicaciones operativas:**
-- **Dataset principal:** chile_oai_urls_limpio.csv (v5) - 208 URLs
-- **Procesamiento paralelo:** chile_oai_urls_limpio_v6.csv - 225 URLs
-- **Validación cruzada:** Confirmada estabilidad metodológica
-
-#### 3.3.3 Cambios en el Dataset
-- **Instalaciones totales Chile:** 396 → 432 (+9.1%)
-- **Instalaciones activas:** 309 → 319 (+3.2%)
-- **Criterio temporal:** 2023 → 2024 (actualización metodológica)
-- **URLs únicas:** 202 → 225 (+11.4%)
-
-#### 3.3.4 Consistencia de Resultados
-- **Universidad de Chile mantiene liderazgo:** 68 → 67 instalaciones
-- **Distribución institucional estable:** Mismas instituciones líderes
-- **Crecimiento sostenido:** Confirmado en ambas versiones
 
 ### 3.4 Archivos Generados v6
 
@@ -1003,7 +1098,7 @@ El **análisis APC** (Script 16) confirma que Chile mantiene un **modelo de acce
 ### 4.4 Implicaciones para Indexación en Dialnet
 
 #### 4.4.1 Optimización del Proceso
-- **225 URLs únicas** (vs 202 anteriores) para evaluación
+- **225 URLs únicas** (vs 208 anteriores) para evaluación
 - **Eliminación automática** de 94 duplicados
 - **Cobertura mejorada:** 81.5% de publicaciones 2024 representadas
 
@@ -1028,10 +1123,6 @@ El **análisis comparativo cruzado** permite priorizar por **múltiples criterio
 2. **Productividad 2024** (Script 4)
 3. **Calidad editorial** (Scripts 8-9)
 4. **Visibilidad académica** (Scripts 10-12)
-El análisis v6 permite priorizar instalaciones por:
-1. **Productividad 2024:** Revista Chilena de Derecho (1,708 pub)
-2. **Crecimiento:** Instalaciones con tendencia positiva
-3. **Estabilidad institucional:** Universidad de Chile (58 URLs)
 
 ### 4.5 Contribución al Acceso Abierto Regional
 
@@ -1143,65 +1234,6 @@ Al Public Knowledge Project (PKP) por mantener el sistema de beacon que hace pos
 
 ## Referencias
 
-### Estudios sobre JUOJS y PKP Beacon
-
-Khanna, S., Ball, J., Alperin, J. P., & Willinsky, J. (2022). Recalibrating the scope of scholarly publishing: A modest step in a vast decolonization process. *Quantitative Science Studies, 3*(4), 912–930. https://doi.org/10.1162/qss_a_00228
-
-Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). *Details of publications using software by the Public Knowledge Project* (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY
-
-### Estudios sobre indexación y acceso abierto
-
-Beigel, F. (2025). The transformative relation between publishers and editors: Research quality and academic autonomy at stake. *Quantitative Science Studies, 6*, 154–170. https://doi.org/10.1162/qss_a_00343
-
-Chavarro, D., Alperin, J. P., & Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. *Quantitative Science Studies, 6*, 1039–1058. https://doi.org/10.1162/QSS.a.17
-
-Simard, M.-A., Basson, I., Hare, M., Larivière, V., & Mongeon, P. (2025). Examining the geographic and linguistic coverage of gold and diamond open access journals in OpenAlex, Scopus, and Web of Science. *Quantitative Science Studies, 6*, 732–752. https://doi.org/10.1162/qss.a.1
-
-### Estudios sobre publicación científica chilena y latinoamericana
-
-Collazo-Reyes, F. (2014). Growth of the number of indexed journals of Latin America and the Caribbean: the effect on the impact of each country. *Scientometrics, 98*, 197–209. https://doi.org/10.1007/s11192-013-1036-2
-
-Koch, T., & Vanderstraeten, R. (2018). Internationalizing a national scientific community? Changes in publication and citation practices in Chile, 1976–2015. *Current Sociology, 67*(5), 723-741. https://doi.org/10.1177/0011392118807514
-
-Koch, T., Vanderstraeten, R. y Ayala, R. (2021). La internacionalización de la ciencia: revistas y comunidades chilenas en el mundo científico. *Estudios Sociales de la Ciencia, 51*(1), 121-138. https://doi.org/10.1177/0306312720949709
-
-Krauskopf, M. y Pessot, R. (1980). Estudio preliminar sobre publicaciones y productividad científica en Chile. *Archivos de Biología y Medicina Experimentales, 73*, 195-208.
-
-Sabaj, O., Valderrama, J. O., González-Vergara, C., & Pina-Stranger, A. (2015). Relationship between the duration of peer-review, publication decision, and agreement among reviewers in three Chilean journals. *HAL Archives Ouvertes*, halshs-01242627.
-
-### Marco teórico y metodológico
-
-Leydesdorff, L., & Persson, O. (2010). Mapping the geography of science: Distribution patterns and networks of relations among cities and institutes. *Journal of the American Society for Information Science and Technology, 61*(8), 1622-1634. https://doi.org/10.1002/asi.21347
-
-Merton, R. K. (1973). *The sociology of science: Theoretical and empirical investigations*. University of Chicago Press.
-
-Paasi, A. (2015). Academic Capitalism and the Geopolitics of Knowledge. In J. Agnew, V. Mamadouh, A. J. Secor, & J. Sharp (Eds.), *The Wiley Blackwell Companion to Political Geography* (pp. 507-523). Wiley Blackwell. https://doi.org/10.1002/9781118725771.ch37
-
-### Recursos técnicos
-
-- **PKP Official Site:** https://pkp.sfu.ca/
-- **Dataset URL:** https://pkp.sfu.ca/software/ojs/usage-data/
-- **Harvard Dataverse:** https://doi.org/doi:10.7910/DVN/OCZNVY
-- **MARC Country Codes:** https://www.loc.gov/marc/countries/
-- **OAI-PMH Protocol:** https://www.openarchives.org/pmh/
-- **OpenAlex API:** https://docs.openalex.org/
-- **Dialnet API:** https://dialnet.unirioja.es/ws/dialnetcris-sandbox/v2/swagger-ui/index.html
-
-### Estándares y criterios
-
-- Directory of Open Access Journals (2020). Criterio de revista activa: 5 artículos por año
-- ISO 3166-1 alpha-2: Códigos de países
-- ISSN International Centre: Estándares de numeración de publicaciones seriadas
-
-### Datasets utilizados
-
-**Beacon v6:**
-Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). *Details of publications using software by the Public Knowledge Project* (V6) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY
-
-**Beacon anterior:**
-Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). *Details of publications using software by the Public Knowledge Project* (V4) [Dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/OCZNVY
-
----
 
 ## Colaboraciones
 
