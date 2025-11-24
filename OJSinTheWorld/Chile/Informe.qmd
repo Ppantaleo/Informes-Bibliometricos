@@ -418,6 +418,12 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 
 #### 3.1.1 Ecosistema Global v5 (Línea Base)
 
+Los datos del PKP Beacon v5 confirman la consolidación del ecosistema OJS como plataforma dominante en la publicación académica de acceso abierto, con **49,790 instalaciones activas** que representan el **74.8%** del total de instalaciones OJS identificadas. Esta tasa de actividad refleja un ecosistema maduro donde tres de cada cuatro instalaciones mantienen productividad editorial sostenida según el criterio DOAJ de más de 5 publicaciones anuales.
+
+La **diversidad geográfica** es notable, con **153 países** representados, evidenciando la adopción global de OJS como herramienta de democratización del conocimiento científico. El volumen de **2,018,793 publicaciones en 2023** posiciona al ecosistema OJS como un actor significativo en la producción académica mundial, contribuyendo sustancialmente al acceso abierto global.
+
+El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del ecosistema y su papel como repositorio de conocimiento científico acumulado, estableciendo una base sólida para el crecimiento futuro y la preservación digital del patrimonio académico global.
+
 **Distribución General v5:**
 
 - **Total instalaciones procesadas:** 67,138
@@ -432,13 +438,22 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 - **Acervo histórico:** 10.6 millones de artículos
 - **Países representados:** 153 países activos
 
-**Interpretación del ecosistema global v5:**
+| País | Instalaciones Activas | Pub. 2023 | Promedio por Instalación |
+|------|----------------------|-----------|-------------------------|
+| Indonesia (ID) | 22,208 | 652,762 | 29.4 |
+| Brasil (BR) | 3,944 | 198,007 | 50.2 |
+| Desconocido | 1,617 | 97,779 | 60.5 |
+| Estados Unidos (US) | 1,545 | 71,604 | 46.3 |
+| India (IN) | 1,362 | 83,428 | 61.3 |
+| España (ES) | 1,260 | 45,441 | 36.1 |
+| Tailandia (TH) | 1,088 | 40,254 | 37.0 |
+| Ucrania (UA) | 1,002 | 63,444 | 63.3 |
+| Rusia (RU) | 907 | 74,527 | 82.2 |
+| Pakistán (PK) | 843 | 33,571 | 39.8 |
 
-Los datos del PKP Beacon v5 confirman la consolidación del ecosistema OJS como plataforma dominante en la publicación académica de acceso abierto, con **49,790 instalaciones activas** que representan el **74.8%** del total de instalaciones OJS identificadas. Esta tasa de actividad refleja un ecosistema maduro donde tres de cada cuatro instalaciones mantienen productividad editorial sostenida según el criterio DOAJ de más de 5 publicaciones anuales.
+: Top 10 Países por Instalaciones Activas 2023 (v5)
 
-La **diversidad geográfica** es notable, con **153 países** representados, evidenciando la adopción global de OJS como herramienta de democratización del conocimiento científico. El volumen de **2,018,793 publicaciones en 2023** posiciona al ecosistema OJS como un actor significativo en la producción académica mundial, contribuyendo sustancialmente al acceso abierto global.
-
-El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del ecosistema y su papel como repositorio de conocimiento científico acumulado, estableciendo una base sólida para el crecimiento futuro y la preservación digital del patrimonio académico global.
+Indonesia domina con el 44.6% de las instalaciones activas globales, seguido por Brasil (7.9%) y Estados Unidos (3.1%). Chile ocupa la posición 25 con 311 instalaciones activas, representando el 0.6% del ecosistema global.
 
 #### 3.1.2 Ecosistema Global v6 (Validación Actualizada)
 
@@ -457,18 +472,6 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 - **Crecimiento 2023→2024:** +516,768 publicaciones
 - **Cambio en actividad:** Consolidación del crecimiento global
 
-#### 3.1.3 Comparación Global v5 vs v6
-
-**Crecimiento del Ecosistema:**
-
-- **Instalaciones totales:** 67,138 → 87,170 (+29.8%)
-- **Instalaciones OJS:** 66,527 → 86,282 (+29.7%)
-- **Instalaciones activas:** 49,790 → 54,453 (+9.4%)
-- **Publicaciones anuales:** 2,018,793 → 2,365,938 (+17.2%)
-- **Países activos:** 153 → 154 (+0.7%)
-
-#### 3.1.4 Top 10 Países por Instalaciones Activas 2024 (v6)
-
 | País | Instalaciones Activas | Pub. 2024 | Crecimiento 2023→2024 |
 |------|----------------------|-----------|----------------------|
 | Indonesia (ID) | 23,045 | 713,408 | +122,211 |
@@ -482,7 +485,7 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 | Rusia (RU) | 954 | 74,346 | +6,280 |
 | Pakistán (PK) | 893 | 43,070 | +11,921 |
 
-#### 3.1.5 Distribución por Regiones PKP v6
+: Validación v6: Top 10 Países por Instalaciones Activas 2024
 
 | Región PKP | Instalaciones | Pub. 2024 | Países |
 |------------|---------------|-----------|---------|
@@ -495,6 +498,18 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 | Sub-Saharan Africa | 1,525 | 57,713 | 33 |
 | Middle East & North Africa | 1,030 | 64,297 | 19 |
 
+: Validación v6: Distribución por Regiones PKP
+
+#### 3.1.3 Comparación Global v5 vs v6
+
+**Crecimiento del Ecosistema:**
+
+- **Instalaciones totales:** 67,138 → 87,170 (+29.8%)
+- **Instalaciones OJS:** 66,527 → 86,282 (+29.7%)
+- **Instalaciones activas:** 49,790 → 54,453 (+9.4%)
+- **Publicaciones anuales:** 2,018,793 → 2,365,938 (+17.2%)
+- **Países activos:** 153 → 154 (+0.7%)
+
 ### 3.2 Análisis Específico de Chile
 
 #### 3.2.1 Ecosistema Chileno v5 (Dataset Principal)
@@ -504,14 +519,45 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 - **Total instalaciones identificadas:** 403
 - **Instalaciones JUOJS activas (>5 pub/2023):** 316 (78.4%)
 - **Instalaciones filtradas:** 87 (≤5 pub/2023)
-- **URLs únicas generadas:** 208 (eliminados 107 duplicados)
+- **URLs únicas generadas para Dialnet:** 208 (eliminados 107 duplicados)
 
 **Productividad 2023 (Línea Base v5):**
 
 - **Total publicaciones 2023:** 12,156
 - **Promedio por instalación activa:** 38.5 pub/instalación
 - **Total histórico acumulado:** 133,931 publicaciones
-- **Posición regional:** Ecosistema consolidado en Latinoamérica
+
+| Revista/Contexto | Dominio | Pub. 2023 | Total Histórico |
+|------------------|---------|-----------|----------------|
+| Revista Inclusiones | inclusiones.cl | 2,671 | 2,671 |
+| Onomázein | onomazein.net | 1,081 | 1,081 |
+| Anales de Literatura Chilena | anales.uchile.cl | 956 | 956 |
+| REVISTA CUHSO | cuhso.uct.cl | 910 | 910 |
+| Revista AIDIS | aidis.cl | 897 | 897 |
+| Boletín de la Universidad de Chile | revistasdex.uchile.cl | 160 | 1,689 |
+| Revista de la construcción | revistadelaconstruccion.uc.cl | 2,681 | 2,681 |
+| Apuntes de Teatro | revistaapuntes.uc.cl | 1,018 | 1,018 |
+| Revista Chilena de Derecho | revistachilenadederecho.uc.cl | 37 | 1,708 |
+| Ingeniare. Revista Chilena de Ingeniería | revistalimite.uta.cl | - | 321 |
+
+: Top 10 Instalaciones Más Productivas 2023 (v5)
+
+La productividad se concentra en revistas de alta frecuencia editorial, con Revista Inclusiones liderando con 2,671 publicaciones en 2023. El ecosistema muestra diversidad disciplinaria desde ciencias sociales hasta ingeniería.
+
+| Institución | Instalaciones | % | Pub. 2023 | Promedio |
+|-------------|---------------|---|-----------|----------|
+| Universidad de Chile | 65 | 20.6% | 1,692 | 26.0 |
+| Pontificia Universidad Católica | 28 | 8.9% | 4,567 | 163.1 |
+| Universidad de Valparaíso | 16 | 5.1% | 250 | 15.6 |
+| Universidad de Concepción | 13 | 4.1% | 389 | 29.9 |
+| Universidad Austral de Chile | 8 | 2.5% | 272 | 34.0 |
+| Universidad de Santiago | 5 | 1.6% | 122 | 24.4 |
+| Universidad de La Frontera | 4 | 1.3% | 45 | 11.3 |
+| Otras instituciones | 177 | 56.0% | 4,819 | 27.2 |
+
+: Distribución Institucional (v5)
+
+La Universidad de Chile lidera en número de instalaciones (20.6%) mientras que la UC muestra mayor productividad promedio por instalación (163.1 pub/instalación vs 26.0 de UChile).
 
 #### 3.2.2 Ecosistema Chileno v6 (Validación Actualizada)
 
@@ -530,20 +576,8 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 - **Promedio por instalación activa:** 44.4 pub/instalación
 - **Total histórico acumulado:** 144,529 publicaciones
 
-#### 3.2.3 Comparación Chile v5 vs v6
-
-**Crecimiento del Ecosistema Chileno:**
-
-- **Instalaciones totales:** 403 → 432 (+7.2%)
-- **Instalaciones activas:** 316 → 319 (+0.9%)
-- **Publicaciones anuales:** 12,156 → 14,162 (+16.5%)
-- **URLs evaluables:** 208 → 225 (+8.2%)
-- **Acervo histórico:** 133,931 → 144,529 (+7.9%)
-
-#### 3.2.4 Top 10 Instalaciones Más Productivas 2024 (v6)
-
-| Revista/Contexto | Dominio | Pub. 2024 | Crecimiento |
-|------------------|---------|-----------|-------------|
+| Revista/Contexto | Dominio | Pub. 2024 | Crecimiento vs 2023 |
+|------------------|---------|-----------|--------------------|
 | Revista Chilena de Derecho | revistachilenadederecho.uc.cl | 1,708 | +1,671 |
 | Boletín de la Universidad de Chile | revistasdex.uchile.cl | 1,689 | +1,529 |
 | Boletín Jurídico del Observatorio | revistadelaconstruccion.uc.cl | 958 | -1,723 |
@@ -555,14 +589,11 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 | Apuntes de Teatro | revistaapuntes.uc.cl | 214 | -804 |
 | Progress Annals: Journal of Progressive Research | academiaone.org | 136 | +83 |
 
-#### 3.2.5 Análisis de Crecimiento 2023-2024 (v6)
+: Validación v6: Top 10 Instalaciones Más Productivas 2024
 
-- **Instalaciones que crecieron:** 163 (51.1%)
-- **Instalaciones que decrecieron:** 135 (42.3%)
-- **Instalaciones estables:** 21 (6.6%)
-- **Crecimiento promedio:** +6.3 pub/instalación
+#### 3.2.7 Validación v6: Análisis de Crecimiento 2023-2024
 
-#### 3.2.6 Distribución Institucional Actualizada (v6)
+El análisis de crecimiento entre 2023 y 2024 revela un ecosistema editorial dinámico donde **163 instalaciones experimentaron crecimiento positivo**, representando el 51.1% del total. En contraste, **135 instalaciones mostraron decrecimiento** (42.3%), mientras que solo **21 instalaciones se mantuvieron estables** (6.6%). El **crecimiento promedio de 6.3 publicaciones por instalación** refleja una expansión moderada pero sostenida del ecosistema editorial chileno.
 
 | Institución | Instalaciones | % | Pub. 2024 | Crecimiento |
 |-------------|---------------|---|-----------|-------------|
@@ -575,66 +606,17 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 | Universidad de La Frontera | 4 | 1.3% | - | - |
 | Otras instituciones | 181 | 56.7% | 5,603 | +739 |
 
-#### 3.2.7 Distribución Geográfica PKP (v6)
+: Validación v6: Distribución Institucional Actualizada
 
-- **Latin America & Caribbean:** 317 instalaciones (99.4%)
-- **Europe & Central Asia:** 1 instalación (0.3%)
-- **North America:** 1 instalación (0.3%)
+#### 3.2.3 Comparación Chile v5 vs v6
 
-#### 3.2.8 URLs OAI Generadas para Dialnet (v6)
+**Crecimiento del Ecosistema Chileno:**
 
-- **Total URLs únicas:** 225 (vs 208 en versión anterior)
-- **URLs Universidad de Chile:** 58 (25.8%)
-- **Publicaciones 2024 representadas:** 11,540 (81.5% del total)
-- **Crecimiento neto representado:** +1,843 publicaciones
-
-### 3.3 Validación Cruzada: Comparación v5 vs v6
-
-#### 3.3.1 Análisis Comparativo por Dominios (Script 7)
-
-- **Crecimiento total:** 67,138 → 87,170 (+29.8%)
-- **Crecimiento OJS:** 66,527 → 86,282 (+29.7%)
-- **Chile total:** 403 → 432 instalaciones (+29, +7.2%)
-- **Chile activas:** 316 → 319 instalaciones (+3, +0.9%)
-- **Metodología:** Análisis comparativo para validación de tendencias
-
-**Metodología de comparación:**
-Se ejecutó análisis preciso mediante `scripts/7_comparar_urls_v5_v6.py` que compara URLs por dominio normalizado, clasificando cambios como sustanciales o menores (www, paths, protocolos).
-
-**Resultados de estabilidad:**
-- **URLs v5:** 208 → **URLs v6:** 225 (+17 URLs netas)
-- **Dominios efectivamente iguales:** 185/208 (88.9% estabilidad)
-- **Dominios con cambios menores:** 7 (variaciones www, paths)
-- **Dominios con cambios sustanciales:** 0
-- **Crecimiento neto real:** +17 dominios (40 nuevos - 23 removidos)
-
-**Clasificación de cambios menores (7 dominios):**
-- `ajvs.cl`: www.ajvs.cl → ajvs.cl
-- `biotaxa.org`: /rce/oai → /index.php/index/oai
-- `joralres.com`: www.joralres.com → joralres.com
-- `reidu.cl`: reidu.cl → www.reidu.cl
-- `revistapleyade.cl`: revistapleyade.cl → www.revistapleyade.cl
-- `sisomosamericanos.cl`: sisomosamericanos.cl → www.sisomosamericanos.cl
-- `teps.cl`: teps.cl → www.teps.cl
-
-### 3.4 Archivos Generados v6
-
-#### 3.4.1 Datasets Principales
-- **`visualizations_v6/chile_todas_instalaciones_v6.csv`** - 432 instalaciones completas
-- **`visualizations_v6/chile_juojs_activas_v6.csv`** - 319 instalaciones activas (DATASET PRINCIPAL v6)
-- **`visualizations_v6/chile_oai_urls_v6.csv`** - 225 URLs para evaluación Dialnet
-
-#### 3.4.2 Análisis Mundial v6
-- `visualizations_v6/tabla_paises_mundial_v6.csv` - 154 países activos
-- `visualizations_v6/regiones_mundial_v6.csv` - 8 regiones PKP
-- `visualizations_v6/top15_paises_barras_v6.png` - Visualización países
-- `visualizations_v6/regiones_circular_v6.png` - Visualización regiones
-
-#### 3.4.3 Tablas Chile v6
-- `visualizations_v6/tabla_chile_todas_top30_v6.csv`
-- `visualizations_v6/tabla_chile_juojs_top30_v6.csv`
-- `visualizations_v6/tabla_chile_crecimiento_top15_v6.csv`
-- `visualizations_v6/tabla_instituciones_v6.csv`
+- **Instalaciones totales:** 403 → 432 (+7.2%)
+- **Instalaciones activas:** 316 → 319 (+0.9%)
+- **Publicaciones anuales:** 12,156 → 14,162 (+16.5%)
+- **URLs evaluables:** 208 → 225 (+8.2%)
+- **Acervo histórico:** 133,931 → 144,529 (+7.9%)
 
 ### 3.5 Análisis de Visibilidad Académica: Integración OpenAlex
 
@@ -960,6 +942,43 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 3. **Capacitación editorial:** Programas de mejora de calidad para editores
 4. **Corrección de paginación:** Atender 12,201 artículos sin numeración
 5. **Estandarización de formato:** Corregir mayúsculas en títulos y subtítulos
+
+#### 3.8.7 URLs OAI Generadas para Dialnet (v6)
+
+- **Total URLs únicas:** 225 (vs 208 en versión anterior)
+- **URLs Universidad de Chile:** 58 (25.8%)
+- **Publicaciones 2024 representadas:** 11,540 (81.5% del total)
+- **Crecimiento neto representado:** +1,843 publicaciones Distribución Institucional Actualizada (v6)
+
+| Institución | Instalaciones | % | Pub. 2024 | Crecimiento |
+|-------------|---------------|---|-----------|-------------|
+| Universidad de Chile | 67 | 21.0% | 3,338 | +1,646 |
+| Pontificia Universidad Católica | 27 | 8.5% | 4,129 | -438 |
+| Universidad de Valparaíso | 15 | 4.7% | 227 | -23 |
+| Universidad de Concepción | 12 | 3.8% | 353 | -36 |
+| Universidad Austral de Chile | 7 | 2.2% | 213 | -59 |
+| Universidad de Santiago | 6 | 1.9% | 299 | +177 |
+| Universidad de La Frontera | 4 | 1.3% | - | - |
+| Otras instituciones | 181 | 56.7% | 5,603 | +739 |
+
+**Metodología de comparación:**
+Se ejecutó análisis preciso mediante `scripts/7_comparar_urls_v5_v6.py` que compara URLs por dominio normalizado, clasificando cambios como sustanciales o menores (www, paths, protocolos).
+
+**Resultados de estabilidad:**
+- **URLs v5:** 208 → **URLs v6:** 225 (+17 URLs netas)
+- **Dominios efectivamente iguales:** 185/208 (88.9% estabilidad)
+- **Dominios con cambios menores:** 7 (variaciones www, paths)
+- **Dominios con cambios sustanciales:** 0
+- **Crecimiento neto real:** +17 dominios (40 nuevos - 23 removidos)
+
+**Clasificación de cambios menores (7 dominios):**
+- `ajvs.cl`: www.ajvs.cl → ajvs.cl
+- `biotaxa.org`: /rce/oai → /index.php/index/oai
+- `joralres.com`: www.joralres.com → joralres.com
+- `reidu.cl`: reidu.cl → www.reidu.cl
+- `revistapleyade.cl`: revistapleyade.cl → www.revistapleyade.cl
+- `sisomosamericanos.cl`: sisomosamericanos.cl → www.sisomosamericanos.cl
+- `teps.cl`: teps.cl → www.teps.cl
 
 ### 3.3 Análisis de Crossref - Revistas Chilenas Activas
 
