@@ -107,6 +107,7 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
 **Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
 
 **Características v5:**
+
 - **DOI:** https://doi.org/10.7910/DVN/OCZNVY
 - **Archivo:** `beacon.csv` (67,138 observaciones, 25 campos)
 - **Instalaciones OJS:** 66,527 (99.1%)
@@ -121,6 +122,7 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
 **Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
 
 **Características v6:**
+
 - **Archivo:** `beacon_v6.csv` (87,170 observaciones, 31 campos)
 - **Instalaciones OJS:** 86,282 (99.0%)
 - **Instalaciones OMP:** 810 (0.9%)
@@ -331,6 +333,7 @@ rm beacon_v6_temp.tab
 ```
 
 **Validación post-limpieza:**
+
 - **Registros preservados:** 100% (87,170/87,170)
 - **Estructura validada:** 31 columnas consistentes
 - **Formato:** CSV estándar con separadores de coma
@@ -385,6 +388,7 @@ python3 scripts/7_comparar_urls_v5_v6.py
 ```
 
 **Resultados de la validación cruzada:**
+
 - **Estabilidad confirmada:** 88.9% de dominios efectivamente iguales
 - **Dominios nuevos en v6:** 40 (principalmente nuevas revistas)
 - **Dominios removidos:** 23 (revistas inactivas o filtradas)
@@ -395,12 +399,14 @@ python3 scripts/7_comparar_urls_v5_v6.py
 Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados con **95 informes Dialnet descargados**, se continúa el procesamiento sobre resultados v5 para análisis de calidad y evaluación. Paralelamente, se avanza con la descarga de informes Dialnet para las 40 URLs nuevas de v6.
 
 **Implicaciones operativas:**
+
 - **Dataset principal:** chile_juojs_activas.csv (v5) - 316 instalaciones
 - **URLs evaluables v5:** 208 URLs únicas (95 informes Dialnet procesados)
 - **Dataset validación:** chile_juojs_activas_v6.csv - 319 instalaciones  
 - **URLs evaluables v6:** 225 URLs únicas (40 nuevas para procesamiento)
 
 **Cambios confirmados en el dataset:**
+
 - **Instalaciones totales Chile:** 403 → 432 (+29, +7.2%)
 - **Instalaciones activas:** 316 → 319 (+3, +0.9%)
 - **Criterio temporal:** 2023 → 2024 (actualización metodológica)
@@ -408,23 +414,60 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 
 ## 3. Resultados
 
-### 3.1 Análisis Global v6
+### 3.1 Análisis Global
 
-#### 3.1.1 Distribución General
-- **Total instalaciones procesadas:** 87,170
+#### 3.1.1 Ecosistema Global v5 (Línea Base)
+
+**Distribución General v5:**
+
+- **Total instalaciones procesadas:** 67,138
+- **Instalaciones OJS:** 66,527 (99.1%)
+- **Instalaciones OMP:** 562 (0.8%)
+- **Instalaciones OPS:** 49 (0.1%)
+
+**Instalaciones OJS Activas Globalmente v5:**
+
+- **Total instalaciones OJS activas:** 49,790 (74.8% del total OJS)
+- **Publicaciones 2023:** 2,018,793 (línea base)
+- **Acervo histórico:** 10.6 millones de artículos
+- **Países representados:** 153 países activos
+
+**Interpretación del ecosistema global v5:**
+
+Los datos del PKP Beacon v5 confirman la consolidación del ecosistema OJS como plataforma dominante en la publicación académica de acceso abierto, con **49,790 instalaciones activas** que representan el **74.8%** del total de instalaciones OJS identificadas. Esta tasa de actividad refleja un ecosistema maduro donde tres de cada cuatro instalaciones mantienen productividad editorial sostenida según el criterio DOAJ de más de 5 publicaciones anuales.
+
+La **diversidad geográfica** es notable, con **153 países** representados, evidenciando la adopción global de OJS como herramienta de democratización del conocimiento científico. El volumen de **2,018,793 publicaciones en 2023** posiciona al ecosistema OJS como un actor significativo en la producción académica mundial, contribuyendo sustancialmente al acceso abierto global.
+
+El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del ecosistema y su papel como repositorio de conocimiento científico acumulado, estableciendo una base sólida para el crecimiento futuro y la preservación digital del patrimonio académico global.
+
+#### 3.1.2 Ecosistema Global v6 (Validación Actualizada)
+
+**Distribución General v6:**
+
+- **Total instalaciones procesadas:** 87,170 (+29.8% vs v5)
 - **Instalaciones OJS:** 86,282 (99.0%)
 - **Instalaciones OMP:** 810 (0.9%)
 - **Instalaciones OPS:** 78 (0.1%)
-- **Países representados:** 154 países activos
+- **Países representados:** 154 países activos (+1 vs v5)
 
-#### 3.1.2 Instalaciones OJS Activas Globalmente v6
+**Instalaciones OJS Activas Globalmente v6:**
 
-- **Total instalaciones OJS activas globalmente:** 54,453 (63.1% del total)
-- **Publicaciones 2024:** 2,365,938 (+28.4% vs beacon anterior)
-- **Crecimiento 2023→2024:** +516,768 publicaciones (+28.4%)
-- **Cambio en actividad:** +3,074 instalaciones activas vs 2023
+- **Total instalaciones OJS activas:** 54,453 (63.1% del total, +4,663 vs v5)
+- **Publicaciones 2024:** 2,365,938 (+28.4% vs 2023)
+- **Crecimiento 2023→2024:** +516,768 publicaciones
+- **Cambio en actividad:** Consolidación del crecimiento global
 
-#### 3.1.3 Top 10 Países por Instalaciones Activas 2024
+#### 3.1.3 Comparación Global v5 vs v6
+
+**Crecimiento del Ecosistema:**
+
+- **Instalaciones totales:** 67,138 → 87,170 (+29.8%)
+- **Instalaciones OJS:** 66,527 → 86,282 (+29.7%)
+- **Instalaciones activas:** 49,790 → 54,453 (+9.4%)
+- **Publicaciones anuales:** 2,018,793 → 2,365,938 (+17.2%)
+- **Países activos:** 153 → 154 (+0.7%)
+
+#### 3.1.4 Top 10 Países por Instalaciones Activas 2024 (v6)
 
 | País | Instalaciones Activas | Pub. 2024 | Crecimiento 2023→2024 |
 |------|----------------------|-----------|----------------------|
@@ -439,7 +482,7 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 | Rusia (RU) | 954 | 74,346 | +6,280 |
 | Pakistán (PK) | 893 | 43,070 | +11,921 |
 
-#### 3.1.4 Distribución por Regiones PKP v6
+#### 3.1.5 Distribución por Regiones PKP v6
 
 | Región PKP | Instalaciones | Pub. 2024 | Países |
 |------------|---------------|-----------|---------|
@@ -452,16 +495,34 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 | Sub-Saharan Africa | 1,525 | 57,713 | 33 |
 | Middle East & North Africa | 1,030 | 64,297 | 19 |
 
-### 3.2 Análisis Específico de Chile - Validación v6
+### 3.2 Análisis Específico de Chile
 
-#### 3.2.1 Estadísticas Generales Actualizadas
+#### 3.2.1 Ecosistema Chileno v5 (Dataset Principal)
 
-- **Total instalaciones identificadas:** 432 (vs 396 en versión anterior)
-- **Instalaciones JUOJS activas (>5 pub/2024):** 319 (73.8%)
+**Estadísticas Generales v5:**
+
+- **Total instalaciones identificadas:** 403
+- **Instalaciones JUOJS activas (>5 pub/2023):** 316 (78.4%)
+- **Instalaciones filtradas:** 87 (≤5 pub/2023)
+- **URLs únicas generadas:** 208 (eliminados 107 duplicados)
+
+**Productividad 2023 (Línea Base v5):**
+
+- **Total publicaciones 2023:** 12,156
+- **Promedio por instalación activa:** 38.5 pub/instalación
+- **Total histórico acumulado:** 133,931 publicaciones
+- **Posición regional:** Ecosistema consolidado en Latinoamérica
+
+#### 3.2.2 Ecosistema Chileno v6 (Validación Actualizada)
+
+**Estadísticas Generales v6:**
+
+- **Total instalaciones identificadas:** 432 (+29 vs v5, +7.2%)
+- **Instalaciones JUOJS activas (>5 pub/2024):** 319 (+3 vs v5, +0.9%)
 - **Instalaciones filtradas:** 113 (≤5 pub/2024)
-- **URLs únicas generadas:** 225 (eliminados 94 duplicados)
+- **URLs únicas generadas:** 225 (+17 vs v5, +8.2%)
 
-#### 3.2.2 Productividad 2024 (Validación v6)
+**Productividad 2024 (Validación v6):**
 
 - **Total publicaciones 2024:** 14,162
 - **Total publicaciones 2023:** 12,156
@@ -469,7 +530,17 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 - **Promedio por instalación activa:** 44.4 pub/instalación
 - **Total histórico acumulado:** 144,529 publicaciones
 
-#### 3.2.3 Top 10 Instalaciones Más Productivas 2024 (v6)
+#### 3.2.3 Comparación Chile v5 vs v6
+
+**Crecimiento del Ecosistema Chileno:**
+
+- **Instalaciones totales:** 403 → 432 (+7.2%)
+- **Instalaciones activas:** 316 → 319 (+0.9%)
+- **Publicaciones anuales:** 12,156 → 14,162 (+16.5%)
+- **URLs evaluables:** 208 → 225 (+8.2%)
+- **Acervo histórico:** 133,931 → 144,529 (+7.9%)
+
+#### 3.2.4 Top 10 Instalaciones Más Productivas 2024 (v6)
 
 | Revista/Contexto | Dominio | Pub. 2024 | Crecimiento |
 |------------------|---------|-----------|-------------|
@@ -484,14 +555,14 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 | Apuntes de Teatro | revistaapuntes.uc.cl | 214 | -804 |
 | Progress Annals: Journal of Progressive Research | academiaone.org | 136 | +83 |
 
-#### 3.2.4 Análisis de Crecimiento 2023-2024 (v6)
+#### 3.2.5 Análisis de Crecimiento 2023-2024 (v6)
 
 - **Instalaciones que crecieron:** 163 (51.1%)
 - **Instalaciones que decrecieron:** 135 (42.3%)
 - **Instalaciones estables:** 21 (6.6%)
 - **Crecimiento promedio:** +6.3 pub/instalación
 
-#### 3.2.5 Distribución Institucional Actualizada (v6)
+#### 3.2.6 Distribución Institucional Actualizada (v6)
 
 | Institución | Instalaciones | % | Pub. 2024 | Crecimiento |
 |-------------|---------------|---|-----------|-------------|
@@ -504,13 +575,13 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 | Universidad de La Frontera | 4 | 1.3% | - | - |
 | Otras instituciones | 181 | 56.7% | 5,603 | +739 |
 
-#### 3.2.6 Distribución Geográfica PKP (v6)
+#### 3.2.7 Distribución Geográfica PKP (v6)
 
 - **Latin America & Caribbean:** 317 instalaciones (99.4%)
 - **Europe & Central Asia:** 1 instalación (0.3%)
 - **North America:** 1 instalación (0.3%)
 
-#### 3.2.7 URLs OAI Generadas para Dialnet (v6)
+#### 3.2.8 URLs OAI Generadas para Dialnet (v6)
 
 - **Total URLs únicas:** 225 (vs 208 en versión anterior)
 - **URLs Universidad de Chile:** 58 (25.8%)
