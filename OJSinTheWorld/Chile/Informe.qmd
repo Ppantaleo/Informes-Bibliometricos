@@ -83,10 +83,10 @@ A pesar de los avances significativos en la caracterización cuantitativa del ec
 
 Este estudio aborda estas brechas mediante un enfoque metodológico integrado aplicado al caso chileno, estableciendo un modelo replicable para análisis comparativos regionales.
 
-#### 1.4.1 Objetivo General
+#### 1.4.1 Objetivo general
 Caracterizar el ecosistema editorial académico chileno basado en OJS mediante análisis multifuente que combine evaluación de calidad editorial, visibilidad académica y cobertura de metadatos.
 
-#### 1.4.2 Objetivos Específicos
+#### 1.4.2 Objetivos específicos
 1. **Caracterizar cuantitativamente** las 316 instalaciones OJS chilenas activas identificadas en el dataset PKP Beacon v5
 2. **Evaluar la calidad editorial** mediante procesamiento sistemático de 95 informes Dialnet, identificando patrones de errores y buenas prácticas
 3. **Analizar la visibilidad académica** integrando métricas OpenAlex para evaluar impacto, indexación y acceso abierto
@@ -95,15 +95,15 @@ Caracterizar el ecosistema editorial académico chileno basado en OJS mediante a
 6. **Generar recomendaciones** basadas en evidencia para fortalecimiento del sector editorial académico chileno
 
 
-## 2. Materiales y Métodos
+## 2. Materiales y métodos
 
 Este estudio implementa una metodología de análisis integrado que combina cuatro fuentes de datos complementarias para caracterizar integralmente el ecosistema editorial académico chileno basado en OJS. La aproximación metodológica se fundamenta en el dataset PKP Beacon v5 como fuente principal, enriquecido con evaluaciones de calidad editorial (Dialnet), métricas de visibilidad académica (OpenAlex) e infraestructura de metadatos (Crossref). Esta integración multifuente permite superar las limitaciones de análisis unidimensionales, proporcionando una visión holística que abarca desde la productividad editorial hasta el impacto académico y la calidad de los estándares editoriales.
 
 La metodología se estructura en dos fases principales: (1) **caracterización cuantitativa** del ecosistema chileno mediante procesamiento sistemático de los datasets PKP Beacon v5 y v6, estableciendo líneas base de productividad y crecimiento; y (2) **enriquecimiento cualitativo** a través de la integración con sistemas especializados de evaluación, permitiendo análisis comparativos y segmentación estratégica de las 316 instalaciones chilenas activas identificadas. El enfoque garantiza reproducibilidad mediante scripts automatizados y establece estándares metodológicos replicables para estudios comparativos regionales.
 
-### 2.1 Fuente de Datos
+### 2.1 Fuente de datos
 
-#### 2.1.1 Dataset PKP Beacon v5 (Versión Inicial)
+#### 2.1.1 Dataset PKP Beacon v5 (versión inicial)
 **Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
 
 **Características v5:**
@@ -118,7 +118,7 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
 - **Chile identificado:** 403 instalaciones totales
 - **Chile activas v5:** 316 instalaciones (78.4%)
 
-#### 2.1.2 Dataset Principal PKP Beacon v6
+#### 2.1.2 Dataset principal PKP Beacon v6
 **Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
 
 **Características v6:**
@@ -134,7 +134,7 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
   - `admin_email` - Email de administrador
   - `country_doaj` - País según DOAJ
 
-#### 2.1.3 Dialnet - Sistema de Evaluación de Calidad Editorial
+#### 2.1.3 Dialnet - sistema de evaluación de calidad editorial
 
 **Plataforma:** Universidad de La Rioja - Dialnet Nexus
 **URL:** https://dialnet.unirioja.es/
@@ -152,7 +152,7 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
 - No disponible API para automatización
 - Dependiente de configuración correcta de endpoints OAI
 
-#### 2.1.4 OpenAlex - Base de Datos de Visibilidad Académica
+#### 2.1.4 OpenAlex - base de datos de visibilidad académica
 
 **Plataforma:** OpenAlex (OurResearch)
 **URL:** https://openalex.org/
@@ -176,7 +176,7 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
 - **Revistas indexadas:** 259 de 304 (85.2%)
 - **Limitación:** 12 revistas excluidas por falta de ISSN
 
-#### 2.1.5 Crossref - Infraestructura de Metadatos y DOIs
+#### 2.1.5 Crossref - infraestructura de metadatos y DOIs
 
 **Plataforma:** Crossref
 **URL:** https://www.crossref.org/
@@ -204,13 +204,13 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
 - Ausencia de políticas de actualización (0.0%)
 - No utilización de relaciones de versiones/preprints
 
-### 2.2 Metodología de Análisis
+### 2.2 Metodología de análisis
 
 La metodología de análisis se estructura en un flujo secuencial de procesamiento que integra las cuatro fuentes de datos mediante scripts automatizados, garantizando reproducibilidad y trazabilidad de resultados. El enfoque metodológico se fundamenta en dos líneas paralelas: (1) **procesamiento principal** basado en PKP Beacon v5 para análisis detallado y enriquecimiento multifuente, y (2) **validación contextual** mediante PKP Beacon v6 para confirmar tendencias y actualizar estimaciones globales.
 
 El flujo metodológico v5 constituye el **eje central del análisis**, procesando sistemáticamente las 316 instalaciones chilenas activas a través de seis etapas secuenciales: caracterización base, evaluación de calidad editorial (Dialnet), análisis de visibilidad académica (OpenAlex), evaluación de infraestructura de metadatos (Crossref), integración comparativa y segmentación estratégica. Cada etapa genera datasets intermedios que alimentan análisis posteriores, culminando en variables novedosas como **madurez editorial**, **brecha de visibilidad** y **potencial de indexación** que permiten clasificación estratégica de las revistas en cinco segmentos operativos.
 
-#### 2.2.1 Flujo Metodológico v5 (Versión Inicial)
+#### 2.2.1 Flujo metodológico v5 (versión inicial)
 
 **1. Procesamiento Base v5**
 ```bash
@@ -310,7 +310,7 @@ python3 scripts/16_comparacion_apc_vs_gratuitas.py
 # Identificación: solo 3 revistas chilenas cobran APC (0.9% del total)
 ```
 
-#### 2.2.2 Flujo Metodológico v6 (Validación Actualizada)
+#### 2.2.2 Flujo metodológico v6 (validación actualizada)
 
 **0. Limpieza de Datos v6 (Preprocesamiento con Comandos)**
 
@@ -376,7 +376,7 @@ Rscript scripts_v6/6_tablas_chile_v6.R
 # Genera: tablas CSV y análisis institucional
 ```
 
-#### 2.2.3 Decisión Metodológica: Continuidad Operativa v5
+#### 2.2.3 Decisión metodológica: continuidad operativa v5
 
 Luego de una validación cruzada entre ambas versiones mediante el script `7_comparar_urls_v5_v6.py`, se decide continuar operativamente con las fuentes producto de la v5:
 
@@ -414,9 +414,9 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 
 ## 3. Resultados
 
-### 3.1 Análisis Global
+### 3.1 Análisis global
 
-#### 3.1.1 Ecosistema Global v5 (Línea Base)
+#### 3.1.1 Ecosistema global v5 (línea base)
 
 Los datos del PKP Beacon v5 confirman la consolidación del ecosistema OJS como plataforma dominante en la publicación académica de acceso abierto, con **49,790 instalaciones activas** que representan el **74.8%** del total de instalaciones OJS identificadas. Esta tasa de actividad refleja un ecosistema maduro donde tres de cada cuatro instalaciones mantienen productividad editorial sostenida según el criterio DOAJ de más de 5 publicaciones anuales.
 
@@ -455,7 +455,9 @@ El **acervo histórico de 10.6 millones de artículos** demuestra la madurez del
 
 Indonesia domina con el 44.6% de las instalaciones activas globales, seguido por Brasil (7.9%) y Estados Unidos (3.1%). Chile ocupa la posición 25 con 311 instalaciones activas, representando el 0.6% del ecosistema global.
 
-#### 3.1.2 Ecosistema Global v6 (Validación Actualizada)
+#### 3.1.2 Ecosistema global v6 (validación actualizada)
+
+Los datos del PKP Beacon v6 confirman la continuidad del crecimiento del ecosistema OJS, alcanzando **54,453 instalaciones activas** que representan el **63.1%** del total de instalaciones OJS identificadas. Aunque la tasa de actividad muestra una ligera disminución porcentual respecto a v5, el aumento absoluto de instalaciones activas (+4,663) indica una expansión sostenida del ecosistema.
 
 **Distribución General v6:**
 
@@ -500,7 +502,7 @@ Indonesia domina con el 44.6% de las instalaciones activas globales, seguido por
 
 : Validación v6: Distribución por Regiones PKP
 
-#### 3.1.3 Comparación Global v5 vs v6
+#### 3.1.3 Comparación global v5 vs v6
 
 **Crecimiento del Ecosistema:**
 
@@ -510,9 +512,38 @@ Indonesia domina con el 44.6% de las instalaciones activas globales, seguido por
 - **Publicaciones anuales:** 2,018,793 → 2,365,938 (+17.2%)
 - **Países activos:** 153 → 154 (+0.7%)
 
-### 3.2 Análisis Específico de Chile
+### 3.2 Análisis específico de Chile
 
-#### 3.2.1 Ecosistema Chileno v5 (Dataset Principal)
+El ecosistema editorial chileno representa un caso paradigmático de adopción y consolidación de Open Journal Systems en América Latina. Con **432 instalaciones identificadas** en la validación v6 y un crecimiento sostenido del **16.5%** en publicaciones entre 2023 y 2024, Chile ocupa la **posición 25 a nivel global** con 319 instalaciones activas, posicionándose como el **séptimo país** más activo de América Latina en el uso de OJS, después de Brasil (4,050), Colombia (795), Argentina (780), México (774), Ecuador (408) y Perú (400).
+
+La **diversidad institucional** del ecosistema chileno es notable, con la Universidad de Chile liderando en número de instalaciones (20.6%) y la Pontificia Universidad Católica destacando por su alta productividad promedio. Esta distribución refleja tanto la madurez del sistema universitario chileno como la adopción estratégica del acceso abierto en diferentes contextos institucionales.
+
+El análisis longitudinal entre las versiones v5 y v6 del PKP Beacon revela un ecosistema en **expansión controlada**, donde el 51.1% de las instalaciones experimentaron crecimiento positivo, evidenciando una dinámica editorial saludable que combina estabilidad institucional con innovación en la publicación académica.
+
+| Posición | País | Instalaciones Activas | Pub. 2024 | Promedio por Instalación |
+|----------|------|----------------------|-----------|-------------------------|
+| 1 | Brasil (BR) | 4,050 | 228,789 | 56.5 |
+| 2 | Colombia (CO) | 795 | 20,150 | 25.3 |
+| 3 | Argentina (AR) | 780 | 24,395 | 31.3 |
+| 4 | México (MX) | 774 | 26,821 | 34.7 |
+| 5 | Ecuador (EC) | 408 | 15,151 | 37.1 |
+| 6 | Perú (PE) | 400 | 11,010 | 27.5 |
+| 7 | Chile (CL) | 319 | 14,162 | 44.4 |
+| 8 | Venezuela (VE) | 234 | 9,149 | 39.1 |
+| 9 | Paraguay (PY) | 104 | 7,093 | 68.2 |
+| 10 | Bolivia (BO) | 92 | 2,041 | 22.2 |
+
+: Top 10 Países de América Latina por Instalaciones OJS Activas 2024 (v6)
+
+Brasil domina claramente el ecosistema latinoamericano con 4,050 instalaciones (47.7% del total regional), seguido por Colombia, Argentina y México con volúmenes similares entre 774-795 instalaciones. Chile, con 319 instalaciones activas, representa el 3.8% del ecosistema latinoamericano y muestra una productividad promedio competitiva de 44.4 publicaciones por instalación.
+
+#### 3.2.1 Ecosistema chileno v5 (dataset principal)
+
+El análisis del ecosistema chileno v5 establece la **línea base metodológica** para la caracterización integral del sector editorial académico nacional. Con **316 instalaciones activas** identificadas mediante el criterio DOAJ de más de 5 publicaciones anuales, Chile demuestra una **alta tasa de actividad editorial** del 78.4%, superando significativamente el promedio global del 74.8%.
+
+La **concentración de productividad** revela patrones característicos del ecosistema chileno: mientras que las 10 revistas más productivas concentran el 45.2% de las publicaciones totales, existe una **distribución equilibrada** en el segmento medio, con 177 instalaciones clasificadas como "otras instituciones" que representan el 56% del total, evidenciando una diversificación saludable del sector editorial.
+
+El **acervo histórico de 133,931 publicaciones** posiciona a Chile como un contribuyente significativo al patrimonio académico latinoamericano, con un promedio de 423.8 artículos por instalación activa a lo largo de su historia editorial. Esta base sólida proporciona el contexto necesario para evaluar el crecimiento y la evolución del ecosistema hacia 2024.
 
 **Estadísticas Generales v5:**
 
@@ -559,7 +590,7 @@ La productividad se concentra en revistas de alta frecuencia editorial, con Revi
 
 La Universidad de Chile lidera en número de instalaciones (20.6%) mientras que la UC muestra mayor productividad promedio por instalación (163.1 pub/instalación vs 26.0 de UChile).
 
-#### 3.2.2 Ecosistema Chileno v6 (Validación Actualizada)
+#### 3.2.2 Ecosistema chileno v6 (validación actualizada)
 
 **Estadísticas Generales v6:**
 
@@ -591,7 +622,7 @@ La Universidad de Chile lidera en número de instalaciones (20.6%) mientras que 
 
 : Validación v6: Top 10 Instalaciones Más Productivas 2024
 
-#### 3.2.7 Validación v6: Análisis de Crecimiento 2023-2024
+#### 3.2.7 Validación v6: análisis de crecimiento 2023-2024
 
 El análisis de crecimiento entre 2023 y 2024 revela un ecosistema editorial dinámico donde **163 instalaciones experimentaron crecimiento positivo**, representando el 51.1% del total. En contraste, **135 instalaciones mostraron decrecimiento** (42.3%), mientras que solo **21 instalaciones se mantuvieron estables** (6.6%). El **crecimiento promedio de 6.3 publicaciones por instalación** refleja una expansión moderada pero sostenida del ecosistema editorial chileno.
 
@@ -610,7 +641,7 @@ El análisis de crecimiento entre 2023 y 2024 revela un ecosistema editorial din
 
 #### 3.2.3 Comparación Chile v5 vs v6
 
-**Crecimiento del Ecosistema Chileno:**
+**Crecimiento del ecosistema chileno:**
 
 - **Instalaciones totales:** 403 → 432 (+7.2%)
 - **Instalaciones activas:** 316 → 319 (+0.9%)
@@ -618,19 +649,24 @@ El análisis de crecimiento entre 2023 y 2024 revela un ecosistema editorial din
 - **URLs evaluables:** 208 → 225 (+8.2%)
 - **Acervo histórico:** 133,931 → 144,529 (+7.9%)
 
-### 3.3 Análisis de Calidad Editorial: Informes Dialnet
+### 3.3 Análisis de calidad editorial: informes Dialnet
 
-#### 3.3.1 Procesamiento de Informes (Script 8)
+La evaluación de calidad editorial constituye un componente fundamental para la caracterización integral del ecosistema OJS chileno, complementando las métricas cuantitativas de productividad con indicadores cualitativos de excelencia académica. El sistema **Dialnet Nexus** de la Universidad de La Rioja proporciona una metodología estandarizada para evaluar la completitud de metadatos, coherencia editorial y adherencia a estándares internacionales de publicación académica.
 
-**Metodología:**
-Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayendo información estructurada sobre errores de calidad y completitud de metadatos mediante `scripts/8_procesar_informes_dialnet.py`.
+El análisis procesado abarca **95 revistas chilenas** (45.7% de las 208 URLs únicas generadas), representando una **muestra significativa** que incluye tanto revistas de alta productividad como instalaciones de menor volumen, garantizando la representatividad del diagnóstico. La metodología de Dialnet identifica **40 tipos de errores** clasificados por gravedad, proporcionando un marco sistemático para priorizar intervenciones de mejora.
+
+Los resultados revelan un **panorama heterogéneo** donde ninguna revista alcanza estándares perfectos, pero el 71.6% mantiene niveles de error manejables (<1000 errores), evidenciando oportunidades concretas de mejora que pueden impactar significativamente la visibilidad internacional y la indexación en bases de datos especializadas.
+
+#### 3.3.1 Procesamiento de informes
+
+Luego de procesar **95 informes HTML** de Dialnet descargados manualmente y extraer información estructurada sobre errores de calidad y completitud de metadatos mediante `scripts/8_procesar_informes_dialnet.py` se obtienen los siguientes resultados:
 
 **Cobertura del análisis:**
 - **Total informes procesados:** 95 revistas chilenas
 - **Archivo generado:** `visualizations/dialnet_informes_procesados.csv`
 - **Datos extraídos:** Errores por gravedad, tipos de errores, porcentajes de metadatos
 
-#### 3.3.2 Resultados de Calidad Editorial
+#### 3.3.2 Resultados de calidad editorial
 
 **Estado general de errores:**
 - **Revistas sin errores:** 0 (0.0%)
@@ -640,7 +676,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
   - **Media gravedad:** 23,791 (39.9%)
 - **Promedio errores por revista:** 627.4
 
-#### 3.3.3 Revistas con Mayor Número de Errores
+#### 3.3.3 Revistas con mayor número de errores
 
 | Ranking | Dominio | Total Errores | Alta Gravedad | Media Gravedad |
 |---------|---------|---------------|---------------|----------------|
@@ -650,7 +686,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 | 4 | rhv.uv.cl | 2,865 | 1,988 | 877 |
 | 5 | www.iace.uv.cl | 2,865 | 1,988 | 877 |
 
-#### 3.3.4 Completitud de Metadatos
+#### 3.3.4 Completitud de metadatos
 
 **Promedios de completitud por tipo de metadato:**
 
@@ -664,7 +700,7 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 | Palabras clave | 65.6% |
 | Referencias | 33.7% |
 
-#### 3.3.5 Análisis de Tipos de Errores por Gravedad (Script 9)
+#### 3.3.5 Análisis de tipos de errores por gravedad
 
 **Top 5 errores de alta gravedad más frecuentes:**
 
@@ -714,53 +750,51 @@ Se procesaron **95 informes HTML** de Dialnet descargados manualmente, extrayend
 | Media gravedad | 17 |
 | **Total** | **40** |
 
-#### 3.3.6 Implicaciones para Indexación
+#### 3.3.6 Implicaciones para indexación
 
-**Fortalezas identificadas:**
-- **Metadatos básicos completos:** Títulos y enlaces al 100%
-- **Información de autoría:** 99.3% de completitud
-- **Contenido académico:** 87% de resúmenes disponibles
+Los hallazgos del análisis Dialnet proporcionan un **diagnóstico estratégico** para la indexación internacional de revistas chilenas, revelando tanto fortalezas consolidadas como áreas críticas que requieren intervención prioritaria. La **heterogeneidad en la calidad editorial** observada (desde 25 revistas con <100 errores hasta 9 con >2000 errores) sugiere la necesidad de estrategias diferenciadas que maximicen el impacto de las intervenciones.
 
-**Áreas de mejora críticas:**
-- **Referencias bibliográficas:** Solo 33.7% de completitud
-- **Palabras clave:** 65.6% requiere mejora para indexación
-- **Errores de alta gravedad:** 35,811 errores requieren atención prioritaria
-- **Problemas de paginación:** 12,201 artículos sin página inicial
-- **Estandarización de títulos:** 6,810 casos con mayúsculas incorrectas
+La **alta completitud en metadatos básicos** (títulos 100%, autores 99.3%) establece una base sólida para la indexación, mientras que las **deficiencias críticas en referencias bibliográficas** (33.7%) y **palabras clave** (65.6%) representan barreras significativas para el reconocimiento en bases de datos especializadas como Scopus, Web of Science y DOAJ.
 
-**Recomendaciones operativas:**
-1. **Priorización por calidad:** Enfocar esfuerzos en 25 revistas con <100 errores
-2. **Mejora de metadatos:** Implementar estándares para referencias y palabras clave
-3. **Capacitación editorial:** Programas de mejora de calidad para editores
-4. **Corrección de paginación:** Atender 12,201 artículos sin numeración
-5. **Estandarización de formato:** Corregir mayúsculas en títulos y subtítulos
+El **patrón de errores identificado** revela problemas sistemáticos en la gestión editorial: 12,201 artículos sin paginación adecuada y 6,810 casos de formato incorrecto en títulos indican la necesidad de **capacitación editorial especializada** y **implementación de protocolos de calidad** que pueden resolverse mediante intervenciones focalizadas.
 
-### 3.4 Análisis de Visibilidad Académica: Integración OpenAlex
+**Fortalezas identificadas**
 
-#### 3.5.1 Metodología de Enriquecimiento (Script 10)
+El ecosistema editorial chileno demuestra **solidez en metadatos fundamentales** con títulos y enlaces al 100% de completitud, estableciendo una base técnica robusta para la indexación. La **información de autoría** alcanza un 99.3% de completitud, cumpliendo estándares internacionales de identificación académica. El **contenido académico** muestra fortaleza con 87% de resúmenes disponibles, proporcionando la información descriptiva esencial para la discovrabilidad en bases de datos especializadas.
 
-**Proceso de integración:**
-Se implementó `scripts/10_openalex.py` para consultar la API de OpenAlex y enriquecer el dataset del PKP Beacon con métricas de visibilidad académica internacional.
+**Áreas de mejora críticas**
 
-**Métricas obtenidas de OpenAlex:**
-- `works_count`: Artículos indexados en OpenAlex
-- `cited_by_count`: Total de citaciones recibidas
-- `h_index`: Índice H de la revista
-- `2yr_mean_citedness`: Promedio de citaciones en 2 años
+Las **referencias bibliográficas** representan la deficiencia más crítica con solo 33.7% de completitud, limitando significativamente las posibilidades de indexación en Scopus y Web of Science. Las **palabras clave** requieren mejora urgente (65.6% completitud) para optimizar la discovrabilidad temática. Los **35,811 errores de alta gravedad** demandan atención prioritaria, especialmente los **12,201 artículos sin página inicial** que comprometen la citabilidad. La **estandarización de títulos** necesita corrección en 6,810 casos con formato incorrecto de mayúsculas.
 
-**Índices calculados:**
-- **Índice de visibilidad**: `citaciones / total_artículos_beacon`
-- **Índice de visibilidad ajustado**: `citaciones / artículos_indexados_openalex`
-- **Tasa de indexación**: `artículos_openalex / total_artículos_beacon`
+**Recomendaciones operativas**
 
-#### 3.5.2 Resultados de Visibilidad Global
+La estrategia de mejora debe **priorizar por calidad**, enfocando recursos en las 25 revistas con menos de 100 errores para maximizar el retorno de inversión. La **mejora de metadatos** requiere implementación de estándares específicos para referencias bibliográficas y palabras clave mediante protocolos editoriales actualizados. Los **programas de capacitación editorial** deben abordar sistemáticamente los errores más frecuentes identificados. La **corrección de paginación** debe atender prioritariamente los 12,201 artículos sin numeración adecuada. La **estandarización de formato** debe corregir las mayúsculas incorrectas en títulos y subtítulos mediante revisión editorial sistemática.
 
-**Cobertura de OpenAlex:**
-- **Total revistas procesadas**: 55,643 (con ISSN válido)
-- **Revistas encontradas en OpenAlex**: Datos procesados exitosamente
-- **Dataset generado**: `visualizations/beacon_ojs_con_visibilidad.csv`
+### 3.4 Análisis de visibilidad académica: integración OpenAlex
 
-#### 3.5.3 Análisis Específico Chile (Script 11)
+La evaluación de **visibilidad académica internacional** constituye el complemento estratégico al análisis de calidad editorial, proporcionando métricas cuantitativas de impacto y reconocimiento científico que trascienden las fronteras nacionales. **OpenAlex**, como base de datos académica de acceso abierto con más de 200 millones de trabajos indexados, ofrece una perspectiva integral del posicionamiento de las revistas chilenas en el ecosistema científico global.
+
+La integración de métricas OpenAlex con el dataset PKP Beacon permite identificar **brechas de visibilidad** donde revistas de alta productividad editorial mantienen bajo reconocimiento internacional, así como **casos de éxito** que demuestran el potencial del ecosistema chileno para alcanzar estándares internacionales de excelencia. Esta aproximación revela patrones críticos: mientras el 46.8% de las revistas chilenas logra indexación en OpenAlex, solo el 2.8% alcanza niveles de visibilidad muy alta.
+
+El análisis estratégico resultante identifica **cinco revistas estrella** (alta visibilidad internacional + alto H-index) que lideran en impacto global, **24 oportunidades de mejora** (alta productividad editorial + baja visibilidad académica) con potencial de crecimiento significativo, y **14 revistas emergentes** (crecimiento sostenido + H-index en desarrollo) que muestran trayectoria ascendente. La **priorización institucional** revela el liderazgo de la Pontificia Universidad Católica y Universidad de Chile como motores del ecosistema por volumen de citaciones y número de revistas, estableciendo una hoja de ruta basada en evidencia para maximizar la proyección internacional del ecosistema editorial académico chileno.
+
+#### 3.4.1 Metodología de enriquecimiento
+
+Para complementar los datos del PKP Beacon con indicadores de impacto académico internacional, se desarrolló un proceso de integración con la base de datos OpenAlex. Esta metodología permitió enriquecer el dataset original con métricas de visibilidad que proporcionan una perspectiva más amplia del alcance e influencia de las revistas OJS a nivel global.
+
+El proceso de enriquecimiento se implementó mediante la consulta sistemática de la API de OpenAlex, obteniendo cuatro métricas fundamentales para cada revista: el número de trabajos indexados (works_count), el total de citaciones recibidas (cited_by_count), el índice H de la revista (h_index), y el promedio de citaciones en los últimos dos años (2yr_mean_citedness). Estas métricas proporcionan una base sólida para evaluar tanto la productividad como el impacto de las publicaciones.
+
+A partir de estos datos primarios, se calcularon tres índices derivados que permiten una segmentación más precisa del ecosistema de revistas. El índice de visibilidad relaciona las citaciones totales con el número de artículos reportados en el Beacon, mientras que el índice de visibilidad ajustado considera únicamente los artículos efectivamente indexados en OpenAlex. Adicionalmente, la tasa de indexación mide qué proporción de la producción total de cada revista ha logrado visibilidad en bases de datos internacionales.
+
+Esta metodología permitió establecer criterios de segmentación estratégica que identifican diferentes perfiles de revistas. Las revistas estrella se caracterizan por combinar un índice de visibilidad superior a 5.0 con un índice H de al menos 25 puntos. Las oportunidades de mejora corresponden a publicaciones con alta productividad (más de 500 artículos totales) pero baja visibilidad (inferior a 2.0). Las revistas emergentes presentan un índice H entre 5 y 24 puntos, con evidencia de crecimiento sostenido e indexación reciente. Finalmente, la priorización institucional considera la combinación de citaciones totales, número de revistas y visibilidad promedio por institución.
+
+#### 3.4.2 Resultados de visibilidad global
+
+El proceso de enriquecimiento abarcó un total de 55,643 revistas que contaban con ISSN válido, logrando una cobertura exitosa en la consulta a OpenAlex. Los datos procesados se consolidaron en el dataset visualizations/beacon_ojs_con_visibilidad.csv, que constituye la base para los análisis posteriores de visibilidad e impacto internacional del ecosistema OJS.
+
+Esta integración representa un avance significativo en la comprensión del alcance global de las revistas de acceso abierto, proporcionando por primera vez una visión integral que combina datos de productividad editorial con métricas de impacto académico internacional.
+
+#### 3.4.3 Análisis específico Chile (Script 11)
 
 **Proceso de filtrado:**
 - **Revistas chilenas activas (JUOJS)**: 316
@@ -786,7 +820,7 @@ Se implementó `scripts/10_openalex.py` para consultar la API de OpenAlex y enri
 | 4 | Ciencia y Enfermería | 0717-9553 | 627 | 5,803 | 7.73 | 32 |
 | 5 | Psykhe | 0718-2228 | 611 | 5,853 | 6.71 | 36 |
 
-#### 3.5.4 Análisis Estratégico de Visibilidad (Script 12)
+#### 3.4.4 Análisis estratégico de visibilidad (Script 12)
 
 **Categorización por rangos de visibilidad:**
 
@@ -833,7 +867,7 @@ Se implementó `scripts/10_openalex.py` para consultar la API de OpenAlex y enri
 - **Productividad vs visibilidad**: 0.075 (correlación débil)
 - **Artículos OpenAlex vs citaciones**: 0.562 (correlación moderada)
 
-#### 3.4.5 Implicaciones para Estrategia de Indexación
+#### 3.4.5 Implicaciones para estrategia de indexación
 
 **Criterios de priorización actualizados:**
 1. **Revistas estrella** (5): Indexación prioritaria inmediata
@@ -841,7 +875,7 @@ Se implementó `scripts/10_openalex.py` para consultar la API de OpenAlex y enri
 3. **Revistas emergentes** (14): Crecimiento sostenido, H-index en desarrollo
 4. **Priorización institucional**: UC y UChile como líderes en volumen
 
-#### 3.4.6 Análisis OpenAlex Ampliado para Revistas Chilenas Activas
+#### 3.4.6 Análisis OpenAlex ampliado para revistas chilenas activas
 
 Se realizó un enriquecimiento específico de datos OpenAlex para las **316 revistas chilenas activas**, obteniendo información detallada sobre políticas de acceso abierto, métricas de impacto y características editoriales.
 
@@ -917,7 +951,7 @@ Se realizó un enriquecimiento específico de datos OpenAlex para las **316 revi
 
 **Dataset generado:** `13_chile_openalex_ampliado.csv` (32 campos, 304 registros)
 
-### 3.5 Análisis de Crossref - Revistas Chilenas Activas
+### 3.5 Análisis de Crossref - revistas chilenas activas
 
 #### 3.5.1 Cobertura en Crossref
 El análisis de la presencia de revistas chilenas activas en Crossref revela una cobertura significativa:
@@ -926,7 +960,7 @@ El análisis de la presencia de revistas chilenas activas en Crossref revela una
 - **Revistas encontradas en Crossref:** 256 (81.0%)
 - **Revistas no registradas:** 60 (19.0%)
 
-#### 3.5.2 Distribución de DOIs Registrados
+#### 3.5.2 Distribución de DOIs registrados
 
 | Tipo de DOI | Cantidad Total | Promedio por Revista |
 |-------------|----------------|---------------------|
@@ -934,7 +968,7 @@ El análisis de la presencia de revistas chilenas activas en Crossref revela una
 | DOIs Históricos | 80,844 | 315.8 |
 | **Total DOIs** | **96,754** | **377.9** |
 
-#### 3.5.3 Cobertura de Metadatos
+#### 3.5.3 Cobertura de metadatos
 
 **Metadatos Actuales (Current):**
 
@@ -954,7 +988,7 @@ El análisis de la presencia de revistas chilenas activas en Crossref revela una
 - Referencias: 8.1%
 - Afiliaciones: 3.2%
 
-#### 3.5.4 Top 10 Revistas por DOIs en Crossref
+#### 3.5.4 Top 10 revistas por DOIs en Crossref
 
 | Posición | Revista | DOIs Totales | DOIs Actuales | DOIs Históricos |
 |----------|---------|--------------|---------------|-----------------|
@@ -969,7 +1003,7 @@ El análisis de la presencia de revistas chilenas activas en Crossref revela una
 | 9 | Revista de derecho (Coquimbo) | 1,252 | 166 | 1,086 |
 | 10 | Estudios pedagógicos (Valdivia) | 1,242 | 189 | 1,053 |
 
-#### 3.5.5 Relaciones de Versiones y Preprints
+#### 3.5.5 Relaciones de versiones y preprints
 El análisis de relaciones de versiones reveló que las revistas chilenas **no utilizan funcionalidades avanzadas** de Crossref:
 - Artículos con preprints: 0
 - Artículos que son preprints: 0
@@ -977,7 +1011,7 @@ El análisis de relaciones de versiones reveló que las revistas chilenas **no u
 - Relaciones de reemplazo: 0
 - Total relaciones de versión: 0
 
-#### 3.5.6 Observaciones Clave Crossref
+#### 3.5.6 Observaciones clave Crossref
 
 **Fortalezas:**
 - Alta cobertura en Crossref (81.0%)
@@ -990,9 +1024,9 @@ El análisis de relaciones de versiones reveló que las revistas chilenas **no u
 - No aprovechamiento de relaciones de versiones/preprints
 - Cobertura mejorable de ORCIDs y licencias
 
-### 3.6 Análisis Comparativo Cruzado: Integración de Tres Fuentes
+### 3.6 Análisis comparativo cruzado: integración de tres fuentes
 
-#### 3.6.1 Metodología de Integración (Script 15)
+#### 3.6.1 Metodología de integración (Script 15)
 
 Se desarrolló un análisis comparativo cruzado que integra datos de **tres fuentes principales**:
 - **Dialnet**: Calidad editorial y errores de metadatos (95 revistas)
@@ -1005,7 +1039,7 @@ Se desarrolló un análisis comparativo cruzado que integra datos de **tres fuen
 - **Coherencia de metadatos**: Consistencia entre fuentes Dialnet-Crossref
 - **Potencial de indexación**: Índice combinado de calidad + visibilidad + infraestructura
 
-#### 3.6.2 Segmentación Estratégica
+#### 3.6.2 Segmentación estratégica
 
 Se clasificaron las **316 revistas** en 5 segmentos estratégicos:
 
@@ -1017,7 +1051,7 @@ Se clasificaron las **316 revistas** en 5 segmentos estratégicos:
 | **Veterana** | 51 | 16.1% | Infraestructura madura, modernización necesaria |
 | **Estrella** | 6 | 1.9% | Liderazgo en los tres niveles |
 
-#### 3.6.3 Top 10 Revistas por Potencial Combinado
+#### 3.6.3 Top 10 revistas por potencial combinado
 
 | Ranking | Revista | Potencial | Segmento |
 |---------|---------|-----------|----------|
@@ -1032,7 +1066,7 @@ Se clasificaron las **316 revistas** en 5 segmentos estratégicos:
 | 9 | Psykhe (Santiago) | 12.48 | Básico |
 | 10 | Estudios de economía | 12.42 | Problema |
 
-#### 3.6.4 Correlaciones Clave Identificadas
+#### 3.6.4 Correlaciones clave identificadas
 
 | Variables | Correlación | Interpretación |
 |-----------|-------------|----------------|
@@ -1042,7 +1076,7 @@ Se clasificaron las **316 revistas** en 5 segmentos estratégicos:
 | **APC vs Total DOIs** | +0.984 | Revistas con APC más DOIs |
 | **H-index vs APC** | +0.965 | Mayor impacto en revistas con APC |
 
-#### 3.6.5 Recomendaciones por Segmento
+#### 3.6.5 Recomendaciones por segmento
 
 | Segmento | Recomendación Estratégica | Cantidad |
 |----------|---------------------------|----------|
@@ -1052,7 +1086,7 @@ Se clasificaron las **316 revistas** en 5 segmentos estratégicos:
 | **Veterana** | Modernizar infraestructura, nuevos estándares | 51 |
 | **Básico** | Desarrollo integral en los tres niveles | 139 |
 
-#### 3.6.6 Análisis APC vs Revistas Gratuitas (Script 16)
+#### 3.6.6 Análisis APC vs revistas gratuitas (Script 16)
 
 **Hallazgos Principales:**
 
@@ -1096,7 +1130,7 @@ El análisis revela que **solo 3 revistas chilenas (0.9%)** cobran Article Proce
 
 ## 4. Discusión
 
-### 4.1 Validación del Ecosistema Global
+### 4.1 Validación del ecosistema global
 
 La **validación v6** confirma el crecimiento acelerado del ecosistema OJS global, con **86,282 instalaciones** representando un aumento del **28.4%** respecto al beacon anterior. Este crecimiento es particularmente notable en:
 
@@ -1104,48 +1138,48 @@ La **validación v6** confirma el crecimiento acelerado del ecosistema OJS globa
 - **América Latina:** 8,485 instalaciones confirman la región como hub de acceso abierto
 - **Diversificación geográfica:** 154 países con instalaciones activas
 
-### 4.2 Caracterización del Ecosistema Chileno Actualizada
+### 4.2 Caracterización del ecosistema chileno actualizada
 
-#### 4.2.1 Fortalezas Confirmadas v6
+#### 4.2.1 Fortalezas confirmadas v6
 - **Alta actividad editorial:** 73.8% de instalaciones activas (vs 78.0% anterior)
 - **Crecimiento sostenido:** +16.5% en publicaciones 2024
 - **Diversidad institucional:** 181 instalaciones en "otras instituciones" (56.7%)
 - **Productividad destacada:** Promedio 44.4 artículos por instalación
 
-#### 4.2.2 Tendencias Identificadas
+#### 4.2.2 Tendencias identificadas
 - **Concentración en líderes:** Universidad de Chile mantiene 21% del ecosistema
 - **Crecimiento diferenciado:** Algunas instituciones decrecen mientras otras crecen
 - **Nuevas instalaciones:** +36 instalaciones identificadas en v6
 
-### 4.3 Análisis Comparativo Cruzado: Nuevas Perspectivas
+### 4.3 Análisis comparativo cruzado: nuevas perspectivas
 
-#### 4.3.1 Integración Exitosa de Tres Fuentes
+#### 4.3.1 Integración exitosa de tres fuentes
 La **metodología de análisis cruzado** (Script 15) permite por primera vez una visión **integral** del ecosistema editorial chileno, combinando:
 - **Calidad editorial** (Dialnet): Errores y completitud de metadatos
 - **Visibilidad académica** (OpenAlex): Impacto y citaciones
 - **Infraestructura técnica** (Crossref): DOIs y metadatos estructurados
 
-#### 4.3.2 Segmentación Estratégica Validada
+#### 4.3.2 Segmentación estratégica validada
 La clasificación en **5 segmentos** proporciona una **hoja de ruta clara**:
 - **1.9% Estrellas**: Liderazgo confirmado, indexación prioritaria
 - **19% Oportunidades**: Alto potencial, estrategias de visibilidad
 - **19% Problemas**: Revisión de procesos editoriales
 - **44% Básicas**: Desarrollo integral necesario
 
-#### 4.3.3 Modelo de Financiamiento Sostenible
+#### 4.3.3 Modelo de financiamiento sostenible
 El **análisis APC** (Script 16) confirma que Chile mantiene un **modelo de acceso abierto robusto**:
 - **99.1% revistas gratuitas** sin comprometer calidad
 - **Financiamiento institucional** como pilar del sistema
 - **Impacto diferenciado**: Las pocas revistas con APC muestran mayor visibilidad
 
-### 4.4 Implicaciones para Indexación en Dialnet
+### 4.4 Implicaciones para indexación en Dialnet
 
-#### 4.4.1 Optimización del Proceso
+#### 4.4.1 Optimización del proceso
 - **225 URLs únicas** (vs 208 anteriores) para evaluación
 - **Eliminación automática** de 94 duplicados
 - **Cobertura mejorada:** 81.5% de publicaciones 2024 representadas
 
-#### 4.4.2 Estrategia de Priorización Actualizada
+#### 4.4.2 Estrategia de priorización actualizada
 
 El **análisis comparativo cruzado** permite priorizar por **múltiples criterios**:
 
@@ -1167,11 +1201,11 @@ El **análisis comparativo cruzado** permite priorizar por **múltiples criterio
 3. **Calidad editorial** (Scripts 8-9)
 4. **Visibilidad académica** (Scripts 10-12)
 
-### 4.5 Contribución al Acceso Abierto Regional
+### 4.5 Contribución al acceso abierto regional
 
 Los **144,529 artículos históricos** acumulados (vs 133,931 anteriores) posicionan a Chile como contribuyente significativo al ecosistema latinoamericano, con un **crecimiento del 7.9%** en el acervo histórico.
 
-### 4.6 Limitaciones y Consideraciones
+### 4.6 Limitaciones y consideraciones
 
 1. **Criterio temporal:** Cambio de 2023 a 2024 puede afectar comparabilidad directa
 2. **Cobertura beacon:** Dependencia de instalaciones que mantienen beacon activo
@@ -1179,19 +1213,19 @@ Los **144,529 artículos históricos** acumulados (vs 133,931 anteriores) posici
 
 ---
 
-## 5. Limitaciones del Estudio
+## 5. Limitaciones del estudio
 
-### 5.1 Limitaciones Metodológicas
+### 5.1 Limitaciones metodológicas
 - **Dependencia del PKP Beacon:** Solo incluye instalaciones con beacon activo
 - **Criterio temporal:** Cambio de 2023 a 2024 afecta comparabilidad histórica
 - **Cobertura geográfica:** Posible subrepresentación de instalaciones sin identificación clara de país
 
-### 5.2 Limitaciones Técnicas
+### 5.2 Limitaciones técnicas
 - **Endpoints OAI:** Variabilidad en configuración y disponibilidad
 - **Duplicados:** Posibles instalaciones múltiples de la misma revista
 - **Datos faltantes:** Instalaciones sin ISSN o metadatos incompletos
 
-### 5.3 Limitaciones de Alcance
+### 5.3 Limitaciones de alcance
 - **Evaluación Dialnet:** Proceso manual limita escalabilidad
 - **Visibilidad académica:** Análisis OpenAlex completado exitosamente
 - **Políticas de acceso abierto:** Sherpa Romeo en transición (API restringida)
@@ -1201,35 +1235,35 @@ Los **144,529 artículos históricos** acumulados (vs 133,931 anteriores) posici
 
 ## 6. Conclusiones
 
-### 5.1 Validación del Ecosistema Robusto
+### 6.1 Validación del ecosistema robusto
 La **validación v6** confirma que Chile mantiene un ecosistema editorial académico **robusto y en crecimiento** con:
 - **432 instalaciones OJS** identificadas (+9.1% vs versión anterior)
 - **319 instalaciones activas** con criterio 2024 (73.8%)
 - **14,162 publicaciones en 2024** (+16.5% vs 2023)
 
-### 5.2 Liderazgo Institucional Confirmado
+### 6.2 Liderazgo institucional confirmado
 La **Universidad de Chile** mantiene su posición dominante con:
 - **67 instalaciones** (21% del ecosistema)
 - **3,338 publicaciones en 2024**
 - **Crecimiento de +1,646 publicaciones**
 
-### 5.3 Crecimiento Sostenido Validado
+### 6.3 Crecimiento sostenido validado
 El **51.1% de instalaciones** muestra crecimiento positivo, confirmando la vitalidad del sistema editorial chileno en el contexto global de acceso abierto.
 
-### 5.4 Metodología Consolidada
+### 6.4 Metodología consolidada
 La **validación cruzada v5-v6** demuestra:
 - **Consistencia metodológica:** Resultados coherentes entre versiones
 - **Actualización exitosa:** Criterios 2024 reflejan estado actual
 - **Escalabilidad:** Procedimientos replicables para análisis futuros
 
-### 5.5 Posicionamiento Global
+### 6.5 Posicionamiento global
 Chile se posiciona como **actor relevante** en el ecosistema latinoamericano de acceso abierto, contribuyendo significativamente a la democratización del conocimiento científico regional.
 
 ---
 
-## 7. Próximos Pasos
+## 7. Próximos pasos
 
-### 7.1 Implementación de Estrategia Integrada
+### 7.1 Implementación de estrategia integrada
 
 **Análisis completado:**
 - ✅ **Script 15**: Análisis comparativo cruzado (3 fuentes integradas)
@@ -1256,13 +1290,13 @@ Chile se posiciona como **actor relevante** en el ecosistema latinoamericano de 
   - **Priorización institucional** basada en datos
 - **Próximos pasos:** Implementación de estrategia combinada (calidad + visibilidad)
 
-### 7.3 Enriquecimiento Continuo
+### 7.3 Enriquecimiento continuo
 - **Integración OpenAlex** completada con datos 2024
 - **Análisis longitudinal** de tendencias
 - **Monitoreo** de nuevas instalaciones
 - **Políticas de acceso abierto:** Sherpa Romeo en transición a Jisc Open Policy Finder (API bajo consulta)
 
-### 7.4 Análisis Comparativo Regional
+### 7.4 Análisis comparativo regional
 - **Benchmarking** con otros países latinoamericanos
 - **Identificación** de mejores prácticas
 - **Colaboración** regional en acceso abierto
@@ -1294,7 +1328,7 @@ Al Public Knowledge Project (PKP) por mantener el sistema de beacon que hace pos
 
 ## Anexos
 
-### Anexo A: Diccionario de Datos del PKP Beacon
+### Anexo A: Diccionario de datos del PKP Beacon
 
 #### Campos descriptivos
 
@@ -1316,7 +1350,7 @@ Al Public Knowledge Project (PKP) por mantener el sistema de beacon que hace pos
 | `last_completed_update` | 2024-10-11 | Última sincronización |
 | `unresponsive_endpoint` | 0 | Estado de respuesta (0=activo, 1=inactivo) |
 
-### Anexo B: Scripts Desarrollados
+### Anexo B: Scripts desarrollados
 
 #### Scripts de análisis general
 - `scripts/1_split_beacon.py`: Separación por aplicación
@@ -1336,7 +1370,7 @@ Al Public Knowledge Project (PKP) por mantener el sistema de beacon que hace pos
 - `scripts/11_filtrar_chile_visibilidad.py`: Filtrado de visibilidad para revistas chilenas activas
 - `scripts/12_analisis_estrategico_visibilidad.py`: Análisis estratégico y categorización por visibilidad
 
-### Anexo C: Proceso de Evaluación en Dialnet
+### Anexo C: Proceso de evaluación en Dialnet
 
 #### Estado actual
 **Proceso manual** de envío de 246 URLs únicas de instalaciones chilenas a través del portal web de Dialnet para solicitud de informes de calidad.
