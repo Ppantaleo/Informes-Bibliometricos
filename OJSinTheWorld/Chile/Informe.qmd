@@ -21,6 +21,7 @@ citeproc: true
 lang: es
 bibliography: referencias.bib
 csl: https://www.zotero.org/styles/apa?source=1
+doi: 10.62059/7k8p45
 format:
   html:
     toc: true
@@ -36,13 +37,6 @@ format:
   docx:
     toc: true
     number-sections: false
-
-repo-url: https://github.com/Ppantaleo/Informes-Bibliometricos/tree/main/OJSinTheWorld/Chile
-repo-branch: main
-repo-actions:
-- edit
-- issue
-- source
 ---
 
 ## 1. Introducción
@@ -104,7 +98,7 @@ La metodología se estructura en dos fases principales: (1) **caracterización c
 ### 2.1 Fuente de datos
 
 #### 2.1.1 Dataset PKP Beacon v5 (versión inicial)
-**Dataset:** Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., & Willinsky, J. (2024). "Details of Publications Using Software by the Public Knowledge Project." Harvard Dataverse.
+**Dataset:** @khanna2024details
 
 **Características v5:**
 
@@ -972,14 +966,14 @@ El análisis de la presencia de revistas chilenas activas en Crossref revela una
 
 **Metadatos Actuales (Current):**
 
-- Resúmenes: 76.3% ✅ Muy buena cobertura
-- Verificación de similitud: 73.8% ✅ Buena cobertura
-- Licencias: 51.5% ⚠️ Mejorable
-- ORCIDs: 44.9% ⚠️ Mejorable
-- ROR IDs: 18.2% ❌ Baja cobertura
-- Afiliaciones: 8.6% ❌ Muy baja cobertura
-- Referencias: 7.9% ❌ Muy baja cobertura
-- Políticas de actualización: 0.0% ❌ Sin implementar
+- Resúmenes: 76.3% | Muy buena cobertura
+- Verificación de similitud: 73.8% | Buena cobertura
+- Licencias: 51.5% | Mejorable
+- ORCIDs: 44.9% | Mejorable
+- ROR IDs: 18.2% | Baja cobertura
+- Afiliaciones: 8.6% | Muy baja cobertura
+- Referencias: 7.9% | Muy baja cobertura
+- Políticas de actualización: 0.0% | Sin implementar
 
 **Metadatos Históricos (Backfile):**
 - Resúmenes: 42.8%
@@ -1259,55 +1253,9 @@ La **validación cruzada v5-v6** demuestra:
 ### 6.5 Posicionamiento global
 Chile se posiciona como **actor relevante** en el ecosistema latinoamericano de acceso abierto, contribuyendo significativamente a la democratización del conocimiento científico regional.
 
----
-
-## 7. Próximos pasos
-
-### 7.1 Implementación de estrategia integrada
-
-**Análisis completado:**
-- ✅ **Script 15**: Análisis comparativo cruzado (3 fuentes integradas)
-- ✅ **Script 16**: Comparación APC vs gratuitas
-- ✅ **Segmentación estratégica**: 5 categorías con recomendaciones específicas
-- ✅ **Variables novedosas**: Madurez editorial, brecha de visibilidad, potencial de indexación
-
-**Estrategia de indexación basada en evidencia:**
-1. **6 revistas Estrella**: Indexación prioritaria inmediata
-2. **60 revistas Oportunidad**: Programas de mejora de visibilidad
-3. **3 revistas con APC**: Seguimiento especial por alto impacto
-4. **Criterios integrados**: Calidad + visibilidad + infraestructura
-
-### 7.2 Evaluación Dialnet
-- **Procesamiento completado:** 95 informes HTML analizados (Scripts 8 y 9)
-- **Análisis de visibilidad completado:** Scripts 10, 11 y 12 ejecutados
-- **Resultados disponibles:** 
-  - `dialnet_informes_procesados.csv` con métricas de calidad
-  - `chile_ojs_con_visibilidad.csv` con datos OpenAlex
-  - 7 archivos de análisis estratégico (rangos, oportunidades, priorización)
-- **Estrategia de indexación:** 
-  - **5 revistas estrella** para indexación prioritaria
-  - **24 oportunidades de mejora** identificadas
-  - **Priorización institucional** basada en datos
-- **Próximos pasos:** Implementación de estrategia combinada (calidad + visibilidad)
-
-### 7.3 Enriquecimiento continuo
-- **Integración OpenAlex** completada con datos 2024
-- **Análisis longitudinal** de tendencias
-- **Monitoreo** de nuevas instalaciones
-- **Políticas de acceso abierto:** Sherpa Romeo en transición a Jisc Open Policy Finder (API bajo consulta)
-
-### 7.4 Análisis comparativo regional
-- **Benchmarking** con otros países latinoamericanos
-- **Identificación** de mejores prácticas
-- **Colaboración** regional en acceso abierto
-
----
-
 ## Agradecimientos
 
 Al Public Knowledge Project (PKP) por mantener el sistema de beacon que hace posible este análisis. A la Universidad de La Rioja y el equipo de Dialnet por facilitar el acceso a su sistema de evaluación de revistas. A las instituciones chilenas que mantienen instalaciones OJS activas, contribuyendo al ecosistema de acceso abierto regional.
-
----
 
 ## Referencias
 

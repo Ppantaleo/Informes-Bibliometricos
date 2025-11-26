@@ -1,3 +1,12 @@
 project:
-  type: default
+  type: website
   output-dir: exports
+
+website:
+  site-url: https://patricio.pantaleo.ar/
+  back-to-top-navigation: true
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/Ppantaleo/Informes-Bibliometricos/tree/main/OJSinTheWorld/Chile
+        text: "GitHub"
