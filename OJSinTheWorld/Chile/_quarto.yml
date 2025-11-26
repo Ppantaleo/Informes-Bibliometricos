@@ -10,3 +10,8 @@ website:
       - icon: github
         href: https://github.com/Ppantaleo/Informes-Bibliometricos/tree/main/OJSinTheWorld/Chile
         text: "GitHub"
+        target: "_blank"
+      - icon: file-earmark-slides
+        href: https://docs.google.com/presentation/d/1Gs2vqwLLMkiaUC9_zMBStj1XdQpITRZAC1JvMZW78HU/edit?usp=sharing
+        text: "PPT"
+        target: "_blank"
