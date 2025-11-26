@@ -266,10 +266,12 @@ python3 scripts/12_analisis_estrategico_visibilidad.py
 # Enriquecimiento OpenAlex ampliado para revistas chilenas activas
 python3 scripts/13_openalex_chile_ampliado.py
 # Input: chile_juojs_activas.csv (316 revistas)
-# Genera: chile_openalex_ampliado.csv + 3 gráficos PNG
+# Genera: 13_chile_openalex_ampliado.csv + 3 gráficos PNG
 # Campos ampliados: is_oa, is_in_doaj, apc_usd, host_organization, i10_index, etc.
-# Justificación: Consulta específica sobre dataset reducido por eficiencia
-# (vs script 10 que procesa beacon completo con mayor carga temporal)
+# Cobertura mejorada: 85.2% (259/304 revistas) vs 46.8% del Script 11
+# Justificación: Consulta directa específica sobre dataset chileno por mayor precisión
+# y acceso a 32 campos ampliados vs metodología indirecta del Script 11
+# NOTA: Este script genera los resultados DEFINITIVOS para el informe
 ```
 
 **5. Consulta y Análisis Crossref v5**
@@ -405,6 +407,16 @@ Dada la alta estabilidad entre versiones y que los datos v5 ya están procesados
 - **Instalaciones activas:** 316 → 319 (+3, +0.9%)
 - **Criterio temporal:** 2023 → 2024 (actualización metodológica)
 - **URLs únicas:** 208 → 225 (+17, +8.2%)
+
+#### 2.2.4 Metodología de enriquecimiento OpenAlex
+
+Para complementar los datos del PKP Beacon con indicadores de impacto académico internacional, se desarrolló un proceso de integración con la base de datos OpenAlex. Esta metodología permitió enriquecer el dataset original con métricas de visibilidad que proporcionan una perspectiva más amplia del alcance e influencia de las revistas OJS a nivel global.
+
+El proceso de enriquecimiento se implementó mediante la consulta sistemática de la API de OpenAlex, obteniendo cuatro métricas fundamentales para cada revista: el número de trabajos indexados (works_count), el total de citaciones recibidas (cited_by_count), el índice H de la revista (h_index), y el promedio de citaciones en los últimos dos años (2yr_mean_citedness). Estas métricas proporcionan una base sólida para evaluar tanto la productividad como el impacto de las publicaciones.
+
+A partir de estos datos primarios, se calcularon tres índices derivados que permiten una segmentación más precisa del ecosistema de revistas. El índice de visibilidad relaciona las citaciones totales con el número de artículos reportados en el Beacon, mientras que el índice de visibilidad ajustado considera únicamente los artículos efectivamente indexados en OpenAlex. Adicionalmente, la tasa de indexación mide qué proporción de la producción total de cada revista ha logrado visibilidad en bases de datos internacionales.
+
+Esta metodología permitió establecer criterios de segmentación estratégica que identifican diferentes perfiles de revistas. Las revistas estrella se caracterizan por combinar un índice de visibilidad superior a 5.0 con un índice H de al menos 25 puntos. Las oportunidades de mejora corresponden a publicaciones con alta productividad (más de 500 artículos totales) pero baja visibilidad (inferior a 2.0). Las revistas emergentes presentan un índice H entre 5 y 24 puntos, con evidencia de crecimiento sostenido e indexación reciente. Finalmente, la priorización institucional considera la combinación de citaciones totales, número de revistas y visibilidad promedio por institución.
 
 ## 3. Resultados
 
@@ -768,53 +780,30 @@ La estrategia de mejora debe **priorizar por calidad**, enfocando recursos en la
 
 La evaluación de **visibilidad académica internacional** constituye el complemento estratégico al análisis de calidad editorial, proporcionando métricas cuantitativas de impacto y reconocimiento científico que trascienden las fronteras nacionales. **OpenAlex**, como base de datos académica de acceso abierto con más de 200 millones de trabajos indexados, ofrece una perspectiva integral del posicionamiento de las revistas chilenas en el ecosistema científico global.
 
-La integración de métricas OpenAlex con el dataset PKP Beacon permite identificar **brechas de visibilidad** donde revistas de alta productividad editorial mantienen bajo reconocimiento internacional, así como **casos de éxito** que demuestran el potencial del ecosistema chileno para alcanzar estándares internacionales de excelencia. Esta aproximación revela patrones críticos: mientras el 46.8% de las revistas chilenas logra indexación en OpenAlex, solo el 2.8% alcanza niveles de visibilidad muy alta.
+**El análisis se desarrolló en tres fases metodológicas progresivas**: un análisis preliminar (Script 11) que estableció las métricas base filtrando datos del beacon global, seguido de un análisis estratégico de segmentación (Script 12), y culminando con un **análisis ampliado y definitivo (Script 13)** que incorporó consulta directa a OpenAlex para las 316 revistas chilenas activas, logrando una cobertura superior (85.2% vs 46.8% del análisis preliminar) e información detallada sobre políticas de acceso abierto y características editoriales.
 
-El análisis estratégico resultante identifica **cinco revistas estrella** (alta visibilidad internacional + alto H-index) que lideran en impacto global, **24 oportunidades de mejora** (alta productividad editorial + baja visibilidad académica) con potencial de crecimiento significativo, y **14 revistas emergentes** (crecimiento sostenido + H-index en desarrollo) que muestran trayectoria ascendente. La **priorización institucional** revela el liderazgo de la Pontificia Universidad Católica y Universidad de Chile como motores del ecosistema por volumen de citaciones y número de revistas, estableciendo una hoja de ruta basada en evidencia para maximizar la proyección internacional del ecosistema editorial académico chileno.
+La integración de métricas OpenAlex con el dataset PKP Beacon permite identificar **brechas de visibilidad** donde revistas de alta productividad editorial mantienen bajo reconocimiento internacional, así como **casos de éxito** que demuestran el potencial del ecosistema chileno para alcanzar estándares internacionales de excelencia. Los **resultados definitivos (Script 13)** revelan que el 85.2% de las revistas chilenas logra indexación en OpenAlex, con el 94.6% siendo completamente de acceso abierto.
 
-#### 3.4.1 Metodología de enriquecimiento
+El análisis estratégico resultante confirma el **liderazgo absoluto de JOTMI** (Journal of Technology Management & Innovation) con H-index 51, seguido por Estudios Pedagógicos y Journal of the Chilean Chemical Society (ambos con H-index 44). Se identifica una **concentración del impacto en ciencias aplicadas, educación y químicas**, con oportunidades de mejora para indexación en DOAJ. La **priorización institucional** confirma el liderazgo de instituciones clave en el ecosistema editorial académico chileno.
 
-Para complementar los datos del PKP Beacon con indicadores de impacto académico internacional, se desarrolló un proceso de integración con la base de datos OpenAlex. Esta metodología permitió enriquecer el dataset original con métricas de visibilidad que proporcionan una perspectiva más amplia del alcance e influencia de las revistas OJS a nivel global.
-
-El proceso de enriquecimiento se implementó mediante la consulta sistemática de la API de OpenAlex, obteniendo cuatro métricas fundamentales para cada revista: el número de trabajos indexados (works_count), el total de citaciones recibidas (cited_by_count), el índice H de la revista (h_index), y el promedio de citaciones en los últimos dos años (2yr_mean_citedness). Estas métricas proporcionan una base sólida para evaluar tanto la productividad como el impacto de las publicaciones.
-
-A partir de estos datos primarios, se calcularon tres índices derivados que permiten una segmentación más precisa del ecosistema de revistas. El índice de visibilidad relaciona las citaciones totales con el número de artículos reportados en el Beacon, mientras que el índice de visibilidad ajustado considera únicamente los artículos efectivamente indexados en OpenAlex. Adicionalmente, la tasa de indexación mide qué proporción de la producción total de cada revista ha logrado visibilidad en bases de datos internacionales.
-
-Esta metodología permitió establecer criterios de segmentación estratégica que identifican diferentes perfiles de revistas. Las revistas estrella se caracterizan por combinar un índice de visibilidad superior a 5.0 con un índice H de al menos 25 puntos. Las oportunidades de mejora corresponden a publicaciones con alta productividad (más de 500 artículos totales) pero baja visibilidad (inferior a 2.0). Las revistas emergentes presentan un índice H entre 5 y 24 puntos, con evidencia de crecimiento sostenido e indexación reciente. Finalmente, la priorización institucional considera la combinación de citaciones totales, número de revistas y visibilidad promedio por institución.
-
-#### 3.4.2 Resultados de visibilidad global
+#### 3.4.1 Resultados de visibilidad global
 
 El proceso de enriquecimiento abarcó un total de 55,643 revistas que contaban con ISSN válido, logrando una cobertura exitosa en la consulta a OpenAlex. Los datos procesados se consolidaron en el dataset visualizations/beacon_ojs_con_visibilidad.csv, que constituye la base para los análisis posteriores de visibilidad e impacto internacional del ecosistema OJS.
 
 Esta integración representa un avance significativo en la comprensión del alcance global de las revistas de acceso abierto, proporcionando por primera vez una visión integral que combina datos de productividad editorial con métricas de impacto académico internacional.
 
-#### 3.4.3 Análisis específico Chile (Script 11)
+#### 3.4.2 Análisis preliminar Chile (Script 11)
 
-**Proceso de filtrado:**
-- **Revistas chilenas activas (JUOJS)**: 316
-- **ISSNs únicos identificados**: 460
-- **Revistas encontradas en OpenAlex**: 148 de 316 (46.8%)
-- **Revistas indexadas con métricas**: 109 de 148 (73.6%)
+**Nota metodológica:** Este análisis preliminar utilizó datos filtrados del beacon global enriquecido, proporcionando una primera aproximación a las métricas de visibilidad. Los resultados definitivos y más completos se presentan en la sección 3.4.5 (Script 13) mediante consulta directa a OpenAlex.
 
-**Métricas agregadas Chile:**
-- **Total artículos indexados**: 25,155
-- **Total citaciones recibidas**: 72,507
-- **Índice de visibilidad promedio**: 1.56
-- **Índice de visibilidad mediano**: 0.51
-- **H-index promedio**: 7.2
-- **H-index mediano**: 4.0
+**Limitaciones del análisis preliminar:**
+- **Cobertura limitada**: 148 de 316 revistas (46.8%)
+- **Metodología indirecta**: Filtrado de datos globales vs consulta específica
+- **Campos restringidos**: Métricas básicas sin información de políticas OA
 
-**Top 5 revistas chilenas por visibilidad:**
+**Justificación del análisis ampliado:** La baja cobertura del 46.8% evidenció la necesidad de implementar el Script 13 con consulta directa a OpenAlex, logrando una cobertura del 85.2% y acceso a 32 campos ampliados incluyendo políticas de acceso abierto, APC, y métricas detalladas de impacto.
 
-| Ranking | Revista | ISSN | Artículos | Citaciones | Índice Visibilidad | H-index |
-|---------|---------|------|-----------|------------|------------------|----------|
-| 1 | Chungara Revista de Antropología Chilena | 0717-7356 | 1,047 | 7,883 | 48.66 | 34 |
-| 2 | Journal of Technology Management & Innovation | 0718-2724 | 850 | 13,671 | 14.24 | 51 |
-| 3 | Boletín Latinoamericano de Plantas Medicinales | 0717-7917 | 1,115 | 4,854 | 11.06 | 26 |
-| 4 | Ciencia y Enfermería | 0717-9553 | 627 | 5,803 | 7.73 | 32 |
-| 5 | Psykhe | 0718-2228 | 611 | 5,853 | 6.71 | 36 |
-
-#### 3.4.4 Análisis estratégico de visibilidad (Script 12)
+#### 3.4.3 Análisis estratégico de visibilidad (Script 12)
 
 **Categorización por rangos de visibilidad:**
 
@@ -826,15 +815,20 @@ Esta integración representa un avance significativo en la comprensión del alca
 | Muy Alta (≥10) | 3 | 2.8% |
 | Alta (5-9.99) | 2 | 1.8% |
 
-**Revistas estrella identificadas (alta visibilidad + alto H-index):**
+**Top 10 revistas chilenas por H-index (Script 13 - Datos definitivos OpenAlex):**
 
-| Revista | ISSN | Índice Visibilidad | H-index | Citaciones |
-|---------|------|------------------|---------|------------|
-| Chungara Revista de Antropología Chilena | 0717-7356 | 48.66 | 34 | 7,883 |
-| Journal of Technology Management & Innovation | 0718-2724 | 14.24 | 51 | 13,671 |
-| Boletín Latinoamericano de Plantas Medicinales | 0717-7917 | 11.06 | 26 | 4,854 |
-| Ciencia y Enfermería | 0717-9553 | 7.73 | 32 | 5,803 |
-| Psykhe | 0718-2228 | 6.71 | 36 | 5,853 |
+| Revista | H-index | Citaciones | Trabajos | Acceso Abierto | DOAJ |
+|---------|---------|------------|----------|----------------|------|
+| Journal of Technology Management & Innovation | 51 | 13,607 | 892 | Sí | Sí |
+| Estudios Pedagógicos | 44 | 12,642 | 1241 | Sí | No |
+| Journal of the Chilean Chemical Society | 44 | 17,365 | 1838 | Sí | No |
+| Maderas-Cienc Tecnol | 40 | 10,261 | 945 | Sí | Sí |
+| Terapia Psicológica | 39 | 6,845 | 471 | Sí | No |
+| Psykhe | 35 | 6,655 | 885 | Sí | Sí |
+| Chungara Revista de Antropología Chilena | 35 | 8,353 | 1149 | Sí | No |
+| Polis (Santiago) | 35 | 7,111 | 1042 | Sí | No |
+| Revista de Biología Marina y Oceanografía | 34 | 9,181 | 1087 | Sí | No |
+| Revista de Geografía Norte Grande | 32 | 5,407 | 935 | Sí | Sí |
 
 **Oportunidades de mejora (alta productividad, baja visibilidad):**
 
@@ -846,30 +840,30 @@ Esta integración representa un avance significativo en la comprensión del alca
 | REVISTA CUHSO | 2452-610X | 910 | 0.00 | Muy Alto |
 | Revista AIDIS | 0718-378X | 897 | 0.33 | Alto |
 
-**Análisis institucional (top 5 por citaciones):**
+**Revistas de mayor impacto individual (datos definitivos Script 13):**
 
-| Institución | Revistas | Total Citaciones | Visibilidad Promedio | H-index Promedio |
-|-------------|----------|------------------|---------------------|------------------|
-| Pontificia Universidad Católica | 16 | 16,339 | 1.25 | 10.25 |
-| JOTMI | 1 | 13,671 | 14.24 | 51.00 |
-| Chungara | 1 | 7,883 | 48.66 | 34.00 |
-| Universidad de Concepción | 5 | 6,872 | 2.49 | 10.40 |
-| Universidad de Chile | 12 | 5,459 | 1.45 | 7.67 |
+| Revista | Institución | H-index | Citaciones | Acceso Abierto |
+|---------|-------------|---------|------------|----------------|
+| JOTMI | Independiente | 51 | 13,607 | Sí |
+| Journal Chilean Chemical Society | Sociedad Química | 44 | 17,365 | Sí |
+| Estudios Pedagógicos | U. Austral Chile | 44 | 12,642 | Sí |
+| Maderas-Cienc Tecnol | U. del Bío-Bío | 40 | 10,261 | Sí |
+| Terapia Psicológica | Independiente | 39 | 6,845 | Sí |
 
 **Correlaciones identificadas:**
 - **H-index vs visibilidad**: 0.627 (correlación fuerte)
 - **Productividad vs visibilidad**: 0.075 (correlación débil)
 - **Artículos OpenAlex vs citaciones**: 0.562 (correlación moderada)
 
-#### 3.4.5 Implicaciones para estrategia de indexación
+#### 3.4.4 Implicaciones para estrategia de indexación
 
-**Criterios de priorización actualizados:**
-1. **Revistas estrella** (5): Indexación prioritaria inmediata
-2. **Oportunidades de mejora** (24): Alta productividad, potencial de impacto
-3. **Revistas emergentes** (14): Crecimiento sostenido, H-index en desarrollo
-4. **Priorización institucional**: UC y UChile como líderes en volumen
+**Criterios de priorización actualizados (basados en datos definitivos Script 13):**
+1. **Revistas de élite** (H-index ≥40): JOTMI (51), Estudios Pedagógicos (44), Journal Chilean Chemical Society (44), Maderas-Cienc Tecnol (40)
+2. **Revistas consolidadas** (H-index 30-39): Terapia Psicológica (39), grupo de H-index 35 (Psykhe, Chungara, Polis), y Revista Biología Marina (34)
+3. **Revistas emergentes** (H-index 20-29): Potencial de crecimiento hacia élite
+4. **Priorización institucional**: Diversidad institucional en el top 10, con representación de UC, UChile, UACh, UBB
 
-#### 3.4.6 Análisis OpenAlex ampliado para revistas chilenas activas
+#### 3.4.5 Análisis OpenAlex ampliado para revistas chilenas activas (RESULTADOS DEFINITIVOS)
 
 Se realizó un enriquecimiento específico de datos OpenAlex para las **316 revistas chilenas activas**, obteniendo información detallada sobre políticas de acceso abierto, métricas de impacto y características editoriales.
 
@@ -923,7 +917,7 @@ Se realizó un enriquecimiento específico de datos OpenAlex para las **316 revi
 | **Índice de visibilidad** | 2.8 | 1.2 |
 | **APC promedio (USD)** | $693 | - |
 
-**Revistas de Mayor Impacto:**
+**Revistas de Mayor Impacto (Análisis definitivo Script 13):**
 
 | Ranking | Revista | Visibilidad | H-index | Estado OA |
 |---------|---------|-------------|---------|----------|
@@ -932,6 +926,8 @@ Se realizó un enriquecimiento específico de datos OpenAlex para las **316 revi
 | 3 | Revista de Biología Marina y Oceanografía | 33.26 | 34 | OA |
 | 4 | Journal of the Chilean Chemical Society | 31.18 | 44 | OA |
 | 5 | Gayana Botanica | 27.40 | 24 | OA + DOAJ |
+
+**Nota:** Esta tabla refleja los resultados del análisis ampliado (Script 13) que debe utilizarse como referencia definitiva para el informe y presentaciones.
 
 **Implicaciones Estratégicas:**
 
@@ -1258,6 +1254,9 @@ Chile se posiciona como **actor relevante** en el ecosistema latinoamericano de 
 Al Public Knowledge Project (PKP) por mantener el sistema de beacon que hace posible este análisis. A la Universidad de La Rioja y el equipo de Dialnet por facilitar el acceso a su sistema de evaluación de revistas. A las instituciones chilenas que mantienen instalaciones OJS activas, contribuyendo al ecosistema de acceso abierto regional.
 
 ## Referencias
+
+::: {#refs}
+:::
 
 
 ## Colaboraciones

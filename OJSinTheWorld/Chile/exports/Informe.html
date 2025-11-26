@@ -229,6 +229,7 @@ div.csl-indent {
   <li><a href="#flujo-metodológico-v5-versión-inicial" id="toc-flujo-metodológico-v5-versión-inicial" class="nav-link" data-scroll-target="#flujo-metodológico-v5-versión-inicial">2.2.1 Flujo metodológico v5 (versión inicial)</a></li>
   <li><a href="#flujo-metodológico-v6-validación-actualizada" id="toc-flujo-metodológico-v6-validación-actualizada" class="nav-link" data-scroll-target="#flujo-metodológico-v6-validación-actualizada">2.2.2 Flujo metodológico v6 (validación actualizada)</a></li>
   <li><a href="#decisión-metodológica-continuidad-operativa-v5" id="toc-decisión-metodológica-continuidad-operativa-v5" class="nav-link" data-scroll-target="#decisión-metodológica-continuidad-operativa-v5">2.2.3 Decisión metodológica: continuidad operativa v5</a></li>
+  <li><a href="#metodología-de-enriquecimiento-openalex" id="toc-metodología-de-enriquecimiento-openalex" class="nav-link" data-scroll-target="#metodología-de-enriquecimiento-openalex">2.2.4 Metodología de enriquecimiento OpenAlex</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">3. Resultados</a>
@@ -257,12 +258,11 @@ div.csl-indent {
   </ul></li>
   <li><a href="#análisis-de-visibilidad-académica-integración-openalex" id="toc-análisis-de-visibilidad-académica-integración-openalex" class="nav-link" data-scroll-target="#análisis-de-visibilidad-académica-integración-openalex">3.4 Análisis de visibilidad académica: integración OpenAlex</a>
   <ul class="collapse">
-  <li><a href="#metodología-de-enriquecimiento" id="toc-metodología-de-enriquecimiento" class="nav-link" data-scroll-target="#metodología-de-enriquecimiento">3.4.1 Metodología de enriquecimiento</a></li>
-  <li><a href="#resultados-de-visibilidad-global" id="toc-resultados-de-visibilidad-global" class="nav-link" data-scroll-target="#resultados-de-visibilidad-global">3.4.2 Resultados de visibilidad global</a></li>
-  <li><a href="#análisis-específico-chile-script-11" id="toc-análisis-específico-chile-script-11" class="nav-link" data-scroll-target="#análisis-específico-chile-script-11">3.4.3 Análisis específico Chile (Script 11)</a></li>
-  <li><a href="#análisis-estratégico-de-visibilidad-script-12" id="toc-análisis-estratégico-de-visibilidad-script-12" class="nav-link" data-scroll-target="#análisis-estratégico-de-visibilidad-script-12">3.4.4 Análisis estratégico de visibilidad (Script 12)</a></li>
-  <li><a href="#implicaciones-para-estrategia-de-indexación" id="toc-implicaciones-para-estrategia-de-indexación" class="nav-link" data-scroll-target="#implicaciones-para-estrategia-de-indexación">3.4.5 Implicaciones para estrategia de indexación</a></li>
-  <li><a href="#análisis-openalex-ampliado-para-revistas-chilenas-activas" id="toc-análisis-openalex-ampliado-para-revistas-chilenas-activas" class="nav-link" data-scroll-target="#análisis-openalex-ampliado-para-revistas-chilenas-activas">3.4.6 Análisis OpenAlex ampliado para revistas chilenas activas</a></li>
+  <li><a href="#resultados-de-visibilidad-global" id="toc-resultados-de-visibilidad-global" class="nav-link" data-scroll-target="#resultados-de-visibilidad-global">3.4.1 Resultados de visibilidad global</a></li>
+  <li><a href="#análisis-preliminar-chile-script-11" id="toc-análisis-preliminar-chile-script-11" class="nav-link" data-scroll-target="#análisis-preliminar-chile-script-11">3.4.2 Análisis preliminar Chile (Script 11)</a></li>
+  <li><a href="#análisis-estratégico-de-visibilidad-script-12" id="toc-análisis-estratégico-de-visibilidad-script-12" class="nav-link" data-scroll-target="#análisis-estratégico-de-visibilidad-script-12">3.4.3 Análisis estratégico de visibilidad (Script 12)</a></li>
+  <li><a href="#implicaciones-para-estrategia-de-indexación" id="toc-implicaciones-para-estrategia-de-indexación" class="nav-link" data-scroll-target="#implicaciones-para-estrategia-de-indexación">3.4.4 Implicaciones para estrategia de indexación</a></li>
+  <li><a href="#análisis-openalex-ampliado-para-revistas-chilenas-activas-resultados-definitivos" id="toc-análisis-openalex-ampliado-para-revistas-chilenas-activas-resultados-definitivos" class="nav-link" data-scroll-target="#análisis-openalex-ampliado-para-revistas-chilenas-activas-resultados-definitivos">3.4.5 Análisis OpenAlex ampliado para revistas chilenas activas (RESULTADOS DEFINITIVOS)</a></li>
   </ul></li>
   <li><a href="#análisis-de-crossref---revistas-chilenas-activas" id="toc-análisis-de-crossref---revistas-chilenas-activas" class="nav-link" data-scroll-target="#análisis-de-crossref---revistas-chilenas-activas">3.5 Análisis de Crossref - revistas chilenas activas</a>
   <ul class="collapse">
@@ -524,10 +524,12 @@ div.csl-indent {
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Enriquecimiento OpenAlex ampliado para revistas chilenas activas</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/13_openalex_chile_ampliado.py</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: chile_juojs_activas.csv (316 revistas)</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: chile_openalex_ampliado.csv + 3 gráficos PNG</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera: 13_chile_openalex_ampliado.csv + 3 gráficos PNG</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Campos ampliados: is_oa, is_in_doaj, apc_usd, host_organization, i10_index, etc.</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Justificación: Consulta específica sobre dataset reducido por eficiencia</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># (vs script 10 que procesa beacon completo con mayor carga temporal)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Cobertura mejorada: 85.2% (259/304 revistas) vs 46.8% del Script 11</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Justificación: Consulta directa específica sobre dataset chileno por mayor precisión</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># y acceso a 32 campos ampliados vs metodología indirecta del Script 11</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># NOTA: Este script genera los resultados DEFINITIVOS para el informe</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>5. Consulta y Análisis Crossref v5</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis ampliado de Crossref para revistas chilenas activas</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/14_crossref_chile_ampliado.py</span>
@@ -636,6 +638,13 @@ div.csl-indent {
 <li><strong>Criterio temporal:</strong> 2023 → 2024 (actualización metodológica)</li>
 <li><strong>URLs únicas:</strong> 208 → 225 (+17, +8.2%)</li>
 </ul>
+</section>
+<section id="metodología-de-enriquecimiento-openalex" class="level4">
+<h4 class="anchored" data-anchor-id="metodología-de-enriquecimiento-openalex">2.2.4 Metodología de enriquecimiento OpenAlex</h4>
+<p>Para complementar los datos del PKP Beacon con indicadores de impacto académico internacional, se desarrolló un proceso de integración con la base de datos OpenAlex. Esta metodología permitió enriquecer el dataset original con métricas de visibilidad que proporcionan una perspectiva más amplia del alcance e influencia de las revistas OJS a nivel global.</p>
+<p>El proceso de enriquecimiento se implementó mediante la consulta sistemática de la API de OpenAlex, obteniendo cuatro métricas fundamentales para cada revista: el número de trabajos indexados (works_count), el total de citaciones recibidas (cited_by_count), el índice H de la revista (h_index), y el promedio de citaciones en los últimos dos años (2yr_mean_citedness). Estas métricas proporcionan una base sólida para evaluar tanto la productividad como el impacto de las publicaciones.</p>
+<p>A partir de estos datos primarios, se calcularon tres índices derivados que permiten una segmentación más precisa del ecosistema de revistas. El índice de visibilidad relaciona las citaciones totales con el número de artículos reportados en el Beacon, mientras que el índice de visibilidad ajustado considera únicamente los artículos efectivamente indexados en OpenAlex. Adicionalmente, la tasa de indexación mide qué proporción de la producción total de cada revista ha logrado visibilidad en bases de datos internacionales.</p>
+<p>Esta metodología permitió establecer criterios de segmentación estratégica que identifican diferentes perfiles de revistas. Las revistas estrella se caracterizan por combinar un índice de visibilidad superior a 5.0 con un índice H de al menos 25 puntos. Las oportunidades de mejora corresponden a publicaciones con alta productividad (más de 500 artículos totales) pero baja visibilidad (inferior a 2.0). Las revistas emergentes presentan un índice H entre 5 y 24 puntos, con evidencia de crecimiento sostenido e indexación reciente. Finalmente, la priorización institucional considera la combinación de citaciones totales, número de revistas y visibilidad promedio por institución.</p>
 </section>
 </section>
 </section>
@@ -1660,97 +1669,22 @@ div.csl-indent {
 <section id="análisis-de-visibilidad-académica-integración-openalex" class="level3">
 <h3 class="anchored" data-anchor-id="análisis-de-visibilidad-académica-integración-openalex">3.4 Análisis de visibilidad académica: integración OpenAlex</h3>
 <p>La evaluación de <strong>visibilidad académica internacional</strong> constituye el complemento estratégico al análisis de calidad editorial, proporcionando métricas cuantitativas de impacto y reconocimiento científico que trascienden las fronteras nacionales. <strong>OpenAlex</strong>, como base de datos académica de acceso abierto con más de 200 millones de trabajos indexados, ofrece una perspectiva integral del posicionamiento de las revistas chilenas en el ecosistema científico global.</p>
-<p>La integración de métricas OpenAlex con el dataset PKP Beacon permite identificar <strong>brechas de visibilidad</strong> donde revistas de alta productividad editorial mantienen bajo reconocimiento internacional, así como <strong>casos de éxito</strong> que demuestran el potencial del ecosistema chileno para alcanzar estándares internacionales de excelencia. Esta aproximación revela patrones críticos: mientras el 46.8% de las revistas chilenas logra indexación en OpenAlex, solo el 2.8% alcanza niveles de visibilidad muy alta.</p>
-<p>El análisis estratégico resultante identifica <strong>cinco revistas estrella</strong> (alta visibilidad internacional + alto H-index) que lideran en impacto global, <strong>24 oportunidades de mejora</strong> (alta productividad editorial + baja visibilidad académica) con potencial de crecimiento significativo, y <strong>14 revistas emergentes</strong> (crecimiento sostenido + H-index en desarrollo) que muestran trayectoria ascendente. La <strong>priorización institucional</strong> revela el liderazgo de la Pontificia Universidad Católica y Universidad de Chile como motores del ecosistema por volumen de citaciones y número de revistas, estableciendo una hoja de ruta basada en evidencia para maximizar la proyección internacional del ecosistema editorial académico chileno.</p>
-<section id="metodología-de-enriquecimiento" class="level4">
-<h4 class="anchored" data-anchor-id="metodología-de-enriquecimiento">3.4.1 Metodología de enriquecimiento</h4>
-<p>Para complementar los datos del PKP Beacon con indicadores de impacto académico internacional, se desarrolló un proceso de integración con la base de datos OpenAlex. Esta metodología permitió enriquecer el dataset original con métricas de visibilidad que proporcionan una perspectiva más amplia del alcance e influencia de las revistas OJS a nivel global.</p>
-<p>El proceso de enriquecimiento se implementó mediante la consulta sistemática de la API de OpenAlex, obteniendo cuatro métricas fundamentales para cada revista: el número de trabajos indexados (works_count), el total de citaciones recibidas (cited_by_count), el índice H de la revista (h_index), y el promedio de citaciones en los últimos dos años (2yr_mean_citedness). Estas métricas proporcionan una base sólida para evaluar tanto la productividad como el impacto de las publicaciones.</p>
-<p>A partir de estos datos primarios, se calcularon tres índices derivados que permiten una segmentación más precisa del ecosistema de revistas. El índice de visibilidad relaciona las citaciones totales con el número de artículos reportados en el Beacon, mientras que el índice de visibilidad ajustado considera únicamente los artículos efectivamente indexados en OpenAlex. Adicionalmente, la tasa de indexación mide qué proporción de la producción total de cada revista ha logrado visibilidad en bases de datos internacionales.</p>
-<p>Esta metodología permitió establecer criterios de segmentación estratégica que identifican diferentes perfiles de revistas. Las revistas estrella se caracterizan por combinar un índice de visibilidad superior a 5.0 con un índice H de al menos 25 puntos. Las oportunidades de mejora corresponden a publicaciones con alta productividad (más de 500 artículos totales) pero baja visibilidad (inferior a 2.0). Las revistas emergentes presentan un índice H entre 5 y 24 puntos, con evidencia de crecimiento sostenido e indexación reciente. Finalmente, la priorización institucional considera la combinación de citaciones totales, número de revistas y visibilidad promedio por institución.</p>
-</section>
+<p><strong>El análisis se desarrolló en tres fases metodológicas progresivas</strong>: un análisis preliminar (Script 11) que estableció las métricas base filtrando datos del beacon global, seguido de un análisis estratégico de segmentación (Script 12), y culminando con un <strong>análisis ampliado y definitivo (Script 13)</strong> que incorporó consulta directa a OpenAlex para las 316 revistas chilenas activas, logrando una cobertura superior (85.2% vs 46.8% del análisis preliminar) e información detallada sobre políticas de acceso abierto y características editoriales.</p>
+<p>La integración de métricas OpenAlex con el dataset PKP Beacon permite identificar <strong>brechas de visibilidad</strong> donde revistas de alta productividad editorial mantienen bajo reconocimiento internacional, así como <strong>casos de éxito</strong> que demuestran el potencial del ecosistema chileno para alcanzar estándares internacionales de excelencia. Los <strong>resultados definitivos (Script 13)</strong> revelan que el 85.2% de las revistas chilenas logra indexación en OpenAlex, con el 94.6% siendo completamente de acceso abierto.</p>
+<p>El análisis estratégico resultante confirma el <strong>liderazgo absoluto de JOTMI</strong> (Journal of Technology Management &amp; Innovation) con H-index 51, seguido por Estudios Pedagógicos y Journal of the Chilean Chemical Society (ambos con H-index 44). Se identifica una <strong>concentración del impacto en ciencias aplicadas, educación y químicas</strong>, con oportunidades de mejora para indexación en DOAJ. La <strong>priorización institucional</strong> confirma el liderazgo de instituciones clave en el ecosistema editorial académico chileno.</p>
 <section id="resultados-de-visibilidad-global" class="level4">
-<h4 class="anchored" data-anchor-id="resultados-de-visibilidad-global">3.4.2 Resultados de visibilidad global</h4>
+<h4 class="anchored" data-anchor-id="resultados-de-visibilidad-global">3.4.1 Resultados de visibilidad global</h4>
 <p>El proceso de enriquecimiento abarcó un total de 55,643 revistas que contaban con ISSN válido, logrando una cobertura exitosa en la consulta a OpenAlex. Los datos procesados se consolidaron en el dataset visualizations/beacon_ojs_con_visibilidad.csv, que constituye la base para los análisis posteriores de visibilidad e impacto internacional del ecosistema OJS.</p>
 <p>Esta integración representa un avance significativo en la comprensión del alcance global de las revistas de acceso abierto, proporcionando por primera vez una visión integral que combina datos de productividad editorial con métricas de impacto académico internacional.</p>
 </section>
-<section id="análisis-específico-chile-script-11" class="level4">
-<h4 class="anchored" data-anchor-id="análisis-específico-chile-script-11">3.4.3 Análisis específico Chile (Script 11)</h4>
-<p><strong>Proceso de filtrado:</strong> - <strong>Revistas chilenas activas (JUOJS)</strong>: 316 - <strong>ISSNs únicos identificados</strong>: 460 - <strong>Revistas encontradas en OpenAlex</strong>: 148 de 316 (46.8%) - <strong>Revistas indexadas con métricas</strong>: 109 de 148 (73.6%)</p>
-<p><strong>Métricas agregadas Chile:</strong> - <strong>Total artículos indexados</strong>: 25,155 - <strong>Total citaciones recibidas</strong>: 72,507 - <strong>Índice de visibilidad promedio</strong>: 1.56 - <strong>Índice de visibilidad mediano</strong>: 0.51 - <strong>H-index promedio</strong>: 7.2 - <strong>H-index mediano</strong>: 4.0</p>
-<p><strong>Top 5 revistas chilenas por visibilidad:</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 8%">
-<col style="width: 14%">
-<col style="width: 16%">
-<col style="width: 24%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Ranking</th>
-<th>Revista</th>
-<th>ISSN</th>
-<th>Artículos</th>
-<th>Citaciones</th>
-<th>Índice Visibilidad</th>
-<th>H-index</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Chungara Revista de Antropología Chilena</td>
-<td>0717-7356</td>
-<td>1,047</td>
-<td>7,883</td>
-<td>48.66</td>
-<td>34</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Journal of Technology Management &amp; Innovation</td>
-<td>0718-2724</td>
-<td>850</td>
-<td>13,671</td>
-<td>14.24</td>
-<td>51</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Boletín Latinoamericano de Plantas Medicinales</td>
-<td>0717-7917</td>
-<td>1,115</td>
-<td>4,854</td>
-<td>11.06</td>
-<td>26</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Ciencia y Enfermería</td>
-<td>0717-9553</td>
-<td>627</td>
-<td>5,803</td>
-<td>7.73</td>
-<td>32</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Psykhe</td>
-<td>0718-2228</td>
-<td>611</td>
-<td>5,853</td>
-<td>6.71</td>
-<td>36</td>
-</tr>
-</tbody>
-</table>
+<section id="análisis-preliminar-chile-script-11" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-preliminar-chile-script-11">3.4.2 Análisis preliminar Chile (Script 11)</h4>
+<p><strong>Nota metodológica:</strong> Este análisis preliminar utilizó datos filtrados del beacon global enriquecido, proporcionando una primera aproximación a las métricas de visibilidad. Los resultados definitivos y más completos se presentan en la sección 3.4.5 (Script 13) mediante consulta directa a OpenAlex.</p>
+<p><strong>Limitaciones del análisis preliminar:</strong> - <strong>Cobertura limitada</strong>: 148 de 316 revistas (46.8%) - <strong>Metodología indirecta</strong>: Filtrado de datos globales vs consulta específica - <strong>Campos restringidos</strong>: Métricas básicas sin información de políticas OA</p>
+<p><strong>Justificación del análisis ampliado:</strong> La baja cobertura del 46.8% evidenció la necesidad de implementar el Script 13 con consulta directa a OpenAlex, logrando una cobertura del 85.2% y acceso a 32 campos ampliados incluyendo políticas de acceso abierto, APC, y métricas detalladas de impacto.</p>
 </section>
 <section id="análisis-estratégico-de-visibilidad-script-12" class="level4">
-<h4 class="anchored" data-anchor-id="análisis-estratégico-de-visibilidad-script-12">3.4.4 Análisis estratégico de visibilidad (Script 12)</h4>
+<h4 class="anchored" data-anchor-id="análisis-estratégico-de-visibilidad-script-12">3.4.3 Análisis estratégico de visibilidad (Script 12)</h4>
 <p><strong>Categorización por rangos de visibilidad:</strong></p>
 <table class="caption-top table">
 <thead>
@@ -1788,59 +1722,106 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p><strong>Revistas estrella identificadas (alta visibilidad + alto H-index):</strong></p>
+<p><strong>Top 10 revistas chilenas por H-index (Script 13 - Datos definitivos OpenAlex):</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 19%">
 <col style="width: 16%">
-<col style="width: 11%">
-<col style="width: 33%">
-<col style="width: 16%">
-<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Revista</th>
-<th>ISSN</th>
-<th>Índice Visibilidad</th>
 <th>H-index</th>
 <th>Citaciones</th>
+<th>Trabajos</th>
+<th>Acceso Abierto</th>
+<th>DOAJ</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Chungara Revista de Antropología Chilena</td>
-<td>0717-7356</td>
-<td>48.66</td>
-<td>34</td>
-<td>7,883</td>
-</tr>
-<tr class="even">
 <td>Journal of Technology Management &amp; Innovation</td>
-<td>0718-2724</td>
-<td>14.24</td>
 <td>51</td>
-<td>13,671</td>
-</tr>
-<tr class="odd">
-<td>Boletín Latinoamericano de Plantas Medicinales</td>
-<td>0717-7917</td>
-<td>11.06</td>
-<td>26</td>
-<td>4,854</td>
+<td>13,607</td>
+<td>892</td>
+<td>Sí</td>
+<td>Sí</td>
 </tr>
 <tr class="even">
-<td>Ciencia y Enfermería</td>
-<td>0717-9553</td>
-<td>7.73</td>
-<td>32</td>
-<td>5,803</td>
+<td>Estudios Pedagógicos</td>
+<td>44</td>
+<td>12,642</td>
+<td>1241</td>
+<td>Sí</td>
+<td>No</td>
 </tr>
 <tr class="odd">
+<td>Journal of the Chilean Chemical Society</td>
+<td>44</td>
+<td>17,365</td>
+<td>1838</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Maderas-Cienc Tecnol</td>
+<td>40</td>
+<td>10,261</td>
+<td>945</td>
+<td>Sí</td>
+<td>Sí</td>
+</tr>
+<tr class="odd">
+<td>Terapia Psicológica</td>
+<td>39</td>
+<td>6,845</td>
+<td>471</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr class="even">
 <td>Psykhe</td>
-<td>0718-2228</td>
-<td>6.71</td>
-<td>36</td>
-<td>5,853</td>
+<td>35</td>
+<td>6,655</td>
+<td>885</td>
+<td>Sí</td>
+<td>Sí</td>
+</tr>
+<tr class="odd">
+<td>Chungara Revista de Antropología Chilena</td>
+<td>35</td>
+<td>8,353</td>
+<td>1149</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Polis (Santiago)</td>
+<td>35</td>
+<td>7,111</td>
+<td>1042</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Revista de Biología Marina y Oceanografía</td>
+<td>34</td>
+<td>9,181</td>
+<td>1087</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Revista de Geografía Norte Grande</td>
+<td>32</td>
+<td>5,407</td>
+<td>935</td>
+<td>Sí</td>
+<td>Sí</td>
 </tr>
 </tbody>
 </table>
@@ -1893,70 +1874,70 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p><strong>Análisis institucional (top 5 por citaciones):</strong></p>
+<p><strong>Revistas de mayor impacto individual (datos definitivos Script 13):</strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 12%">
+<col style="width: 15%">
 <col style="width: 22%">
-<col style="width: 26%">
-<col style="width: 22%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>Revista</th>
 <th>Institución</th>
-<th>Revistas</th>
-<th>Total Citaciones</th>
-<th>Visibilidad Promedio</th>
-<th>H-index Promedio</th>
+<th>H-index</th>
+<th>Citaciones</th>
+<th>Acceso Abierto</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Pontificia Universidad Católica</td>
-<td>16</td>
-<td>16,339</td>
-<td>1.25</td>
-<td>10.25</td>
-</tr>
-<tr class="even">
 <td>JOTMI</td>
-<td>1</td>
-<td>13,671</td>
-<td>14.24</td>
-<td>51.00</td>
-</tr>
-<tr class="odd">
-<td>Chungara</td>
-<td>1</td>
-<td>7,883</td>
-<td>48.66</td>
-<td>34.00</td>
+<td>Independiente</td>
+<td>51</td>
+<td>13,607</td>
+<td>Sí</td>
 </tr>
 <tr class="even">
-<td>Universidad de Concepción</td>
-<td>5</td>
-<td>6,872</td>
-<td>2.49</td>
-<td>10.40</td>
+<td>Journal Chilean Chemical Society</td>
+<td>Sociedad Química</td>
+<td>44</td>
+<td>17,365</td>
+<td>Sí</td>
 </tr>
 <tr class="odd">
-<td>Universidad de Chile</td>
-<td>12</td>
-<td>5,459</td>
-<td>1.45</td>
-<td>7.67</td>
+<td>Estudios Pedagógicos</td>
+<td>U. Austral Chile</td>
+<td>44</td>
+<td>12,642</td>
+<td>Sí</td>
+</tr>
+<tr class="even">
+<td>Maderas-Cienc Tecnol</td>
+<td>U. del Bío-Bío</td>
+<td>40</td>
+<td>10,261</td>
+<td>Sí</td>
+</tr>
+<tr class="odd">
+<td>Terapia Psicológica</td>
+<td>Independiente</td>
+<td>39</td>
+<td>6,845</td>
+<td>Sí</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Correlaciones identificadas:</strong> - <strong>H-index vs visibilidad</strong>: 0.627 (correlación fuerte) - <strong>Productividad vs visibilidad</strong>: 0.075 (correlación débil) - <strong>Artículos OpenAlex vs citaciones</strong>: 0.562 (correlación moderada)</p>
 </section>
 <section id="implicaciones-para-estrategia-de-indexación" class="level4">
-<h4 class="anchored" data-anchor-id="implicaciones-para-estrategia-de-indexación">3.4.5 Implicaciones para estrategia de indexación</h4>
-<p><strong>Criterios de priorización actualizados:</strong> 1. <strong>Revistas estrella</strong> (5): Indexación prioritaria inmediata 2. <strong>Oportunidades de mejora</strong> (24): Alta productividad, potencial de impacto 3. <strong>Revistas emergentes</strong> (14): Crecimiento sostenido, H-index en desarrollo 4. <strong>Priorización institucional</strong>: UC y UChile como líderes en volumen</p>
+<h4 class="anchored" data-anchor-id="implicaciones-para-estrategia-de-indexación">3.4.4 Implicaciones para estrategia de indexación</h4>
+<p><strong>Criterios de priorización actualizados (basados en datos definitivos Script 13):</strong> 1. <strong>Revistas de élite</strong> (H-index ≥40): JOTMI (51), Estudios Pedagógicos (44), Journal Chilean Chemical Society (44), Maderas-Cienc Tecnol (40) 2. <strong>Revistas consolidadas</strong> (H-index 30-39): Terapia Psicológica (39), grupo de H-index 35 (Psykhe, Chungara, Polis), y Revista Biología Marina (34) 3. <strong>Revistas emergentes</strong> (H-index 20-29): Potencial de crecimiento hacia élite 4. <strong>Priorización institucional</strong>: Diversidad institucional en el top 10, con representación de UC, UChile, UACh, UBB</p>
 </section>
-<section id="análisis-openalex-ampliado-para-revistas-chilenas-activas" class="level4">
-<h4 class="anchored" data-anchor-id="análisis-openalex-ampliado-para-revistas-chilenas-activas">3.4.6 Análisis OpenAlex ampliado para revistas chilenas activas</h4>
+<section id="análisis-openalex-ampliado-para-revistas-chilenas-activas-resultados-definitivos" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-openalex-ampliado-para-revistas-chilenas-activas-resultados-definitivos">3.4.5 Análisis OpenAlex ampliado para revistas chilenas activas (RESULTADOS DEFINITIVOS)</h4>
 <p>Se realizó un enriquecimiento específico de datos OpenAlex para las <strong>316 revistas chilenas activas</strong>, obteniendo información detallada sobre políticas de acceso abierto, métricas de impacto y características editoriales.</p>
 <p><strong>Consideraciones Técnicas:</strong></p>
 <p><strong>Limitación metodológica:</strong> De las 316 revistas activas, <strong>12 revistas (3.8%) fueron excluidas</strong> del análisis OpenAlex por carecer de ISSN válido, requisito indispensable para consultas en la API de OpenAlex.</p>
@@ -2065,7 +2046,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p><strong>Revistas de Mayor Impacto:</strong></p>
+<p><strong>Revistas de Mayor Impacto (Análisis definitivo Script 13):</strong></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2114,6 +2095,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
+<p><strong>Nota:</strong> Esta tabla refleja los resultados del análisis ampliado (Script 13) que debe utilizarse como referencia definitiva para el informe y presentaciones.</p>
 <p><strong>Implicaciones Estratégicas:</strong></p>
 <ol type="1">
 <li><p><strong>Alta adopción de acceso abierto:</strong> El 94.6% de revistas indexadas son completamente OA, posicionando a Chile como líder regional.</p></li>
@@ -2720,6 +2702,20 @@ div.csl-indent {
 </section>
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-alperin2016peripheries" class="csl-entry" role="listitem">
+Alperin, J. P., Stranack, K., &amp; Garnett, A. (2016). On the Peripheries of Scholarly Infrastructure: A Look at the Journals Using Open Journal Systems. <em>Proceedings of the 21st International Conference on Science and Technology Indicators</em>. <a href="https://summit.sfu.ca/_flysystem/fedora/sfu_migrate/16763/ojsstats2016.pdf">https://summit.sfu.ca/_flysystem/fedora/sfu_migrate/16763/ojsstats2016.pdf</a>
+</div>
+<div id="ref-chavarro2025open" class="csl-entry" role="listitem">
+Chavarro, D., Alperin, J. P., &amp; Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. <em>Quantitative Science Studies</em>, <em>6</em>, 1039-1058. <a href="https://doi.org/10.1162/QSS.a.17">https://doi.org/10.1162/QSS.a.17</a>
+</div>
+<div id="ref-khanna2022recalibrating" class="csl-entry" role="listitem">
+Khanna, S., Ball, J., Alperin, J. P., &amp; Willinsky, J. (2022). Recalibrating the scope of scholarly publishing: A modest step in a vast decolonization process. <em>Quantitative Science Studies</em>, <em>3</em>(4), 912-930. <a href="https://doi.org/10.1162/qss_a_00228">https://doi.org/10.1162/qss_a_00228</a>
+</div>
+<div id="ref-khanna2024details" class="csl-entry" role="listitem">
+Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em>. Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/OCZNVY">https://doi.org/10.7910/DVN/OCZNVY</a>
+</div>
+</div>
 </section>
 <section id="colaboraciones" class="level2">
 <h2 class="anchored" data-anchor-id="colaboraciones">Colaboraciones</h2>
@@ -2945,25 +2941,11 @@ https://www.biotaxa.org/index.php/index/oai,La url no corresponde a una revista 
     └── ...</code></pre>
 
 
-
 </section>
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-alperin2016peripheries" class="csl-entry" role="listitem">
-Alperin, J. P., Stranack, K., &amp; Garnett, A. (2016). On the Peripheries of Scholarly Infrastructure: A Look at the Journals Using Open Journal Systems. <em>Proceedings of the 21st International Conference on Science and Technology Indicators</em>. <a href="http://ocs.editorial.upv.es/index.php/STI2016/STI2016/paper/viewFile/4543/2327">http://ocs.editorial.upv.es/index.php/STI2016/STI2016/paper/viewFile/4543/2327</a>
-</div>
-<div id="ref-chavarro2025open" class="csl-entry" role="listitem">
-Chavarro, D., Alperin, J. P., &amp; Willinsky, J. (2025). On the open road to universal indexing: OpenAlex and Open Journal Systems. <em>Quantitative Science Studies</em>, <em>6</em>, 1039-1058. <a href="https://doi.org/10.1162/QSS.a.17">https://doi.org/10.1162/QSS.a.17</a>
-</div>
-<div id="ref-khanna2022recalibrating" class="csl-entry" role="listitem">
-Khanna, S., Ball, J., Alperin, J. P., &amp; Willinsky, J. (2022). Recalibrating the scope of scholarly publishing: A modest step in a vast decolonization process. <em>Quantitative Science Studies</em>, <em>3</em>(4), 912-930. <a href="https://doi.org/10.1162/qss_a_00228">https://doi.org/10.1162/qss_a_00228</a>
-</div>
-<div id="ref-khanna2024details" class="csl-entry" role="listitem">
-Khanna, S., Raoni, J., Smecher, A., Alperin, J. P., Ball, J., &amp; Willinsky, J. (2024). <em>Details of publications using software by the Public Knowledge Project</em>. Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/OCZNVY">https://doi.org/10.7910/DVN/OCZNVY</a>
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilización</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Derechos de autor</h2><div class="quarto-appendix-contents"><div>Patricio Iván Pantaleo</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilización</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Derechos de autor</h2><div class="quarto-appendix-contents"><div>Patricio Iván Pantaleo</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
