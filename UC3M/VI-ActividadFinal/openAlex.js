@@ -1,5 +1,5 @@
 // ============================================================================
-// DESCARGAR TODOS LOS 32,463 REGISTROS DE OPENALEX - Limite API 10,000
+// DESCARGAR REGISTROS DE OPENALEX - Limite API 10,000
 // ============================================================================
 
 const API_BASE = 'https://api.openalex.org/works?filter=publication_year:2024,type:preprint,cited_by_count:>5&sort=cited_by_count:desc';
