@@ -84,7 +84,7 @@ Incluye:
 Descripción VoID del dataset:
 - Estadísticas: ~2500 tripletas, 58 entidades, 15 propiedades
 - Vocabularios usados: SKOS, Dublin Core, OWL
-- Formatos disponibles: Turtle (.ttl), RDF/XML (.rdf), N-Triples (.nt)
+- Formatos disponibles: Turtle (.ttl), RDF/XML (.rdf)
 
 ## 🔗 Namespaces
 
@@ -108,10 +108,19 @@ Descripción VoID del dataset:
 
 ## 📥 Descargas
 
-Archivos disponibles en formato Turtle, RDF/XML y N-Triples:
-- https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predvoc-skos.ttl
-- https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predrev-map.ttl
-- https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predvoc-instances.ttl
+Vocabulario disponible en múltiples formatos:
+
+**PredVoc-SKOS (Vocabulario):**
+- Turtle: [predvoc-skos.ttl](https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predvoc-skos.ttl)
+- RDF/XML: [predvoc-skos.rdf](https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predvoc-skos.rdf)
+
+**PredRev-MAP (Schema):**
+- Turtle: [predrev-map.ttl](https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predrev-map.ttl)
+
+**Otros archivos:**
+- [predvoc-instances.ttl](https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predvoc-instances.ttl) - Ejemplos revistas
+- [predvoc-void.ttl](https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predvoc-void.ttl) - Metadatos VoID
+- [predvoc-owl.owl](https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc/predvoc-owl.owl) - Extensión OWL
 
 ## 📄 Licencia
 

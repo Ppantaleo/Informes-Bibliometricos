@@ -15,14 +15,14 @@ predvoc:dataset a void:Dataset ;
     dcterms:creator "Grupo de UC3M" ;
     dcterms:publisher "Universidad Carlos III de Madrid" ;
     dcterms:created "2025-01-07"^^xsd:date ;
-    dcterms:modified "2025-01-07"^^xsd:date ;
+    dcterms:modified "2025-01-08"^^xsd:date ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     
     # Estadísticas del dataset
-    void:triples "2500"^^xsd:integer ;
-    void:entities "58"^^xsd:integer ;
-    void:properties "15"^^xsd:integer ;
-    void:distinctSubjects "58"^^xsd:integer ;
+    void:triples "562"^^xsd:integer ;
+    void:entities "57"^^xsd:integer ;
+    void:properties "16"^^xsd:integer ;
+    void:distinctSubjects "57"^^xsd:integer ;
     
     # Vocabularios utilizados
     void:vocabulary <http://www.w3.org/2004/02/skos/core#> ,
@@ -30,13 +30,12 @@ predvoc:dataset a void:Dataset ;
                     <http://purl.org/dc/terms/> ,
                     <http://www.w3.org/2002/07/owl#> ;
     
-    # Punto de acceso
-    void:sparqlEndpoint <https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc (archivos descargables)> ;
+    # Punto de acceso (sin endpoint SPARQL público, archivos descargables)
+    void:dataDump <http://purl.org/predvoc/predvoc-skos.ttl> ;
     
     # Dumps descargables
-    void:dataDump <http://purl.org/predvoc/predvoc.ttl> ,
-                  <http://purl.org/predvoc/predvoc.rdf> ,
-                  <http://purl.org/predvoc/predvoc.nt> ;
+    void:dataDump <http://purl.org/predvoc/predvoc-skos.ttl> ;
+    void:dataDump <http://purl.org/predvoc/predvoc-skos.rdf> ;
     
     # Ejemplo de recurso
     void:exampleResource predvoc:revista-secuestrada ,

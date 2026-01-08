@@ -1,0 +1,1138 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/predvoc#"
+     xml:base="http://purl.org/predvoc"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:predvoc="http://purl.org/predvoc/">
+    <owl:Ontology rdf:about="http://purl.org/predvoc"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/publisher -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hasTopConcept -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#related -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#related"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#topConceptOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/predvoc/ -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <dc:creator>Grupo UC3M</dc:creator>
+        <dc:description xml:lang="es">Vocabulario SKOS bilingüe para identificación de prácticas editoriales depredadoras en revistas científicas</dc:description>
+        <dc:publisher>Universidad Carlos III de Madrid</dc:publisher>
+        <dc:title xml:lang="en">PredVoc: Controlled Vocabulary of Predatory Publishing Indicators</dc:title>
+        <dc:title xml:lang="es">PredVoc: Vocabulario Controlado de Indicadores de Publicación Depredadora</dc:title>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-07</dcterms:created>
+        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-08</dcterms:modified>
+        <skos:hasTopConcept rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:hasTopConcept rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:hasTopConcept rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:hasTopConcept rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:hasTopConcept rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:hasTopConcept rdf:resource="http://purl.org/predvoc/sitio-web"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/aceptacion-inmediata -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/aceptacion-inmediata">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">acceptance without review</skos:altLabel>
+        <skos:altLabel xml:lang="es">aceptación sin revisión</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="en">Acceptance of manuscripts in impossibly short timeframes, typically less than 7 days</skos:definition>
+        <skos:definition xml:lang="es">Aceptación de manuscritos en plazos imposiblemente cortos, típicamente menos de 7 días</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">aceptación inmediata</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">immediate acceptance</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/revision-inexistente"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/tiempo-revision-sospechoso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/afiliacion-falsa -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/afiliacion-falsa">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">afiliación inventada</skos:altLabel>
+        <skos:altLabel xml:lang="en">invented affiliation</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:definition xml:lang="es">Afirmación de estar afiliada a instituciones académicas prestigiosas sin evidencia verificable</skos:definition>
+        <skos:definition xml:lang="en">Claim to be affiliated with prestigious academic institutions without verifiable evidence</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">afiliación institucional falsa</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">false institutional affiliation</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/comite-editorial-ficticio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/afiliacion-indexadores-falsa -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/afiliacion-indexadores-falsa">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">invented membership</skos:altLabel>
+        <skos:altLabel xml:lang="es">membresía inventada</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="es">Afirmación falsa de ser miembro o estar afiliado a organizaciones de indexación legítimas</skos:definition>
+        <skos:definition xml:lang="en">False claim of being a member or affiliated with legitimate indexing organizations</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">afiliación falsa a indexadores</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">false indexer affiliation</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/indexacion-falsa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/afiliaciones-contacto -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/afiliaciones-contacto">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="es">Indicadores sobre verificabilidad de afiliaciones institucionales y datos de contacto</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">Affiliations and Contact</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Afiliaciones y Contacto</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="http://purl.org/predvoc/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/apartado-postal-sospechoso -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/apartado-postal-sospechoso">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">casilla postal dudosa</skos:altLabel>
+        <skos:altLabel xml:lang="en">dubious mailbox</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:definition xml:lang="en">Exclusive use of PO box without real or verifiable physical address</skos:definition>
+        <skos:definition xml:lang="es">Uso exclusivo de apartado postal sin dirección física real o verificable</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">apartado postal sospechoso</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">suspicious PO box</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/direccion-falsa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/apc-excesivos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/apc-excesivos">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">costos desproporcionados</skos:altLabel>
+        <skos:altLabel xml:lang="en">disproportionate costs</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="en">Charging disproportionately high Article Processing Charges in relation to the editorial service provided</skos:definition>
+        <skos:definition xml:lang="es">Cobro de Article Processing Charges desproporcionadamente altos en relación al servicio editorial proporcionado</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">APC excesivos</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">excessive APC</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/apc-ocultos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/apc-ocultos">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">cargos no revelados</skos:altLabel>
+        <skos:altLabel xml:lang="en">undisclosed charges</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="es">La revista no informa claramente sobre los Article Processing Charges antes de la aceptación del manuscrito</skos:definition>
+        <skos:definition xml:lang="en">The journal does not clearly inform about Article Processing Charges before manuscript acceptance</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">APC ocultos</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">hidden APC</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/cargos-sorpresa"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-transparencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/ausencia-doble-ciego -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/ausencia-doble-ciego">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">non-anonymous review</skos:altLabel>
+        <skos:altLabel xml:lang="es">revisión no anónima</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="es">Falta de anonimato en el proceso de revisión cuando la revista afirma usar revisión doble ciego</skos:definition>
+        <skos:definition xml:lang="en">Lack of anonymity in the review process when the journal claims to use double-blind review</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">absence of double-blind</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">ausencia de doble ciego</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/ausencia-politicas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/ausencia-politicas">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">no editorial policies</skos:altLabel>
+        <skos:altLabel xml:lang="es">sin políticas editoriales</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="es">Falta de políticas claras sobre ética, plagio, conflictos de interés o procedimientos editoriales</skos:definition>
+        <skos:definition xml:lang="en">Lack of clear policies on ethics, plagiarism, conflicts of interest or editorial procedures</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">absence of policies</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">ausencia de políticas</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-transparencia"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/informacion-editorial-vaga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/autoplagio -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/autoplagio">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">content recycling</skos:altLabel>
+        <skos:altLabel xml:lang="es">reciclaje contenido</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="es">Publicación repetida del mismo contenido sin declaración de publicación previa</skos:definition>
+        <skos:definition xml:lang="en">Repeated publication of the same content without declaration of prior publication</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">autoplagio</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">self-plagiarism</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/publicacion-duplicada"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/bases-datos-dudosas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/bases-datos-dudosas">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">indexadores cuestionables</skos:altLabel>
+        <skos:altLabel xml:lang="en">questionable indexers</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="en">Affiliation with low-quality databases or with lax inclusion criteria</skos:definition>
+        <skos:definition xml:lang="es">Afiliación a bases de datos de baja calidad o con criterios de inclusión laxos</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">bases de datos dudosas</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">dubious databases</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/indexacion-falsa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/cargos-sorpresa -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/cargos-sorpresa">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">hidden fees</skos:altLabel>
+        <skos:altLabel xml:lang="es">tarifas ocultas</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="es">Aparición de cargos adicionales no mencionados previamente en el proceso de publicación</skos:definition>
+        <skos:definition xml:lang="en">Appearance of additional charges not previously mentioned in the publication process</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">cargos sorpresa</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">surprise charges</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/apc-ocultos"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/facturacion-fraudulenta"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/citaciones-falsas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/citaciones-falsas">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">citas fabricadas</skos:altLabel>
+        <skos:altLabel xml:lang="en">fabricated citations</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="en">Inclusion of non-existent or manipulated citations to inflate impact metrics</skos:definition>
+        <skos:definition xml:lang="es">Inclusión de citaciones inexistentes o manipuladas para inflar métricas de impacto</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">citaciones falsas</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">false citations</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/indices-manipulados"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/comite-editorial-ficticio -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/comite-editorial-ficticio">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">editores falsos</skos:altLabel>
+        <skos:altLabel xml:lang="en">fake editors</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="en">Use of academics&apos; names without their consent on the editorial board or invention of non-existent people</skos:definition>
+        <skos:definition xml:lang="es">Uso de nombres de académicos sin su consentimiento en el comité editorial o invención de personas inexistentes</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">comité editorial ficticio</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">fictitious editorial board</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/afiliacion-falsa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/conflicto-intereses-oculto -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/conflicto-intereses-oculto">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">COI no declarado</skos:altLabel>
+        <skos:altLabel xml:lang="en">undeclared COI</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="en">Failure to declare financial or personal relationships that could influence editorial decisions</skos:definition>
+        <skos:definition xml:lang="es">Falta de declaración de relaciones financieras o personales que podrían influir en decisiones editoriales</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">conflicto de intereses oculto</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">hidden conflict of interest</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-transparencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/contenido-contradictorio -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/contenido-contradictorio">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">inconsistent information</skos:altLabel>
+        <skos:altLabel xml:lang="es">información inconsistente</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="en">Presence of contradictory or inconsistent information in different sections of the website</skos:definition>
+        <skos:definition xml:lang="es">Presencia de información contradictoria o inconsistente en diferentes secciones del sitio web</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">contenido contradictorio</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">contradictory content</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/informacion-editorial-vaga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/descuentos-agresivos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/descuentos-agresivos">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">ofertas urgentes</skos:altLabel>
+        <skos:altLabel xml:lang="en">urgent offers</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="en">Use of pressure tactics with time-limited discounts to force quick submissions</skos:definition>
+        <skos:definition xml:lang="es">Uso de tácticas de presión con descuentos limitados en tiempo para forzar envíos rápidos</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">aggressive discounts</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">descuentos agresivos</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/ofertas-especiales-enganosas"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/spam-agresivo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/direccion-falsa -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/direccion-falsa">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">domicilio inexistente</skos:altLabel>
+        <skos:altLabel xml:lang="en">non-existent address</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:definition xml:lang="en">Use of postal address that does not correspond to actual publisher facilities</skos:definition>
+        <skos:definition xml:lang="es">Uso de dirección postal que no corresponde a instalaciones reales de la editorial</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">dirección física falsa</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">false physical address</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/direccion-residencial"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/sede-virtual"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/direccion-residencial -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/direccion-residencial">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">domicilio particular</skos:altLabel>
+        <skos:altLabel xml:lang="en">home address</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:definition xml:lang="en">Use of private residential address presented as professional editorial office</skos:definition>
+        <skos:definition xml:lang="es">Uso de dirección residencial particular presentada como oficina editorial profesional</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">dirección residencial</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">residential address</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/direccion-falsa"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/sede-virtual"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/email-gratuito -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/email-gratuito">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">correo no institucional</skos:altLabel>
+        <skos:altLabel xml:lang="en">non-institutional email</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:definition xml:lang="en">Use of free email services (Gmail, Yahoo) instead of institutional domain</skos:definition>
+        <skos:definition xml:lang="es">Uso de servicios de correo electrónico gratuitos (Gmail, Yahoo) en lugar de dominio institucional</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">editor&apos;s free email</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">email gratuito del editor</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/enlaces-rotos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/enlaces-rotos">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">links no funcionales</skos:altLabel>
+        <skos:altLabel xml:lang="en">non-functional links</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="en">Frequent presence of links that do not work or redirect to non-existent pages</skos:definition>
+        <skos:definition xml:lang="es">Presencia frecuente de enlaces que no funcionan o redirigen a páginas inexistentes</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">broken links</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">enlaces rotos</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/sitio-web-no-profesional"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/errores-ortograficos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/errores-ortograficos">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">errores gramaticales</skos:altLabel>
+        <skos:altLabel xml:lang="en">grammatical errors</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="en">Abundant presence of spelling, grammatical or automatic translation errors on the website</skos:definition>
+        <skos:definition xml:lang="es">Presencia abundante de errores ortográficos, gramaticales o de traducción automática en el sitio web</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">errores ortográficos frecuentes</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">frequent spelling errors</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/factor-impacto-falso -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/factor-impacto-falso">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">IF inventado</skos:altLabel>
+        <skos:altLabel xml:lang="en">fabricated IF</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="es">Publicación de factor de impacto inventado o no verificable por organismos oficiales</skos:definition>
+        <skos:definition xml:lang="en">Publication of invented or unverifiable impact factor by official bodies</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">factor de impacto falso</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">fake impact factor</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/factor-impacto-inflado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/factor-impacto-inflado -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/factor-impacto-inflado">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">IF exagerado</skos:altLabel>
+        <skos:altLabel xml:lang="en">exaggerated IF</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="en">Use of techniques to artificially inflate impact factor through self-citation or citation agreements</skos:definition>
+        <skos:definition xml:lang="es">Uso de técnicas para inflar artificialmente el factor de impacto mediante auto-citación o acuerdos de citación</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">factor de impacto inflado</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">inflated impact factor</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/factor-impacto-falso"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/indices-manipulados"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/facturacion-fraudulenta -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/facturacion-fraudulenta">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">cobros engañosos</skos:altLabel>
+        <skos:altLabel xml:lang="en">deceptive charges</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="en">Charging additional unannounced fees or using deceptive billing practices</skos:definition>
+        <skos:definition xml:lang="es">Cobro de tarifas adicionales no anunciadas o uso de prácticas de facturación engañosas</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">facturación fraudulenta</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">fraudulent billing</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/apc-ocultos"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/cargos-sorpresa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/falta-informacion-contacto -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/falta-informacion-contacto">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">contacto no verificable</skos:altLabel>
+        <skos:altLabel xml:lang="en">unverifiable contact</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="en">Absence or incomplete information about physical address, telephone or editorial contact</skos:definition>
+        <skos:definition xml:lang="es">Ausencia o información incompleta sobre dirección física, teléfono o contacto editorial</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">falta información de contacto</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">lack of contact information</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/direccion-falsa"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/telefono-inexistente"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/falta-transparencia -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/falta-transparencia">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="en">Absence of clear information about editorial processes, costs or policies</skos:definition>
+        <skos:definition xml:lang="es">Ausencia de información clara sobre procesos editoriales, costos o políticas</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">falta de transparencia</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">lack of transparency</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/apc-ocultos"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/ausencia-politicas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/indexacion-falsa -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/indexacion-falsa">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">fraudulent indexing</skos:altLabel>
+        <skos:altLabel xml:lang="es">indexación fraudulenta</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="es">Afirmación de estar indexada en bases de datos prestigiosas (Scopus, WoS) sin evidencia verificable</skos:definition>
+        <skos:definition xml:lang="en">Claim to be indexed in prestigious databases (Scopus, WoS) without verifiable evidence</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">falsely claimed indexing</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">indexación falsamente reclamada</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/bases-datos-dudosas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/indexacion-metricas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/indexacion-metricas">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="es">Indicadores sobre afirmaciones falsas de indexación y métricas de impacto</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">Indexación y Métricas</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Indexing and Metrics</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="http://purl.org/predvoc/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/indices-manipulados -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/indices-manipulados">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">inflated metrics</skos:altLabel>
+        <skos:altLabel xml:lang="es">métricas infladas</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="en">Artificial manipulation of metrics through cross-citations or excessive self-citation</skos:definition>
+        <skos:definition xml:lang="es">Manipulación artificial de métricas mediante citaciones cruzadas o auto-citación excesiva</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">manipulated indices</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">índices manipulados</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/citaciones-falsas"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/metricas-inventadas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/informacion-editorial-vaga -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/informacion-editorial-vaga">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">detalles imprecisos</skos:altLabel>
+        <skos:altLabel xml:lang="en">imprecise details</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="es">Descripciones vagas o imprecisas sobre el proceso editorial, alcance de la revista o políticas</skos:definition>
+        <skos:definition xml:lang="en">Vague or imprecise descriptions about the editorial process, journal scope or policies</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">información editorial vaga</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">vague editorial information</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/ausencia-politicas"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-transparencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/integridad-editorial -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/integridad-editorial">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="es">Indicadores relacionados con la honestidad e integridad del proceso editorial</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">Editorial Integrity</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Integridad Editorial</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="http://purl.org/predvoc/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/issn-falso -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/issn-falso">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">ISSN inventado</skos:altLabel>
+        <skos:altLabel xml:lang="en">fabricated ISSN</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="en">Use of an ISSN not officially assigned by the ISSN network or use of ISSN belonging to another journal</skos:definition>
+        <skos:definition xml:lang="es">Uso de un ISSN no asignado oficialmente por la red ISSN o uso de ISSN perteneciente a otra revista</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">ISSN falso</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">fake ISSN</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/revista-secuestrada"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/manipulacion-autoria -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/manipulacion-autoria">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">autoría ficticia</skos:altLabel>
+        <skos:altLabel xml:lang="en">fictitious authorship</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="en">Inclusion of authors who did not contribute significantly or exclusion of legitimate authors</skos:definition>
+        <skos:definition xml:lang="es">Inclusión de autores que no contribuyeron significativamente o exclusión de autores legítimos</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">authorship manipulation</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">manipulación de autoría</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/metricas-inventadas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/metricas-inventadas">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">fake indices</skos:altLabel>
+        <skos:altLabel xml:lang="es">índices falsos</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/indexacion-metricas"/>
+        <skos:definition xml:lang="es">Creación de métricas de calidad propias sin metodología transparente o verificable</skos:definition>
+        <skos:definition xml:lang="en">Creation of own quality metrics without transparent or verifiable methodology</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">invented metrics</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">métricas inventadas</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/indices-manipulados"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/ofertas-especiales-enganosas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/ofertas-especiales-enganosas">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">fraudulent promotions</skos:altLabel>
+        <skos:altLabel xml:lang="es">promociones fraudulentas</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="es">Promociones que prometen beneficios que luego no se materializan o tienen condiciones ocultas</skos:definition>
+        <skos:definition xml:lang="en">Promotions that promise benefits that later do not materialize or have hidden conditions</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">deceptive special offers</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">ofertas especiales engañosas</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/descuentos-agresivos"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-transparencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/plagio-editorial -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/plagio-editorial">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">apropiación contenido</skos:altLabel>
+        <skos:altLabel xml:lang="en">content appropriation</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="en">Appropriation of academic content from other sources without proper attribution or permission</skos:definition>
+        <skos:definition xml:lang="es">Apropiación de contenido académico de otras fuentes sin atribución o permiso adecuado</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">editorial plagiarism</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">plagio editorial</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/publicacion-duplicada"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/politica-reembolso-inexistente -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/politica-reembolso-inexistente">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">no returns</skos:altLabel>
+        <skos:altLabel xml:lang="es">sin devoluciones</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="en">Absence of clear refund policy or systematic rejection of legitimate requests</skos:definition>
+        <skos:definition xml:lang="es">Ausencia de política clara de reembolso o rechazo sistemático de solicitudes legítimas</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">no refund policy</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">política de reembolso inexistente</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-transparencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/practicas-comerciales -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/practicas-comerciales">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="es">Indicadores sobre transparencia económica y prácticas de cobro</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">Business Practices</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Prácticas Comerciales</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="http://purl.org/predvoc/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/presion-publicacion -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/presion-publicacion">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">coercive tactics</skos:altLabel>
+        <skos:altLabel xml:lang="es">tácticas coercitivas</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="en">Use of pressure tactics to force authors to publish quickly or without adequate review</skos:definition>
+        <skos:definition xml:lang="es">Uso de tácticas de presión para forzar a autores a publicar rápidamente o sin revisión adecuada</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">presión para publicación</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">publication pressure</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/descuentos-agresivos"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/spam-agresivo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/publicacion-duplicada -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/publicacion-duplicada">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">doble publicación</skos:altLabel>
+        <skos:altLabel xml:lang="en">double publication</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="es">Publicación del mismo artículo en múltiples revistas sin notificación apropiada</skos:definition>
+        <skos:definition xml:lang="en">Publication of the same article in multiple journals without appropriate notification</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">duplicate publication</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">publicación duplicada</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/autoplagio"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/plagio-editorial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/retractacion-no-transparente -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/retractacion-no-transparente">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">hidden retraction</skos:altLabel>
+        <skos:altLabel xml:lang="es">retractación oculta</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="es">Retiro de artículos sin notificación pública clara o justificación adecuada</skos:definition>
+        <skos:definition xml:lang="en">Withdrawal of articles without clear public notification or adequate justification</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">non-transparent retraction</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">retractación no transparente</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-transparencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/revision-inexistente -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/revision-inexistente">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">ausencia de revisión</skos:altLabel>
+        <skos:altLabel xml:lang="en">no peer review</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="es">La revista afirma realizar revisión por pares pero no existe evidencia de que se lleve a cabo</skos:definition>
+        <skos:definition xml:lang="en">The journal claims to perform peer review but there is no evidence that it is carried out</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">nonexistent review</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">revisión inexistente</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/aceptacion-inmediata"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/revision-pagada -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/revision-pagada">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">purchased review</skos:altLabel>
+        <skos:altLabel xml:lang="es">revisión comprada</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="es">Oferta de revisión por pares favorable a cambio de pago adicional</skos:definition>
+        <skos:definition xml:lang="en">Offer of favorable peer review in exchange for additional payment</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">paid review</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">revisión pagada</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/facturacion-fraudulenta"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/revision-pares -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/revision-pares">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="es">Indicadores sobre la calidad y existencia del proceso de revisión por pares</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">Peer Review</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Revisión por Pares</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="http://purl.org/predvoc/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/revision-superficial -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/revision-superficial">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">inadequate review</skos:altLabel>
+        <skos:altLabel xml:lang="es">revisión inadecuada</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="es">Proceso de revisión que carece de profundidad o rigor científico adecuado</skos:definition>
+        <skos:definition xml:lang="en">Review process that lacks adequate depth or scientific rigor</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">revisión superficial</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">superficial review</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/tiempo-revision-sospechoso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/revisores-ficticios -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/revisores-ficticios">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">fake reviewers</skos:altLabel>
+        <skos:altLabel xml:lang="es">revisores inventados</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="en">Use of false or stolen identities to simulate peer review process</skos:definition>
+        <skos:definition xml:lang="es">Uso de identidades falsas o robadas para simular proceso de revisión por pares</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">fictitious reviewers</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">revisores ficticios</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/comite-editorial-ficticio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/revisores-no-cualificados -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/revisores-no-cualificados">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">inexperienced reviewers</skos:altLabel>
+        <skos:altLabel xml:lang="es">revisores sin experiencia</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="en">Use of reviewers without appropriate expertise or credentials in the subject area</skos:definition>
+        <skos:definition xml:lang="es">Uso de revisores sin expertise o credenciales apropiadas en el área temática</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">revisores no cualificados</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">unqualified reviewers</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/revision-superficial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/revista-secuestrada -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/revista-secuestrada">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">journal hijacking</skos:altLabel>
+        <skos:altLabel xml:lang="es">revista clonada</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/integridad-editorial"/>
+        <skos:definition xml:lang="en">Fraudulent website that duplicates the identity of an existing legitimate journal, including ISSN, name and appearance, with the goal of collecting APC without providing real editorial services</skos:definition>
+        <skos:definition xml:lang="es">Sitio web fraudulento que duplica la identidad de una revista legítima existente, incluyendo ISSN, nombre y apariencia, con el objetivo de cobrar APC sin proporcionar servicios editoriales reales</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">hijacked journal</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">revista secuestrada</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/issn-falso"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/sitio-web-clonado"/>
+        <skos:scopeNote xml:lang="es">Distinguir de &apos;revista pirata&apos; que reproduce contenido sin permiso. La revista secuestrada falsifica la identidad completa de la publicación original</skos:scopeNote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/sede-virtual -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/sede-virtual">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">non-existent office</skos:altLabel>
+        <skos:altLabel xml:lang="es">oficina inexistente</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:definition xml:lang="en">Use of virtual office address or coworking space presented as permanent headquarters</skos:definition>
+        <skos:definition xml:lang="es">Uso de dirección de oficina virtual o espacio de coworking presentado como sede permanente</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">sede virtual</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">virtual headquarters</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/direccion-falsa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/sitio-web -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/sitio-web">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="es">Indicadores sobre calidad y transparencia del sitio web de la revista</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">Sitio Web y Comunicación</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Website and Communication</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="http://purl.org/predvoc/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/sitio-web-clonado -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/sitio-web-clonado">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">duplicate page</skos:altLabel>
+        <skos:altLabel xml:lang="es">página duplicada</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="es">Copia o imitación del diseño y contenido del sitio web de una revista legítima</skos:definition>
+        <skos:definition xml:lang="en">Copy or imitation of the design and content of a legitimate journal&apos;s website</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">cloned website</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">sitio web clonado</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/revista-secuestrada"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/sitio-web-no-profesional -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/sitio-web-no-profesional">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">poor website</skos:altLabel>
+        <skos:altLabel xml:lang="es">página web deficiente</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/sitio-web"/>
+        <skos:definition xml:lang="es">Sitio web con diseño amateur, errores técnicos frecuentes o funcionalidad limitada</skos:definition>
+        <skos:definition xml:lang="en">Website with amateur design, frequent technical errors or limited functionality</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="es">sitio web no profesional</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">unprofessional website</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/spam-agresivo -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/spam-agresivo">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="es">correos masivos no solicitados</skos:altLabel>
+        <skos:altLabel xml:lang="en">unsolicited mass emails</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/practicas-comerciales"/>
+        <skos:definition xml:lang="es">Envío masivo de correos electrónicos no solicitados con solicitudes de manuscritos</skos:definition>
+        <skos:definition xml:lang="en">Mass sending of unsolicited emails with manuscript solicitations</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">aggressive spam</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">spam agresivo</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/presion-publicacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/telefono-inexistente -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/telefono-inexistente">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">fake number</skos:altLabel>
+        <skos:altLabel xml:lang="es">número falso</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/afiliaciones-contacto"/>
+        <skos:definition xml:lang="en">Provision of telephone number that does not work or does not correspond to the publisher</skos:definition>
+        <skos:definition xml:lang="es">Provisión de número telefónico que no funciona o no corresponde a la editorial</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">non-existent phone</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">teléfono inexistente</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/falta-informacion-contacto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/predvoc/tiempo-revision-sospechoso -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/predvoc/tiempo-revision-sospechoso">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">instant review</skos:altLabel>
+        <skos:altLabel xml:lang="es">revisión instantánea</skos:altLabel>
+        <skos:broader rdf:resource="http://purl.org/predvoc/revision-pares"/>
+        <skos:definition xml:lang="es">Promesas de tiempos de revisión irrealistamente cortos, típicamente menos de dos semanas</skos:definition>
+        <skos:definition xml:lang="en">Promises of unrealistically short review times, typically less than two weeks</skos:definition>
+        <skos:inScheme rdf:resource="http://purl.org/predvoc/"/>
+        <skos:prefLabel xml:lang="en">suspiciously fast review time</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">tiempo de revisión sospechosamente rápido</skos:prefLabel>
+        <skos:related rdf:resource="http://purl.org/predvoc/aceptacion-inmediata"/>
+        <skos:related rdf:resource="http://purl.org/predvoc/revision-superficial"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

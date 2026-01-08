@@ -1,4 +1,4 @@
-@prefix : <http://purl.org/predvoc/> .
+@prefix : <http://purl.org/predvoc#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -8,9 +8,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix predvoc: <http://purl.org/predvoc/> .
-@base <http://purl.org/predvoc/> .
+@base <http://purl.org/predvoc> .
 
-<http://purl.org/predvoc/> rdf:type owl:Ontology .
+<http://purl.org/predvoc> rdf:type owl:Ontology .
 
 #################################################################
 #    Annotation properties
@@ -105,22 +105,22 @@ skos:ConceptScheme rdf:type owl:Class .
 #################################################################
 
 ###  http://purl.org/predvoc/
-<http://purl.org/predvoc/> rdf:type owl:NamedIndividual ,
-                                    skos:ConceptScheme ;
-                           dc:creator "Grupo UC3M" ;
-                           dc:description "Vocabulario SKOS bilingüe para identificación de prácticas editoriales depredadoras en revistas científicas"@es ;
-                           dc:publisher "Universidad Carlos III de Madrid" ;
-                           dc:title "PredVoc: Controlled Vocabulary of Predatory Publishing Indicators"@en ,
-                                    "PredVoc: Vocabulario Controlado de Indicadores de Publicación Depredadora"@es ;
-                           dcterms:created "2025-01-07"^^xsd:date ;
-                           dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-                           dcterms:modified "2025-01-07"^^xsd:date ;
-                           skos:hasTopConcept predvoc:afiliaciones-contacto ,
-                                              predvoc:indexacion-metricas ,
-                                              predvoc:integridad-editorial ,
-                                              predvoc:practicas-comerciales ,
-                                              predvoc:revision-pares ,
-                                              predvoc:sitio-web .
+predvoc: rdf:type owl:NamedIndividual ,
+                  skos:ConceptScheme ;
+         dc:creator "Grupo UC3M" ;
+         dc:description "Vocabulario SKOS bilingüe para identificación de prácticas editoriales depredadoras en revistas científicas"@es ;
+         dc:publisher "Universidad Carlos III de Madrid" ;
+         dc:title "PredVoc: Controlled Vocabulary of Predatory Publishing Indicators"@en ,
+                  "PredVoc: Vocabulario Controlado de Indicadores de Publicación Depredadora"@es ;
+         dcterms:created "2025-01-07"^^xsd:date ;
+         dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+         dcterms:modified "2025-01-08"^^xsd:date ;
+         skos:hasTopConcept predvoc:afiliaciones-contacto ,
+                            predvoc:indexacion-metricas ,
+                            predvoc:integridad-editorial ,
+                            predvoc:practicas-comerciales ,
+                            predvoc:revision-pares ,
+                            predvoc:sitio-web .
 
 
 ###  http://purl.org/predvoc/aceptacion-inmediata
@@ -131,10 +131,11 @@ predvoc:aceptacion-inmediata rdf:type owl:NamedIndividual ,
                              skos:broader predvoc:revision-pares ;
                              skos:definition "Acceptance of manuscripts in impossibly short timeframes, typically less than 7 days"@en ,
                                              "Aceptación de manuscritos en plazos imposiblemente cortos, típicamente menos de 7 días"@es ;
-                             skos:inScheme <http://purl.org/predvoc/> ;
+                             skos:inScheme predvoc: ;
                              skos:prefLabel "aceptación inmediata"@es ,
                                             "immediate acceptance"@en ;
-                             skos:related predvoc:revision-inexistente .
+                             skos:related predvoc:revision-inexistente ,
+                                          predvoc:tiempo-revision-sospechoso .
 
 
 ###  http://purl.org/predvoc/afiliacion-falsa
@@ -145,19 +146,48 @@ predvoc:afiliacion-falsa rdf:type owl:NamedIndividual ,
                          skos:broader predvoc:afiliaciones-contacto ;
                          skos:definition "Afirmación de estar afiliada a instituciones académicas prestigiosas sin evidencia verificable"@es ,
                                          "Claim to be affiliated with prestigious academic institutions without verifiable evidence"@en ;
-                         skos:inScheme <http://purl.org/predvoc/> ;
+                         skos:inScheme predvoc: ;
                          skos:prefLabel "afiliación institucional falsa"@es ,
-                                        "false institutional affiliation"@en .
+                                        "false institutional affiliation"@en ;
+                         skos:related predvoc:comite-editorial-ficticio .
+
+
+###  http://purl.org/predvoc/afiliacion-indexadores-falsa
+predvoc:afiliacion-indexadores-falsa rdf:type owl:NamedIndividual ,
+                                              skos:Concept ;
+                                     skos:altLabel "invented membership"@en ,
+                                                   "membresía inventada"@es ;
+                                     skos:broader predvoc:indexacion-metricas ;
+                                     skos:definition "Afirmación falsa de ser miembro o estar afiliado a organizaciones de indexación legítimas"@es ,
+                                                     "False claim of being a member or affiliated with legitimate indexing organizations"@en ;
+                                     skos:inScheme predvoc: ;
+                                     skos:prefLabel "afiliación falsa a indexadores"@es ,
+                                                    "false indexer affiliation"@en ;
+                                     skos:related predvoc:indexacion-falsa .
 
 
 ###  http://purl.org/predvoc/afiliaciones-contacto
 predvoc:afiliaciones-contacto rdf:type owl:NamedIndividual ,
                                        skos:Concept ;
                               skos:definition "Indicadores sobre verificabilidad de afiliaciones institucionales y datos de contacto"@es ;
-                              skos:inScheme <http://purl.org/predvoc/> ;
+                              skos:inScheme predvoc: ;
                               skos:prefLabel "Affiliations and Contact"@en ,
                                              "Afiliaciones y Contacto"@es ;
-                              skos:topConceptOf <http://purl.org/predvoc/> .
+                              skos:topConceptOf predvoc: .
+
+
+###  http://purl.org/predvoc/apartado-postal-sospechoso
+predvoc:apartado-postal-sospechoso rdf:type owl:NamedIndividual ,
+                                            skos:Concept ;
+                                   skos:altLabel "casilla postal dudosa"@es ,
+                                                 "dubious mailbox"@en ;
+                                   skos:broader predvoc:afiliaciones-contacto ;
+                                   skos:definition "Exclusive use of PO box without real or verifiable physical address"@en ,
+                                                   "Uso exclusivo de apartado postal sin dirección física real o verificable"@es ;
+                                   skos:inScheme predvoc: ;
+                                   skos:prefLabel "apartado postal sospechoso"@es ,
+                                                  "suspicious PO box"@en ;
+                                   skos:related predvoc:direccion-falsa .
 
 
 ###  http://purl.org/predvoc/apc-excesivos
@@ -168,7 +198,7 @@ predvoc:apc-excesivos rdf:type owl:NamedIndividual ,
                       skos:broader predvoc:practicas-comerciales ;
                       skos:definition "Charging disproportionately high Article Processing Charges in relation to the editorial service provided"@en ,
                                       "Cobro de Article Processing Charges desproporcionadamente altos en relación al servicio editorial proporcionado"@es ;
-                      skos:inScheme <http://purl.org/predvoc/> ;
+                      skos:inScheme predvoc: ;
                       skos:prefLabel "APC excesivos"@es ,
                                      "excessive APC"@en .
 
@@ -181,10 +211,96 @@ predvoc:apc-ocultos rdf:type owl:NamedIndividual ,
                     skos:broader predvoc:practicas-comerciales ;
                     skos:definition "La revista no informa claramente sobre los Article Processing Charges antes de la aceptación del manuscrito"@es ,
                                     "The journal does not clearly inform about Article Processing Charges before manuscript acceptance"@en ;
-                    skos:inScheme <http://purl.org/predvoc/> ;
+                    skos:inScheme predvoc: ;
                     skos:prefLabel "APC ocultos"@es ,
                                    "hidden APC"@en ;
-                    skos:related predvoc:falta-transparencia .
+                    skos:related predvoc:cargos-sorpresa ,
+                                 predvoc:falta-transparencia .
+
+
+###  http://purl.org/predvoc/ausencia-doble-ciego
+predvoc:ausencia-doble-ciego rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             skos:altLabel "non-anonymous review"@en ,
+                                           "revisión no anónima"@es ;
+                             skos:broader predvoc:revision-pares ;
+                             skos:definition "Falta de anonimato en el proceso de revisión cuando la revista afirma usar revisión doble ciego"@es ,
+                                             "Lack of anonymity in the review process when the journal claims to use double-blind review"@en ;
+                             skos:inScheme predvoc: ;
+                             skos:prefLabel "absence of double-blind"@en ,
+                                            "ausencia de doble ciego"@es .
+
+
+###  http://purl.org/predvoc/ausencia-politicas
+predvoc:ausencia-politicas rdf:type owl:NamedIndividual ,
+                                    skos:Concept ;
+                           skos:altLabel "no editorial policies"@en ,
+                                         "sin políticas editoriales"@es ;
+                           skos:broader predvoc:sitio-web ;
+                           skos:definition "Falta de políticas claras sobre ética, plagio, conflictos de interés o procedimientos editoriales"@es ,
+                                           "Lack of clear policies on ethics, plagiarism, conflicts of interest or editorial procedures"@en ;
+                           skos:inScheme predvoc: ;
+                           skos:prefLabel "absence of policies"@en ,
+                                          "ausencia de políticas"@es ;
+                           skos:related predvoc:falta-transparencia ,
+                                        predvoc:informacion-editorial-vaga .
+
+
+###  http://purl.org/predvoc/autoplagio
+predvoc:autoplagio rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:altLabel "content recycling"@en ,
+                                 "reciclaje contenido"@es ;
+                   skos:broader predvoc:integridad-editorial ;
+                   skos:definition "Publicación repetida del mismo contenido sin declaración de publicación previa"@es ,
+                                   "Repeated publication of the same content without declaration of prior publication"@en ;
+                   skos:inScheme predvoc: ;
+                   skos:prefLabel "autoplagio"@es ,
+                                  "self-plagiarism"@en ;
+                   skos:related predvoc:publicacion-duplicada .
+
+
+###  http://purl.org/predvoc/bases-datos-dudosas
+predvoc:bases-datos-dudosas rdf:type owl:NamedIndividual ,
+                                     skos:Concept ;
+                            skos:altLabel "indexadores cuestionables"@es ,
+                                          "questionable indexers"@en ;
+                            skos:broader predvoc:indexacion-metricas ;
+                            skos:definition "Affiliation with low-quality databases or with lax inclusion criteria"@en ,
+                                            "Afiliación a bases de datos de baja calidad o con criterios de inclusión laxos"@es ;
+                            skos:inScheme predvoc: ;
+                            skos:prefLabel "bases de datos dudosas"@es ,
+                                           "dubious databases"@en ;
+                            skos:related predvoc:indexacion-falsa .
+
+
+###  http://purl.org/predvoc/cargos-sorpresa
+predvoc:cargos-sorpresa rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:altLabel "hidden fees"@en ,
+                                      "tarifas ocultas"@es ;
+                        skos:broader predvoc:practicas-comerciales ;
+                        skos:definition "Aparición de cargos adicionales no mencionados previamente en el proceso de publicación"@es ,
+                                        "Appearance of additional charges not previously mentioned in the publication process"@en ;
+                        skos:inScheme predvoc: ;
+                        skos:prefLabel "cargos sorpresa"@es ,
+                                       "surprise charges"@en ;
+                        skos:related predvoc:apc-ocultos ,
+                                     predvoc:facturacion-fraudulenta .
+
+
+###  http://purl.org/predvoc/citaciones-falsas
+predvoc:citaciones-falsas rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          skos:altLabel "citas fabricadas"@es ,
+                                        "fabricated citations"@en ;
+                          skos:broader predvoc:indexacion-metricas ;
+                          skos:definition "Inclusion of non-existent or manipulated citations to inflate impact metrics"@en ,
+                                          "Inclusión de citaciones inexistentes o manipuladas para inflar métricas de impacto"@es ;
+                          skos:inScheme predvoc: ;
+                          skos:prefLabel "citaciones falsas"@es ,
+                                         "false citations"@en ;
+                          skos:related predvoc:indices-manipulados .
 
 
 ###  http://purl.org/predvoc/comite-editorial-ficticio
@@ -195,9 +311,53 @@ predvoc:comite-editorial-ficticio rdf:type owl:NamedIndividual ,
                                   skos:broader predvoc:integridad-editorial ;
                                   skos:definition "Use of academics' names without their consent on the editorial board or invention of non-existent people"@en ,
                                                   "Uso de nombres de académicos sin su consentimiento en el comité editorial o invención de personas inexistentes"@es ;
-                                  skos:inScheme <http://purl.org/predvoc/> ;
+                                  skos:inScheme predvoc: ;
                                   skos:prefLabel "comité editorial ficticio"@es ,
-                                                 "fictitious editorial board"@en .
+                                                 "fictitious editorial board"@en ;
+                                  skos:related predvoc:afiliacion-falsa .
+
+
+###  http://purl.org/predvoc/conflicto-intereses-oculto
+predvoc:conflicto-intereses-oculto rdf:type owl:NamedIndividual ,
+                                            skos:Concept ;
+                                   skos:altLabel "COI no declarado"@es ,
+                                                 "undeclared COI"@en ;
+                                   skos:broader predvoc:integridad-editorial ;
+                                   skos:definition "Failure to declare financial or personal relationships that could influence editorial decisions"@en ,
+                                                   "Falta de declaración de relaciones financieras o personales que podrían influir en decisiones editoriales"@es ;
+                                   skos:inScheme predvoc: ;
+                                   skos:prefLabel "conflicto de intereses oculto"@es ,
+                                                  "hidden conflict of interest"@en ;
+                                   skos:related predvoc:falta-transparencia .
+
+
+###  http://purl.org/predvoc/contenido-contradictorio
+predvoc:contenido-contradictorio rdf:type owl:NamedIndividual ,
+                                          skos:Concept ;
+                                 skos:altLabel "inconsistent information"@en ,
+                                               "información inconsistente"@es ;
+                                 skos:broader predvoc:sitio-web ;
+                                 skos:definition "Presence of contradictory or inconsistent information in different sections of the website"@en ,
+                                                 "Presencia de información contradictoria o inconsistente en diferentes secciones del sitio web"@es ;
+                                 skos:inScheme predvoc: ;
+                                 skos:prefLabel "contenido contradictorio"@es ,
+                                                "contradictory content"@en ;
+                                 skos:related predvoc:informacion-editorial-vaga .
+
+
+###  http://purl.org/predvoc/descuentos-agresivos
+predvoc:descuentos-agresivos rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             skos:altLabel "ofertas urgentes"@es ,
+                                           "urgent offers"@en ;
+                             skos:broader predvoc:practicas-comerciales ;
+                             skos:definition "Use of pressure tactics with time-limited discounts to force quick submissions"@en ,
+                                             "Uso de tácticas de presión con descuentos limitados en tiempo para forzar envíos rápidos"@es ;
+                             skos:inScheme predvoc: ;
+                             skos:prefLabel "aggressive discounts"@en ,
+                                            "descuentos agresivos"@es ;
+                             skos:related predvoc:ofertas-especiales-enganosas ,
+                                          predvoc:spam-agresivo .
 
 
 ###  http://purl.org/predvoc/direccion-falsa
@@ -208,9 +368,26 @@ predvoc:direccion-falsa rdf:type owl:NamedIndividual ,
                         skos:broader predvoc:afiliaciones-contacto ;
                         skos:definition "Use of postal address that does not correspond to actual publisher facilities"@en ,
                                         "Uso de dirección postal que no corresponde a instalaciones reales de la editorial"@es ;
-                        skos:inScheme <http://purl.org/predvoc/> ;
+                        skos:inScheme predvoc: ;
                         skos:prefLabel "dirección física falsa"@es ,
-                                       "false physical address"@en .
+                                       "false physical address"@en ;
+                        skos:related predvoc:direccion-residencial ,
+                                     predvoc:sede-virtual .
+
+
+###  http://purl.org/predvoc/direccion-residencial
+predvoc:direccion-residencial rdf:type owl:NamedIndividual ,
+                                       skos:Concept ;
+                              skos:altLabel "domicilio particular"@es ,
+                                            "home address"@en ;
+                              skos:broader predvoc:afiliaciones-contacto ;
+                              skos:definition "Use of private residential address presented as professional editorial office"@en ,
+                                              "Uso de dirección residencial particular presentada como oficina editorial profesional"@es ;
+                              skos:inScheme predvoc: ;
+                              skos:prefLabel "dirección residencial"@es ,
+                                             "residential address"@en ;
+                              skos:related predvoc:direccion-falsa ,
+                                           predvoc:sede-virtual .
 
 
 ###  http://purl.org/predvoc/email-gratuito
@@ -221,9 +398,23 @@ predvoc:email-gratuito rdf:type owl:NamedIndividual ,
                        skos:broader predvoc:afiliaciones-contacto ;
                        skos:definition "Use of free email services (Gmail, Yahoo) instead of institutional domain"@en ,
                                        "Uso de servicios de correo electrónico gratuitos (Gmail, Yahoo) en lugar de dominio institucional"@es ;
-                       skos:inScheme <http://purl.org/predvoc/> ;
+                       skos:inScheme predvoc: ;
                        skos:prefLabel "editor's free email"@en ,
                                       "email gratuito del editor"@es .
+
+
+###  http://purl.org/predvoc/enlaces-rotos
+predvoc:enlaces-rotos rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:altLabel "links no funcionales"@es ,
+                                    "non-functional links"@en ;
+                      skos:broader predvoc:sitio-web ;
+                      skos:definition "Frequent presence of links that do not work or redirect to non-existent pages"@en ,
+                                      "Presencia frecuente de enlaces que no funcionan o redirigen a páginas inexistentes"@es ;
+                      skos:inScheme predvoc: ;
+                      skos:prefLabel "broken links"@en ,
+                                     "enlaces rotos"@es ;
+                      skos:related predvoc:sitio-web-no-profesional .
 
 
 ###  http://purl.org/predvoc/errores-ortograficos
@@ -234,7 +425,7 @@ predvoc:errores-ortograficos rdf:type owl:NamedIndividual ,
                              skos:broader predvoc:sitio-web ;
                              skos:definition "Abundant presence of spelling, grammatical or automatic translation errors on the website"@en ,
                                              "Presencia abundante de errores ortográficos, gramaticales o de traducción automática en el sitio web"@es ;
-                             skos:inScheme <http://purl.org/predvoc/> ;
+                             skos:inScheme predvoc: ;
                              skos:prefLabel "errores ortográficos frecuentes"@es ,
                                             "frequent spelling errors"@en .
 
@@ -247,9 +438,25 @@ predvoc:factor-impacto-falso rdf:type owl:NamedIndividual ,
                              skos:broader predvoc:indexacion-metricas ;
                              skos:definition "Publicación de factor de impacto inventado o no verificable por organismos oficiales"@es ,
                                              "Publication of invented or unverifiable impact factor by official bodies"@en ;
-                             skos:inScheme <http://purl.org/predvoc/> ;
+                             skos:inScheme predvoc: ;
                              skos:prefLabel "factor de impacto falso"@es ,
-                                            "fake impact factor"@en .
+                                            "fake impact factor"@en ;
+                             skos:related predvoc:factor-impacto-inflado .
+
+
+###  http://purl.org/predvoc/factor-impacto-inflado
+predvoc:factor-impacto-inflado rdf:type owl:NamedIndividual ,
+                                        skos:Concept ;
+                               skos:altLabel "IF exagerado"@es ,
+                                             "exaggerated IF"@en ;
+                               skos:broader predvoc:indexacion-metricas ;
+                               skos:definition "Use of techniques to artificially inflate impact factor through self-citation or citation agreements"@en ,
+                                               "Uso de técnicas para inflar artificialmente el factor de impacto mediante auto-citación o acuerdos de citación"@es ;
+                               skos:inScheme predvoc: ;
+                               skos:prefLabel "factor de impacto inflado"@es ,
+                                              "inflated impact factor"@en ;
+                               skos:related predvoc:factor-impacto-falso ,
+                                            predvoc:indices-manipulados .
 
 
 ###  http://purl.org/predvoc/facturacion-fraudulenta
@@ -260,10 +467,11 @@ predvoc:facturacion-fraudulenta rdf:type owl:NamedIndividual ,
                                 skos:broader predvoc:practicas-comerciales ;
                                 skos:definition "Charging additional unannounced fees or using deceptive billing practices"@en ,
                                                 "Cobro de tarifas adicionales no anunciadas o uso de prácticas de facturación engañosas"@es ;
-                                skos:inScheme <http://purl.org/predvoc/> ;
+                                skos:inScheme predvoc: ;
                                 skos:prefLabel "facturación fraudulenta"@es ,
                                                "fraudulent billing"@en ;
-                                skos:related predvoc:apc-ocultos .
+                                skos:related predvoc:apc-ocultos ,
+                                             predvoc:cargos-sorpresa .
 
 
 ###  http://purl.org/predvoc/falta-informacion-contacto
@@ -274,20 +482,24 @@ predvoc:falta-informacion-contacto rdf:type owl:NamedIndividual ,
                                    skos:broader predvoc:sitio-web ;
                                    skos:definition "Absence or incomplete information about physical address, telephone or editorial contact"@en ,
                                                    "Ausencia o información incompleta sobre dirección física, teléfono o contacto editorial"@es ;
-                                   skos:inScheme <http://purl.org/predvoc/> ;
+                                   skos:inScheme predvoc: ;
                                    skos:prefLabel "falta información de contacto"@es ,
-                                                  "lack of contact information"@en .
+                                                  "lack of contact information"@en ;
+                                   skos:related predvoc:direccion-falsa ,
+                                                predvoc:telefono-inexistente .
 
 
 ###  http://purl.org/predvoc/falta-transparencia
 predvoc:falta-transparencia rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             skos:broader predvoc:integridad-editorial ;
-                            skos:definition "Ausencia de información clara sobre procesos editoriales, costos o políticas"@es ;
-                            skos:inScheme <http://purl.org/predvoc/> ;
+                            skos:definition "Absence of clear information about editorial processes, costs or policies"@en ,
+                                            "Ausencia de información clara sobre procesos editoriales, costos o políticas"@es ;
+                            skos:inScheme predvoc: ;
                             skos:prefLabel "falta de transparencia"@es ,
                                            "lack of transparency"@en ;
-                            skos:related predvoc:apc-ocultos .
+                            skos:related predvoc:apc-ocultos ,
+                                         predvoc:ausencia-politicas .
 
 
 ###  http://purl.org/predvoc/indexacion-falsa
@@ -298,29 +510,60 @@ predvoc:indexacion-falsa rdf:type owl:NamedIndividual ,
                          skos:broader predvoc:indexacion-metricas ;
                          skos:definition "Afirmación de estar indexada en bases de datos prestigiosas (Scopus, WoS) sin evidencia verificable"@es ,
                                          "Claim to be indexed in prestigious databases (Scopus, WoS) without verifiable evidence"@en ;
-                         skos:inScheme <http://purl.org/predvoc/> ;
+                         skos:inScheme predvoc: ;
                          skos:prefLabel "falsely claimed indexing"@en ,
-                                        "indexación falsamente reclamada"@es .
+                                        "indexación falsamente reclamada"@es ;
+                         skos:related predvoc:bases-datos-dudosas .
 
 
 ###  http://purl.org/predvoc/indexacion-metricas
 predvoc:indexacion-metricas rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             skos:definition "Indicadores sobre afirmaciones falsas de indexación y métricas de impacto"@es ;
-                            skos:inScheme <http://purl.org/predvoc/> ;
+                            skos:inScheme predvoc: ;
                             skos:prefLabel "Indexación y Métricas"@es ,
                                            "Indexing and Metrics"@en ;
-                            skos:topConceptOf <http://purl.org/predvoc/> .
+                            skos:topConceptOf predvoc: .
+
+
+###  http://purl.org/predvoc/indices-manipulados
+predvoc:indices-manipulados rdf:type owl:NamedIndividual ,
+                                     skos:Concept ;
+                            skos:altLabel "inflated metrics"@en ,
+                                          "métricas infladas"@es ;
+                            skos:broader predvoc:indexacion-metricas ;
+                            skos:definition "Artificial manipulation of metrics through cross-citations or excessive self-citation"@en ,
+                                            "Manipulación artificial de métricas mediante citaciones cruzadas o auto-citación excesiva"@es ;
+                            skos:inScheme predvoc: ;
+                            skos:prefLabel "manipulated indices"@en ,
+                                           "índices manipulados"@es ;
+                            skos:related predvoc:citaciones-falsas ,
+                                         predvoc:metricas-inventadas .
+
+
+###  http://purl.org/predvoc/informacion-editorial-vaga
+predvoc:informacion-editorial-vaga rdf:type owl:NamedIndividual ,
+                                            skos:Concept ;
+                                   skos:altLabel "detalles imprecisos"@es ,
+                                                 "imprecise details"@en ;
+                                   skos:broader predvoc:sitio-web ;
+                                   skos:definition "Descripciones vagas o imprecisas sobre el proceso editorial, alcance de la revista o políticas"@es ,
+                                                   "Vague or imprecise descriptions about the editorial process, journal scope or policies"@en ;
+                                   skos:inScheme predvoc: ;
+                                   skos:prefLabel "información editorial vaga"@es ,
+                                                  "vague editorial information"@en ;
+                                   skos:related predvoc:ausencia-politicas ,
+                                                predvoc:falta-transparencia .
 
 
 ###  http://purl.org/predvoc/integridad-editorial
 predvoc:integridad-editorial rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
                              skos:definition "Indicadores relacionados con la honestidad e integridad del proceso editorial"@es ;
-                             skos:inScheme <http://purl.org/predvoc/> ;
+                             skos:inScheme predvoc: ;
                              skos:prefLabel "Editorial Integrity"@en ,
                                             "Integridad Editorial"@es ;
-                             skos:topConceptOf <http://purl.org/predvoc/> .
+                             skos:topConceptOf predvoc: .
 
 
 ###  http://purl.org/predvoc/issn-falso
@@ -331,10 +574,23 @@ predvoc:issn-falso rdf:type owl:NamedIndividual ,
                    skos:broader predvoc:integridad-editorial ;
                    skos:definition "Use of an ISSN not officially assigned by the ISSN network or use of ISSN belonging to another journal"@en ,
                                    "Uso de un ISSN no asignado oficialmente por la red ISSN o uso de ISSN perteneciente a otra revista"@es ;
-                   skos:inScheme <http://purl.org/predvoc/> ;
+                   skos:inScheme predvoc: ;
                    skos:prefLabel "ISSN falso"@es ,
                                   "fake ISSN"@en ;
                    skos:related predvoc:revista-secuestrada .
+
+
+###  http://purl.org/predvoc/manipulacion-autoria
+predvoc:manipulacion-autoria rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             skos:altLabel "autoría ficticia"@es ,
+                                           "fictitious authorship"@en ;
+                             skos:broader predvoc:integridad-editorial ;
+                             skos:definition "Inclusion of authors who did not contribute significantly or exclusion of legitimate authors"@en ,
+                                             "Inclusión de autores que no contribuyeron significativamente o exclusión de autores legítimos"@es ;
+                             skos:inScheme predvoc: ;
+                             skos:prefLabel "authorship manipulation"@en ,
+                                            "manipulación de autoría"@es .
 
 
 ###  http://purl.org/predvoc/metricas-inventadas
@@ -345,19 +601,107 @@ predvoc:metricas-inventadas rdf:type owl:NamedIndividual ,
                             skos:broader predvoc:indexacion-metricas ;
                             skos:definition "Creación de métricas de calidad propias sin metodología transparente o verificable"@es ,
                                             "Creation of own quality metrics without transparent or verifiable methodology"@en ;
-                            skos:inScheme <http://purl.org/predvoc/> ;
+                            skos:inScheme predvoc: ;
                             skos:prefLabel "invented metrics"@en ,
-                                           "métricas inventadas"@es .
+                                           "métricas inventadas"@es ;
+                            skos:related predvoc:indices-manipulados .
+
+
+###  http://purl.org/predvoc/ofertas-especiales-enganosas
+predvoc:ofertas-especiales-enganosas rdf:type owl:NamedIndividual ,
+                                              skos:Concept ;
+                                     skos:altLabel "fraudulent promotions"@en ,
+                                                   "promociones fraudulentas"@es ;
+                                     skos:broader predvoc:practicas-comerciales ;
+                                     skos:definition "Promociones que prometen beneficios que luego no se materializan o tienen condiciones ocultas"@es ,
+                                                     "Promotions that promise benefits that later do not materialize or have hidden conditions"@en ;
+                                     skos:inScheme predvoc: ;
+                                     skos:prefLabel "deceptive special offers"@en ,
+                                                    "ofertas especiales engañosas"@es ;
+                                     skos:related predvoc:descuentos-agresivos ,
+                                                  predvoc:falta-transparencia .
+
+
+###  http://purl.org/predvoc/plagio-editorial
+predvoc:plagio-editorial rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         skos:altLabel "apropiación contenido"@es ,
+                                       "content appropriation"@en ;
+                         skos:broader predvoc:integridad-editorial ;
+                         skos:definition "Appropriation of academic content from other sources without proper attribution or permission"@en ,
+                                         "Apropiación de contenido académico de otras fuentes sin atribución o permiso adecuado"@es ;
+                         skos:inScheme predvoc: ;
+                         skos:prefLabel "editorial plagiarism"@en ,
+                                        "plagio editorial"@es ;
+                         skos:related predvoc:publicacion-duplicada .
+
+
+###  http://purl.org/predvoc/politica-reembolso-inexistente
+predvoc:politica-reembolso-inexistente rdf:type owl:NamedIndividual ,
+                                                skos:Concept ;
+                                       skos:altLabel "no returns"@en ,
+                                                     "sin devoluciones"@es ;
+                                       skos:broader predvoc:practicas-comerciales ;
+                                       skos:definition "Absence of clear refund policy or systematic rejection of legitimate requests"@en ,
+                                                       "Ausencia de política clara de reembolso o rechazo sistemático de solicitudes legítimas"@es ;
+                                       skos:inScheme predvoc: ;
+                                       skos:prefLabel "no refund policy"@en ,
+                                                      "política de reembolso inexistente"@es ;
+                                       skos:related predvoc:falta-transparencia .
 
 
 ###  http://purl.org/predvoc/practicas-comerciales
 predvoc:practicas-comerciales rdf:type owl:NamedIndividual ,
                                        skos:Concept ;
                               skos:definition "Indicadores sobre transparencia económica y prácticas de cobro"@es ;
-                              skos:inScheme <http://purl.org/predvoc/> ;
+                              skos:inScheme predvoc: ;
                               skos:prefLabel "Business Practices"@en ,
                                              "Prácticas Comerciales"@es ;
-                              skos:topConceptOf <http://purl.org/predvoc/> .
+                              skos:topConceptOf predvoc: .
+
+
+###  http://purl.org/predvoc/presion-publicacion
+predvoc:presion-publicacion rdf:type owl:NamedIndividual ,
+                                     skos:Concept ;
+                            skos:altLabel "coercive tactics"@en ,
+                                          "tácticas coercitivas"@es ;
+                            skos:broader predvoc:practicas-comerciales ;
+                            skos:definition "Use of pressure tactics to force authors to publish quickly or without adequate review"@en ,
+                                            "Uso de tácticas de presión para forzar a autores a publicar rápidamente o sin revisión adecuada"@es ;
+                            skos:inScheme predvoc: ;
+                            skos:prefLabel "presión para publicación"@es ,
+                                           "publication pressure"@en ;
+                            skos:related predvoc:descuentos-agresivos ,
+                                         predvoc:spam-agresivo .
+
+
+###  http://purl.org/predvoc/publicacion-duplicada
+predvoc:publicacion-duplicada rdf:type owl:NamedIndividual ,
+                                       skos:Concept ;
+                              skos:altLabel "doble publicación"@es ,
+                                            "double publication"@en ;
+                              skos:broader predvoc:integridad-editorial ;
+                              skos:definition "Publicación del mismo artículo en múltiples revistas sin notificación apropiada"@es ,
+                                              "Publication of the same article in multiple journals without appropriate notification"@en ;
+                              skos:inScheme predvoc: ;
+                              skos:prefLabel "duplicate publication"@en ,
+                                             "publicación duplicada"@es ;
+                              skos:related predvoc:autoplagio ,
+                                           predvoc:plagio-editorial .
+
+
+###  http://purl.org/predvoc/retractacion-no-transparente
+predvoc:retractacion-no-transparente rdf:type owl:NamedIndividual ,
+                                              skos:Concept ;
+                                     skos:altLabel "hidden retraction"@en ,
+                                                   "retractación oculta"@es ;
+                                     skos:broader predvoc:integridad-editorial ;
+                                     skos:definition "Retiro de artículos sin notificación pública clara o justificación adecuada"@es ,
+                                                     "Withdrawal of articles without clear public notification or adequate justification"@en ;
+                                     skos:inScheme predvoc: ;
+                                     skos:prefLabel "non-transparent retraction"@en ,
+                                                    "retractación no transparente"@es ;
+                                     skos:related predvoc:falta-transparencia .
 
 
 ###  http://purl.org/predvoc/revision-inexistente
@@ -368,20 +712,48 @@ predvoc:revision-inexistente rdf:type owl:NamedIndividual ,
                              skos:broader predvoc:revision-pares ;
                              skos:definition "La revista afirma realizar revisión por pares pero no existe evidencia de que se lleve a cabo"@es ,
                                              "The journal claims to perform peer review but there is no evidence that it is carried out"@en ;
-                             skos:inScheme <http://purl.org/predvoc/> ;
+                             skos:inScheme predvoc: ;
                              skos:prefLabel "nonexistent review"@en ,
                                             "revisión inexistente"@es ;
                              skos:related predvoc:aceptacion-inmediata .
+
+
+###  http://purl.org/predvoc/revision-pagada
+predvoc:revision-pagada rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:altLabel "purchased review"@en ,
+                                      "revisión comprada"@es ;
+                        skos:broader predvoc:revision-pares ;
+                        skos:definition "Oferta de revisión por pares favorable a cambio de pago adicional"@es ,
+                                        "Offer of favorable peer review in exchange for additional payment"@en ;
+                        skos:inScheme predvoc: ;
+                        skos:prefLabel "paid review"@en ,
+                                       "revisión pagada"@es ;
+                        skos:related predvoc:facturacion-fraudulenta .
 
 
 ###  http://purl.org/predvoc/revision-pares
 predvoc:revision-pares rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
                        skos:definition "Indicadores sobre la calidad y existencia del proceso de revisión por pares"@es ;
-                       skos:inScheme <http://purl.org/predvoc/> ;
+                       skos:inScheme predvoc: ;
                        skos:prefLabel "Peer Review"@en ,
                                       "Revisión por Pares"@es ;
-                       skos:topConceptOf <http://purl.org/predvoc/> .
+                       skos:topConceptOf predvoc: .
+
+
+###  http://purl.org/predvoc/revision-superficial
+predvoc:revision-superficial rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             skos:altLabel "inadequate review"@en ,
+                                           "revisión inadecuada"@es ;
+                             skos:broader predvoc:revision-pares ;
+                             skos:definition "Proceso de revisión que carece de profundidad o rigor científico adecuado"@es ,
+                                             "Review process that lacks adequate depth or scientific rigor"@en ;
+                             skos:inScheme predvoc: ;
+                             skos:prefLabel "revisión superficial"@es ,
+                                            "superficial review"@en ;
+                             skos:related predvoc:tiempo-revision-sospechoso .
 
 
 ###  http://purl.org/predvoc/revisores-ficticios
@@ -392,9 +764,24 @@ predvoc:revisores-ficticios rdf:type owl:NamedIndividual ,
                             skos:broader predvoc:revision-pares ;
                             skos:definition "Use of false or stolen identities to simulate peer review process"@en ,
                                             "Uso de identidades falsas o robadas para simular proceso de revisión por pares"@es ;
-                            skos:inScheme <http://purl.org/predvoc/> ;
+                            skos:inScheme predvoc: ;
                             skos:prefLabel "fictitious reviewers"@en ,
-                                           "revisores ficticios"@es .
+                                           "revisores ficticios"@es ;
+                            skos:related predvoc:comite-editorial-ficticio .
+
+
+###  http://purl.org/predvoc/revisores-no-cualificados
+predvoc:revisores-no-cualificados rdf:type owl:NamedIndividual ,
+                                           skos:Concept ;
+                                  skos:altLabel "inexperienced reviewers"@en ,
+                                                "revisores sin experiencia"@es ;
+                                  skos:broader predvoc:revision-pares ;
+                                  skos:definition "Use of reviewers without appropriate expertise or credentials in the subject area"@en ,
+                                                  "Uso de revisores sin expertise o credenciales apropiadas en el área temática"@es ;
+                                  skos:inScheme predvoc: ;
+                                  skos:prefLabel "revisores no cualificados"@es ,
+                                                 "unqualified reviewers"@en ;
+                                  skos:related predvoc:revision-superficial .
 
 
 ###  http://purl.org/predvoc/revista-secuestrada
@@ -405,7 +792,7 @@ predvoc:revista-secuestrada rdf:type owl:NamedIndividual ,
                             skos:broader predvoc:integridad-editorial ;
                             skos:definition "Fraudulent website that duplicates the identity of an existing legitimate journal, including ISSN, name and appearance, with the goal of collecting APC without providing real editorial services"@en ,
                                             "Sitio web fraudulento que duplica la identidad de una revista legítima existente, incluyendo ISSN, nombre y apariencia, con el objetivo de cobrar APC sin proporcionar servicios editoriales reales"@es ;
-                            skos:inScheme <http://purl.org/predvoc/> ;
+                            skos:inScheme predvoc: ;
                             skos:prefLabel "hijacked journal"@en ,
                                            "revista secuestrada"@es ;
                             skos:related predvoc:issn-falso ,
@@ -413,14 +800,28 @@ predvoc:revista-secuestrada rdf:type owl:NamedIndividual ,
                             skos:scopeNote "Distinguir de 'revista pirata' que reproduce contenido sin permiso. La revista secuestrada falsifica la identidad completa de la publicación original"@es .
 
 
+###  http://purl.org/predvoc/sede-virtual
+predvoc:sede-virtual rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:altLabel "non-existent office"@en ,
+                                   "oficina inexistente"@es ;
+                     skos:broader predvoc:afiliaciones-contacto ;
+                     skos:definition "Use of virtual office address or coworking space presented as permanent headquarters"@en ,
+                                     "Uso de dirección de oficina virtual o espacio de coworking presentado como sede permanente"@es ;
+                     skos:inScheme predvoc: ;
+                     skos:prefLabel "sede virtual"@es ,
+                                    "virtual headquarters"@en ;
+                     skos:related predvoc:direccion-falsa .
+
+
 ###  http://purl.org/predvoc/sitio-web
 predvoc:sitio-web rdf:type owl:NamedIndividual ,
                            skos:Concept ;
                   skos:definition "Indicadores sobre calidad y transparencia del sitio web de la revista"@es ;
-                  skos:inScheme <http://purl.org/predvoc/> ;
+                  skos:inScheme predvoc: ;
                   skos:prefLabel "Sitio Web y Comunicación"@es ,
                                  "Website and Communication"@en ;
-                  skos:topConceptOf <http://purl.org/predvoc/> .
+                  skos:topConceptOf predvoc: .
 
 
 ###  http://purl.org/predvoc/sitio-web-clonado
@@ -431,7 +832,7 @@ predvoc:sitio-web-clonado rdf:type owl:NamedIndividual ,
                           skos:broader predvoc:sitio-web ;
                           skos:definition "Copia o imitación del diseño y contenido del sitio web de una revista legítima"@es ,
                                           "Copy or imitation of the design and content of a legitimate journal's website"@en ;
-                          skos:inScheme <http://purl.org/predvoc/> ;
+                          skos:inScheme predvoc: ;
                           skos:prefLabel "cloned website"@en ,
                                          "sitio web clonado"@es ;
                           skos:related predvoc:revista-secuestrada .
@@ -445,7 +846,7 @@ predvoc:sitio-web-no-profesional rdf:type owl:NamedIndividual ,
                                  skos:broader predvoc:sitio-web ;
                                  skos:definition "Sitio web con diseño amateur, errores técnicos frecuentes o funcionalidad limitada"@es ,
                                                  "Website with amateur design, frequent technical errors or limited functionality"@en ;
-                                 skos:inScheme <http://purl.org/predvoc/> ;
+                                 skos:inScheme predvoc: ;
                                  skos:prefLabel "sitio web no profesional"@es ,
                                                 "unprofessional website"@en .
 
@@ -458,9 +859,39 @@ predvoc:spam-agresivo rdf:type owl:NamedIndividual ,
                       skos:broader predvoc:practicas-comerciales ;
                       skos:definition "Envío masivo de correos electrónicos no solicitados con solicitudes de manuscritos"@es ,
                                       "Mass sending of unsolicited emails with manuscript solicitations"@en ;
-                      skos:inScheme <http://purl.org/predvoc/> ;
+                      skos:inScheme predvoc: ;
                       skos:prefLabel "aggressive spam"@en ,
-                                     "spam agresivo"@es .
+                                     "spam agresivo"@es ;
+                      skos:related predvoc:presion-publicacion .
+
+
+###  http://purl.org/predvoc/telefono-inexistente
+predvoc:telefono-inexistente rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             skos:altLabel "fake number"@en ,
+                                           "número falso"@es ;
+                             skos:broader predvoc:afiliaciones-contacto ;
+                             skos:definition "Provision of telephone number that does not work or does not correspond to the publisher"@en ,
+                                             "Provisión de número telefónico que no funciona o no corresponde a la editorial"@es ;
+                             skos:inScheme predvoc: ;
+                             skos:prefLabel "non-existent phone"@en ,
+                                            "teléfono inexistente"@es ;
+                             skos:related predvoc:falta-informacion-contacto .
+
+
+###  http://purl.org/predvoc/tiempo-revision-sospechoso
+predvoc:tiempo-revision-sospechoso rdf:type owl:NamedIndividual ,
+                                            skos:Concept ;
+                                   skos:altLabel "instant review"@en ,
+                                                 "revisión instantánea"@es ;
+                                   skos:broader predvoc:revision-pares ;
+                                   skos:definition "Promesas de tiempos de revisión irrealistamente cortos, típicamente menos de dos semanas"@es ,
+                                                   "Promises of unrealistically short review times, typically less than two weeks"@en ;
+                                   skos:inScheme predvoc: ;
+                                   skos:prefLabel "suspiciously fast review time"@en ,
+                                                  "tiempo de revisión sospechosamente rápido"@es ;
+                                   skos:related predvoc:aceptacion-inmediata ,
+                                                predvoc:revision-superficial .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
