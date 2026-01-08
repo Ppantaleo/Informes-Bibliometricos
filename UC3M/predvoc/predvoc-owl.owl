@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/predvoc/owl#"
+     xml:base="http://purl.org/predvoc/owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:predvoc="http://purl.org/predvoc/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    
+    <!-- Ontology Metadata -->
+    <owl:Ontology rdf:about="http://purl.org/predvoc/owl">
+        <dc:title xml:lang="en">PredVoc OWL Extension</dc:title>
+        <dc:title xml:lang="es">PredVoc Extensión OWL</dc:title>
+        <dc:description xml:lang="es">Extensión OWL con propiedades personalizadas para enriquecer conceptos SKOS de PredVoc con información adicional sobre detección, gravedad y evidencia</dc:description>
+        <dc:description xml:lang="en">OWL extension with custom properties to enrich PredVoc SKOS concepts with additional information about detection, severity and evidence</dc:description>
+        <dc:creator>Grupo de UC3M</dc:creator>
+        <dc:publisher>Universidad Carlos III de Madrid</dc:publisher>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-07</dcterms:created>
+        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+    </owl:Ontology>
+    
+    <!-- Custom Datatype Properties -->
+    
+    <!-- Property 1: Severity (Gravedad) -->
+    <owl:DatatypeProperty rdf:about="http://purl.org/predvoc/severity">
+        <rdfs:label xml:lang="es">gravedad</rdfs:label>
+        <rdfs:label xml:lang="en">severity</rdfs:label>
+        <rdfs:comment xml:lang="es">Nivel de gravedad del indicador. Valores permitidos: critical (crítico), high (alto), moderate (moderado), low (bajo)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Severity level of the indicator. Allowed values: critical, high, moderate, low</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Property 2: Detection Method (Método de Detección) -->
+    <owl:DatatypeProperty rdf:about="http://purl.org/predvoc/detectionMethod">
+        <rdfs:label xml:lang="es">método de detección</rdfs:label>
+        <rdfs:label xml:lang="en">detection method</rdfs:label>
+        <rdfs:comment xml:lang="es">Método recomendado para detectar este indicador. Valores permitidos: manual (inspección humana), automated (detección automática), hybrid (combinación de ambos)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Recommended method to detect this indicator. Allowed values: manual (human inspection), automated (automatic detection), hybrid (combination of both)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Property 3: Evidence Type (Tipo de Evidencia) -->
+    <owl:DatatypeProperty rdf:about="http://purl.org/predvoc/evidenceType">
+        <rdfs:label xml:lang="es">tipo de evidencia</rdfs:label>
+        <rdfs:label xml:lang="en">evidence type</rdfs:label>
+        <rdfs:comment xml:lang="es">Tipo de evidencia requerida para confirmar el indicador. Valores permitidos: visual (inspección visual sitio web), documentary (análisis documental), behavioral (análisis comportamiento editorial)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Type of evidence required to confirm the indicator. Allowed values: visual (website visual inspection), documentary (document analysis), behavioral (editorial behavior analysis)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Property 4: Prevalence Rate (Tasa de Prevalencia) -->
+    <owl:DatatypeProperty rdf:about="http://purl.org/predvoc/prevalenceRate">
+        <rdfs:label xml:lang="es">tasa de prevalencia</rdfs:label>
+        <rdfs:label xml:lang="en">prevalence rate</rdfs:label>
+        <rdfs:comment xml:lang="es">Tasa estimada de prevalencia del indicador en revistas depredadoras. Valor decimal entre 0.0 (nunca observado) y 1.0 (siempre presente)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Estimated prevalence rate of the indicator in predatory journals. Decimal value between 0.0 (never observed) and 1.0 (always present)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Property 5: First Reported Year (Año Primera Documentación) -->
+    <owl:DatatypeProperty rdf:about="http://purl.org/predvoc/firstReportedYear">
+        <rdfs:label xml:lang="es">año primera documentación</rdfs:label>
+        <rdfs:label xml:lang="en">first reported year</rdfs:label>
+        <rdfs:comment xml:lang="es">Año en que se documentó por primera vez este indicador en la literatura académica</rdfs:comment>
+        <rdfs:comment xml:lang="en">Year when this indicator was first documented in academic literature</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Property 6: Related Guideline (Directriz Relacionada) -->
+    <owl:ObjectProperty rdf:about="http://purl.org/predvoc/relatedGuideline">
+        <rdfs:label xml:lang="es">directriz relacionada</rdfs:label>
+        <rdfs:label xml:lang="en">related guideline</rdfs:label>
+        <rdfs:comment xml:lang="es">Enlace a directriz o guía oficial (COPE, DOAJ, etc.) que documenta este indicador</rdfs:comment>
+        <rdfs:comment xml:lang="en">Link to official guideline (COPE, DOAJ, etc.) that documents this indicator</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </owl:ObjectProperty>
+
+</rdf:RDF>

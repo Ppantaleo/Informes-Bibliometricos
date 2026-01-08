@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredRev-MAP - Perfil de Aplicación de Metadatos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        h1 { font-size: 2em; }
+        h2 {
+            color: #11998e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #11998e;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover { background: #f5f5f5; }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #11998e;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Volver a inicio</a>
+    
+    <header>
+        <h1>📋 PredRev-MAP</h1>
+        <p>Perfil de Aplicación de Metadatos para Evaluación de Revistas</p>
+    </header>
+
+    <section>
+        <h2>Descripción</h2>
+        <p>PredRev-MAP es un perfil de aplicación de metadatos que define 10 elementos básicos para la descripción de revistas científicas en contexto de evaluación de prácticas editoriales. El perfil integra propiedades de Dublin Core con elementos personalizados específicos del dominio.</p>
+        
+        <p style="margin-top: 15px;"><strong>Namespace:</strong> <code>http://purl.org/predrev/</code></p>
+        <p><strong>Formato:</strong> RDF/Turtle</p>
+        <p><strong>Interoperabilidad:</strong> Dublin Core, PredVoc-SKOS</p>
+    </section>
+
+    <section>
+        <h2>Elementos del Perfil</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Etiqueta</th>
+                    <th>Tipo</th>
+                    <th>Obligatorio</th>
+                    <th>Repetible</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>predrev:titulo</code></td>
+                    <td>título</td>
+                    <td>Literal</td>
+                    <td>Sí</td>
+                    <td>No</td>
+                    <td>Nombre completo de la revista</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:issn</code></td>
+                    <td>ISSN</td>
+                    <td>Literal</td>
+                    <td>Sí</td>
+                    <td>Sí</td>
+                    <td>ISSN formato XXXX-XXXX (impreso/electrónico)</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:editorial</code></td>
+                    <td>editorial</td>
+                    <td>Literal</td>
+                    <td>Sí</td>
+                    <td>No</td>
+                    <td>Casa editorial responsable</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:sitio-web</code></td>
+                    <td>sitio web</td>
+                    <td>URI</td>
+                    <td>Sí</td>
+                    <td>No</td>
+                    <td>URL oficial de la revista</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:apc-monto</code></td>
+                    <td>monto APC</td>
+                    <td>Decimal</td>
+                    <td>No</td>
+                    <td>No</td>
+                    <td>Article Processing Charge en USD</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:tiempo-revision</code></td>
+                    <td>tiempo revisión</td>
+                    <td>Integer</td>
+                    <td>No</td>
+                    <td>No</td>
+                    <td>Tiempo promedio revisión en días</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:indexacion</code></td>
+                    <td>indexación</td>
+                    <td>Literal</td>
+                    <td>No</td>
+                    <td>Sí</td>
+                    <td>Bases de datos donde está indexada</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:indicadores-depredadores</code></td>
+                    <td>indicadores</td>
+                    <td>URI</td>
+                    <td>No</td>
+                    <td>Sí</td>
+                    <td>Valores de PredVoc-SKOS</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:nivel-riesgo</code></td>
+                    <td>nivel riesgo</td>
+                    <td>Literal</td>
+                    <td>No</td>
+                    <td>No</td>
+                    <td>Legítima | Sospechosa | Depredadora | Secuestrada</td>
+                </tr>
+                <tr>
+                    <td><code>predrev:fecha-evaluacion</code></td>
+                    <td>fecha evaluación</td>
+                    <td>Date</td>
+                    <td>Sí</td>
+                    <td>No</td>
+                    <td>Fecha última evaluación (ISO 8601)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Integración con PredVoc</h2>
+        <p>El elemento <code>predrev:indicadores-depredadores</code> utiliza <strong>PredVoc-SKOS como esquema de valores controlados</strong>. Esta integración demuestra la relación entre schema (PredRev-MAP define QUÉ campos) y scheme (PredVoc define QUÉ valores).</p>
+        
+        <pre style="background: #f4f4f4; padding: 20px; border-radius: 8px; margin-top: 15px; overflow-x: auto;"><code>@prefix predrev: &lt;http://purl.org/predrev/&gt; .
+@prefix predvoc: &lt;http://purl.org/predvoc/&gt; .
+
+&lt;http://example.org/journal/xyz&gt; a predrev:Revista ;
+    predrev:titulo "Journal of Advanced Science" ;
+    predrev:issn "1234-5678" ;
+    predrev:editorial "XYZ Publishing" ;
+    predrev:sitio-web &lt;http://www.journalxyz.com&gt; ;
+    predrev:apc-monto "3500.00"^^xsd:decimal ;
+    predrev:tiempo-revision "5"^^xsd:integer ;
+    
+    # Campo que USA PredVoc como scheme
+    predrev:indicadores-depredadores 
+        predvoc:issn-falso ,
+        predvoc:revision-inexistente ,
+        predvoc:apc-ocultos ;
+    
+    predrev:nivel-riesgo "Depredadora" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date .</code></pre>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 20px; margin-top: 60px; border-top: 1px solid #eee;">
+        <p>PredRev-MAP | Grupo de UC3M | UC3M | CC-BY 4.0</p>
+    </footer>
+</body>
+</html>

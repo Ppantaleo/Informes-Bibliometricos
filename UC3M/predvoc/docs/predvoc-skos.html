@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredVoc-SKOS - Vocabulario Controlado</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        h1 { font-size: 2em; }
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .facet {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+        .facet h3 { color: #667eea; margin-bottom: 10px; }
+        .concept {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+        .concept h4 { color: #333; margin-bottom: 8px; }
+        .meta { font-size: 0.9em; color: #666; }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Volver a inicio</a>
+    
+    <header>
+        <h1>📚 PredVoc-SKOS</h1>
+        <p>Vocabulario Controlado de Indicadores de Publicación Depredadora</p>
+    </header>
+
+    <section>
+        <h2>Descripción</h2>
+        <p>PredVoc-SKOS es un vocabulario controlado que documenta 50-80 indicadores específicos de prácticas editoriales depredadoras organizados en 6 facetas temáticas. Cada concepto incluye:</p>
+        <ul style="margin-top: 15px; margin-left: 30px; line-height: 2;">
+            <li>Etiquetas preferidas bilingües (español/inglés)</li>
+            <li>Sinónimos y términos alternativos</li>
+            <li>Definiciones formales</li>
+            <li>Notas de alcance y uso</li>
+            <li>Relaciones semánticas (jerarquía y asociación)</li>
+        </ul>
+        
+        <p style="margin-top: 15px;"><strong>Namespace:</strong> <code>http://purl.org/predvoc/</code></p>
+        <p><strong>Formato:</strong> SKOS (Simple Knowledge Organization System)</p>
+        <p><strong>Idiomas:</strong> Español, Inglés</p>
+    </section>
+
+    <section>
+        <h2>Estructura: 6 Facetas Temáticas</h2>
+        
+        <div class="facet">
+            <h3>1. Integridad Editorial</h3>
+            <p>Indicadores relacionados con honestidad e integridad del proceso editorial.</p>
+            <div class="concept">
+                <h4>revista secuestrada / hijacked journal</h4>
+                <p>Sitio web fraudulento que duplica la identidad de una revista legítima existente.</p>
+                <p class="meta">Relacionado con: ISSN falso, sitio web clonado</p>
+            </div>
+            <div class="concept">
+                <h4>ISSN falso / fake ISSN</h4>
+                <p>Uso de ISSN no asignado oficialmente o perteneciente a otra revista.</p>
+                <p class="meta">Relacionado con: revista secuestrada</p>
+            </div>
+            <p class="meta" style="margin-top: 15px;">+ comité editorial ficticio, afiliaciones falsas editores, conflictos de interés no declarados, plagio editorial, manipulación factor impacto...</p>
+        </div>
+
+        <div class="facet">
+            <h3>2. Revisión por Pares</h3>
+            <p>Indicadores sobre calidad y existencia del proceso de revisión.</p>
+            <div class="concept">
+                <h4>revisión inexistente / nonexistent review</h4>
+                <p>La revista afirma realizar revisión por pares sin evidencia de que se lleve a cabo.</p>
+                <p class="meta">Relacionado con: aceptación inmediata</p>
+            </div>
+            <p class="meta" style="margin-top: 15px;">+ revisión superficial, revisión rápida sospechosa, aceptación inmediata, revisores ficticios, revisores no cualificados...</p>
+        </div>
+
+        <div class="facet">
+            <h3>3. Prácticas Comerciales</h3>
+            <p>Indicadores sobre transparencia económica y prácticas de cobro.</p>
+            <div class="concept">
+                <h4>APC ocultos / hidden APC</h4>
+                <p>La revista no informa claramente sobre Article Processing Charges antes de aceptación.</p>
+                <p class="meta">Relacionado con: falta transparencia, facturación fraudulenta</p>
+            </div>
+            <p class="meta" style="margin-top: 15px;">+ APC excesivos, descuentos agresivos, facturación fraudulenta, cargos sorpresa, política reembolso inexistente, spam email...</p>
+        </div>
+
+        <div class="facet">
+            <h3>4. Indexación y Métricas</h3>
+            <p>Indicadores sobre afirmaciones falsas de indexación y métricas.</p>
+            <p class="meta">indexación falsamente reclamada, factor de impacto falso, métricas inventadas, inclusión bases datos dudosas, índices citación manipulados...</p>
+        </div>
+
+        <div class="facet">
+            <h3>5. Sitio Web y Comunicación</h3>
+            <p>Indicadores sobre calidad y transparencia del sitio web.</p>
+            <p class="meta">sitio web no profesional, errores ortográficos frecuentes, contenido contradictorio, falta información contacto, información editorial vaga...</p>
+        </div>
+
+        <div class="facet">
+            <h3>6. Afiliaciones y Contacto</h3>
+            <p>Indicadores sobre verificabilidad de afiliaciones y datos de contacto.</p>
+            <p class="meta">dirección física falsa, apartado postal sospechoso, email gratuito editor, falta teléfono contacto, afiliación institucional falsa...</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Ejemplo de Concepto SKOS</h2>
+        <pre style="background: #f4f4f4; padding: 20px; border-radius: 8px; overflow-x: auto;"><code>predvoc:revista-secuestrada a skos:Concept ;
+    skos:prefLabel "revista secuestrada"@es , "hijacked journal"@en ;
+    skos:altLabel "revista clonada"@es , "journal hijacking"@en ;
+    
+    skos:definition "Sitio web fraudulento que duplica la identidad 
+                     de una revista legítima existente, incluyendo 
+                     ISSN, nombre y apariencia, con el objetivo de 
+                     cobrar APC sin servicios editoriales reales"@es ;
+    
+    skos:scopeNote "Distinguir de 'revista pirata' que reproduce 
+                    contenido sin permiso. La revista secuestrada 
+                    falsifica la identidad completa"@es ;
+    
+    skos:broader predvoc:integridad-editorial ;
+    skos:related predvoc:issn-falso , predvoc:sitio-web-clonado ;
+    skos:inScheme predvoc: .</code></pre>
+    </section>
+
+    <section>
+        <h2>Propiedades OWL Extendidas</h2>
+        <p>Cada concepto puede incluir propiedades adicionales de PredVoc-OWL:</p>
+        <ul style="margin-top: 15px; margin-left: 30px; line-height: 2;">
+            <li><code>predvoc:severity</code>: critical | high | moderate | low</li>
+            <li><code>predvoc:detectionMethod</code>: manual | automated | hybrid</li>
+            <li><code>predvoc:evidenceType</code>: visual | documentary | behavioral</li>
+            <li><code>predvoc:prevalenceRate</code>: 0.0 - 1.0</li>
+        </ul>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 20px; margin-top: 60px; border-top: 1px solid #eee;">
+        <p>PredVoc-SKOS | Grupo de UC3M | UC3M | CC-BY 4.0</p>
+    </footer>
+</body>
+</html>

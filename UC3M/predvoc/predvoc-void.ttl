@@ -1,0 +1,50 @@
+@prefix predvoc: <http://purl.org/predvoc/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ========================================
+# Metadatos VoID del Dataset PredVoc
+# ========================================
+
+predvoc:dataset a void:Dataset ;
+    dcterms:title "PredVoc: Vocabulario Controlado de Indicadores de Publicación Depredadora"@es ,
+                  "PredVoc: Controlled Vocabulary of Predatory Publishing Indicators"@en ;
+    dcterms:description "Vocabulario SKOS bilingüe (ES/EN) para identificación y clasificación de revistas científicas con prácticas editoriales depredadoras. Incluye 50-80 conceptos organizados en 6 facetas temáticas."@es ;
+    dcterms:creator "Grupo de UC3M" ;
+    dcterms:publisher "Universidad Carlos III de Madrid" ;
+    dcterms:created "2025-01-07"^^xsd:date ;
+    dcterms:modified "2025-01-07"^^xsd:date ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    
+    # Estadísticas del dataset
+    void:triples "2500"^^xsd:integer ;
+    void:entities "58"^^xsd:integer ;
+    void:properties "15"^^xsd:integer ;
+    void:distinctSubjects "58"^^xsd:integer ;
+    
+    # Vocabularios utilizados
+    void:vocabulary <http://www.w3.org/2004/02/skos/core#> ,
+                    <http://purl.org/dc/elements/1.1/> ,
+                    <http://purl.org/dc/terms/> ,
+                    <http://www.w3.org/2002/07/owl#> ;
+    
+    # Punto de acceso
+    void:sparqlEndpoint <https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc (archivos descargables)> ;
+    
+    # Dumps descargables
+    void:dataDump <http://purl.org/predvoc/predvoc.ttl> ,
+                  <http://purl.org/predvoc/predvoc.rdf> ,
+                  <http://purl.org/predvoc/predvoc.nt> ;
+    
+    # Ejemplo de recurso
+    void:exampleResource predvoc:revista-secuestrada ,
+                         predvoc:issn-falso ,
+                         predvoc:apc-ocultos ;
+    
+    # Información de contacto
+    dcterms:creator [
+        a foaf:Person ;
+        foaf:name "Grupo de UC3M"
+    ] .

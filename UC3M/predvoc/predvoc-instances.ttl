@@ -1,0 +1,190 @@
+@prefix predrev: <http://purl.org/predrev/> .
+@prefix predvoc: <http://purl.org/predvoc/> .
+@prefix ex: <http://example.org/journal/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ========================================
+# Ejemplos de Revistas
+# Demuestran integración PredRev-MAP + PredVoc-SKOS
+# ========================================
+
+# ===========================================
+# EJEMPLO 1: Revista Depredadora
+# ===========================================
+
+ex:journal-xyz a predrev:Revista ;
+    predrev:titulo "Journal of Advanced Science" ;
+    predrev:issn "1234-5678" ;
+    predrev:editorial "XYZ Publishing" ;
+    predrev:sitio-web <http://www.journalxyz.com> ;
+    predrev:apc-monto "3500.00"^^xsd:decimal ;
+    predrev:tiempo-revision "5"^^xsd:integer ;
+    predrev:indexacion "Ninguna verificable" ;
+    
+    # Indicadores detectados (usa PredVoc como scheme)
+    predrev:indicadores-depredadores 
+        predvoc:issn-falso ,
+        predvoc:revision-inexistente ,
+        predvoc:apc-ocultos ,
+        predvoc:comite-editorial-ficticio ;
+    
+    predrev:nivel-riesgo "Depredadora" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Revista con múltiples indicadores críticos de prácticas depredadoras. ISSN no verificable en portal oficial, ausencia de proceso de revisión real, cobros ocultos hasta después de aceptación"@es .
+
+# ===========================================
+# EJEMPLO 2: Revista Sospechosa
+# ===========================================
+
+ex:journal-abc-suspect a predrev:Revista ;
+    predrev:titulo "International Journal of Scientific Research" ;
+    predrev:issn "9876-5432" ;
+    predrev:editorial "Global Science Publishers" ;
+    predrev:sitio-web <http://www.ijsr-global.com> ;
+    predrev:apc-monto "1200.00"^^xsd:decimal ;
+    predrev:tiempo-revision "12"^^xsd:integer ;
+    predrev:indexacion "Google Scholar" ;
+    
+    # Algunos indicadores pero no concluyentes
+    predrev:indicadores-depredadores 
+        predvoc:spam-agresivo ,
+        predvoc:sitio-web-no-profesional ;
+    
+    predrev:nivel-riesgo "Sospechosa" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Revista con señales de alerta pero sin confirmación definitiva. Requiere evaluación adicional"@es .
+
+# ===========================================
+# EJEMPLO 3: Revista Legítima
+# ===========================================
+
+ex:journal-nature-comms a predrev:Revista ;
+    predrev:titulo "Nature Communications" ;
+    predrev:issn "2041-1723" ;
+    predrev:editorial "Nature Publishing Group" ;
+    predrev:sitio-web <https://www.nature.com/ncomms/> ;
+    predrev:apc-monto "5380.00"^^xsd:decimal ;
+    predrev:tiempo-revision "90"^^xsd:integer ;
+    predrev:indexacion "Scopus, Web of Science, PubMed, DOAJ" ;
+    
+    # Sin indicadores depredadores
+    # (propiedad vacía o sin asignar)
+    
+    predrev:nivel-riesgo "Legítima" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Revista de alto prestigio sin indicadores problemáticos. Indexación verificable, proceso editorial transparente, comité editorial legítimo"@es .
+
+# ===========================================
+# EJEMPLO 4: Revista Secuestrada (Hijacked)
+# ===========================================
+
+ex:journal-hijacked-plos a predrev:Revista ;
+    predrev:titulo "PLoS ONE (sitio clonado)" ;
+    predrev:issn "1932-6203" ;  # ISSN real de PLoS ONE
+    predrev:editorial "Public Library of Science (falso)" ;
+    predrev:sitio-web <http://www.plos0ne.com> ;  # URL sospechosa (0 en lugar de O)
+    predrev:apc-monto "2500.00"^^xsd:decimal ;
+    predrev:tiempo-revision "3"^^xsd:integer ;
+    predrev:indexacion "Afirma Scopus/WoS pero no verificable" ;
+    
+    # Indicadores típicos de secuestro
+    predrev:indicadores-depredadores 
+        predvoc:revista-secuestrada ,
+        predvoc:sitio-web-clonado ,
+        predvoc:direccion-falsa ,
+        predvoc:aceptacion-inmediata ,
+        predvoc:indexacion-falsa ;
+    
+    predrev:nivel-riesgo "Secuestrada" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Sitio web fraudulento que imita a PLoS ONE legítima. URL sospechosa (plos0ne.com vs plos.org), tiempos de revisión imposibles, contacto no verificable"@es .
+
+# ===========================================
+# EJEMPLO 5: Revista Emergente con Indicadores Menores
+# ===========================================
+
+ex:journal-emerging a predrev:Revista ;
+    predrev:titulo "Revista Iberoamericana de Ciencias" ;
+    predrev:issn "2345-6789" ;
+    predrev:editorial "Editorial Académica del Sur" ;
+    predrev:sitio-web <http://www.reviberocien.org> ;
+    predrev:apc-monto "800.00"^^xsd:decimal ;
+    predrev:tiempo-revision "45"^^xsd:integer ;
+    predrev:indexacion "Latindex, Redalyc" ;
+    
+    # Indicadores menores que no la descalifican necesariamente
+    predrev:indicadores-depredadores 
+        predvoc:errores-ortograficos ,
+        predvoc:sitio-web-no-profesional ;
+    
+    predrev:nivel-riesgo "Legítima" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Revista emergente regional con algunos problemas menores de presentación pero proceso editorial verificable y transparente"@es .
+
+# ===========================================
+# EJEMPLO 6: Revista con Prácticas Comerciales Cuestionables
+# ===========================================
+
+ex:journal-commercial-issues a predrev:Revista ;
+    predrev:titulo "Journal of Applied Sciences and Technology" ;
+    predrev:issn "3456-7890" ;
+    predrev:editorial "Global Academic Press" ;
+    predrev:sitio-web <http://www.jastpress.com> ;
+    predrev:apc-monto "4200.00"^^xsd:decimal ;
+    predrev:tiempo-revision "30"^^xsd:integer ;
+    predrev:indexacion "Google Scholar, Crossref" ;
+    
+    # Enfoque en indicadores comerciales
+    predrev:indicadores-depredadores 
+        predvoc:apc-excesivos ,
+        predvoc:spam-agresivo ,
+        predvoc:facturacion-fraudulenta ,
+        predvoc:falta-transparencia ;
+    
+    predrev:nivel-riesgo "Depredadora" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Revista con proceso editorial deficiente y prácticas comerciales agresivas. Spam masivo a investigadores, APC desproporcionados, cargos adicionales no anunciados"@es .
+
+# ===========================================
+# EJEMPLO 7: Revista Open Access Legítima
+# ===========================================
+
+ex:journal-oa-legitimate a predrev:Revista ;
+    predrev:titulo "BMC Biology" ;
+    predrev:issn "1741-7007" ;
+    predrev:editorial "BioMed Central" ;
+    predrev:sitio-web <https://bmcbiol.biomedcentral.com/> ;
+    predrev:apc-monto "3290.00"^^xsd:decimal ;
+    predrev:tiempo-revision "75"^^xsd:integer ;
+    predrev:indexacion "Scopus, Web of Science, PubMed Central, DOAJ" ;
+    
+    # Sin indicadores
+    
+    predrev:nivel-riesgo "Legítima" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Revista Open Access legítima con alta calidad editorial. Transparencia completa en APC, revisión rigurosa, indexación verificable, comité editorial de prestigio"@es .
+
+# ===========================================
+# EJEMPLO 8: Revista con Problemas de Indexación
+# ===========================================
+
+ex:journal-indexing-fraud a predrev:Revista ;
+    predrev:titulo "World Journal of Advanced Research" ;
+    predrev:issn "4567-8901" ;
+    predrev:editorial "International Science Publishers" ;
+    predrev:sitio-web <http://www.wjar-int.com> ;
+    predrev:apc-monto "2200.00"^^xsd:decimal ;
+    predrev:tiempo-revision "20"^^xsd:integer ;
+    predrev:indexacion "Afirma Scopus, Web of Science (no verificable)" ;
+    
+    # Enfoque en métricas falsas
+    predrev:indicadores-depredadores 
+        predvoc:indexacion-falsa ,
+        predvoc:factor-impacto-falso ,
+        predvoc:metricas-inventadas ;
+    
+    predrev:nivel-riesgo "Depredadora" ;
+    predrev:fecha-evaluacion "2025-01-07"^^xsd:date ;
+    dc:description "Revista que falsamente afirma indexación en Scopus y Web of Science. Publica 'factor de impacto' no verificable en JCR, inventa propias métricas de calidad"@es .

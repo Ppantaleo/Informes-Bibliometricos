@@ -1,0 +1,104 @@
+@prefix predrev: <http://purl.org/predrev/> .
+@prefix predvoc: <http://purl.org/predvoc/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# ========================================
+# PredRev-MAP: Perfil de Aplicación de Metadatos
+# Descripción de revistas científicas para evaluación
+# ========================================
+
+predrev: a owl:Ontology ;
+    dc:title "PredRev-MAP: Predatory Review Metadata Application Profile"@en ,
+             "PredRev-MAP: Perfil de Aplicación de Metadatos para Evaluación de Revistas"@es ;
+    dc:description "Perfil de aplicación de metadatos para descripción de revistas científicas en contexto de evaluación de prácticas editoriales"@es ;
+    dc:creator "Grupo de UC3M" ;
+    dc:publisher "Universidad Carlos III de Madrid" ;
+    dcterms:created "2025-01-07"^^xsd:date ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> .
+
+# ========================================
+# CLASES
+# ========================================
+
+predrev:Revista a rdfs:Class ;
+    rdfs:label "Revista Científica"@es , "Scientific Journal"@en ;
+    rdfs:comment "Publicación periódica que publica artículos de investigación"@es .
+
+# ========================================
+# PROPIEDADES (10 elementos básicos)
+# ========================================
+
+# 1. Título
+predrev:titulo a rdf:Property ;
+    rdfs:label "título"@es , "title"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "Nombre completo de la revista"@es .
+
+# 2. ISSN
+predrev:issn a rdf:Property ;
+    rdfs:label "ISSN"@es , "ISSN"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "International Standard Serial Number (formato XXXX-XXXX)"@es .
+
+# 3. Editorial
+predrev:editorial a rdf:Property ;
+    rdfs:label "editorial"@es , "publisher"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "Casa editorial responsable de la publicación"@es .
+
+# 4. Sitio web
+predrev:sitio-web a rdf:Property ;
+    rdfs:label "sitio web"@es , "website"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range rdfs:Resource ;
+    rdfs:comment "URL oficial de la revista"@es .
+
+# 5. Monto APC
+predrev:apc-monto a rdf:Property ;
+    rdfs:label "monto APC"@es , "APC amount"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Monto de Article Processing Charge en USD"@es .
+
+# 6. Tiempo revisión
+predrev:tiempo-revision a rdf:Property ;
+    rdfs:label "tiempo revisión"@es , "review time"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Tiempo promedio de revisión por pares en días"@es .
+
+# 7. Indexación
+predrev:indexacion a rdf:Property ;
+    rdfs:label "indexación"@es , "indexing"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "Bases de datos donde está indexada la revista"@es .
+
+# 8. Indicadores depredadores (USA PredVoc como scheme)
+predrev:indicadores-depredadores a rdf:Property ;
+    rdfs:label "indicadores depredadores"@es , "predatory indicators"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range predvoc:Concept ;
+    rdfs:comment "Indicadores de prácticas depredadoras detectados (valores de PredVoc-SKOS)"@es .
+
+# 9. Nivel de riesgo
+predrev:nivel-riesgo a rdf:Property ;
+    rdfs:label "nivel de riesgo"@es , "risk level"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "Clasificación: Legítima, Sospechosa, Depredadora, Secuestrada"@es .
+
+# 10. Fecha evaluación
+predrev:fecha-evaluacion a rdf:Property ;
+    rdfs:label "fecha evaluación"@es , "evaluation date"@en ;
+    rdfs:domain predrev:Revista ;
+    rdfs:range xsd:date ;
+    rdfs:comment "Fecha de la última evaluación realizada"@es .

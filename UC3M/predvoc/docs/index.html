@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredVoc - Vocabulario Controlado de Indicadores de Publicación Depredadora</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.2em; opacity: 0.9; }
+        .meta { margin-top: 20px; font-size: 0.9em; }
+        nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        nav ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        nav a:hover { background: #667eea; color: white; }
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .card h3 { color: #667eea; margin-bottom: 10px; }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        .download-btn:hover { background: #5568d3; transform: translateY(-2px); }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🔍 PredVoc</h1>
+        <p class="subtitle">Vocabulario Controlado de Indicadores de Publicación Depredadora</p>
+        <div class="meta">
+            <p>Grupo de UC3M | Universidad Carlos III de Madrid | 2025</p>
+            <p>Licencia: <a href="http://creativecommons.org/licenses/by/4.0/" style="color: white;">CC-BY 4.0</a></p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">Acerca de</a></li>
+            <li><a href="#components">Componentes</a></li>
+            <li><a href="#documentation">Documentación</a></li>
+            <li><a href="#downloads">Descargas</a></li>
+            <li><a href="#sparql">SPARQL</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>Acerca de PredVoc</h2>
+        <p>PredVoc es un vocabulario controlado en formato SKOS bilingüe (español/inglés) diseñado para la identificación y clasificación sistemática de revistas científicas con prácticas editoriales depredadoras.</p>
+        
+        <p style="margin-top: 15px;">El vocabulario aborda un vacío identificado en el ecosistema de la web semántica: no existe vocabulario formal para documentar indicadores de prácticas editoriales cuestionables. PredVoc integra criterios de fuentes reconocidas internacionalmente (Cabells, Latindex, COPE, DOAJ) en un formato estructurado, interoperable y procesable automáticamente.</p>
+    </section>
+
+    <section id="components">
+        <h2>Componentes del Proyecto</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>📋 PredRev-MAP</h3>
+                <p>Perfil de Aplicación de Metadatos con 10 elementos para descripción completa de revistas científicas en contexto de evaluación.</p>
+                <p style="margin-top: 10px;"><a href="predrev-map.html">Ver documentación →</a></p>
+            </div>
+            <div class="card">
+                <h3>📚 PredVoc-SKOS</h3>
+                <p>Vocabulario controlado con 50-80 conceptos organizados en 6 facetas temáticas. Incluye jerarquías semánticas y definiciones bilingües.</p>
+                <p style="margin-top: 10px;"><a href="predvoc-skos.html">Ver documentación →</a></p>
+            </div>
+            <div class="card">
+                <h3>⚙️ PredVoc-OWL</h3>
+                <p>Extensión OWL con propiedades personalizadas: severity, detectionMethod, evidenceType, prevalenceRate.</p>
+            </div>
+            <div class="card">
+                <h3>📊 Instancias de Ejemplo</h3>
+                <p>Ejemplos de revistas legítimas y depredadoras que demuestran la integración del schema (PredRev-MAP) con el scheme (PredVoc-SKOS).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="structure">
+        <h2>Estructura del Vocabulario</h2>
+        <p>PredVoc organiza los indicadores en 6 facetas temáticas:</p>
+        <div class="grid">
+            <div class="card">
+                <h3>1. Integridad Editorial</h3>
+                <p>Revistas secuestradas, ISSN falsos, comités ficticios, conflictos de interés no declarados.</p>
+            </div>
+            <div class="card">
+                <h3>2. Revisión por Pares</h3>
+                <p>Revisión inexistente, aceptación inmediata, revisores ficticios, proceso opaco.</p>
+            </div>
+            <div class="card">
+                <h3>3. Prácticas Comerciales</h3>
+                <p>APC ocultos, facturación fraudulenta, spam agresivo, descuentos sospechosos.</p>
+            </div>
+            <div class="card">
+                <h3>4. Indexación y Métricas</h3>
+                <p>Indexación falsamente reclamada, factor de impacto falso, métricas inventadas.</p>
+            </div>
+            <div class="card">
+                <h3>5. Sitio Web y Comunicación</h3>
+                <p>Errores frecuentes, información contradictoria, falta de transparencia.</p>
+            </div>
+            <div class="card">
+                <h3>6. Afiliaciones y Contacto</h3>
+                <p>Direcciones falsas, emails gratuitos, ubicación geográfica inconsistente.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="documentation">
+        <h2>Documentación Técnica</h2>
+        <ul style="line-height: 2;">
+            <li><a href="predrev-map.html">PredRev-MAP: Perfil de Aplicación de Metadatos</a></li>
+            <li><a href="predvoc-skos.html">PredVoc-SKOS: Vocabulario Controlado</a></li>
+            <li><a href="../sparql-queries.md">Consultas SPARQL de Ejemplo</a></li>
+            <li><a href="https://github.com/Ppantaleo/Informes-Bibliometricos/tree/main/UC3M/predvoc">Repositorio GitHub</a></li>
+        </ul>
+    </section>
+
+    <section id="downloads">
+        <h2>Descargas</h2>
+        <p>Vocabulario disponible en múltiples formatos:</p>
+        <div style="margin-top: 20px;">
+            <a href="../predvoc-skos.ttl" class="download-btn">📄 Turtle (.ttl)</a>
+            <a href="../predvoc-skos.rdf" class="download-btn">📄 RDF/XML (.rdf)</a>
+            <a href="../predvoc-skos.nt" class="download-btn">📄 N-Triples (.nt)</a>
+            <a href="../predvoc-void.ttl" class="download-btn">📊 Metadatos VoID</a>
+        </div>
+    </section>
+
+    <section id="sparql">
+        <h2>SPARQL Endpoint</h2>
+        <p>Consulta el vocabulario mediante SPARQL:</p>
+        <code style="display: block; padding: 15px; margin-top: 15px;">
+            https://ppantaleo.github.io/Informes-Bibliometricos/UC3M/predvoc (archivos descargables)
+        </code>
+        <p style="margin-top: 15px;">Ver <a href="../sparql-queries.md">consultas de ejemplo</a>.</p>
+    </section>
+
+    <section id="usage">
+        <h2>Ejemplo de Uso</h2>
+        <pre style="background: #f4f4f4; padding: 20px; border-radius: 8px; overflow-x: auto;"><code>@prefix predrev: &lt;http://purl.org/predrev/&gt; .
+@prefix predvoc: &lt;http://purl.org/predvoc/&gt; .
+
+&lt;http://example.org/journal/xyz&gt; a predrev:Revista ;
+    predrev:titulo "Journal of Advanced Science" ;
+    predrev:issn "1234-5678" ;
+    predrev:indicadores-depredadores 
+        predvoc:issn-falso ,
+        predvoc:revision-inexistente ,
+        predvoc:apc-ocultos ;
+    predrev:nivel-riesgo "Depredadora" .</code></pre>
+    </section>
+
+    <footer>
+        <p><strong>PredVoc</strong> | Grupo de UC3M</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Universidad Carlos III de Madrid | Máster en Bibliotecas, Archivos y Continuidad Digital | 2025-2026</p>
+    </footer>
+</body>
+</html>
