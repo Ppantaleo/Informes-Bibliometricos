@@ -7,6 +7,7 @@ Vocabulario SKOS bilingüe (ES/EN) para identificación y clasificación de revi
 predvoc/
 ├── predrev-map.ttl           # Schema: Perfil de aplicación (10 elementos metadatos)
 ├── predvoc-skos.ttl          # Scheme: Vocabulario SKOS (50-80 conceptos, 6 facetas)
+├── predvoc-skos.rdf          # Scheme: Vocabulario RDF/XML  
 ├── predvoc-owl.owl           # Extensión OWL (propiedades: severity, detectionMethod, etc.)
 ├── predvoc-instances.ttl     # 8 ejemplos revistas (legítimas/depredadoras/secuestradas)
 ├── predvoc-void.ttl          # Metadatos VoID del dataset
