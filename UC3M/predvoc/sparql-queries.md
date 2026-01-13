@@ -1,7 +1,10 @@
 # Consultas SPARQL de Ejemplo
 
 ## Configuración
-Carga `predvoc-skos.ttl` en Apache Jena Fuseki o similar.
+Las consultas pueden ejecutarse en:
+- **Protégé**: Window → Tabs → SPARQL Query (dentro del archivo predvoc-skos.ttl abierto)
+- **Apache Jena Fuseki**: Cargar `predvoc-skos.ttl` en un dataset
+- **Herramientas online**: SPARQL playground con el archivo cargado
 
 ## Consultas Básicas
 
@@ -29,64 +32,32 @@ WHERE {
 GROUP BY ?faceta
 ```
 
-### 3. Buscar conceptos sobre "falso"
+### 3. Buscar conceptos que contengan "falso"
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT ?concepto ?label
 WHERE {
   ?concepto skos:prefLabel ?label .
-  FILTER(CONTAINS(LCASE(?label), "falso"))
+  FILTER(REGEX(STR(?label), "falso", "i"))
 }
 ```
 
----
+### 4. Buscar conceptos relacionados con revisión
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-## Uso desde Línea de Comandos
-
-### Con Apache Jena ARQ (local)
-```bash
-# Instalar Apache Jena
-wget https://dlcdn.apache.org/jena/binaries/apache-jena-4.10.0.tar.gz
-tar -xzf apache-jena-4.10.0.tar.gz
-
-# Ejecutar consulta desde archivo
-./apache-jena-4.10.0/bin/arq --data=predvoc-skos.ttl --query=query.rq
-```
-
-### Con Python rdflib
-```python
-from rdflib import Graph
-
-g = Graph()
-g.parse("predvoc-skos.ttl", format="turtle")
-g.parse("predvoc-instances.ttl", format="turtle")
-
-query = """
-PREFIX predrev: <http://purl.org/predrev/>
-SELECT ?titulo ?nivelRiesgo
+SELECT ?concepto ?label
 WHERE {
-  ?revista a predrev:Revista ;
-           predrev:titulo ?titulo ;
-           predrev:nivel-riesgo ?nivelRiesgo .
+  ?concepto skos:prefLabel ?label .
+  FILTER(REGEX(STR(?label), "revis", "i"))
 }
-"""
-
-for row in g.query(query):
-    print(f"{row.titulo}: {row.nivelRiesgo}")
 ```
 
 ---
 
 ## Notas
 
-- Estas consultas asumen que has cargado `predvoc-skos.ttl`
-- El ejemplo Python requiere además `predvoc-instances.ttl` para consultas sobre revistas
-- Las propiedades OWL (severity, detectionMethod) solo están disponibles si cargas también `predvoc-owl.owl`
-- Para consultas complejas que combinen múltiples archivos, cárgalos todos en el mismo dataset
-
----
-
-**Licencia:** CC-BY 4.0  
-**Última actualización:** 2025-01-08  
-**Repositorio:** https://github.com/Ppantaleo/Informes-Bibliometricos/tree/main/UC3M/predvoc
+- Todas las consultas funcionan directamente en Protégé (pestaña SPARQL Query)
+- Para consultas más complejas que combinen schema y scheme, carga también `predrev-map.ttl`
+- Las propiedades OWL personalizadas (`severity`, `detectionMethod`) requieren cargar `predvoc-owl.owl`
