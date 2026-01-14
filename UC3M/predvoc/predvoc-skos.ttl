@@ -107,15 +107,19 @@ skos:ConceptScheme rdf:type owl:Class .
 ###  http://purl.org/predvoc/
 predvoc: rdf:type owl:NamedIndividual ,
                   skos:ConceptScheme ;
-         dc:creator "Grupo UC3M" ;
-         dc:description "Vocabulario SKOS bilingüe para identificación de prácticas editoriales depredadoras en revistas científicas"@es ;
-         dc:publisher "Universidad Carlos III de Madrid" ;
-         dc:title "PredVoc: Controlled Vocabulary of Predatory Publishing Indicators"@en ,
-                  "PredVoc: Vocabulario Controlado de Indicadores de Publicación Depredadora"@es ;
-         dcterms:created "2025-01-07"^^xsd:date ;
-         dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-         dcterms:modified "2025-01-08"^^xsd:date ;
-         skos:hasTopConcept predvoc:afiliaciones-contacto ,
+        dcterms:title "PredVoc: Controlled Vocabulary of Predatory Publishing Indicators"@en ;
+        dcterms:title "PredVoc: Vocabulario Controlado de Indicadores de Publicación Depredadora"@es ;
+        dcterms:description "Bilingual SKOS vocabulary (Spanish/English) for identification and classification of predatory editorial practices in scientific journals. Includes 63 concepts organized in 6 thematic facets."@en ;
+        dcterms:description "Vocabulario SKOS bilingüe (español/inglés) para identificación y clasificación de prácticas editoriales depredadoras en revistas científicas. Incluye 63 conceptos organizados en 6 facetas temáticas."@es ;
+        dc:creator "PredVoc Team" ;
+        dc:description "Vocabulario SKOS bilingüe para identificación de prácticas editoriales depredadoras en revistas científicas"@es ;
+        dc:publisher "Universidad Carlos III de Madrid" ;
+        dc:title "PredVoc: Controlled Vocabulary of Predatory Publishing Indicators"@en ,
+                 "PredVoc: Vocabulario Controlado de Indicadores de Publicación Depredadora"@es ;
+        dcterms:created "2025-01-07"^^xsd:date ;
+        dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+        dcterms:modified "2025-01-08"^^xsd:date ;
+        skos:hasTopConcept predvoc:afiliaciones-contacto ,
                             predvoc:indexacion-metricas ,
                             predvoc:integridad-editorial ,
                             predvoc:practicas-comerciales ,
