@@ -127,7 +127,7 @@ predvoc: rdf:type owl:NamedIndividual ,
                             predvoc:sitio-web .
 
 
-###  http://purl.org/predvoc/aceptacion-inmediata
+###  http://purl.org/predvoc#aceptacion-inmediata
 predvoc:aceptacion-inmediata rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
                              skos:altLabel "acceptance without review"@en ,
